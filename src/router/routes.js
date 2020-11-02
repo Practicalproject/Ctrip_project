@@ -16,4 +16,14 @@ export default [
         path: '/independenttravel',
         component: IndependentTravel
     },
+    {
+        // 旅馆
+        path:'/hotel',
+        component:Hotel
+    },
+    {
+        // 旅游
+        path:'/tourism',
+        component:Tourism
+    },
 ]
