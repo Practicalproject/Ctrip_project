@@ -1,18 +1,20 @@
 <template>
-  <div id="app">
-    <cartBoat></cartBoat>
+  <div>
+    <Header></Header>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import cartBoat from './pages/cartBoat'
+import Header from "@/components/Header";
+
 export default {
-  name: 'App',
-  components:{
-    cartBoat
-  }
-}
+  name: "App",
+  components: {
+    Header,
+  },
+};
 </script>
 
-<style>
+<style lang="less" scoped>
 </style>
