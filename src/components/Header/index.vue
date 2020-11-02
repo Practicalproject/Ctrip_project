@@ -5,19 +5,35 @@
       <div class="top-container">
         <div class="topLeft">
           <span>让旅行更幸福</span>
-          <div class="state iconfont icon-diqiu">
-            Language
+          <div class="state">
+            <span>
+              <em class="iconfont icon-diqiu"></em>
+              Language
+              <i class="iconfont icon-downlist"></i>
+            </span>
             <ul class="stateList">
               <li></li>
             </ul>
           </div>
         </div>
         <ul class="topRight">
-          <li><a class="active" href="javascript:;">你好,请登陆</a></li>
+          <li><a class="active" href="javascript:;">你好，请登陆</a></li>
           <li><a class="active" href="javascript:;">免费注册</a></li>
-          <li><a href="javascript:;">消息</a></li>
-          <li><a href="javascript:;">我的携程</a></li>
-          <li><a href="javascript:;">我的订单</a></li>
+          <li>
+            <a href="javascript:;"
+              ><i class="iconfont icon-duanxin"></i><span>消息</span></a
+            >
+          </li>
+          <li>
+            <a href="javascript:;"
+              >我的携程<i class="iconfont icon-downlist"></i
+            ></a>
+          </li>
+          <li>
+            <a href="javascript:;"
+              >我的订单<i class="iconfont icon-downlist"></i
+            ></a>
+          </li>
           <li><a class="active" href="javascript:;">客服中心</a></li>
           <li><a class="iconfont icon-shouji"></a></li>
           <li><a class="iconfont icon-weixin"></a></li>
@@ -62,6 +78,12 @@ export default {
           top: 0;
           font-size: 12px;
           cursor: pointer;
+          span {
+            .iconfont {
+              font-size: 14px;
+              vertical-align: middle;
+            }
+          }
         }
       }
       .topRight {
@@ -71,19 +93,33 @@ export default {
         display: flex;
         li {
           height: 100%;
+          &:first-of-type {
+            a {
+              color: #0066cc;
+              border: none;
+            }
+          }
           a {
             text-decoration: none;
             color: #666;
             border-right: 1px solid #dddddd;
-            padding: 0 10px;
+            padding: 0 15px;
 
             &.active:hover {
               color: #3983e5;
             }
+
             &.iconfont {
               color: #3983e5;
               height: 16px;
               width: 10px;
+              border: none;
+            }
+            i.iconfont {
+              display: inline-block;
+              vertical-align: middle;
+              margin-top: -4px;
+              margin-right: 3px;
             }
           }
         }
