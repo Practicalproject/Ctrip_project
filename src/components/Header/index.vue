@@ -5,15 +5,19 @@
       <div class="top-container">
         <div class="topLeft">
           <span>让旅行更幸福</span>
-          <div class="state iconfont icon-diqiu">
-            Language
+          <div class="state">
+            <span>
+              <em class="iconfont icon-diqiu"></em>
+              Language
+              <i class="iconfont icon-downlist"></i>
+            </span>
             <ul class="stateList">
               <li></li>
             </ul>
           </div>
         </div>
         <ul class="topRight">
-          <li><a class="active" href="javascript:;">你好,请登陆</a></li>
+          <li><a class="active" href="javascript:;">你好，请登陆</a></li>
           <li><a class="active" href="javascript:;">免费注册</a></li>
           <li><a href="javascript:;">消息</a></li>
           <li><a href="javascript:;">我的携程</a></li>
@@ -58,6 +62,7 @@ export default {
         position: relative;
         .state {
           position: absolute;
+          padding: 0px 15px 0px 13px;
           left: 103px;
           top: 0;
           font-size: 12px;
@@ -71,6 +76,12 @@ export default {
         display: flex;
         li {
           height: 100%;
+          &:first-of-type{
+            a{
+              border: none;
+              color: #0066CC;
+            }
+          }
           a {
             text-decoration: none;
             color: #666;
@@ -81,9 +92,10 @@ export default {
               color: #3983e5;
             }
             &.iconfont {
-              color: #3983e5;
+              color: #0066CC;
               height: 16px;
               width: 10px;
+              border: none;
             }
           }
         }
