@@ -6,6 +6,10 @@ import IndependentTravel from '@/pages/IndependentTravel'
 
 
 export default [
+    /**
+     * 飞机票路由组件
+     * author:suoxiaoyu
+     */
     {
         path: '/airlinepage',
         component: AirlinePage
@@ -24,6 +28,10 @@ export default [
         path:'/hotel',
         component:Hotel
     },
+    /**
+     * 火车票路由组件
+     * author:suoxiaoyu
+     */
     {
         // 旅游
         path:'/tourism',
