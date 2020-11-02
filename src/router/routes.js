@@ -4,6 +4,8 @@ import Hotel from '@/pages/Hotel'
 import Tourism from '@/pages/Tourism'
 import IndependentTravel from '@/pages/IndependentTravel'
 
+import Tickets from '@/pages/Tickets'
+import Strategy from '@/pages/Strategy'
 
 export default [
     /**
@@ -13,10 +15,6 @@ export default [
     {
         path: '/airlinepage',
         component: AirlinePage
-    },
-    {
-        path: '/trainPage',
-        component: TrainPage
     },
     {
         // bh--自由行
@@ -37,4 +35,19 @@ export default [
         path:'/tourism',
         component:Tourism
     },
+    {
+        path: '/trainPage',
+        component: TrainPage
+    },
+    {
+        // 门票
+        path: '/tickets',
+        component: Tickets
+    },
+    {
+        // 攻略
+        path: '/strategy',
+        component: Strategy
+    },
+
 ]
