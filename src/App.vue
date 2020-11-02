@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header></Header>
+    <Swipper></Swipper> 
+    <Wrapper></Wrapper>
+    <Falsh></Falsh>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from '@/components/Header'
+import Swipper from '@/components/Swipper'
+import Wrapper from '@/components/Wrapper'
+import Falsh from '@/components/Falsh'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components:{
+    Header,
+    Swipper,
+    Wrapper,
+    Falsh,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
