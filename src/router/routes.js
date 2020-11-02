@@ -1,5 +1,7 @@
 import AirlinePage from '@/pages/AirlinePage'
 import TrainPage from '@/pages/TrainPage'
+import Hotel from '@/pages/Hotel'
+import Tourism from '@/pages/Tourism'
 
 export default [
     {
