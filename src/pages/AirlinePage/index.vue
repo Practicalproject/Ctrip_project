@@ -1,12 +1,14 @@
 <template>
   <div>
-    <router-view></router-view>
+      <div class="airlineContainer">
+          <img src="" alt="">
+      </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: 'AirlinePage',
 }
 </script>
 
