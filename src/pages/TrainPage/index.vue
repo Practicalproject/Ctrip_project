@@ -1,14 +1,13 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+  <div></div>
 </template>
 
 <script>
 export default {
-  name: "App",
-};
+  name: 'trainPage',
+}
 </script>
 
 <style lang="less" scoped>
+
 </style>
