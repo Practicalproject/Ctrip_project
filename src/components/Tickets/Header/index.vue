@@ -6,7 +6,7 @@
       alt=""
     />
     <div class="city">
-      <i></i>
+      <i class="iconfont icon-location"></i>
       北京
       <i></i>
     </div>
@@ -23,12 +23,26 @@ export default {
 .container {
   width: 1180px;
   margin: 10px auto;
+  background-color: wheat;
+  height: 40px;
+  position: relative;
   .left {
     width: 252px;
     height: 51px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
   }
   .city{
-
+    width: 150px;
+    padding: 0 12px;
+    height: 38px;
+    background-color: violet;
+    text-align: center;
+    line-height: 38px;
+    position: absolute;
+    left: 180px;
+    top: 0;
   }
 }
 </style>
