@@ -13,6 +13,7 @@ export default [
         component: TrainPage
     },
     {
+        // bh--自由行
         path: '/independenttravel',
         component: IndependentTravel
     },
