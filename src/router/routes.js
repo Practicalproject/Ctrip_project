@@ -23,8 +23,8 @@ export default [
     },
     {
         // 旅馆
-        path:'/hotel',
-        component:Hotel
+        path: '/hotel',
+        component: Hotel
     },
     /**
      * 火车票路由组件
@@ -32,8 +32,8 @@ export default [
      */
     {
         // 旅游
-        path:'/tourism',
-        component:Tourism
+        path: '/tourism',
+        component: Tourism
     },
     {
         path: '/trainPage',
