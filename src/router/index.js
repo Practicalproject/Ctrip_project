@@ -1,11 +1,11 @@
 //1引入并声明使用
-import VueRouter from 'vue-router'
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 Vue.use(VueRouter)//声明使用
 
 import routes from './routes'
 
-const router = new VueRouter({
+let router = new VueRouter({
     mode:'history',
     routes
 })
