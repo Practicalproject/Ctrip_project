@@ -2,21 +2,21 @@
   <div>
     <HotList></HotList>
     <OutHotels></OutHotels>
+    <PriceTicket></PriceTicket>
   </div>
 </template>
 
 <script>
-import HotList from './HotList'
-import OutHotels from './OutHotels'
+import HotList from "./HotList";
+import OutHotels from "./OutHotels";
+import PriceTicket from "./PriceTicket";
 export default {
-  name: 'Home',
-  components:{
+  name: "Home",
+  components: {
     HotList,
     OutHotels,
-  }
-}
-</script>
+    PriceTicket,
+  },
+};
 
-<style lang="less" scoped>
-
-</style>
+<style lang="less" scoped></style>;
