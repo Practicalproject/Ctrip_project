@@ -17,7 +17,6 @@ import PriceTicket from "./PriceTicket";
 import CarRental from "./CarRental";
 import Partner from "./Partner";
 import Footer from "./Footer";
-import HotList from "./HotList";
 import HomeBanner from "./HomeBanner";
 export default {
   name: "Home",
