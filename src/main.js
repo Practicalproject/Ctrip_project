@@ -9,7 +9,14 @@ Vue.use(Carousel);
 Vue.use(CarouselItem);
 Vue.use(Card);
 Vue.use(Option);
+
+// 引入API
+import { default as API } from "@/utils/api"
+
 new Vue({
+  beforeCreate() {
+    Vue.prototype.$API = API
+  },
   render: h => h(App),
   router
 }).$mount('#app')
