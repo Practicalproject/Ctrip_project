@@ -124,7 +124,7 @@
         </div>
         <!-- 右侧大图 -->
         <div class="sub_big">
-          <img src="./image/02.jpg" alt="">
+          <img src="./image/02.jpg" alt="" />
         </div>
       </div>
     </div>
@@ -141,14 +141,14 @@ export default {
 .hotList_wrapper {
   width: 1180px;
   margin: 0 auto;
-  height: 36px;
   line-height: 30px;
-  border-bottom: 3px solid #3983e5;
+
   //   头部列表
   .header_list {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    border-bottom: 3px solid #3983e5;
     ul {
       display: flex;
       li {
@@ -166,10 +166,7 @@ export default {
   }
   // 主体内容
   .hotList_sub {
-    // display: flex;
     padding: 15px 19px 0;
-    margin-top: 7px;
-    // background-color: pink;
     width: 100%;
     border: 1px solid #ddd;
     .sub_nav {
@@ -243,7 +240,7 @@ export default {
         width: 210px;
         height: 330px;
         // background-color: yellowgreen;
-        img{
+        img {
           width: 100%;
           height: 100%;
         }
