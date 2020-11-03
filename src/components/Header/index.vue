@@ -244,54 +244,85 @@
             <span class="point"></span>
           </a>
           <div class="cui_subnav_wrap">
-            <ul class="ul_nav_hotel"></ul>
+            <ul class="ul_nav_hotel">
+              <li>
+                <a href="javascript:;">国内酒店</a>
+              </li>
+              <li>
+                <a href="javascript:;">海外酒店</a>
+              </li>
+              <li>
+                <a href="javascript:;">民宿客栈</a>
+              </li>
+              <li>
+                <a href="javascript:;">海外民宿</a>
+              </li>
+            </ul>
+            <a class="cui_ico_order" href="javascript:;"
+              ><i class="cui-icon-hotel"></i>酒店订单 &gt;</a
+            >
           </div>
         </li>
         <li>
           <a href="javascript:;">旅游</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">跟团游</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">自由行</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">机票</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">火车</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">汽车`船</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">用车</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">门票</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">攻略</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">全球购</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">礼品卡</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">商旅</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">邮轮</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">目的地</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">金融</a>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="javascript:;">更多</a>
         </li>
@@ -490,7 +521,7 @@ export default {
               box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.15);
               text-align: center;
               border: 1px solid #d9d9d9;
-              z-index: 1;
+              z-index: 2;
               li {
                 padding: 16px 0 13px;
                 img {
@@ -638,6 +669,7 @@ export default {
       font-family: Arial, tahoma, verdana, "Microsoft YaHei", Simsun, sans-serif;
       padding: 10px 20px 0px 16px;
       border: 1px solid #fff;
+      z-index: 1;
 
       .nav-tel-list {
         text-align: right;
@@ -698,7 +730,6 @@ export default {
         float: left;
         display: inline-block;
         height: 40px;
-        position: relative;
         > a {
           position: relative;
           display: block;
@@ -709,26 +740,7 @@ export default {
           text-decoration: none;
           font-size: 15px;
           transition: all 0.2s ease 0s;
-          &:hover {
-            background: #0a56bb;
-            .iconfont {
-              display: inline-block;
-              width: 0;
-              height: 0;
-              overflow: hidden;
-              line-height: 0;
-              font-size: 0;
-              margin-left: 5px;
-              vertical-align: middle;
-              border-bottom: 3px solid #fff;
-              border-top: 0 none;
-              border-left: 3px solid transparent;
-              border-right: 3px solid transparent;
-              -ms-transform: rotate(360deg);
-              -o-transform: rotate(360deg);
-              transform: rotate(360deg);
-            }
-          }
+
           .iconfont {
             display: inline-block;
             width: 0;
@@ -746,23 +758,135 @@ export default {
             transition: transform 0.2s ease 0s;
           }
         }
-        &::after {
-          content: "";
-          display: block;
-          width: 1px;
-          height: 14px;
-          padding-left: 0;
-          margin: 13px 0 0;
-          background-color: #1d67dd;
-          clear: none;
-          border: none;
-          position: absolute;
-          right: 0;
-          top: 0;
+        &:hover {
+          background: #0a56bb;
+          .iconfont {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            line-height: 0;
+            font-size: 0;
+            margin-left: 5px;
+            vertical-align: middle;
+            border-bottom: 3px solid #fff;
+            border-top: 0 none;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+          .point {
+            display: block;
+          }
+          .cui_subnav_wrap {
+            display: block;
+          }
         }
-        &:last-of-type::after {
+        .point {
           display: none;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          margin-left: -7px;
+          width: 0;
+          height: 0;
+          overflow: hidden;
+          line-height: 0;
+          font-size: 0;
+          vertical-align: middle;
+          border-bottom: 7px solid #fff;
+          border-top: 0 none;
+          border-left: 7px solid transparent;
+          border-right: 7px solid transparent;
         }
+        .cui_subnav_wrap {
+          display: none;
+          white-space: nowrap;
+          position: absolute;
+          // z-index: 8;
+          left: 0;
+          top: 40px;
+          line-height: 40px;
+          color: #666;
+          width: 100%;
+          background-color: #fff;
+          .ul_nav_hotel {
+            width: auto !important;
+            height: 37px;
+            line-height: 37px;
+            margin: 0;
+            border: 1px solid #2577e3;
+            border-top: none;
+            font-size: 14px;
+            li {
+              position: relative;
+              float: left;
+              display: inline-block;
+              height: auto;
+              margin: 0 8px;
+              color: #333;
+              font-size: 14px;
+              a {
+                color: #333;
+                font-size: 14px;
+                text-decoration: none;
+                &:hover {
+                  color: #2577e3;
+                }
+              }
+              &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 2px;
+                right: -9px;
+                width: 1px;
+                height: 14px;
+                padding-left: 0;
+                background-color: #ccc;
+                margin: 11px 0 0;
+                clear: none;
+                border: none;
+              }
+            }
+          }
+          .cui_ico_order {
+            position: absolute;
+            top: 10px;
+            right: 18px;
+            padding-left: 20px;
+            background-position: -67px -542px;
+            line-height: 18px;
+            font-size: 14px;
+            color: #333;
+            text-decoration: none;
+            &:hover{
+              color:#2577e3;
+            }
+            i {
+              display: inline-block;
+              background-image: url(./images/un_icon_index_type20170111.png);
+              background-repeat: no-repeat;
+              width: 16px;
+              height: 16px;
+              vertical-align: middle;
+              margin-right: 5px;
+              margin-top: -1px;
+              background-position: -26px 0;
+            }
+          }
+        }
+      }
+      .divider {
+        width: 1px;
+        height: 14px;
+        padding-left: 0;
+        margin: 13px 0 0;
+        background-color: #1d67dd;
+        clear: none;
+        border: none;
       }
     }
   }
