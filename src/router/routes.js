@@ -23,7 +23,7 @@ export default [
         component: IndependentTravel
     },
     {
-        // 旅馆
+        // 酒店
         path: '/hotel',
         component: Hotel
     },

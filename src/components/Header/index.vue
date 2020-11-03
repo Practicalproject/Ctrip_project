@@ -215,7 +215,7 @@
 
     <div class="logo">
       <div class="ctriplogo">
-        <a title="携程旅行网" href="javascript:;">携程旅行网</a>
+        <router-link to="/" title="携程旅行网">携程旅行网</router-link>
       </div>
       <div v-if="$route.path === '/home'" class="cui_search">
         <input type="text" placeholder="搜索旅行地/酒店/旅游/景点门票/交通" />
@@ -235,14 +235,14 @@
     <nav class="navContainer">
       <ul class="cui_nav_ul">
         <li>
-          <a href="javascript:;">首页</a>
+          <router-link to="/">首页</router-link>
         </li>
         <li>
-          <a href="javascript:;">
-            酒店
+          <router-link to="/hotel"
+            >酒店
             <i class="iconfont"></i>
             <span class="point"></span>
-          </a>
+          </router-link>
           <div class="cui_subnav_wrap">
             <ul class="ul_nav_hotel">
               <li>
@@ -264,7 +264,7 @@
           </div>
         </li>
         <li>
-          <a href="javascript:;">旅游</a>
+          <router-link to="/tourism">旅游</router-link>
         </li>
         <li class="divider"></li>
         <li>
@@ -272,15 +272,15 @@
         </li>
         <li class="divider"></li>
         <li>
-          <a href="javascript:;">自由行</a>
+          <router-link to="/independenttravel">自由行</router-link>
         </li>
         <li class="divider"></li>
         <li>
-          <a href="javascript:;">机票</a>
+          <router-link to="/airlinepage">机票</router-link>
         </li>
         <li class="divider"></li>
         <li>
-          <a href="javascript:;">火车</a>
+          <router-link to="/trainPage">火车</router-link>
         </li>
         <li class="divider"></li>
         <li>
@@ -292,11 +292,11 @@
         </li>
         <li class="divider"></li>
         <li>
-          <a href="javascript:;">门票</a>
+          <router-link to="/tickets">门票</router-link>
         </li>
         <li class="divider"></li>
         <li>
-          <a href="javascript:;">攻略</a>
+          <router-link to="/strategy">攻略</router-link>
         </li>
         <li class="divider"></li>
         <li>
@@ -862,8 +862,8 @@ export default {
             font-size: 14px;
             color: #333;
             text-decoration: none;
-            &:hover{
-              color:#2577e3;
+            &:hover {
+              color: #2577e3;
             }
             i {
               display: inline-block;
