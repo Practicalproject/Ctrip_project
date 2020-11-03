@@ -10,6 +10,7 @@
 import HotList from "./HotList";
 import OutHotels from "./OutHotels";
 import PriceTicket from "./PriceTicket";
+
 export default {
   name: "Home",
   components: {
@@ -18,5 +19,6 @@ export default {
     PriceTicket,
   },
 };
+</script>
 
 <style lang="less" scoped></style>;
