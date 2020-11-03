@@ -101,7 +101,7 @@ export default {
       .btn {
         width: 120px;
         height: 40px;
-        vertical-align: top;
+        
         margin-top: 5px;
         background-color: orange;
         border: none;
