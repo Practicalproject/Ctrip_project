@@ -6,6 +6,7 @@
     <CarRental></CarRental>
     <Partner></Partner>
     <Footer></Footer>
+    <HomeBanner></HomeBanner>
   </div>
 </template>
 
@@ -16,6 +17,8 @@ import PriceTicket from "./PriceTicket";
 import CarRental from "./CarRental";
 import Partner from "./Partner";
 import Footer from "./Footer";
+import HotList from "./HotList";
+import HomeBanner from "./HomeBanner";
 export default {
   name: "Home",
   components: {
@@ -25,6 +28,7 @@ export default {
     CarRental,
     Partner,
     Footer,
+    HomeBanner,
   },
 };
 </script>
