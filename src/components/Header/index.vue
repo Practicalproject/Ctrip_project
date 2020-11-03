@@ -231,8 +231,16 @@
         <b class="iconfont icon-downlist"></b>
       </div>
     </div>
-
-    <nav class="navContainer">
+    <!-- 除了首页\机票页面\攻略页面 -->
+    <nav
+      class="navContainer"
+      :class="{
+        mb:
+          $route.path !== '/home' ||
+          $route.path !== '/airlinepage' ||
+          $route.path !== '/strategy',
+      }"
+    >
       <ul class="cui_nav_ul">
         <li>
           <router-link to="/">首页</router-link>
@@ -341,6 +349,14 @@ export default {
 // 头部
 .headerContainer {
   width: 100%;
+  .mb {
+    margin-bottom: 54px;
+    .cui_nav_ul {
+      .cui_subnav_wrap {
+        display: block;
+      }
+    }
+  }
 
   .top {
     width: 100%;
