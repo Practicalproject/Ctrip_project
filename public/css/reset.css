@@ -1,68 +1,35 @@
 @charset "utf-8";
-
-
 /*public head/footer set style*/
 
-html,
-body,
-div,
-dl,
-dt,
-dd,
-ul,
-ol,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-pre,
-code,
-form,
-fieldset,
-legend,
-input,
-textarea,
-p,
-blockquote,
-th,
-td,
-em,
-button {
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, em, button {
     margin: 0;
     padding: 0;
+}
+
+ul {
+    list-style: none;
 }
 
 .hide {
     display: none;
 }
 
-.cui_hd a,
-.cui_nav a,
-#base_ft a {
+.cui_hd a, .cui_nav a, #base_ft a {
     text-decoration: none;
 }
 
-.cui_hd a:hover,
-.cui_nav a:hover,
-#base_ft a:hover {
+.cui_hd a:hover, .cui_nav a:hover, #base_ft a:hover {
     text-decoration: underline;
 }
 
-.cui_hd ul,
-.cui_hd ul li,
-#base_ft ul {
+.cui_hd ul, .cui_hd ul li, #base_ft ul {
     list-style: none;
 }
 
-.cui_hd img,
-#base_ft img {
+.cui_hd img, #base_ft img {
     border: none;
     display: inline-block;
 }
-
 
 /*button style*/
 
@@ -91,95 +58,32 @@ button {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), 0 0 5px #fb0 inset;
 }
 
-
 /*css sprite*/
 
-.cui_hd .ico-langen,
-.cui_hd .ico-langgb,
-.cui_hd .ico-global,
-.cui_hd .ico-langhant,
-.cui_hd .cui_tel b,
-.cui_hd .myctrip b.arrow,
-.cui_hd .cui_myctrip,
-.cui_hd .cui_weibo,
-.cui_hd .cui_lang b,
-.cui_hd .cui_lang_hover b,
-#cui_lang_bottom a,
-.cui_myctrip_log .badge,
-.cui_myctrip_log .myctrip a b.arrow,
-.cui_ico_app,
-.cui_ico_chatarrow,
-.cui_ico_wechat,
-.cui_ico_tips,
-.cui_search button,
-.cui_hd .language b.arrow,
-.cui_service b.arrow {
+.cui_hd .ico-langen, .cui_hd .ico-langgb, .cui_hd .ico-global, .cui_hd .ico-langhant, .cui_hd .cui_tel b, .cui_hd .myctrip b.arrow, .cui_hd .cui_myctrip, .cui_hd .cui_weibo, .cui_hd .cui_lang b, .cui_hd .cui_lang_hover b, #cui_lang_bottom a, .cui_myctrip_log .badge, .cui_myctrip_log .myctrip a b.arrow, .cui_ico_app, .cui_ico_chatarrow, .cui_ico_wechat, .cui_ico_tips, .cui_search button, .cui_hd .language b.arrow, .cui_service b.arrow {
     background-image: url(//pic.c-ctrip.com/platform/online/home/un_header_footer20160610.png);
     background-repeat: no-repeat;
 }
 
-.cui_wireless .wireless,
-.cui_wireless_type dt,
-.cui_wireless_msg i,
-.cui_wireless_code,
-.cui_link_app i,
-.cui_input_close {
+.cui_wireless .wireless, .cui_wireless_type dt, .cui_wireless_msg i, .cui_wireless_code, .cui_link_app i, .cui_input_close {
     background: url(//pic.c-ctrip.com/common/un_wireless_140722.png) 0 -9999em no-repeat;
 }
 
-
 /* search list diamonds */
 
-.cui_diamond01,
-.cui_diamond02,
-.cui_diamond03,
-.cui_diamond04,
-.cui_diamond05,
-.cui_diamond06,
-.cui_diamond01_half,
-.cui_diamond02_half,
-.cui_diamond03_half,
-.cui_diamond04_half,
-.cui_diamond05_half,
-.cui_diamond06_half,
-.cui_star01,
-.cui_star02,
-.cui_star03,
-.cui_star04,
-.cui_star05 {
+.cui_diamond01, .cui_diamond02, .cui_diamond03, .cui_diamond04, .cui_diamond05, .cui_diamond06, .cui_diamond01_half, .cui_diamond02_half, .cui_diamond03_half, .cui_diamond04_half, .cui_diamond05_half, .cui_diamond06_half, .cui_star01, .cui_star02, .cui_star03, .cui_star04, .cui_star05 {
     background-image: url(//pic.c-ctrip.com/platform/online/home/un_search.png);
     background-repeat: no-repeat;
 }
 
-.cui_diamond01,
-.cui_diamond02,
-.cui_diamond03,
-.cui_diamond04,
-.cui_diamond05,
-.cui_diamond06,
-.cui_diamond01_half,
-.cui_diamond02_half,
-.cui_diamond03_half,
-.cui_diamond04_half,
-.cui_diamond05_half,
-.cui_diamond06_half,
-.cui_star01,
-.cui_star02,
-.cui_star03,
-.cui_star04,
-.cui_star05 {
+.cui_diamond01, .cui_diamond02, .cui_diamond03, .cui_diamond04, .cui_diamond05, .cui_diamond06, .cui_diamond01_half, .cui_diamond02_half, .cui_diamond03_half, .cui_diamond04_half, .cui_diamond05_half, .cui_diamond06_half, .cui_star01, .cui_star02, .cui_star03, .cui_star04, .cui_star05 {
     display: inline-block;
     height: 12px;
     overflow: hidden;
     _margin-bottom: 4px;
 }
 
-.cui_diamond01,
-.cui_diamond02,
-.cui_diamond03,
-.cui_diamond04,
-.cui_diamond05,
-.cui_diamond06 {
+.cui_diamond01, .cui_diamond02, .cui_diamond03, .cui_diamond04, .cui_diamond05, .cui_diamond06 {
     background-position: 0 -268px;
 }
 
@@ -255,14 +159,9 @@ button {
     background-position: -12px -268px;
 }
 
-
 /* stars */
 
-.cui_star01,
-.cui_star02,
-.cui_star03,
-.cui_star04,
-.cui_star05 {
+.cui_star01, .cui_star02, .cui_star03, .cui_star04, .cui_star05 {
     background-position: 0 -285px;
 }
 
@@ -286,32 +185,12 @@ button {
     width: 54px;
 }
 
-
 /*直通车图标
 *二级导航右侧图标
 *我携拓展订单图标
 */
 
-.cui-icon-flight,
-.cui-icon-hotel,
-.cui-icon-train,
-.cui-icon-bus,
-.cui-icon-boat,
-.cui-icon-car,
-.cui-icon-vacations,
-.cui-icon-ticket,
-.cui-icon-huodong,
-.cui-icon-insurance,
-.cui-icon-HHtravel,
-.cui-icon-wifi,
-.cui-icon-visa,
-.cui-icon-outboundtravel,
-.cui-icon-taocan,
-.cui-icon-card,
-.cui-icon-g,
-.cui-icon-tuan,
-.cui-icon-standby,
-.cui-icon-foreign {
+.cui-icon-flight, .cui-icon-hotel, .cui-icon-train, .cui-icon-bus, .cui-icon-boat, .cui-icon-car, .cui-icon-vacations, .cui-icon-ticket, .cui-icon-huodong, .cui-icon-insurance, .cui-icon-HHtravel, .cui-icon-wifi, .cui-icon-visa, .cui-icon-outboundtravel, .cui-icon-taocan, .cui-icon-card, .cui-icon-g, .cui-icon-tuan, .cui-icon-standby, .cui-icon-foreign {
     display: inline-block;
     background-image: url(//pic.c-ctrip.com/platform/online/home/un_icon_index_type20170111.png);
     background-repeat: no-repeat;
@@ -326,13 +205,11 @@ button {
     background-position: 0 0;
 }
 
-
 /*机票*/
 
 .cui-icon-hotel {
     background-position: -26px 0;
 }
-
 
 /*酒店*/
 
@@ -340,20 +217,17 @@ button {
     background-position: -52px 0;
 }
 
-
 /*火车票*/
 
 .cui-icon-bus {
     background-position: -78px 0;
 }
 
-
 /*汽车票*/
 
 .cui-icon-boat {
     background-position: -104px 0;
 }
-
 
 /*船票*/
 
@@ -362,13 +236,11 @@ button {
     background-position: -130px 0;
 }
 
-
 /*用车*/
 
 .cui-icon-vacations {
     background-position: 0 -26px;
 }
-
 
 /*旅游*/
 
@@ -376,13 +248,11 @@ button {
     background-position: -26px -26px;
 }
 
-
 /*门票*/
 
 .cui-icon-huodong {
     background-position: -52px -26px;
 }
-
 
 /*玩乐*/
 
@@ -390,13 +260,11 @@ button {
     background-position: -78px -26px;
 }
 
-
 /*保险*/
 
 .cui-icon-HHtravel {
     background-position: -104px -26px;
 }
-
 
 /*HHtravel*/
 
@@ -404,13 +272,11 @@ button {
     background-position: -130px -26px;
 }
 
-
 /*wifi*/
 
 .cui-icon-visa {
     background-position: 0 -52px;
 }
-
 
 /*签证*/
 
@@ -418,13 +284,11 @@ button {
     background-position: -26px -52px;
 }
 
-
 /*出境游*/
 
 .cui-icon-taocan {
     background-position: -52px -52px;
 }
-
 
 /*酒+景*/
 
@@ -432,13 +296,11 @@ button {
     background-position: -78px -52px;
 }
 
-
 /*礼品卡*/
 
 .cui-icon-g {
     background-position: -104px -52px;
 }
-
 
 /*全球购*/
 
@@ -446,13 +308,11 @@ button {
     background-position: -130px -52px;
 }
 
-
 /*团购*/
 
 .cui-icon-standby {
     background-position: 0 -78px;
 }
-
 
 /*保底*/
 
@@ -460,9 +320,7 @@ button {
     background-position: -24px -79px;
 }
 
-
 /*外币兑换*/
-
 
 /*
     头部右上角
@@ -470,9 +328,7 @@ button {
     携程订阅号二维码
 */
 
-.cui_ico_app,
-.cui_ico_wechat,
-.cui_ico_wechat2 {
+.cui_ico_app, .cui_ico_wechat, .cui_ico_wechat2 {
     display: inline-block;
     width: 20px;
 }
@@ -482,9 +338,7 @@ button {
     background-position: 0 -56px;
 }
 
-.active .cui_ico_app,
-.active .cui_ico_app:hover,
-.cui_ico_app:hover {
+.active .cui_ico_app, .active .cui_ico_app:hover, .cui_ico_app:hover {
     background-position: 0 -78px;
 }
 
@@ -543,12 +397,7 @@ button {
     }
 }
 
-.active .cui_ico_wechat,
-.active .cui_ico_wechat:hover,
-.cui_ico_wechat:hover,
-.active .cui_ico_wechat_gif,
-.active .cui_ico_wechat_gif:hover,
-.cui_ico_wechat_gif:hover {
+.active .cui_ico_wechat, .active .cui_ico_wechat:hover, .cui_ico_wechat:hover, .active .cui_ico_wechat_gif, .active .cui_ico_wechat_gif:hover, .cui_ico_wechat_gif:hover {
     height: 17px;
     background: url(//pic.c-ctrip.com/platform/online/home/ico_wechat.png) no-repeat 0 0;
     margin-top: 0;
@@ -560,7 +409,6 @@ button {
     background-position: 0 -271px;
 }
 
-
 /* header */
 
 .cui_hd_cont {
@@ -568,11 +416,9 @@ button {
     *zoom: 1;
 }
 
-
 /* 亚航的样式开始 */
 
-.cui_hd_cont.yh_hd_cont .cui_search,
-.cui_hd_cont.yh_hd_cont .nav-tel {
+.cui_hd_cont.yh_hd_cont .cui_search, .cui_hd_cont.yh_hd_cont .nav-tel {
     display: none;
 }
 
@@ -598,11 +444,9 @@ button {
     background-size: 100% auto;
 }
 
-
 /* 亚航的样式结束*/
 
-.cui_hd,
-.cui_nav {
+.cui_hd, .cui_nav {
     _width: 1180px;
 }
 
@@ -635,9 +479,7 @@ button {
     overflow: hidden;
 }
 
-
 /* doddle */
-
 
 /*.cui_tourism_festival {
     position: absolute;
@@ -661,7 +503,6 @@ button {
 }
 /* 春节气氛 */
 
-
 /*.festival-ui .cui_doudle_newyear{
     background: url(//pic.c-ctrip.com/platform/online/home/festival.gif) 90px 0 no-repeat;
 }
@@ -675,7 +516,6 @@ button {
     margin: -65px auto 0;
     background: url(//pic.c-ctrip.com/platform/online/home/pic_doodle_disny.jpg) 0 0 no-repeat;
 }
-
 
 /* cui_search */
 
@@ -725,8 +565,7 @@ button {
     border-radius: 0;
 }
 
-.cui_hd .cui_search button:hover,
-.cui_hd .cui_search input:focus+button:hover {
+.cui_hd .cui_search button:hover, .cui_hd .cui_search input:focus+button:hover {
     background-color: #299cff;
     background-position: -52px -653px;
 }
@@ -969,7 +808,6 @@ button {
     background-position: -60px -20px;
 }
 
-
 /*new search wj*/
 
 .cui_hd .cui_search_list div.search_list_history {
@@ -1005,8 +843,7 @@ button {
     cursor: pointer;
 }
 
-.cui_hd .search_list_hotel i,
-.search_list_vacation i {
+.cui_hd .search_list_hotel i, .search_list_vacation i {
     position: absolute;
     left: 9px;
 }
@@ -1062,20 +899,13 @@ button {
     color: #333;
 }
 
-.cui_hd .cui_search_list .hover .search_hotel_name,
-.cui_search_list .hover .search_hotel_price dfn {
+.cui_hd .cui_search_list .hover .search_hotel_name, .cui_search_list .hover .search_hotel_price dfn {
     color: #fff;
 }
 
-
 /* stars and diamonds hover*/
 
-.cui_search_list .hover .cui_diamond01,
-.cui_search_list .hover .cui_diamond02,
-.cui_search_list .hover .cui_diamond03,
-.cui_search_list .hover .cui_diamond04,
-.cui_search_list .hover .cui_diamond05,
-.cui_search_list .hover .cui_diamond06 {
+.cui_search_list .hover .cui_diamond01, .cui_search_list .hover .cui_diamond02, .cui_search_list .hover .cui_diamond03, .cui_search_list .hover .cui_diamond04, .cui_search_list .hover .cui_diamond05, .cui_search_list .hover .cui_diamond06 {
     background-position: 0 -298px;
 }
 
@@ -1103,14 +933,9 @@ button {
     background-position: -12px -298px;
 }
 
-.cui_search_list .hover .cui_star01,
-.cui_search_list .hover .cui_star02,
-.cui_search_list .hover .cui_star03,
-.cui_search_list .hover .cui_star04,
-.cui_search_list .hover .cui_star05 {
+.cui_search_list .hover .cui_star01, .cui_search_list .hover .cui_star02, .cui_search_list .hover .cui_star03, .cui_search_list .hover .cui_star04, .cui_search_list .hover .cui_star05 {
     background-position: 0 -315px;
 }
-
 
 /*nav-bar*/
 
@@ -1128,14 +953,11 @@ button {
     border-right: none;
 }
 
-.cui_hd .nav-bar,
-.cui_hd .nav-bar a {
+.cui_hd .nav-bar, .cui_hd .nav-bar a {
     color: #4c4c4c;
 }
 
-.cui_hd .nav-bar .language,
-.cui_hd .nav-bar .cui_service,
-.cui_hd .nav-bar .cui_wireless {
+.cui_hd .nav-bar .language, .cui_hd .nav-bar .cui_service, .cui_hd .nav-bar .cui_wireless {
     float: left;
     height: 15px;
     line-height: 15px;
@@ -1168,11 +990,9 @@ button {
     position: relative;
 }
 
-
 /*=myctrip*/
 
-.cui_hd .language b.arrow,
-.cui_hd .cui_service b.arrow {
+.cui_hd .language b.arrow, .cui_hd .cui_service b.arrow {
     display: inline-block;
     width: 9px;
     height: 5px;
@@ -1182,18 +1002,15 @@ button {
     background-position: -63px -260px;
 }
 
-.cui_hd .language a:hover b.arrow,
-.cui_hd .language_current b.arrow {
+.cui_hd .language a:hover b.arrow, .cui_hd .language_current b.arrow {
     background-position: -0px -260px;
 }
 
-.cui_hd .cui_service a:hover b.arrow,
-.cui_hd .service_current b.arrow {
+.cui_hd .cui_service a:hover b.arrow, .cui_hd .service_current b.arrow {
     background-position: -22px -260px;
 }
 
-.cui_hd .drowndrop,
-.cui_nav .drowndrop {
+.cui_hd .drowndrop, .cui_nav .drowndrop {
     display: none;
     position: absolute;
     z-index: 999;
@@ -1202,8 +1019,7 @@ button {
     background: #fff;
 }
 
-.cui_hd .language li .selected,
-.cui_hd .cui_service li .service_tel {
+.cui_hd .language li .selected, .cui_hd .cui_service li .service_tel {
     display: inline-block;
     padding: 3px 3px 0 3px;
     margin-top: -10px;
@@ -1215,8 +1031,7 @@ button {
     -moz-border-top-right-radius: 3px;
 }
 
-.cui_hd .language li .selected span,
-.cui_hd .cui_service li .service_tel span {
+.cui_hd .language li .selected span, .cui_hd .cui_service li .service_tel span {
     position: relative;
     z-index: 112;
     display: inline-block;
@@ -1225,10 +1040,7 @@ button {
     margin: 1px 1px -2px;
 }
 
-.cui_hd .language li .language_current,
-.cui_hd .cui_service li .service_current,
-.cui_hd .language li .selected:hover,
-.cui_hd .cui_service li .service_tel:hover {
+.cui_hd .language li .language_current, .cui_hd .cui_service li .service_current, .cui_hd .language li .selected:hover, .cui_hd .cui_service li .service_tel:hover {
     background: #e4e7eb;
     text-decoration: none;
     cursor: pointer;
@@ -1236,19 +1048,14 @@ button {
     font-size: 12px;
 }
 
-.cui_hd .language li .language_current span,
-.cui_hd .cui_service li .service_current span,
-.cui_hd .language li .selected:hover span,
-.cui_hd .cui_service li .service_tel:hover span {
+.cui_hd .language li .language_current span, .cui_hd .cui_service li .service_current span, .cui_hd .language li .selected:hover span, .cui_hd .cui_service li .service_tel:hover span {
     background-color: #fff;
     border: 1px solid #b8b8b8;
     border-bottom: none;
     margin: 0px;
 }
 
-.cui_hd .cui_wireless_box,
-.cui_hd .language_wrap,
-.cui_hd .service_wrap {
+.cui_hd .cui_wireless_box, .cui_hd .language_wrap, .cui_hd .service_wrap {
     top: 17px;
     *top: 14px;
     left: 0;
@@ -1277,7 +1084,6 @@ button {
     width: 613px;
 }
 
-
 /*=Language*/
 
 .cui_hd .nav-bar ul.language {
@@ -1290,10 +1096,7 @@ button {
     z-index: 31;
 }
 
-.cui_hd .language li .selected em.ico-langen,
-.cui_hd .language li .selected em.ico-langgb,
-.cui_hd .language li .ico-global,
-.cui_hd .language li .selected em.ico-langhant {
+.cui_hd .language li .selected em.ico-langen, .cui_hd .language li .selected em.ico-langgb, .cui_hd .language li .ico-global, .cui_hd .language li .selected em.ico-langhant {
     display: inline-block;
     width: 19px;
     height: 13px;
@@ -1322,8 +1125,7 @@ button {
     margin-bottom: 5px;
 }
 
-.cui_hd .language_list li.active,
-.cui_hd .language_list li:hover {
+.cui_hd .language_list li.active, .cui_hd .language_list li:hover {
     background: #f5f5f5;
 }
 
@@ -1466,19 +1268,7 @@ button {
     _background-position: -61px -469px;
 }
 
-.cui_hd .language_list li a.language_au,
-.cui_hd .language_list li a.language_hk,
-.cui_hd .language_list li a.language_big5,
-.cui_hd .language_list li a.language_gb,
-.cui_hd .language_list li a.language_en,
-.cui_hd .language_list li a.language_es,
-.cui_hd .language_list li a.language_de,
-.cui_hd .language_list li a.language_fr,
-.cui_hd .language_list li a.language_sg,
-.cui_hd .language_list li a.language_id,
-.cui_hd .language_list li a.language_my,
-.cui_hd .language_list li a.language_tw,
-.cui_hd .language_list li a.language_it {
+.cui_hd .language_list li a.language_au, .cui_hd .language_list li a.language_hk, .cui_hd .language_list li a.language_big5, .cui_hd .language_list li a.language_gb, .cui_hd .language_list li a.language_en, .cui_hd .language_list li a.language_es, .cui_hd .language_list li a.language_de, .cui_hd .language_list li a.language_fr, .cui_hd .language_list li a.language_sg, .cui_hd .language_list li a.language_id, .cui_hd .language_list li a.language_my, .cui_hd .language_list li a.language_tw, .cui_hd .language_list li a.language_it {
     font: 12px/20px "Microsoft yahei", tahoma, arial, sans-serif;
     color: #4c4c4c;
     height: 20px;
@@ -1489,9 +1279,7 @@ button {
     text-decoration: none;
 }
 
-
 /*客服电话*/
-
 
 /*.cui_hd .service_wrap {
     right: 0;
@@ -1520,8 +1308,7 @@ button {
     background-position: -22px -264px;
 }
 
-.cui_hd .service_tel a:hover b.arrow,
-.cui_hd .service_current b.arrow {
+.cui_hd .service_tel a:hover b.arrow, .cui_hd .service_current b.arrow {
     background-position: -22px -259px;
 }
 
@@ -1589,7 +1376,6 @@ button {
     padding-right: 0;
 }
 
-
 /*头部微信订阅号、手机APP下载*/
 
 .cui_hd .cui_wireless li {
@@ -1601,7 +1387,6 @@ button {
 .cui_hd .cui_wireless_hover {
     display: block;
 }
-
 
 /*头部微信订阅号、手机APP下载hover内容*/
 
@@ -1664,7 +1449,6 @@ button {
     text-align: center;
 }
 
-
 /*.cui_hd .cui_input_box {
     position: relative;
     margin: 0 0 7px 0;
@@ -1704,8 +1488,7 @@ button {
     text-indent: -99em;
 }*/
 
-.cui_hd .cui_wireless_btn,
-.cui_hd .cui_wireless_btn_disabled {
+.cui_hd .cui_wireless_btn, .cui_hd .cui_wireless_btn_disabled {
     display: block;
     margin-top: 10px;
     width: 150px;
@@ -1805,7 +1588,6 @@ button {
     font-style: normal;
 }
 
-
 /*.cui_hd .cui_wireless_hover a.wireless i {
     border: 5px solid #fff;
     border-bottom-color: #ff5613;
@@ -1819,7 +1601,6 @@ button {
 .train_hd .service_list li dd {
     /*padding-top: 8px;*/
 }
-
 
 /* verification added by dulh 20150415 */
 
@@ -1841,7 +1622,6 @@ button {
 .cui_input_box .change {
     color: #06c;
 }
-
 
 /*cncorp wireless*/
 
@@ -1921,7 +1701,6 @@ button {
     border-top: 0 none;
 }
 
-
 /*=nav-background*/
 
 #cui_nav {
@@ -1946,9 +1725,7 @@ button {
     margin-bottom: 0;
 }
 
-
 /* pages no margin */
-
 
 /*=nav*/
 
@@ -1980,8 +1757,7 @@ button {
     transition: all 0.2s ease 0s;
 }
 
-.cui_nav li a.cui_nav_has,
-.cui_nav li a.cui_nav_non {
+.cui_nav li a.cui_nav_has, .cui_nav li a.cui_nav_non {
     position: relative;
     display: block;
     height: 40px;
@@ -2001,20 +1777,14 @@ button {
     border: none;
 }
 
-.cui_nav li a.cui_nav_non:hover,
-.cui_nav li a.cui_nav_has:hover,
-.cui_nav li.cui_nav_current a.cui_nav_has,
-.cui_nav li.cui_nav_current a.cui_nav_non,
-.cui_nav li.cui_nav_current.cui_nav_unhover {
+.cui_nav li a.cui_nav_non:hover, .cui_nav li a.cui_nav_has:hover, .cui_nav li.cui_nav_current a.cui_nav_has, .cui_nav li.cui_nav_current a.cui_nav_non, .cui_nav li.cui_nav_current.cui_nav_unhover {
     background: #0a56bb;
     text-decoration: none;
 }
 
-.cui_nav li.cui_nav_o a.cui_nav_has:hover,
-.cui_nav li.cui_nav_o a.cui_nav_non:hover {
+.cui_nav li.cui_nav_o a.cui_nav_has:hover, .cui_nav li.cui_nav_o a.cui_nav_non:hover {
     background-color: #2577e3;
 }
-
 
 /* point */
 
@@ -2038,8 +1808,7 @@ button {
     _filter: chroma(color=#ff3fff);
 }
 
-.cui_nav_current .point,
-.cui_nav_o .point {
+.cui_nav_current .point, .cui_nav_o .point {
     display: inline-block;
 }
 
@@ -2047,11 +1816,9 @@ button {
     display: none;
 }
 
-
 /* label */
 
-.label-cn,
-.label-en {
+.label-cn, .label-en {
     position: absolute;
     z-index: 9;
     right: 0px;
@@ -2064,13 +1831,11 @@ button {
     color: #fff;
 }
 
-.cui_sub_nav .label-cn,
-.cui_sub_nav .label-en {
+.cui_sub_nav .label-cn, .cui_sub_nav .label-en {
     right: -9px;
 }
 
-.label-cn em,
-.label-en em {
+.label-cn em, .label-en em {
     display: inline-block;
     font-size: 9px;
     font-family: 'Tahoma', arial;
@@ -2089,8 +1854,7 @@ button {
     text-transform: uppercase;
 }
 
-:root .label-cn em,
-:root .label-en em {
+:root .label-cn em, :root .label-en em {
     font-size: 12px;
     vertical-align: 2px;
     -webkit-transform: scale(.75);
@@ -2106,8 +1870,7 @@ button {
     transform: scale(.92);
 }
 
-.label-cn .triangle,
-.label-en .triangle {
+.label-cn .triangle, .label-en .triangle {
     position: absolute;
     z-index: 1;
     top: 15px;
@@ -2120,11 +1883,9 @@ button {
     border-color: #da620a transparent transparent #da620a;
 }
 
-.cui_nav_current.cui_nav_unhover .cui_subnav_wrap .label-cn,
-.cui_nav_current.cui_nav_unhover .cui_subnav_wrap .label-en {
+.cui_nav_current.cui_nav_unhover .cui_subnav_wrap .label-cn, .cui_nav_current.cui_nav_unhover .cui_subnav_wrap .label-en {
     display: none;
 }
-
 
 /*=nav-current*/
 
@@ -2147,9 +1908,7 @@ button {
     transition: transform 0.2s ease 0s;
 }
 
-.cui_nav li a:hover .cui_ico_triangle,
-.cui_nav li.cui_nav_current .cui_ico_triangle,
-.cui_nav li.cui_nav_o .cui_ico_triangle {
+.cui_nav li a:hover .cui_ico_triangle, .cui_nav li.cui_nav_current .cui_ico_triangle, .cui_nav li.cui_nav_o .cui_ico_triangle {
     display: inline-block;
     width: 0;
     height: 0;
@@ -2169,11 +1928,9 @@ button {
     transform: rotate(360deg);
 }
 
-
 /*=subnav*/
 
-.cui_nav_current .cui_subnav_wrap,
-.cui_nav_o .cui_subnav_wrap {
+.cui_nav_current .cui_subnav_wrap, .cui_nav_o .cui_subnav_wrap {
     display: block;
 }
 
@@ -2212,8 +1969,7 @@ button {
     font-size: 14px;
 }
 
-.cui_sub_nav:before,
-.cui_sub_nav:after {
+.cui_sub_nav:before, .cui_sub_nav:after {
     content: '\0020';
     display: block;
     clear: both;
@@ -2236,8 +1992,7 @@ button {
     font-size: 14px;
 }
 
-.cui_sub_nav a:hover,
-.cui_sub_nav a.cui_sub_current {
+.cui_sub_nav a:hover, .cui_sub_nav a.cui_sub_current {
     color: #2577e3;
     text-decoration: none;
 }
@@ -2280,15 +2035,13 @@ button {
     font-size: 12px;
 }
 
-
 /*=sub-nav-margin*/
 
 #cui_nav_vac .cui_sub_nav {
     padding-left: 0;
 }
 
-#cui_nav_hotel .cui_sub_nav,
-#cui_nav_vac .cui_sub_nav {
+#cui_nav_hotel .cui_sub_nav, #cui_nav_vac .cui_sub_nav {
     padding-left: 16px;
 }
 
@@ -2352,7 +2105,6 @@ button {
     margin: 0;
 }
 
-
 /*myctrip*/
 
 li.cui_nav_myctrip {
@@ -2367,11 +2119,9 @@ li.cui_nav_myctrip {
     color: #fff;
 }
 
-
 /*myctrip common*/
 
-.cui_myctrip_log,
-.cui_myctrip_log li ul {
+.cui_myctrip_log, .cui_myctrip_log li ul {
     margin: 0;
     padding: 0;
 }
@@ -2386,8 +2136,7 @@ li.cui_nav_myctrip {
     font-size: 12px;
 }
 
-.cui_myctrip_log li,
-.cui_myctrip_log li a {
+.cui_myctrip_log li, .cui_myctrip_log li a {
     color: #fff;
     font-size: 12px;
 }
@@ -2404,8 +2153,7 @@ li.cui_nav_myctrip {
     text-overflow: ellipsis;
 }
 
-.cui_myctrip_log li.user p.user_level,
-.cui_myctrip_log li.user span.user_avatar {
+.cui_myctrip_log li.user p.user_level, .cui_myctrip_log li.user span.user_avatar {
     display: none;
 }
 
@@ -2454,7 +2202,6 @@ li.cui_nav_myctrip {
     line-height: 1.5;
 }
 
-
 /*myctrip*/
 
 .cui_myctrip_log li.myctrip a {
@@ -2471,8 +2218,7 @@ li.cui_nav_myctrip {
     background-position: -43px -264px;
 }
 
-.cui_myctrip_log .myctrip a:hover b.arrow,
-.cui_myctrip_log .myctrip a b.b_h {
+.cui_myctrip_log .myctrip a:hover b.arrow, .cui_myctrip_log .myctrip a b.b_h {
     background-position: -43px -259px;
 }
 
@@ -2527,11 +2273,9 @@ li.cui_nav_myctrip {
     overflow: hidden;
 }
 
-
 /* ========== common footer ========== */
 
-#base_ft .honour_wrap,
-.honour_wrap {
+#base_ft .honour_wrap, .honour_wrap {
     display: inline-block;
     padding-top: 10px;
     *display: inline;
@@ -2539,8 +2283,7 @@ li.cui_nav_myctrip {
     text-align: left;
 }
 
-#base_ft .honour_wrap a,
-.mod .honour_wrap a {
+#base_ft .honour_wrap a, .mod .honour_wrap a {
     float: left;
     margin: 0 5px;
     width: 88px;
@@ -2554,20 +2297,14 @@ li.cui_nav_myctrip {
     white-space: normal;
 }
 
-#base_ft .icon-gns,
-.mod .icon-gns,
-#base_ft .honour_wrap a,
-.honour_wrap a,
-.honour_wrap span,
-.footer .icon-code-wechat {
+#base_ft .icon-gns, .mod .icon-gns, #base_ft .honour_wrap a, .honour_wrap a, .honour_wrap span, .footer .icon-code-wechat {
     background-image: url(//pic.c-ctrip.com/platform/online/home/phone_list20190617.png);
     background-color: #fff;
     background-repeat: no-repeat;
     background-position: 0 0;
 }
 
-.mod .honour_wrap a,
-.mod .honour_wrap span {
+.mod .honour_wrap a, .mod .honour_wrap span {
     float: left;
     margin: 0 4px;
     width: 88px;
@@ -2580,30 +2317,25 @@ li.cui_nav_myctrip {
     text-indent: -99em;
 }
 
-#base_ft .honour_wrap a:hover,
-.mod .honour_wrap a:hover {
+#base_ft .honour_wrap a:hover, .mod .honour_wrap a:hover {
     text-decoration: none;
 }
 
-#base_ft .honour_wrap .honour1,
-.mod .honour_wrap .honour1 {
+#base_ft .honour_wrap .honour1, .mod .honour_wrap .honour1 {
     background-position: -88px -50px;
     text-indent: 36px;
 }
 
-#base_ft .honour_wrap .honour2,
-.mod .honour_wrap .honour2 {
+#base_ft .honour_wrap .honour2, .mod .honour_wrap .honour2 {
     background-position: -88px -85px;
     text-indent: 36px;
 }
 
-#base_ft .honour_wrap .honour3,
-.mod .honour_wrap .honour3 {
+#base_ft .honour_wrap .honour3, .mod .honour_wrap .honour3 {
     background-position: 0 -50px;
 }
 
-#base_ft .honour_wrap .honour4,
-.mod .honour_wrap .honour4 {
+#base_ft .honour_wrap .honour4, .mod .honour_wrap .honour4 {
     background-position: -88px -118px;
     text-indent: 0;
     padding: 2px 0 2px 37px;
@@ -2612,31 +2344,26 @@ li.cui_nav_myctrip {
     line-height: 1.2;
 }
 
-#base_ft .honour_wrap .honour5,
-.mod .honour_wrap .honour5 {
+#base_ft .honour_wrap .honour5, .mod .honour_wrap .honour5 {
     width: 95px;
     background-position: 0 -387px;
 }
 
-#base_ft .honour_wrap .honour6,
-.mod .honour_wrap .honour6 {
+#base_ft .honour_wrap .honour6, .mod .honour_wrap .honour6 {
     background-position: 0 -118px;
 }
 
-#base_ft .honour_wrap .honour7,
-.mod .honour_wrap .honour7 {
+#base_ft .honour_wrap .honour7, .mod .honour_wrap .honour7 {
     background-position: 0 -155px;
     width: 128px;
 }
 
-#base_ft .honour_wrap .honour8,
-.mod .honour_wrap .honour8 {
+#base_ft .honour_wrap .honour8, .mod .honour_wrap .honour8 {
     background-position: 0 -193px;
     width: 90px;
 }
 
-#base_ft .honour_wrap .honour10,
-.mod .honour_wrap .honour10 {
+#base_ft .honour_wrap .honour10, .mod .honour_wrap .honour10 {
     background-position: 0 -429px;
     width: 102px;
 }
@@ -2650,20 +2377,17 @@ li.cui_nav_myctrip {
     width: 50px;
 }
 
-#base_ft .honour_wrap .honour12,
-.mod .honour_wrap .honour12 {
+#base_ft .honour_wrap .honour12, .mod .honour_wrap .honour12 {
     background-position: 0 -155px;
     width: 114px;
 }
 
-#base_ft .honour_wrap .honour9,
-.mod .honour_wrap .honour9 {
+#base_ft .honour_wrap .honour9, .mod .honour_wrap .honour9 {
     background-position: 0 -350px;
     width: 130px;
 }
 
-#base_ft .icon-gns,
-.mod .icon-gns {
+#base_ft .icon-gns, .mod .icon-gns {
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -2678,8 +2402,7 @@ li.cui_nav_myctrip {
     height: 112px;
 }
 
-#base_ft .gns,
-.mod .gns {
+#base_ft .gns, .mod .gns {
     margin-top: 7px;
 }
 
@@ -2726,8 +2449,7 @@ li.cui_nav_myctrip {
     position: relative;
 }
 
-.mod.copyright a:hover,
-.mod.footer .ft-link-item a:hover {
+.mod.copyright a:hover, .mod.footer .ft-link-item a:hover {
     color: #3983e5;
 }
 
@@ -2871,8 +2593,7 @@ li.cui_nav_myctrip {
     color: #999;
 }
 
-.mod .honour_wrap a:hover,
-.mod.copyright a {
+.mod .honour_wrap a:hover, .mod.copyright a {
     color: #999;
 }
 
@@ -2941,17 +2662,13 @@ li.cui_nav_myctrip {
 }
 
 @media screen and (max-width: 1200px) {
-    .cui_hd,
-    .cui_nav {
+    .cui_hd, .cui_nav {
         width: 980px;
     }
-    #cui_nav_cruise,
-    #cui_nav_money,
-    #cui_nav_cruise_skysea {
+    #cui_nav_cruise, #cui_nav_money, #cui_nav_cruise_skysea {
         display: none;
     }
-    .cui_nav li a.cui_nav_has,
-    .cui_nav li a.cui_nav_non {
+    .cui_nav li a.cui_nav_has, .cui_nav li a.cui_nav_non {
         padding: 0 6px;
     }
     .cui_sub_nav li {
@@ -3044,7 +2761,6 @@ li.cui_nav_myctrip {
     }
 }
 
-
 /* 10.12 add*/
 
 .cui-nav-bar {
@@ -3064,32 +2780,18 @@ li.cui_nav_myctrip {
     text-decoration: none;
 }
 
-.cui-nav-bar ul,
-.cui-nav-bar ol {
+.cui-nav-bar ul, .cui-nav-bar ol {
     list-style: none;
 }
 
-.cui-nav-bar .ico-global,
-.cui-nav-bar b.n-arrow,
-.cui_hd b.n-arrow,
-.cui-nav-bar .set-list.set-infor .infor-notice,
-.cui-nav-bar .set-list.set-phone .person-text span .ico_app,
-.cui-nav-bar .set-list.set-phone .phone-drowndrop .ctrip-app .arrow-right,
-.cui-nav-bar .set-list.set-wechat .person-text span .ico_wechat,
-.cui-nav-bar .set-list.set-business-travel-list .ico-business-travel,
-.cui-nav-bar .set-list.set-business-travel-list.my_current .ico-business-travel,
-.cui-nav-bar .set-list.set-business-travel-list.my_current b.n-arrow,
-.cui-nav-bar .set-list.set-business-travel-list .nav-myctrip:hover .n-arrow,
-.cui-nav-bar .set-business-travel-tips .close {
+.cui-nav-bar .ico-global, .cui-nav-bar b.n-arrow, .cui_hd b.n-arrow, .cui-nav-bar .set-list.set-infor .infor-notice, .cui-nav-bar .set-list.set-phone .person-text span .ico_app, .cui-nav-bar .set-list.set-phone .phone-drowndrop .ctrip-app .arrow-right, .cui-nav-bar .set-list.set-wechat .person-text span .ico_wechat, .cui-nav-bar .set-list.set-business-travel-list .ico-business-travel, .cui-nav-bar .set-list.set-business-travel-list.my_current .ico-business-travel, .cui-nav-bar .set-list.set-business-travel-list.my_current b.n-arrow, .cui-nav-bar .set-list.set-business-travel-list .nav-myctrip:hover .n-arrow, .cui-nav-bar .set-business-travel-tips .close {
     background-image: url(//pic.c-ctrip.com/platform/online/home/spirit20190918.png);
     background-repeat: no-repeat;
 }
 
-
 /* arrow css */
 
-.cui-nav-bar b.n-arrow,
-.cui_hd b.n-arrow {
+.cui-nav-bar b.n-arrow, .cui_hd b.n-arrow {
     display: inline-block;
     width: 8px;
     height: 5px;
@@ -3099,11 +2801,9 @@ li.cui_nav_myctrip {
     background-position: -46px -58px;
 }
 
-.cui-nav-bar .language a:hover b.n-arrow,
-.cui-nav-bar .language_current b.n-arrow {
+.cui-nav-bar .language a:hover b.n-arrow, .cui-nav-bar .language_current b.n-arrow {
     background-position: -46px -72px;
 }
-
 
 /* navigation bar*/
 
@@ -3116,7 +2816,6 @@ li.cui_nav_myctrip {
     margin: 0 auto;
 }
 
-
 /* slogan */
 
 .cui-nav-bar .slogan {
@@ -3125,7 +2824,6 @@ li.cui_nav_myctrip {
     display: inline-block;
     margin: 10px 0 0 14px;
 }
-
 
 /* language */
 
@@ -3163,8 +2861,7 @@ li.cui_nav_myctrip {
     border: 1px solid transparent;
 }
 
-.cui-nav-bar .language li .language_current,
-.cui-nav-bar .language li .selected:hover {
+.cui-nav-bar .language li .language_current, .cui-nav-bar .language li .selected:hover {
     background: #e4e7eb;
     text-decoration: none;
     cursor: pointer;
@@ -3173,8 +2870,7 @@ li.cui_nav_myctrip {
     box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, .15);
 }
 
-.cui-nav-bar .language li .language_current span,
-.cui-nav-bar .language li .selected:hover span {
+.cui-nav-bar .language li .language_current span, .cui-nav-bar .language li .selected:hover span {
     background-color: #fff;
     border: 1px solid #D9D9D9;
     border-bottom: none;
@@ -3201,7 +2897,6 @@ li.cui_nav_myctrip {
     width: 613px;
 }
 
-
 /*=Language*/
 
 .cui-nav-bar ul.language {
@@ -3214,9 +2909,7 @@ li.cui_nav_myctrip {
     z-index: 31;
 }
 
-.cui-nav-bar .language li .selected em.ico-langen,
-.cui-nav-bar .language li .selected em.ico-langgb,
-.cui-nav-bar .language li .selected em.ico-langhant {
+.cui-nav-bar .language li .selected em.ico-langen, .cui-nav-bar .language li .selected em.ico-langgb, .cui-nav-bar .language li .selected em.ico-langhant {
     display: inline-block;
     width: 19px;
     height: 13px;
@@ -3252,8 +2945,7 @@ li.cui_nav_myctrip {
     margin-bottom: 5px;
 }
 
-.cui-nav-bar .language_list li.active,
-.cui-nav-bar .language_list li:hover {
+.cui-nav-bar .language_list li.active, .cui-nav-bar .language_list li:hover {
     background: #f5f5f5;
 }
 
@@ -3285,150 +2977,112 @@ li.cui_nav_myctrip {
     _background-position: -61px -469px;
 }
 
-.cui-nav-bar .ico-langgb,
-.cui-nav-bar .ico-langgb:hover {
+.cui-nav-bar .ico-langgb, .cui-nav-bar .ico-langgb:hover {
     background-position: 0 -19px;
 }
 
-.cui-nav-bar .ico-langhant,
-.cui-nav-bar .ico-langhant:hover {
+.cui-nav-bar .ico-langhant, .cui-nav-bar .ico-langhant:hover {
     background-position: 0 0;
 }
 
-.cui-nav-bar .language_big5,
-.cui-nav-bar .language_big5:hover {
+.cui-nav-bar .language_big5, .cui-nav-bar .language_big5:hover {
     background-position: 0 0;
 }
 
-.cui-nav-bar .language_hk,
-.cui-nav-bar .language_hk:hover {
+.cui-nav-bar .language_hk, .cui-nav-bar .language_hk:hover {
     background-position: 0 -25px;
 }
 
-.cui-nav-bar .language_korea,
-.cui-nav-bar .language_korea:hover {
+.cui-nav-bar .language_korea, .cui-nav-bar .language_korea:hover {
     background-position: 0 -50px;
 }
 
-.cui-nav-bar .language_jap,
-.cui-nav-bar .language_jap:hover {
+.cui-nav-bar .language_jap, .cui-nav-bar .language_jap:hover {
     background-position: 0 -75px;
 }
 
-.cui-nav-bar .language_sg,
-.cui-nav-bar .language_sg:hover {
+.cui-nav-bar .language_sg, .cui-nav-bar .language_sg:hover {
     background-position: 0 -100px;
 }
 
-.cui-nav-bar .language_au,
-.cui-nav-bar .language_au:hover {
+.cui-nav-bar .language_au, .cui-nav-bar .language_au:hover {
     background-position: 0 -322px;
 }
 
-.cui-nav-bar .language_de,
-.cui-nav-bar .language_de:hover {
+.cui-nav-bar .language_de, .cui-nav-bar .language_de:hover {
     background-position: 0 -125px;
 }
 
-.cui-nav-bar .language_fr,
-.cui-nav-bar .language_fr:hover {
+.cui-nav-bar .language_fr, .cui-nav-bar .language_fr:hover {
     background-position: 0 -150px;
 }
 
-.cui-nav-bar .language_es,
-.cui-nav-bar .language_es:hover {
+.cui-nav-bar .language_es, .cui-nav-bar .language_es:hover {
     background-position: 0 -175px;
 }
 
-.cui-nav-bar .language_ru,
-.cui-nav-bar .language_ru:hover {
+.cui-nav-bar .language_ru, .cui-nav-bar .language_ru:hover {
     background-position: 0 -200px;
 }
 
-.cui-nav-bar .language_id,
-.cui-nav-bar .language_id:hover {
+.cui-nav-bar .language_id, .cui-nav-bar .language_id:hover {
     background-position: 0 -225px;
 }
 
-.cui-nav-bar .language_my,
-.cui-nav-bar .language_my:hover {
+.cui-nav-bar .language_my, .cui-nav-bar .language_my:hover {
     background-position: 0 -275px;
 }
 
-.cui-nav-bar .language_th,
-.cui-nav-bar .language_th:hover {
+.cui-nav-bar .language_th, .cui-nav-bar .language_th:hover {
     background-position: 0 -250px;
 }
 
-.cui-nav-bar .language_en,
-.cui-nav-bar .language_en:hover {
+.cui-nav-bar .language_en, .cui-nav-bar .language_en:hover {
     background-position: 0 -300px;
 }
 
-.cui-nav-bar .language_tw,
-.cui-nav-bar .language_tw:hover {
+.cui-nav-bar .language_tw, .cui-nav-bar .language_tw:hover {
     background-position: 0 -347px;
 }
 
-.cui-nav-bar .language_it,
-.cui-nav-bar .language_it:hover {
+.cui-nav-bar .language_it, .cui-nav-bar .language_it:hover {
     background-position: 0 -372px;
 }
 
-.cui-nav-bar .language_gb,
-.cui-nav-bar .language_gb:hover {
+.cui-nav-bar .language_gb, .cui-nav-bar .language_gb:hover {
     background-position: 0 -396px;
 }
 
-.cui-nav-bar .language_vn,
-.cui-nav-bar .language_vn:hover {
+.cui-nav-bar .language_vn, .cui-nav-bar .language_vn:hover {
     background-position: 0 -420px;
 }
 
-.cui-nav-bar .language_nl,
-.cui-nav-bar .language_nl:hover {
+.cui-nav-bar .language_nl, .cui-nav-bar .language_nl:hover {
     background-position: 0 -444px;
 }
 
-.cui-nav-bar .language_pl,
-.cui-nav-bar .language_pl:hover {
+.cui-nav-bar .language_pl, .cui-nav-bar .language_pl:hover {
     background-position: 0 -468px;
 }
 
-.cui-nav-bar .language_gr,
-.cui-nav-bar .language_gr:hover {
+.cui-nav-bar .language_gr, .cui-nav-bar .language_gr:hover {
     background-position: 0 -492px;
 }
 
-.cui-nav-bar .language_tr,
-.cui-nav-bar .language_tr:hover {
+.cui-nav-bar .language_tr, .cui-nav-bar .language_tr:hover {
     background-position: 0 -516px;
 }
 
-.cui-nav-bar .language_pt,
-.cui-nav-bar .language_pt:hover {
+.cui-nav-bar .language_pt, .cui-nav-bar .language_pt:hover {
     background-position: 0 -540px;
 }
 
-.cui-nav-bar .language_en em.ico-langen,
-.cui-nav-bar .language_en em.ico-langen:hover {
+.cui-nav-bar .language_en em.ico-langen, .cui-nav-bar .language_en em.ico-langen:hover {
     background-position: -61px -471px;
     _background-position: -61px -469px;
 }
 
-.cui-nav-bar .language_list li a.language_au,
-.cui-nav-bar .language_list li a.language_hk,
-.cui-nav-bar .language_list li a.language_big5,
-.cui-nav-bar .language_list li a.language_gb,
-.cui-nav-bar .language_list li a.language_en,
-.cui-nav-bar .language_list li a.language_es,
-.cui-nav-bar .language_list li a.language_de,
-.cui-nav-bar .language_list li a.language_fr,
-.cui-nav-bar .language_list li a.language_sg,
-.cui-nav-bar .language_list li a.language_id,
-.cui-nav-bar .language_list li a.language_my,
-.cui-nav-bar .language_list li a.language_tw,
-.cui-nav-bar .language_list li a.language_it {
+.cui-nav-bar .language_list li a.language_au, .cui-nav-bar .language_list li a.language_hk, .cui-nav-bar .language_list li a.language_big5, .cui-nav-bar .language_list li a.language_gb, .cui-nav-bar .language_list li a.language_en, .cui-nav-bar .language_list li a.language_es, .cui-nav-bar .language_list li a.language_de, .cui-nav-bar .language_list li a.language_fr, .cui-nav-bar .language_list li a.language_sg, .cui-nav-bar .language_list li a.language_id, .cui-nav-bar .language_list li a.language_my, .cui-nav-bar .language_list li a.language_tw, .cui-nav-bar .language_list li a.language_it {
     font: 12px/20px "Microsoft yahei", tahoma, arial, sans-serif;
     color: #4c4c4c;
     height: 20px;
@@ -3438,7 +3092,6 @@ li.cui_nav_myctrip {
 .cui-nav-bar .language_list li a:hover {
     text-decoration: none;
 }
-
 
 /* navigation bar right part */
 
@@ -3522,8 +3175,7 @@ li.cui_nav_myctrip {
     *padding-bottom: 7px;
 }
 
-.cui-nav-bar .nav-myctrip:hover,
-.cui-nav-bar .my_current .nav-myctrip {
+.cui-nav-bar .nav-myctrip:hover, .cui-nav-bar .my_current .nav-myctrip {
     text-decoration: none;
     cursor: pointer;
     color: #4c4c4c;
@@ -3531,13 +3183,11 @@ li.cui_nav_myctrip {
     box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, .15);
 }
 
-.cui-nav-bar .nav-myctrip:hover .n-arrow,
-.cui-nav-bar .my_current .nav-myctrip .n-arrow {
+.cui-nav-bar .nav-myctrip:hover .n-arrow, .cui-nav-bar .my_current .nav-myctrip .n-arrow {
     background-position: -46px -72px;
 }
 
-.cui-nav-bar .nav-myctrip:hover .set-text,
-.cui-nav-bar .my_current .nav-myctrip .set-text {
+.cui-nav-bar .nav-myctrip:hover .set-text, .cui-nav-bar .my_current .nav-myctrip .set-text {
     background: #fff;
     border: 1px solid #D9D9D9;
     border-bottom: none;
@@ -3859,8 +3509,7 @@ li.cui_nav_myctrip {
     text-decoration: none;
 }
 
-.cui_hd ul,
-.cui_hd ol {
+.cui_hd ul, .cui_hd ol {
     list-style: none;
 }
 
@@ -3890,21 +3539,18 @@ li.cui_nav_myctrip {
     right: 9px;
 }
 
-.cui_hd .nav-tel.active,
-.cui_hd .nav-tel:hover {
+.cui_hd .nav-tel.active, .cui_hd .nav-tel:hover {
     background: #fff;
     padding: 10px 20px 10px 16px;
     border: 1px solid #D9D9D9;
     box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, .15);
 }
 
-.cui_hd .nav-tel.active .n-arrow,
-.cui_hd .nav-tel:hover .n-arrow {
+.cui_hd .nav-tel.active .n-arrow, .cui_hd .nav-tel:hover .n-arrow {
     background-position: -46px -72px;
 }
 
-.cui_hd .nav-tel.active .tel-list-more,
-.cui_hd .nav-tel:hover .tel-list-more {
+.cui_hd .nav-tel.active .tel-list-more, .cui_hd .nav-tel:hover .tel-list-more {
     display: block;
 }
 
@@ -3929,7 +3575,6 @@ li.cui_nav_myctrip {
     text-decoration: none;
 }
 
-
 /* 5.15 lifc,  add business travel nav */
 
 .cui-nav-bar .set-list.set-business-travel-list .person-text .set-text {
@@ -3944,8 +3589,7 @@ li.cui_nav_myctrip {
     color: #2577E3;
 }
 
-.cui-nav-bar .set-business-travel-list .nav-myctrip:hover .set-text,
-.cui-nav-bar .set-business-travel-list.my_current .nav-myctrip .set-text {
+.cui-nav-bar .set-business-travel-list .nav-myctrip:hover .set-text, .cui-nav-bar .set-business-travel-list.my_current .nav-myctrip .set-text {
     color: #fff;
     background: #2577E3;
     border: 1px solid #2577E3;
@@ -3956,7 +3600,6 @@ li.cui_nav_myctrip {
     margin: 0px;
     height: auto;
 }
-
 
 /* .cui-nav-bar .set-business-travel-list .nav-myctrip:hover .set-text, */
 
@@ -4001,8 +3644,7 @@ li.cui_nav_myctrip {
     background: none;
 }
 
-.cui-nav-bar .set-business-travel-tips .close:before,
-.cui-nav-bar .set-business-travel-tips .close:after {
+.cui-nav-bar .set-business-travel-tips .close:before, .cui-nav-bar .set-business-travel-tips .close:after {
     content: '';
     width: 1px;
     height: 12px;
@@ -4028,13 +3670,11 @@ li.cui_nav_myctrip {
     background-position: -98px -38px;
 }
 
-.cui-nav-bar .set-list.set-business-travel-list.my_current .ico-business-travel,
-.cui-nav-bar .set-list.set-business-travel-list .nav-myctrip:hover .ico-business-travel {
+.cui-nav-bar .set-list.set-business-travel-list.my_current .ico-business-travel, .cui-nav-bar .set-list.set-business-travel-list .nav-myctrip:hover .ico-business-travel {
     background-position: -98px -8px;
 }
 
-.cui-nav-bar .set-list.set-business-travel-list.my_current .nav-myctrip .n-arrow,
-.cui-nav-bar .set-list.set-business-travel-list .nav-myctrip:hover .n-arrow {
+.cui-nav-bar .set-list.set-business-travel-list.my_current .nav-myctrip .n-arrow, .cui-nav-bar .set-list.set-business-travel-list .nav-myctrip:hover .n-arrow {
     background-position: -101px -154px;
 }
 
