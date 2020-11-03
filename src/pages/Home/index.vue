@@ -4,6 +4,8 @@
     <OutHotels></OutHotels>
     <PriceTicket></PriceTicket>
     <CarRental></CarRental>
+    <Partner></Partner>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -12,6 +14,8 @@ import HotList from "./HotList";
 import OutHotels from "./OutHotels";
 import PriceTicket from "./PriceTicket";
 import CarRental from "./CarRental";
+import Partner from "./Partner";
+import Footer from "./Footer";
 export default {
   name: "Home",
   components: {
@@ -19,6 +23,8 @@ export default {
     OutHotels,
     PriceTicket,
     CarRental,
+    Partner,
+    Footer,
   },
 };
 </script>
