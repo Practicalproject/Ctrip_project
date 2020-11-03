@@ -40,6 +40,16 @@
         </ul>
       </div>
     </div>
+
+    <div class="logo">
+      <div class="ctriplogo">
+        <a title="携程旅行网" href="javascript:;">携程旅行网</a>
+      </div>
+      <div v-if="$route.path === '/home'" class="cui_search">
+        <input type="text" placeholder="搜索旅行地/酒店/旅游/景点门票/交通" />
+        <button class="iconfont icon-fangdajing"></button>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -53,6 +63,7 @@ export default {
 // 头部
 .headerContainer {
   width: 100%;
+
   .top {
     width: 100%;
     height: 36px;
@@ -97,6 +108,12 @@ export default {
             a {
               color: #0066cc;
               border: none;
+              padding-right: 10px;
+            }
+          }
+          &:nth-of-type(2) {
+            a {
+              padding-left: 10px;
             }
           }
           a {
@@ -123,6 +140,72 @@ export default {
             }
           }
         }
+      }
+    }
+  }
+
+  .logo {
+    width: 1180px;
+    margin: 0 auto;
+    height: 80px;
+    background-color: tan;
+    .ctriplogo {
+      float: left;
+      display: inline-block;
+      width: 203px;
+      height: 34px;
+      margin: 23px 0;
+      overflow: hidden;
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: url(./images/logo.png) no-repeat;
+        background-size: 100% 100%;
+        text-indent: -999px;
+        overflow: hidden;
+      }
+    }
+    .cui_search {
+      float: left;
+      margin: 23px 0;
+      width: 28%;
+      font-family: "Microsoft Yahei", Tahoma;
+      position: relative;
+
+      input {
+        width: 100%;
+        height: 30px;
+        box-sizing: border-box;
+        border: 1px solid #8ebefc;
+        box-shadow: 2px 2px 1px 0 rgba(164, 203, 255, 0.25) inset;
+        border-radius: 5px;
+        font-size: 12px;
+        font-family: "Microsoft Yahei", Tahoma;
+        margin-left: 40px;
+        padding-left: 4px;
+        &:focus {
+          border-color: #2b82f4;
+          box-shadow: 1px 1px 0 0 rgba(146, 187, 241, 1) inset;
+        }
+        &:focus + button {
+          border-color: #2b82f4;
+          background-color: #2b82f4;
+        }
+      }
+      button {
+        position: absolute;
+        right: -40px;
+        top: 0;
+        border-radius: 5px;
+        border: none;
+        width: 42px;
+        height: 30px;
+        border: 1px solid #8ebefc;
+        border-radius: 0 5px 5px 0;
+        background-color: #a4cbff;
+        color: white;
+        border-left: none;
       }
     }
   }

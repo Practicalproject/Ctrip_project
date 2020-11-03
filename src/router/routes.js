@@ -6,6 +6,7 @@ import IndependentTravel from '@/pages/IndependentTravel'
 
 import Tickets from '@/pages/Tickets'
 import Strategy from '@/pages/Strategy'
+import Home from '@/pages/Home'
 
 export default [
     /**
@@ -49,5 +50,16 @@ export default [
         path: '/strategy',
         component: Strategy
     },
+    // 首页
+    {
+        path: "/home",
+        component: Home
+    },
+    // 重定向
+    {
+        path: '/',
+        redirect: "/home"
+    }
+
 
 ]
