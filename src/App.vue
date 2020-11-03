@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header></Header>
+    <useCart></useCart>
     <router-view></router-view>
   </div>
 </template>
