@@ -1,12 +1,13 @@
 <template>
   <div>
+    <HomeBanner></HomeBanner>
     <HotList></HotList>
     <OutHotels></OutHotels>
     <PriceTicket></PriceTicket>
     <CarRental></CarRental>
     <Partner></Partner>
     <Footer></Footer>
-    <HomeBanner></HomeBanner>
+    
   </div>
 </template>
 
