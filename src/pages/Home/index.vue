@@ -4,10 +4,10 @@
 
 <script>
 export default {
-  name: '',
+  name: 'Home',
 }
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header></Header>
+    <Search></Search>
     <Swiper></Swiper>
     <Wrapper></Wrapper>
     <Falsh></Falsh>
@@ -12,18 +12,18 @@
 </template>
 
 <script>
-import Header from "@/components/Tickets/Header";
-import Swiper from "@/components/Tickets/Swiper";
-import Wrapper from "@/components/Tickets/Wrapper";
-import Falsh from "@/components/Tickets/Falsh";
-import Popular from "@/components/Tickets/Popular";
-import PlayList from "@/components/Tickets/PlayList";
-import SurrCities from "@/components/Tickets/SurrCities";
-import Scenic from "@/components/Tickets/Scenic";
+import Search from './Search'
+import Swiper from './Swiper'
+import Wrapper from './Wrapper'
+import Falsh from './Falsh'
+import Popular from './Popular'
+import PlayList from './PlayList'
+import SurrCities from './SurrCities'
+import Scenic from './Scenic'
 export default {
   name: "Tickets",
   components: {
-    Header,
+    Search,
     Swiper,
     Wrapper,
     Falsh,
