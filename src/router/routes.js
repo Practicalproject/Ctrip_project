@@ -7,8 +7,19 @@ import IndependentTravel from '@/pages/IndependentTravel'
 import Tickets from '@/pages/Tickets'
 import Strategy from '@/pages/Strategy'
 import Home from '@/pages/Home'
-
+import useCart from '@/pages/useCart'
+import cartBoat from '@/pages/cartBoat'
 export default [
+    {
+        // 用车
+        path: '/usecart',
+        component: useCart
+    },
+    {
+        // 车船
+        path: '/cartboat',
+        component: cartBoat
+    },
     /**
      * 飞机票路由组件
      * author:suoxiaoyu

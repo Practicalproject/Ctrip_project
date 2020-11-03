@@ -292,11 +292,11 @@
         </li>
         <li class="divider"></li>
         <li>
-          <a href="javascript:;">汽车`船</a>
+          <router-link to="/cartboat">汽车`船</router-link>
         </li>
         <li class="divider"></li>
         <li>
-          <a href="javascript:;">用车</a>
+          <router-link to="/usecart">用车</router-link>
         </li>
         <li class="divider"></li>
         <li>

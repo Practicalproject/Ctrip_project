@@ -96,6 +96,7 @@ export default {
 </script>
 <style lang='less' scoped>
 .wrap {
+  position: relative;
   .banner {
     width: 100%;
     height: 360px;
@@ -122,8 +123,8 @@ export default {
     height: 360px;
     background: pink;
     position: absolute;
-    left: 370px;
-    top: 116px;
+    left: 0;
+    top: 0;
     .searchBox {
       .searTag{
           a{
