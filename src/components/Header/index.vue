@@ -143,7 +143,7 @@
             <a href="javascript:;">消息</a>
           </li>
           <li class="active">
-            <a href="http://www.baidu.com"><span>我的携程</span></a>
+            <a href="javascript:;"><span>我的携程</span></a>
             <i class="iconfont icon-downlist"></i>
             <ul class="nav-drowndrop">
               <li>
@@ -184,9 +184,31 @@
               </li>
             </ul>
           </li>
-          <li><a class="active" href="javascript:;">客服中心</a></li>
-          <li><a class="iconfont icon-shouji"></a></li>
-          <li><a class="iconfont icon-weixin"></a></li>
+          <li><a href="javascript:;">客服中心</a></li>
+
+          <li class="active">
+            <a class="iconfont icon-shouji"></a>
+            <ul class="qrcode">
+              <li>
+                <img src="./images/er_ctrip_app.jpg" alt="" />
+                <p>手机扫码快速下载</p>
+              </li>
+              <li class="ctrip-app">
+                <a href="javascript:;">携程旅行手机版</a
+                ><i class="iconfont icon-right"></i>
+              </li>
+            </ul>
+          </li>
+          <li class="active">
+            <a class="iconfont icon-weixin"></a>
+            <ul class="qrcode">
+              <li>
+                <img src="./images/er_ctrip_app.jpg" alt="" />
+                <p>扫一扫</p>
+                <p class="nth2">了解爆款旅行好货</p>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
@@ -209,6 +231,72 @@
         <b class="iconfont icon-downlist"></b>
       </div>
     </div>
+
+    <nav class="navContainer">
+      <ul class="cui_nav_ul">
+        <li>
+          <a href="javascript:;">首页</a>
+        </li>
+        <li>
+          <a href="javascript:;">
+            酒店
+            <i class="iconfont"></i>
+            <span class="point"></span>
+          </a>
+          <div class="cui_subnav_wrap">
+            <ul class="ul_nav_hotel"></ul>
+          </div>
+        </li>
+        <li>
+          <a href="javascript:;">旅游</a>
+        </li>
+        <li>
+          <a href="javascript:;">跟团游</a>
+        </li>
+        <li>
+          <a href="javascript:;">自由行</a>
+        </li>
+        <li>
+          <a href="javascript:;">机票</a>
+        </li>
+        <li>
+          <a href="javascript:;">火车</a>
+        </li>
+        <li>
+          <a href="javascript:;">汽车`船</a>
+        </li>
+        <li>
+          <a href="javascript:;">用车</a>
+        </li>
+        <li>
+          <a href="javascript:;">门票</a>
+        </li>
+        <li>
+          <a href="javascript:;">攻略</a>
+        </li>
+        <li>
+          <a href="javascript:;">全球购</a>
+        </li>
+        <li>
+          <a href="javascript:;">礼品卡</a>
+        </li>
+        <li>
+          <a href="javascript:;">商旅</a>
+        </li>
+        <li>
+          <a href="javascript:;">邮轮</a>
+        </li>
+        <li>
+          <a href="javascript:;">目的地</a>
+        </li>
+        <li>
+          <a href="javascript:;">金融</a>
+        </li>
+        <li>
+          <a href="javascript:;">更多</a>
+        </li>
+      </ul>
+    </nav>
   </header>
 </template>
 
@@ -391,15 +479,65 @@ export default {
                 }
               }
             }
+
+            .qrcode {
+              display: none;
+              width: 144px;
+              position: absolute;
+              top: 36px;
+              right: 0;
+              background-color: white;
+              box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.15);
+              text-align: center;
+              border: 1px solid #d9d9d9;
+              z-index: 1;
+              li {
+                padding: 16px 0 13px;
+                img {
+                  border: none;
+                  vertical-align: middle;
+                  display: inline-block;
+                }
+                p {
+                  margin-top: 10px;
+                  font-size: 12px;
+                  color: #666;
+                  height: 12px;
+                  line-height: 12px;
+                }
+                &.ctrip-app {
+                  padding: 0;
+                  width: 100%;
+                  line-height: 36px;
+                  height: 36px;
+                  color: white;
+                  background-color: #2477e3;
+                  opacity: 0.5;
+                  text-align: center;
+                  cursor: pointer;
+                  a {
+                    text-decoration: none;
+                    color: white;
+                  }
+                  .icon-right {
+                    font-size: 12px;
+                    margin-left: 4px;
+                    overflow: hidden;
+                  }
+                }
+              }
+            }
             &:hover {
               color: #4c4c4c;
               font-size: 12px;
               box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.15);
               height: 36px;
-              .nav-drowndrop {
+              background-color: white;
+              .nav-drowndrop,
+              .qrcode {
                 display: block;
               }
-              i{
+              > i {
                 display: inline-block;
                 transform: rotate(180deg);
               }
@@ -413,7 +551,13 @@ export default {
                 left: 0;
               }
               &::after {
+                content: "";
+                display: block;
+                width: 1px;
                 height: 100%;
+                background-color: #ddd;
+                position: absolute;
+                right: 0;
               }
             }
           }
@@ -490,16 +634,18 @@ export default {
     .nav-tel {
       position: absolute;
       right: 0;
-      top: 0;
-      margin: 25px 0;
-      display: flex;
-      align-items: center;
+      top: 10px;
+      font-family: Arial, tahoma, verdana, "Microsoft YaHei", Simsun, sans-serif;
+      padding: 10px 20px 0px 16px;
+      border: 1px solid #fff;
+
       .nav-tel-list {
         text-align: right;
+        color: #666;
+        font-size: 12px;
+        line-height: 20px;
         li {
           height: 20px;
-          line-height: 20px;
-          font-size: 12px;
           color: #666;
           &.tel-list-more {
             display: none;
@@ -508,6 +654,115 @@ export default {
       }
       .iconfont {
         color: #666;
+        position: absolute;
+        top: 25px;
+        right: 5px;
+        font-size: 12px;
+      }
+
+      &:hover {
+        background: #fff;
+        padding: 10px 20px 10px 16px;
+        border: 1px solid #d9d9d9;
+        box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.15);
+        li.tel-list-more {
+          display: block;
+        }
+
+        b.iconfont {
+          display: inline-block;
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  nav {
+    width: 100%;
+    height: 40px;
+    background-color: #2577e3;
+    margin: 0 auto 54px;
+    margin-bottom: 10px;
+    .cui_nav_ul {
+      position: relative;
+      // z-index: 25;
+      min-width: 980px !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0;
+      height: 40px;
+      line-height: 40px;
+      font-size: 15px;
+      background-color: #2577e3;
+      > li {
+        float: left;
+        display: inline-block;
+        height: 40px;
+        position: relative;
+        > a {
+          position: relative;
+          display: block;
+          height: 40px;
+          padding: 0 11px;
+          color: #fff;
+          cursor: pointer;
+          text-decoration: none;
+          font-size: 15px;
+          transition: all 0.2s ease 0s;
+          &:hover {
+            background: #0a56bb;
+            .iconfont {
+              display: inline-block;
+              width: 0;
+              height: 0;
+              overflow: hidden;
+              line-height: 0;
+              font-size: 0;
+              margin-left: 5px;
+              vertical-align: middle;
+              border-bottom: 3px solid #fff;
+              border-top: 0 none;
+              border-left: 3px solid transparent;
+              border-right: 3px solid transparent;
+              -ms-transform: rotate(360deg);
+              -o-transform: rotate(360deg);
+              transform: rotate(360deg);
+            }
+          }
+          .iconfont {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            line-height: 0;
+            font-size: 0;
+            margin-left: 5px;
+            vertical-align: middle;
+            border-top: 3px solid #fff;
+            border-bottom: 0 none;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            -webkit-transition: transform 0.2s ease 0s;
+            transition: transform 0.2s ease 0s;
+          }
+        }
+        &::after {
+          content: "";
+          display: block;
+          width: 1px;
+          height: 14px;
+          padding-left: 0;
+          margin: 13px 0 0;
+          background-color: #1d67dd;
+          clear: none;
+          border: none;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+        &:last-of-type::after {
+          display: none;
+        }
       }
     }
   }
