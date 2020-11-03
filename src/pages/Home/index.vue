@@ -1,13 +1,18 @@
 <template>
-  <div></div>
+  <div>
+    <PriceTicket></PriceTicket>
+  </div>
 </template>
 
 <script>
+import PriceTicket from "./PriceTicket";
 export default {
-  name: 'Home',
-}
+  components: {
+    PriceTicket,
+  },
+  name: "Home",
+};
 </script>
 
 <style lang="less" scoped>
-
 </style>
