@@ -11,7 +11,44 @@
 
         <!-- 推荐卡 -->
         <el-card class="box-card">
-          123
+          <div class="district-item">
+            <div class="title">精选推荐</div>
+            <ul class="city-list">
+              <li>
+                <div class="city-img"></div>
+                <img src="https://pic.c-ctrip.com/flight/fuzzy/SHE/284.jpg"
+                  alt=""/>
+                <div class="city-info">
+                  <div class="from-to-city">
+                    <span class="name">北京</span>
+                    <i class="iconfont icon-jiantou_qiehuanyou"></i>
+                    <span class="name">沈阳</span>
+                  </div>
+                </div>
+              </li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="district-item">
+            <div class="title">日韩</div>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="district-item">
+            <div class="title">东南亚</div>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
         </el-card>
       </div>
     </div>
@@ -66,5 +103,24 @@ export default {
 }
 
 // 推荐卡
-
+.box-card {
+  .district-item {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 15px;
+    .title {
+      font-size: 18px;
+      color: #333333;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .city-list {
+      width: 344px;
+      border: 1px solid #e4e4e4;
+      padding: 4px 12px;
+      border-radius: 4px;
+      background: purple;
+    }
+  }
+}
 </style>
