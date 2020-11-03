@@ -35,7 +35,7 @@ export default {
   .block {
     float: right;
     width: 830px;
-    height: 410px;
+    // height: 410px;
     background-color: red;
   }
   .el-carousel__item h3 {

@@ -38,6 +38,7 @@ export default {
   width: 1180px;
   margin: 20px auto;
   height: 180px;
+  display: flex;
   .one{
     background-image: url(https://pages.c-ctrip.com/ticket/online/index/2.png);
     background-repeat: no-repeat;
@@ -45,13 +46,16 @@ export default {
     margin: 0 20px;
     width: 140px;
     height: 180px;
-    display: inline-block;
+    
     img{
       padding: 14px;
       height: 106px;
+      display: block;
+      margin: 15px auto;
     }
     .text{
-      font-size: 16px;
+      padding-top: 10px;
+      font-size: 18px;
       text-align: center;
     }
   }

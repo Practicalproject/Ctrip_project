@@ -84,7 +84,7 @@ export default {
 };
 </script>
 
-<style lang='less' >
+<style lang='less' scoped>
 .continer {
   width: 1180px;
   margin: 20px auto;
@@ -102,12 +102,13 @@ export default {
     margin-top: 10px;
     display: flex;
     justify-content: space-evenly;
-    
+
     .falshItem {
       width: 280px;
       height: 250px;
       position: relative;
-      .el-card__body {
+
+      /deep/.el-card__body {
         padding: 0;
       }
       img {
@@ -124,10 +125,10 @@ export default {
           font-size: 16px;
           line-height: 22px;
           overflow: hidden;
-					text-overflow: ellipsis;
-					display: -webkit-box;
-					-webkit-box-orient: vertical;
-					-webkit-line-clamp: 1;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
         }
       }
       .content {
@@ -159,7 +160,7 @@ export default {
           color: white;
         }
       }
-      .headings{
+      .headings {
         height: 34px;
         padding: 0 10px;
         background-color: #f63b2e;
