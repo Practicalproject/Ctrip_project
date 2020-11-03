@@ -41,6 +41,11 @@
         </div>
       </div>
     </div>
+    <!-- 地区选择与轮播图 -->
+    <div class="base_top">
+      <div class="List"></div>
+      <div class="banner"></div>
+    </div>
   </div>
 </template>
 
@@ -54,9 +59,7 @@ export default {
 // #007aff
 .mainContainer {
   width: 1180px;
-  height: 200px;
   margin: 0 auto;
-  background-color: #cccccc;
   .searchContainer {
     width: 100%;
     margin-bottom: 20px;
@@ -165,6 +168,21 @@ export default {
           font-size: 16px;
         }
       }
+    }
+  }
+  .base_top {
+    width: 1180px;
+    height: 654px;
+    display: flex;
+    .List {
+      width: 258px;
+      height: 653px;
+      background-color: rebeccapurple;
+    }
+    .banner {
+      width: 916px;
+      height: 654px;
+      background-color: pink;
     }
   }
 }
