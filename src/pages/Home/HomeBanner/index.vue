@@ -33,8 +33,115 @@
       <!-- 搜索框 -->
       <div class="wrap_positioning">
         <div class="positioning_small">
-          <div class="small_left"></div>
-          <div class="small_right"></div>
+          <!-- 左侧列表 -->
+          <div class="small_left">
+            <ul>
+              <li>
+                <span>酒店</span>
+              </li>
+              <li>
+                <span>酒店</span>
+              </li>
+              <li>
+                <span>酒店</span>
+              </li>
+              <li>
+                <span>酒店</span>
+              </li>
+              <li>
+                <span>酒店</span>
+              </li>
+              <li>
+                <span>酒店</span>
+              </li>
+              <li>
+                <span>酒店</span>
+              </li>
+            </ul>
+          </div>
+          <!-- 右侧内容 -->
+          <div class="small_right">
+            <!-- 上方导航 -->
+            <div class="right_top">
+              <span>国内酒店</span>
+              <span>海外酒店</span>
+              <span>民宿</span>
+            </div>
+            <!-- 下方表单 -->
+            <div class="right_bot">
+              <el-form
+                ref="form"
+                :model="sizeForm"
+                label-width="80px"
+                size="mini"
+              >
+                <el-form-item label="目的地">
+                  <el-input
+                    v-model="sizeForm.name"
+                    placeholder="中文/拼音"
+                  ></el-input>
+                </el-form-item>
+                <el-form-item label="入住日期">
+                  <el-col :span="10">
+                    <el-date-picker
+                      type="date"
+                      placeholder="选择日期"
+                      v-model="sizeForm.date1"
+                      style="width: 100%"
+                    ></el-date-picker>
+                  </el-col>
+                  <el-col class="line" :span="4">退房日期</el-col>
+                  <el-col :span="10">
+                    <el-time-picker
+                      type="date"
+                      placeholder="选择日期"
+                      v-model="sizeForm.date2"
+                      style="width: 100%"
+                    ></el-time-picker>
+                  </el-col>
+                </el-form-item>
+                <el-form-item label="入住日期">
+                  <el-col :span="10">
+                    <el-date-picker
+                      type="date"
+                      placeholder="选择日期"
+                      v-model="sizeForm.date1"
+                      style="width: 100%"
+                    ></el-date-picker>
+                  </el-col>
+                  <el-col class="line" :span="4">退房日期</el-col>
+                  <el-col :span="10">
+                    <el-time-picker
+                      type="date"
+                      placeholder="选择日期"
+                      v-model="sizeForm.date2"
+                      style="width: 100%"
+                    ></el-time-picker>
+                  </el-col>
+                </el-form-item>
+                <el-form-item label="入住日期">
+                  <el-col :span="10">
+                    <el-date-picker
+                      type="date"
+                      placeholder="选择日期"
+                      v-model="sizeForm.date1"
+                      style="width: 100%"
+                    ></el-date-picker>
+                  </el-col>
+                  <el-col class="line" :span="4">退房日期</el-col>
+                  <el-col :span="10">
+                    <el-time-picker
+                      type="date"
+                      placeholder="选择日期"
+                      v-model="sizeForm.date2"
+                      style="width: 100%"
+                    ></el-time-picker>
+                  </el-col>
+                </el-form-item>
+                <el-button type="success" class="el_button">搜索</el-button>
+              </el-form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -47,13 +154,7 @@ export default {
   name: "HomeBanner",
   data() {
     return {
-      // 左侧边栏tab导航
-      tabPosition: "left",
-
-      //   activeName: "second",
-
-      // 表单需要
-      form: {
+      sizeForm: {
         name: "",
         region: "",
         date1: "",
@@ -66,27 +167,18 @@ export default {
     };
   },
   methods: {
-    //   form表单
-    onSubmit() {},
-    // tab切换
-    handleClick(tab, event) {},
-  },
-  mounted() {
-    var mySwiper = new Swiper(".swiper-container", {
-      loop: true, // 循环模式选项
-
-      // 如果需要分页器
-      //   pagination: {
-      //     el: ".swiper-pagination",
-      //     clickable:true,
-      //   },
-    });
+    onSubmit() {
+      console.log("submit!");
+    },
   },
 };
 </script>
+
+
 <style lang='less' scoped>
 .wrap {
   position: relative;
+  // 轮播图
   .wrp_wiper {
     .swiper_contain {
       margin-bottom: 20px;
@@ -102,6 +194,7 @@ export default {
       }
     }
   }
+  // 搜索页
   .wrap_positioning {
     width: 1180px;
     height: 340px;
@@ -111,19 +204,57 @@ export default {
     left: 50%;
     z-index: 1;
     transform: translateX(-50%);
-    .positioning_small{
-      background-color: salmon;
+    .positioning_small {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background-color: white;
       width: 580px;
       height: 300px;
-      .small_left{
-        width: 100px;
-        height: 100px;
-        background-color: skyblue;
+      display: flex;
+      .small_left {
+        width: 90px;
+        height: 300px;
+        background-color: #2577e3;
+        ul {
+          li {
+            height: 42px;
+            line-height: 42px;
+            // text-align: center;
+            span {
+              display: block;
+              height: 42px;
+              width: 60px;
+              margin-left: 20px;
+              border-bottom: 1px dashed #fff;
+              color: white;
+            }
+          }
+        }
       }
-      .small_right{
-        width: 100px;
-        height: 100px;
-        background-color: sienna;
+      .small_right {
+        width: 490px;
+        height: 300px;
+        // background-color: sienna;
+        padding: 20px 20px 5px;
+        .right_top {
+          display: flex;
+          border-bottom: 1px solid #ddd;
+          margin-bottom: 8px;
+          span {
+            height: 25px;
+            line-height: 25px;
+            margin-right: 20px;
+          }
+        }
+        .right_bot {
+          position: relative;
+          .el_button {
+            position: absolute;
+            right: 0;
+          }
+        }
       }
     }
   }
