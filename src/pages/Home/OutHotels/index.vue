@@ -216,6 +216,21 @@
 <script>
 export default {
   name: "OutHotels",
+  data() {
+    return {
+      indexHotel:{},
+    }
+  },
+  mounted() {
+    this.getIndexHotel()
+  },
+  methods: {
+    async getIndexHotel(){
+      const result = await this.$API.getIndexHotel();
+      console.log(result)
+      this.indexHotel = result.data
+    }
+  },
 };
 </script>
 

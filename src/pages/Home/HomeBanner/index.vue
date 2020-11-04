@@ -3,31 +3,21 @@
     <div class="wrap">
       <!-- swiper轮播图 -->
       <div class="wrp_wiper">
-        <div class="swiper_contain">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="./images/1.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/2.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/3.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/4.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/5.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/6.jpg" />
-              </div>
+        <div class="swiper-container" ref="mySwiper1">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/1.jpg" />
             </div>
-            <!-- 如果需要分页器 -->
-            <div class="swiper-pagination"></div>
+            <div class="swiper-slide">
+              <img src="./images/2.jpg" />
+            </div>
           </div>
+          <!-- 如果需要分页器 -->
+          <div class="swiper-pagination"></div>
+
+          <!-- 如果需要导航按钮 -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </div>
       <!-- 搜索框 -->
@@ -147,6 +137,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import "swiper/css/swiper.min.css";
 import Swiper from "swiper";
@@ -166,9 +157,26 @@ export default {
       },
     };
   },
-  methods: {
-    onSubmit() {
-      console.log("submit!");
+  watch: {
+    bannerList: {
+      immediate: true,
+      handler() {
+        this.$nextTick(() => {
+          new Swiper(this.$refs.mySwiper1, {
+            loop: true, // 循环模式选项
+            // 如果需要分页器
+            pagination: {
+              el: ".swiper-pagination",
+            },
+
+            // 如果需要前进后退按钮
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
+        });
+      },
     },
   },
 };
@@ -180,15 +188,12 @@ export default {
   position: relative;
   // 轮播图
   .wrp_wiper {
-    .swiper_contain {
-      margin-bottom: 20px;
-      .swiper-container {
-        height: 340px;
-        .swiper-wrapper {
-          .swiper-slide {
-            img {
-              height: 340px;
-            }
+    .swiper-container {
+      height: 340px;
+      .swiper-wrapper {
+        .swiper-slide {
+          img {
+            height: 340px;
           }
         }
       }
