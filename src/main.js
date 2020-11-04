@@ -11,7 +11,7 @@ Vue.use(Card);
 Vue.use(Option);
 
 // 引入API
-import { default as API } from "@/utils/api"
+import * as API from "@/utils/api"
 
 Vue.use(Form)
 Vue.use(FormItem)
@@ -28,6 +28,9 @@ Vue.use(RadioGroup)
 Vue.use(Button)
 Vue.use(Tabs)
 Vue.use(TabPane)
+
+
+
 new Vue({
   beforeCreate() {
     Vue.prototype.$API = API

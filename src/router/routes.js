@@ -12,11 +12,17 @@ const Group = () => import('@/pages/Group')
 const useCart = () => import('@/pages/useCart')
 const cartBoat = () => import('@/pages/cartBoat')
 const Login = () => import('@/pages/Login')
+const DetailSce = () => import('@/pages/DetailSce')
 
 export default [{
         // 用车
         path: '/usecart',
         component: useCart
+    },
+    {
+        // 景点详情
+        path: '/detailsce',
+        component: DetailSce
     },
     {
         // 车船
