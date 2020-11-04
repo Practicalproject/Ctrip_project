@@ -233,7 +233,6 @@
     </div>
     <!-- 除了首页\机票页面\攻略页面 -->
     <nav
-      
       class="navContainer"
       :class="{
         mb:
@@ -248,7 +247,11 @@
         </li>
         <li class="divider"></li>
         <template v-for="item in cate1Nav">
-          <li :key="item.id" @mouseenter="getNavId(item.cateID)" @mouseleave="navId = ''">
+          <li
+            :key="item.id"
+            @mouseenter="getNavId(item.cateID)"
+            @mouseleave="navId = ''"
+          >
             <router-link :to="item.cateAlias"
               >{{ item.cateName ? item.cateName : "javascript:;" }}
               <i v-show="item.isTwoCate" class="iconfont"></i>
@@ -289,32 +292,39 @@ export default {
     };
   },
   mounted() {
+    // 发请求获取导航数据
     this.getNavData();
   },
   methods: {
+    // 鼠标移入赋值navId
     getNavId(navId) {
       this.navId = "";
       this.navId = navId;
     },
+    // 获取导航数据回调函数
     async getNavData() {
       let result = await this.$API.getNavData();
+      //判断状态码是否为200
       if (result.resultDesc.errCode === 200) {
-        let id = 1;
-        let time;
+        // 自定义唯一标识
+        let time,
+          id = 1;
+        // 遍历将唯一标识塞进去
         let navList = result.resultData.map((item) => {
+          //  这里给一级导航添加是否有二级导航标识
           let cateTwo = result.resultData.some(
             (twoItem) => twoItem.cateParentID === item.cateID
-
           );
-          if(cateTwo){
-            item.isTwoCate = true
+          //  判断通过将二级导航标识添加
+          if (cateTwo) {
+            item.isTwoCate = true;
           }
-
+          //  这下面处理唯一标识
           time = Date.now();
           item.id = time + id++;
           return item;
         });
-
+        
         this.navList = navList;
       }
     },
