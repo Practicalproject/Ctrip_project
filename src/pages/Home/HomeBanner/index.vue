@@ -26,26 +26,26 @@
           <!-- 左侧列表 -->
           <div class="small_left">
             <ul>
-              <li>
-                <span>酒店</span>
+              <li class="active">
+                <a href="javascript:;">酒店</a>
               </li>
               <li>
-                <span>酒店</span>
+                <a href="javascript:;">酒店</a>
               </li>
               <li>
-                <span>酒店</span>
+                <a href="javascript:;">酒店</a>
               </li>
               <li>
-                <span>酒店</span>
+                <a href="javascript:;">酒店</a>
               </li>
               <li>
-                <span>酒店</span>
+                <a href="javascript:;">酒店</a>
               </li>
               <li>
-                <span>酒店</span>
+                <a href="javascript:;">酒店</a>
               </li>
               <li>
-                <span>酒店</span>
+                <a href="javascript:;">酒店</a>
               </li>
             </ul>
           </div>
@@ -53,9 +53,15 @@
           <div class="small_right">
             <!-- 上方导航 -->
             <div class="right_top">
-              <span>国内酒店</span>
-              <span>海外酒店</span>
-              <span>民宿</span>
+              <span >
+                <a href="javascript:;">国内酒店</a>
+              </span>
+              <span class="right_top_action">
+                <a href="javascript:;">海外酒店</a>
+              </span>
+              <span>
+                <a href="javascript:;">民宿</a>
+              </span>
             </div>
             <!-- 下方表单 -->
             <div class="right_bot">
@@ -224,16 +230,25 @@ export default {
         background-color: #2577e3;
         ul {
           li {
-            height: 42px;
-            line-height: 42px;
+            height: 40px;
+            line-height: 40px;
             // text-align: center;
-            span {
+            a {
+              font-size: 14px;
               display: block;
-              height: 42px;
+              height: 35px;
               width: 60px;
               margin-left: 20px;
               border-bottom: 1px dashed #fff;
               color: white;
+            }
+          }
+          .active {
+            background-color: #fff;
+            border-left: 5px solid #ff9915;
+            a {
+              color: #2577e3;
+              font-weight: 700;
             }
           }
         }
@@ -247,10 +262,24 @@ export default {
           display: flex;
           border-bottom: 1px solid #ddd;
           margin-bottom: 8px;
+          .right_top_action {
+            a {
+              color: #06c;
+              background-position: 50% -10px;
+              cursor: default;
+              text-decoration: none;
+              border-bottom: 2px solid #2577e3;
+            }
+          }
           span {
-            height: 25px;
-            line-height: 25px;
-            margin-right: 20px;
+            a {
+              height: 25px;
+              line-height: 25px;
+              margin-right: 20px;
+              color: #333;
+              font-size: 16px;
+              padding-bottom: 3px;
+            }
           }
         }
         .right_bot {

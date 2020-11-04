@@ -16,5 +16,8 @@ export default {
     // 获取海外酒店
     getIndexHotel() {
         return Ajax.instanceTwo.get('/getIndexHotel')
+    },
+    getIndexHot() {
+        return Ajax.instanceTwo.get('/getIndexHot')
     }
 }

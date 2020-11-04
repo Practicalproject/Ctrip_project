@@ -29,102 +29,27 @@
     <div class="hotList_sub">
       <div class="sub_nav">
         <ul>
-          <li>境内</li>
-          <li>日本</li>
-          <li>东南亚</li>
-          <li>欧洲</li>
-          <li>美洲</li>
-          <li>澳中东非</li>
+          <li
+            class="sub_nav_action"
+            v-for="(hotList, index) in destCitys"
+            :key="index"
+          >
+            <a href="javascript:;">{{ hotList.nme }}</a>
+          </li>
         </ul>
       </div>
       <div class="sub_img">
         <!-- 左侧区域 -->
         <div class="sub_body">
-          <div class="body_item">
-            <img src="./image/01.jpg" alt="" />
+          <div class="body_item" v-for="(tabContent,index) in tabContentLst" :key="index">
+            <img :src="tabContent.img" alt="" />
             <div class="item_mask">
               <div class="title">
-                <span class="title_text">三亚</span>
+                <span class="title_text">{{tabContent.prdNme}}</span>
                 <div class="mask_rule"></div>
                 ￥
-                <span>876</span>/人起
-              </div>
-            </div>
-          </div>
-          <div class="body_item">
-            <img src="./image/01.jpg" alt="" />
-            <div class="item_mask">
-              <div class="title">
-                <span class="title_text">三亚</span>
-                <div class="mask_rule"></div>
-                ￥
-                <span>876</span>/人起
-              </div>
-            </div>
-          </div>
-          <div class="body_item">
-            <img src="./image/01.jpg" alt="" />
-            <div class="item_mask">
-              <div class="title">
-                <span class="title_text">三亚</span>
-                <div class="mask_rule"></div>
-                ￥
-                <span>876</span>/人起
-              </div>
-            </div>
-          </div>
-          <div class="body_item">
-            <img src="./image/01.jpg" alt="" />
-            <div class="item_mask">
-              <div class="title">
-                <span class="title_text">三亚</span>
-                <div class="mask_rule"></div>
-                ￥
-                <span>876</span>/人起
-              </div>
-            </div>
-          </div>
-          <div class="body_item">
-            <img src="./image/01.jpg" alt="" />
-            <div class="item_mask">
-              <div class="title">
-                <span class="title_text">三亚</span>
-                <div class="mask_rule"></div>
-                ￥
-                <span>876</span>/人起
-              </div>
-            </div>
-          </div>
-          <div class="body_item">
-            <img src="./image/01.jpg" alt="" />
-            <div class="item_mask">
-              <div class="title">
-                <span class="title_text">三亚</span>
-                <div class="mask_rule"></div>
-                ￥
-                <span>876</span>/人起
-              </div>
-            </div>
-          </div>
-          <div class="body_item">
-            <img src="./image/01.jpg" alt="" />
-            <div class="item_mask">
-              <div class="title">
-                <span class="title_text">三亚</span>
-                <div class="mask_rule"></div>
-                ￥
-                <span>876</span>/人起
-              </div>
-            </div>
-          </div>
-          <div class="body_item">
-            <img src="./image/01.jpg" alt="" />
-            <div class="item_mask">
-              <div class="title">
-                <span class="title_text">三亚</span>
-                <div class="mask_rule"></div>
-                ￥
-                <span>876</span>/人起
+                <span>{{ tabContent.price.amt }}</span
+                >/人起
               </div>
             </div>
           </div>
@@ -141,6 +66,30 @@
 <script>
 export default {
   name: "HotList",
+  data() {
+    return {
+      indexHot: {},
+      // amt: "",
+    };
+  },
+  mounted() {
+    this.getIndexHot();
+  },
+  methods: {
+    async getIndexHot() {
+      const result = await this.$API.index.getIndexHot();
+      console.log(result);
+      this.indexHot = result.data;
+    },
+  },
+  computed: {
+    destCitys() {
+      return this.indexHot.destCitys;
+    },
+    tabContentLst() {
+      return this.indexHot.tabContentLst;
+    },
+  },
 };
 </script>
 
@@ -213,12 +162,23 @@ export default {
       ul {
         display: flex;
         li {
-          text-align: center;
-          padding: 0 8px;
-          margin-right: 15px;
-          line-height: 20px;
-          color: #3983e5;
-          font-size: 13px;
+          a {
+            text-align: center;
+            padding: 0 8px;
+            margin-right: 15px;
+            line-height: 20px;
+            color: #3983e5;
+            font-size: 14px;
+            height: 20px;
+            display: block;
+          }
+        }
+        .sub_nav_action {
+          a {
+            background-color: #3983e5;
+            color: #fff;
+            border-radius: 5px;
+          }
         }
       }
     }
@@ -231,6 +191,8 @@ export default {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        overflow: hidden;
+        height: 330px;
         .body_item {
           width: 220px;
           height: 160px;
