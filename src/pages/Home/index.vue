@@ -7,7 +7,6 @@
     <CarRental></CarRental>
     <Partner></Partner>
     <Footer></Footer>
-    
   </div>
 </template>
 

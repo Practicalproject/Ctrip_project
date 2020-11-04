@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="wrap">
-      <div>
-        <!-- swiper轮播图 -->
-        <div>
+      <!-- swiper轮播图 -->
+      <div class="wrp_wiper">
+        <div class="swiper_contain">
           <div class="swiper-container">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
@@ -29,72 +29,12 @@
             <div class="swiper-pagination"></div>
           </div>
         </div>
-        <!-- 搜索框 -->
-        <div>
-          <div>
-            <el-tabs :tab-position="tabPosition">
-              <el-tab-pane label="酒店">
-                <el-tabs v-model="activeName" @tab-click="handleClick">
-                  <el-tab-pane label="国内酒店" name="first">
-                  </el-tab-pane>
-                  <el-tab-pane label="海外酒店" name="second"></el-tab-pane>
-                  <el-tab-pane label="民宿" name="third"></el-tab-pane>
-                </el-tabs>
-              </el-tab-pane>
-              <el-tab-pane label="机票">
-                <el-tabs v-model="activeName" @tab-click="handleClick">
-                  <el-tab-pane label="国内机票" name="first"></el-tab-pane>
-                  <el-tab-pane
-                    label="国际•港澳台机票"
-                    name="second"
-                  ></el-tab-pane>
-                  <el-tab-pane label="发现低价" name="third"></el-tab-pane>
-                </el-tabs>
-              </el-tab-pane>
-              <el-tab-pane label="旅游" addable>
-                <el-tabs v-model="activeName" @tab-click="handleClick">
-                  <el-tab-pane label="全部" name="first"></el-tab-pane>
-                  <el-tab-pane label="门票" name="second"></el-tab-pane>
-                  <el-tab-pane label="周边游" name="third"></el-tab-pane>
-                  <el-tab-pane label="自由行" name="fourth"></el-tab-pane>
-                  <el-tab-pane label="跟团游" name="gentuanyou"></el-tab-pane>
-                  <el-tab-pane label="邮轮" name="youlun"></el-tab-pane>
-                </el-tabs>
-              </el-tab-pane>
-              <el-tab-pane label="跟团游">
-                <el-tabs v-model="activeName" @tab-click="handleClick">
-                  <el-tab-pane label="推荐" name="first"></el-tab-pane>
-                  <el-tab-pane label="周边跟团" name="second"></el-tab-pane>
-                  <el-tab-pane label="境内跟团" name="third"></el-tab-pane>
-                  <el-tab-pane label="出境跟团" name="fourth"></el-tab-pane>
-                </el-tabs>
-              </el-tab-pane>
-              <el-tab-pane label="打包订">
-                <el-tabs v-model="activeName" @tab-click="handleClick">
-                  <el-tab-pane label="机票+酒店" name="first"></el-tab-pane>
-                </el-tabs>
-              </el-tab-pane>
-              <el-tab-pane label="火车">
-                <el-tabs v-model="activeName" @tab-click="handleClick">
-                  <el-tab-pane label="国内火车票" name="first"></el-tab-pane>
-                  <el-tab-pane
-                    label="国际/港台火车票"
-                    name="second"
-                  ></el-tab-pane>
-                  <el-tab-pane label="国内汽车票" name="third"></el-tab-pane>
-                </el-tabs>
-              </el-tab-pane>
-              <el-tab-pane label="用车">
-                <el-tabs v-model="activeName" @tab-click="handleClick">
-                  <el-tab-pane label="国内接送机" name="first"></el-tab-pane>
-                  <el-tab-pane label="境外接送机" name="second"></el-tab-pane>
-                  <el-tab-pane label="国内租车" name="third"></el-tab-pane>
-                  <el-tab-pane label="境外租车" name="fourth"></el-tab-pane>
-                  <el-tab-pane label="日租跑车" name="rizu"></el-tab-pane>
-                </el-tabs>
-              </el-tab-pane>
-            </el-tabs>
-          </div>
+      </div>
+      <!-- 搜索框 -->
+      <div class="wrap_positioning">
+        <div class="positioning_small">
+          <div class="small_left"></div>
+          <div class="small_right"></div>
         </div>
       </div>
     </div>
@@ -145,8 +85,47 @@ export default {
 };
 </script>
 <style lang='less' scoped>
-body {
-  font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
-  color: #333;
+.wrap {
+  position: relative;
+  .wrp_wiper {
+    .swiper_contain {
+      margin-bottom: 20px;
+      .swiper-container {
+        height: 340px;
+        .swiper-wrapper {
+          .swiper-slide {
+            img {
+              height: 340px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .wrap_positioning {
+    width: 1180px;
+    height: 340px;
+    // background-color: red;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+    .positioning_small{
+      background-color: salmon;
+      width: 580px;
+      height: 300px;
+      .small_left{
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+      }
+      .small_right{
+        width: 100px;
+        height: 100px;
+        background-color: sienna;
+      }
+    }
+  }
 }
 </style>
