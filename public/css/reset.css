@@ -99,3 +99,7 @@ td:not([align]),
 th:not([align]) {
   text-align: left;
 }
+
+input{
+  outline-style: none;
+}
