@@ -17,6 +17,4 @@ export default {
     getIndexHotel() {
         return Ajax.instanceTwo.get('/getIndexHotel')
     }
-
-
 }
