@@ -19,7 +19,7 @@
             </div>
           </div>
           <!-- 如果需要分页器 -->
-          <!-- <div class="swiper-pagination"></div> -->
+          <div class="swiper-pagination"></div>
         </div>
       </div>
       <!-- 轮播下方小图 -->
@@ -454,10 +454,247 @@
               <span>境外租车城市</span>
             </p>
           </h2>
+          <div class="hot_useCart">
+            <p>
+              <a
+                href="https://car.ctrip.com/city/losangeles347?channelid=16605"
+                target="_blank"
+                title="洛杉矶租车"
+              >
+                <img
+                  src="//images3.c-ctrip.com/dj/201612/cityimg/losangeles_200_150.jpg"
+                />
+                <span>洛杉矶</span>
+              </a>
+              <a
+                href="https://car.ctrip.com/city/newyork633?channelid=16605"
+                target="_blank"
+                title="纽约租车"
+              >
+                <img
+                  src="//images3.c-ctrip.com/dj/201612/cityimg/newyork_200_150.jpg"
+                />
+                <span>纽约</span>
+                <em></em>
+              </a>
+              <a
+                href="https://car.ctrip.com/city/melbourne358?channelid=16605"
+                target="_blank"
+                title="墨尔本租车"
+              >
+                <img
+                  src="//images3.c-ctrip.com/dj/201612/cityimg/melbourne_200_150.jpg"
+                />
+                <span>墨尔本</span>
+                <em></em>
+              </a>
+              <a
+                href="https://car.ctrip.com/city/phuket725?channelid=16605"
+                target="_blank"
+                title="普吉岛租车"
+              >
+                <img
+                  src="//images3.c-ctrip.com/dj/201612/cityimg/phuket_200_150.jpg"
+                />
+                <span>普吉岛</span>
+                <em></em>
+              </a>
+              <a
+                href="https://car.ctrip.com/city/london338?channelid=16605"
+                target="_blank"
+                title="伦敦租车"
+              >
+                <img
+                  src="//images3.c-ctrip.com/dj/201612/cityimg/london_200_150.jpg"
+                />
+                <span>伦敦</span>
+                <em></em>
+              </a>
+              <a
+                href="https://car.ctrip.com/city/paris192?channelid=16605"
+                target="_blank"
+                title="巴黎租车"
+              >
+                <img
+                  src="//images3.c-ctrip.com/dj/201612/cityimg/paris_200_150.jpg"
+                />
+                <span>巴黎</span>
+                <em></em>
+              </a>
+            </p>
+            <div>
+              <a
+                href="https://car.ctrip.com/city/sanfrancisco313?channelid=16605"
+                class="ml"
+                target="_blank"
+                title="旧金山租车"
+                ><em class="ci_icon"></em><span>旧金山</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/auckland678?channelid=16605"
+                target="_blank"
+                title="奥克兰租车"
+                ><em class="ci_icon"></em><span>奥克兰</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/lisbon1231?channelid=16605"
+                target="_blank"
+                title="里斯本租车"
+                ><em class="ci_icon"></em><span>里斯本</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/frankfurt250?channelid=16605"
+                target="_blank"
+                title="法兰克福租车"
+                ><em class="ci_icon"></em><span>法兰克福</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/vancouver476?channelid=16605"
+                target="_blank"
+                title="温哥华租车"
+                ><em class="ci_icon"></em><span>温哥华</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/bangkok359?channelid=16605"
+                target="_blank"
+                title="曼谷租车"
+                ><em class="ci_icon"></em><span>曼谷</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/orlando1187?channelid=16605"
+                target="_blank"
+                title="奥兰多租车"
+                ><em class="ci_icon"></em><span>奥兰多</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/sydney501?channelid=16605"
+                target="_blank"
+                title="悉尼租车"
+                ><em class="ci_icon"></em><span>悉尼</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/prague1288?channelid=16605"
+                target="_blank"
+                title="布拉格租车"
+                ><em class="ci_icon"></em><span>布拉格</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/amsterdam176?channelid=16605"
+                target="_blank"
+                class="ml"
+                title="阿姆斯特丹租车"
+                ><em class="ci_icon"></em><span>阿姆斯特丹</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/munich363?channelid=16605"
+                target="_blank"
+                title="慕尼黑租车"
+                ><em class="ci_icon"></em><span>慕尼黑</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/barcelona707?channelid=16605"
+                target="_blank"
+                title="巴塞罗那租车"
+                ><em class="ci_icon"></em><span>巴塞罗那</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/boston703?channelid=16605"
+                target="_blank"
+                title="波士顿租车"
+                ><em class="ci_icon"></em><span>波士顿</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/rome343?channelid=16605"
+                target="_blank"
+                title="罗马租车"
+                ><em class="ci_icon"></em><span>罗马</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/seoul274?channelid=16605"
+                target="_blank"
+                title="首尔租车"
+                ><em class="ci_icon"></em><span>首尔</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/lasvegas675?channelid=16605"
+                target="_blank"
+                title="拉斯维加斯租车"
+                ><em class="ci_icon"></em><span>拉斯维加斯</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/athens710?channelid=16605"
+                target="_blank"
+                title="雅典租车"
+                ><em class="ci_icon"></em><span>雅典</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/capetown683?channelid=16605"
+                target="_blank"
+                title="开普敦租车"
+                ><em class="ci_icon"></em><span>开普敦</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/bordeaux776?channelid=16605"
+                target="_blank"
+                class="ml"
+                title="波尔多租车"
+                ><em class="ci_icon"></em><span>波尔多</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/vienna651?channelid=16605"
+                target="_blank"
+                title="维也纳租车"
+                ><em class="ci_icon"></em><span>维也纳</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/copenhagen260?channelid=16605"
+                target="_blank"
+                title="哥本哈根租车"
+                ><em class="ci_icon"></em><span>哥本哈根</span
+                ><i class="ci_icon"></i
+              ></a>
+              <a
+                href="https://car.ctrip.com/city/gothenburg804?channelid=16605"
+                target="_blank"
+                title="哥德堡租车"
+                ><em class="ci_icon"></em><span>哥德堡</span
+                ><i class="ci_icon"></i
+              ></a>
+            </div>
+          </div>
           <div>
             <div></div>
             <div></div>
           </div>
+        </div>
+      </div>
+
+      <!-- 用车点评.问题,伙伴 -->
+      <div class="sundry">
+        <!-- 点评 -->
+        <div class="remark">
+          <span></span>
+          <h2>用车点评</h2>
         </div>
       </div>
     </div>
@@ -471,6 +708,7 @@ export default {
   mounted() {
     var mySwiper = new Swiper(".swiper-container", {
       loop: true, // 循环模式选项
+      autoplay: true,
 
       // 如果需要分页器
       // pagination: {
@@ -778,7 +1016,7 @@ export default {
         margin: 20px 0;
         font: 26px/1 Microsoft Yahei;
         text-align: center;
-        .wire{
+        .wire {
           width: 100%;
           height: 1px;
           display: inline-block;
@@ -787,15 +1025,138 @@ export default {
           top: 34px;
           left: 0;
         }
-        p{
+        p {
           background: #fff;
           width: 279.66px;
           margin: 0 auto;
           position: relative;
-          span{
+          span {
             color: #06c;
           }
         }
+      }
+      .hot_useCart {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        p {
+          width: 606px;
+          a {
+            display: inline-block;
+            zoom: 1;
+            width: 180px;
+            height: 115px;
+            margin: 0 15px 20px 0;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            span {
+              display: block;
+              width: 85px;
+              height: 85px;
+              border-radius: 50%;
+              background-color: rgba(255, 255, 255, 0.5);
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              margin: -42px 0 0 -42px;
+              text-align: center;
+              font: 18px/85px Microsoft Yahei;
+              color: #333;
+              z-index: 2;
+            }
+          }
+          a:hover img {
+            transform: scale(1.15);
+            transition: all 0.5s;
+            // width: 150%;
+            // height: 150%;
+          }
+        }
+        div {
+          width: 520px;
+          height: 275px;
+          a {
+            margin: 0 10px 20px 0;
+            display: inline-block;
+            span {
+              display: inline-block;
+              font: 14px/33px Microsoft Yahei;
+              border-top: #dcdcdc 1px solid;
+              border-bottom: #dcdcdc 1px solid;
+              padding: 0 8px;
+              background-color: #fff;
+              vertical-align: middle;
+              color: #333;
+            }
+            em {
+              background-position: 0 -261px !important;
+              display: inline-block;
+              width: 18px;
+              height: 35px;
+              vertical-align: middle;
+            }
+            i {
+              background-position: -18px -261px !important;
+              display: inline-block;
+              width: 18px;
+              height: 35px;
+              vertical-align: middle;
+            }
+            .ci_icon {
+              background: url(https://pic.ctrip.com/car/home/icon.png) no-repeat;
+            }
+          }
+          a:hover em {
+            background-position: -36px -261px !important;
+          }
+          a:hover i {
+            background-position: -54px -261px !important;
+          }
+          a:hover span {
+            border-color: #06c;
+            color: #06c;
+          }
+          .ml {
+            margin-left: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  // 用车点评.问题,伙伴
+  .sundry {
+    width: 1180px;
+    height: 1000px;
+    margin: 0 auto;
+    background-color: pink;
+    // 点评
+    .remark {
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      margin-bottom: 20px;
+      position: relative;
+      text-align: center;
+      span {
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid #d4d4d4;
+        position: absolute;
+        top: 20px;
+        left: 0;
+      }
+      h2 {
+        width: 154px;
+        height: 35px;
+        font: 26px/1 Microsoft Yahei;
+        padding: 0 25px;
+        font-style: normal;
+        background-color: #fff;
+        position: relative;
+        z-index: 1;
+        margin: 0 auto;
       }
     }
   }

@@ -35,8 +35,7 @@
             <el-tabs :tab-position="tabPosition">
               <el-tab-pane label="酒店">
                 <el-tabs v-model="activeName" @tab-click="handleClick">
-                  <el-tab-pane label="国内酒店" name="first">
-                  </el-tab-pane>
+                  <el-tab-pane label="国内酒店" name="first"> </el-tab-pane>
                   <el-tab-pane label="海外酒店" name="second"></el-tab-pane>
                   <el-tab-pane label="民宿" name="third"></el-tab-pane>
                 </el-tabs>
@@ -134,6 +133,7 @@ export default {
   mounted() {
     var mySwiper = new Swiper(".swiper-container", {
       loop: true, // 循环模式选项
+      autoplay: true,
 
       // 如果需要分页器
       //   pagination: {
