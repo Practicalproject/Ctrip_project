@@ -1,6 +1,6 @@
 <template>
   <!-- 经典详情 -->
-  <div></div>
+  <div>hello kitty</div>
 </template>
 
 <script>
