@@ -3,20 +3,11 @@
     <!-- 头部列表 -->
     <div class="header_list">
       <ul>
-        <li>热门</li>
-        <li>周边游</li>
-        <li>门票</li>
-        <li>出境游</li>
-        <li>境内游</li>
-        <li>游轮</li>
-        <li>当地玩乐</li>
-        <li>主题游</li>
-        <li>高端游</li>
+        <li>海外酒店</li>
+        <li>海外民宿+短租</li>
+        <li>国内酒店</li>
+        <li>客栈民宿</li>
       </ul>
-      <div class="header_go">
-        上海出发
-        <i class="iconfont icon-xiala"></i>
-      </div>
     </div>
     <!-- 内容主体 -->
     <div class="hotList_sub">
@@ -32,29 +23,9 @@
       </div>
       <div class="sub_img">
         <!-- 左侧区域 -->
+        <div class="sub_left"></div>
+        <!-- 中间 -->
         <div class="sub_body">
-          <div class="body_item">
-            <img src="./image/01.jpg" alt="" />
-            <div class="item_mask">
-              <div class="title">
-                <span class="title_text">三亚</span>
-                <div class="mask_rule"></div>
-                ￥
-                <span>876</span>/人起
-              </div>
-            </div>
-          </div>
-          <div class="body_item">
-            <img src="./image/01.jpg" alt="" />
-            <div class="item_mask">
-              <div class="title">
-                <span class="title_text">三亚</span>
-                <div class="mask_rule"></div>
-                ￥
-                <span>876</span>/人起
-              </div>
-            </div>
-          </div>
           <div class="body_item">
             <img src="./image/01.jpg" alt="" />
             <div class="item_mask">
@@ -133,16 +104,16 @@
 
 <script>
 export default {
-  name: "HotList",
+  name: "OutHotels",
 };
 </script>
 
 <style lang='less' scoped>
 .hotList_wrapper {
   width: 1180px;
-  margin: 0 auto;
+  margin: 30px auto;
   line-height: 30px;
-
+  
   //   头部列表
   .header_list {
     width: 100%;
@@ -155,20 +126,13 @@ export default {
         margin-right: 30px;
       }
     }
-    .header_go {
-      height: 22px;
-      color: #3983e4;
-      font-size: 13px;
-      .icon-xiala {
-        font-size: 13px;
-      }
-    }
   }
   // 主体内容
   .hotList_sub {
     padding: 15px 19px 0;
     width: 100%;
     border: 1px solid #ddd;
+    
     .sub_nav {
       margin-bottom: 15px;
       ul {
@@ -186,8 +150,16 @@ export default {
     .sub_img {
       display: flex;
       justify-content: space-between;
+      .sub_left {
+        height: 360px;
+        width: 227px;
+        background-color: red;
+        padding: 0 20px 15px;
+        box-sizing: border-box;
+      }
       .sub_body {
-        width: 910px;
+        width: 690px;
+        height: 360px;
         margin: 0 0 10px 10px;
         display: flex;
         justify-content: space-between;
@@ -237,8 +209,8 @@ export default {
         }
       }
       .sub_big {
-        width: 210px;
-        height: 330px;
+        width: 200px;
+        height: 360px;
         // background-color: yellowgreen;
         img {
           width: 100%;
