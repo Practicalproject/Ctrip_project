@@ -6,7 +6,12 @@ module.exports = {
             '/api': {
                 target: 'http://www.amspur.com',
                 pathRewrite: { "^/api": "" }
-            }
+            },
+            '/v1': {
+                target: 'http://localhost:8080',
+                pathRewrite: { "^/v1": "" }
+            },
+
         }
     },
 }
