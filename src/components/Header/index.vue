@@ -233,6 +233,7 @@
     </div>
     <!-- 除了首页\机票页面\攻略页面 -->
     <nav
+      
       class="navContainer"
       :class="{
         mb:
@@ -247,18 +248,18 @@
         </li>
         <li class="divider"></li>
         <template v-for="item in cate1Nav">
-          <li :key="item.id" @mouseenter="getNavId(item.cateID)">
+          <li :key="item.id" @mouseenter="getNavId(item.cateID)" @mouseleave="navId = ''">
             <router-link :to="item.cateAlias"
-              >{{ item.cateName }}
-              <i class="iconfont"></i>
+              >{{ item.cateName ? item.cateName : "javascript:;" }}
+              <i v-show="item.isTwoCate" class="iconfont"></i>
               <span class="point"></span>
             </router-link>
             <div
-              v-if="navId"
+              v-show="navId && cate2Nav.length > 0"
               :style="{ 'z-index': navId === item.cateID ? 2 : 1 }"
               class="cui_subnav_wrap"
             >
-              <ul class="ul_nav_hotel" @mouseleave="navId = ''">
+              <ul class="ul_nav_hotel">
                 <li v-for="navItem in cate2Nav" :key="navItem.id">
                   <a href="javascript:;">{{ navItem.cateName }}</a>
                 </li>
@@ -293,7 +294,6 @@ export default {
   methods: {
     getNavId(navId) {
       this.navId = "";
-      console.log(navId);
       this.navId = navId;
     },
     async getNavData() {
@@ -302,10 +302,19 @@ export default {
         let id = 1;
         let time;
         let navList = result.resultData.map((item) => {
+          let cateTwo = result.resultData.some(
+            (twoItem) => twoItem.cateParentID === item.cateID
+
+          );
+          if(cateTwo){
+            item.isTwoCate = true
+          }
+
           time = Date.now();
           item.id = time + id++;
           return item;
         });
+
         this.navList = navList;
       }
     },
