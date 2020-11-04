@@ -128,6 +128,9 @@ export default {
   p {
     a {
       color: #999;
+      &:hover{
+        color: #3983e5;
+      }
     }
   }
   .gns {
@@ -217,6 +220,8 @@ export default {
       &.honour9 {
         background-position: 0 -350px;
         width: 130px;
+        overflow: hidden;
+        text-indent: -99em;
       }
     }
   }

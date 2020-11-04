@@ -25,7 +25,160 @@
             </div>
           </div>
         </div>
-        <div class="supplyFoot"></div>
+        <div class="supplyFoot">
+          <ul>
+            <li>
+              <span>
+                <i
+                  ><img
+                    src="https://pic.c-ctrip.com/index/v3.0/supply_icon.png"
+                    alt=""
+                  /> </i
+                >日本
+              </span>
+            </li>
+            <li>
+              <span>
+                <i
+                  ><img
+                    src="https://pic.c-ctrip.com/index/v3.0/supply_icon.png"
+                    alt=""
+                  /> </i
+                >韩国
+              </span>
+            </li>
+            <li>
+              <span>
+                <i
+                  ><img
+                    src="https://pic.c-ctrip.com/index/v3.0/supply_icon.png"
+                    alt=""
+                  /> </i
+                >更多
+              </span>
+            </li>
+            <li>
+              <span>
+                <i
+                  ><img
+                    src="https://pic.c-ctrip.com/index/v3.0/supply_icon.png"
+                    alt=""
+                  /> </i
+                >欧洲通用
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="supplyBox">
+        <div class="supplyHd">
+          <div class="supImg">
+            <span class="visaItem">
+              <i class="visa"></i>
+            </span>
+          </div>
+          <div class="supCon">
+            <p class="conHd">签证</p>
+            <div class="conCon">
+              <p>在材料制作完成前均可申请订单全额退款</p>
+              <p>服务优质，方便快捷，诚信可靠，出签率高</p>
+            </div>
+          </div>
+        </div>
+        <div class="supplyFoot">
+          <ul>
+            <li>
+              <span>
+                <i
+                  ><img
+                    src="https://pic.c-ctrip.com/vacation_v2/visa/24-japan.png"
+                    alt=""
+                  /> </i
+                >日本
+              </span>
+            </li>
+            <li>
+              <span>
+                <i
+                  ><img
+                    src="https://pic.c-ctrip.com/vacation_v2/visa/24-korea.png"
+                    alt=""
+                  /> </i
+                >韩国
+              </span>
+            </li>
+            <li>
+              <span>
+                <i
+                  ><img
+                    src="https://pic.c-ctrip.com/vacation_v2/visa/24-USA.png"
+                    alt=""
+                  /> </i
+                >美国
+              </span>
+            </li>
+            <li>
+              <span>
+                <i
+                  ><img
+                    src="https://pic.c-ctrip.com/vacation_v2/visa/24-Australia.png"
+                    alt=""
+                  /> </i
+                >澳大利亚
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="supplyBox">
+        <div class="supplyHd">
+          <div class="supImg">
+            <span class="InsuranceItem">
+              <i class="Insurance"></i>
+            </span>
+          </div>
+          <div class="supCon">
+            <p class="conHd">保险</p>
+            <div class="conCon">
+              <p>携程保险，安心随行</p>
+              <p>旅游定制、极速出保、便捷理赔</p>
+            </div>
+          </div>
+        </div>
+        <div class="supplyFoot">
+          <ul>
+            <li>
+              <span class="superItem">
+                <i
+                  ><img
+                    src="https://pages.ctrip.com/tour/pdf1610/1.png"
+                    alt=""
+                  /> </i
+                >【申根之王】
+              </span>
+            </li>
+            <li>
+              <span class="superItem">
+                <i
+                  ><img
+                    src="https://pages.ctrip.com/tour/pdf1610/1.png"
+                    alt=""
+                  /> </i
+                >【亚洲优选】
+              </span>
+            </li>
+            <li>
+              <span class="superItem">
+                <i
+                  ><img
+                    src="https://pages.ctrip.com/tour/pdf1610/1.png"
+                    alt=""
+                  /> </i
+                >【境内畅游】
+              </span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -43,6 +196,7 @@ export default {
   margin: 28px auto 0;
   width: 1180px;
   height: 193px;
+  font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
   .tsHeader {
     height: 36px;
     width: 1180px;
@@ -79,9 +233,8 @@ export default {
   }
   .wifi {
     margin: 10px 0 0 0px;
-    overflow: hidden;
     width: 1180px;
-    background-color: pink;
+    display: flex;
     .supplyBox {
       width: 384px;
       height: 145px;
@@ -120,6 +273,22 @@ export default {
               background: url("./images/sprite.png") no-repeat 0 0;
             }
           }
+          .visaItem {
+            background: #cbe2b3;
+            .visa {
+              height: 46px;
+              margin: -23px 0 0 -23px;
+              background: url("./images/sprite.png") no-repeat 0 -39px;
+            }
+          }
+          .InsuranceItem {
+            background: #f6dbb9;
+            .Insurance {
+              height: 48px;
+              margin: -24px 0 0 -23px;
+              background: url("./images/sprite.png") no-repeat 0 -89px;
+            }
+          }
         }
         .supCon {
           margin-left: 130px;
@@ -132,7 +301,6 @@ export default {
           .conCon {
             padding-right: 5px;
             color: #666;
-            font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
           }
         }
       }
@@ -140,7 +308,43 @@ export default {
         height: 40px;
         overflow: hidden;
         border-top: 1px solid #e0e0e0;
-        background-color: #ccc;
+        ul {
+          margin-left: -1px;
+          display: flex;
+          li {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 8px 0;
+            // display: flex;
+            justify-content: space-around;
+            span {
+              width: 96px;
+              display: inline-block;
+              height: 24px;
+              line-height: 24px;
+              border-left: 1px dashed #a3a3a3;
+              text-align: center;
+              margin-left: -1px;
+              color: #333;
+              i {
+                overflow: hidden;
+                margin-right: 5px;
+                img {
+                  width: 24px;
+                  height: 24px;
+                  vertical-align: middle;
+                  border-radius: 50%;
+                }
+              }
+            }
+            .superItem {
+              width: 128px;
+            }
+            &:hover {
+              background: #e2eeff;
+            }
+          }
+        }
       }
     }
   }
