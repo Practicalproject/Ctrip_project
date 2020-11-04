@@ -1150,6 +1150,7 @@ export default {
       h2 {
         width: 154px;
         height: 35px;
+        line-height: 35px;
         font: 26px/1 Microsoft Yahei;
         padding: 0 25px;
         font-style: normal;
