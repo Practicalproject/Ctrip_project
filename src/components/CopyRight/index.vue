@@ -119,10 +119,106 @@ export default {
 .mod.copyright {
   width: 1180px;
   height: 500px;
-  margin: 28px auto 0;
-//   background-color: pink;
+  margin: 40px auto 0;
+  //   background-color: pink;
   text-align: center;
   color: #999;
+  font-size: 12px;
+  line-height: 1.5;
+  p {
+    a {
+      color: #999;
+    }
+  }
+  .gns {
+    margin-top: 8px;
+    .icon-gns {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 3px;
+      background-position: 0 -235px;
+      vertical-align: middle;
+      background-image: url(//pic.c-ctrip.com/platform/online/home/phone_list20190617.png);
+      background-color: #fff;
+      background-repeat: no-repeat;
+    }
+  }
+  .supervision-call {
+    padding-top: 10px !important;
+  }
+  .honour_wrap {
+    display: inline-block;
+    padding-top: 10px;
+    text-align: left;
+    a {
+      float: left;
+      margin: 0 4px;
+      width: 88px;
+      height: 32px;
+      border: 1px solid #d1d1d1;
+      border-radius: 2px;
+      font: 12px/32px Simsun;
+      overflow: hidden;
+      background-image: url(//pic.c-ctrip.com/platform/online/home/phone_list20190617.png);
+      background-color: #fff;
+      background-repeat: no-repeat;
+      text-indent: 36px;
+      &.honour1 {
+        background-position: -88px -50px;
+      }
+      &.honour2 {
+        background-position: -88px -85px;
+      }
+      &.honour3 {
+        background-position: 0 -50px;
+        overflow: hidden;
+        text-indent: -99em;
+      }
+      &.honour4 {
+        background-position: -88px -118px;
+        // text-indent: 0;
+        // padding: 2px 0 2px 37px;
+        // width: 51px;
+        // height: 28px;
+        // line-height: 1.2;
+        // overflow: hidden;
+        // text-indent: -99em;
+      }
+      &.honour5 {
+        // width: 95px;
+        background-position: 0 -387px;
+        overflow: hidden;
+        text-indent: -99em;
+      }
+      &.honour6 {
+        background-position: 0 -118px;
+        overflow: hidden;
+        text-indent: -99em;
+      }
+      &.honour10 {
+        background-position: 0 -429px;
+        width: 102px;
+        text-indent: -99em;
+        overflow: hidden;
+      }
+      &.honour12 {
+        background-position: 0 -155px;
+        width: 114px;
+        overflow: hidden;
+        text-indent: -99em;
+      }
+      &.honour11 {
+        background-position: 0 -480px;
+        width: 50px;
+        overflow: hidden;
+        text-indent: -99em;
+      }
+      &.honour9 {
+        background-position: 0 -350px;
+        width: 130px;
+      }
+    }
+  }
 }
-
 </style>

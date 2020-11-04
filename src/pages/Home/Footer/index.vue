@@ -1,8 +1,8 @@
 <template>
-  <div class="footerContainer">
+  <div class="footerContainer clearfix">
     <div class="w">
-      <!-- <div class="footer">
-        <dl class="footer-item">
+      <div id="footer" class="mod footer">
+        <dl class="footer-item advantage">
           <dt>为什么选择携程</dt>
           <dd>
             <div class="advan-item advan-server">
@@ -19,7 +19,7 @@
                 <i class="icon icon-price"></i>
               </div>
               <div class="advan-text">
-                <p class="advan-title">放心的价格</p>
+                <p class="advan-price">放心的价格</p>
                 <p>具竞争力的价格 无任何隐形费用</p>
               </div>
             </div>
@@ -30,48 +30,7 @@
             ></a>
           </dd>
         </dl>
-        <dl class="footer-item">
-          <dt>旅游咨询</dt>
-        </dl>
-        <dl class="footer-item">
-          <dt>加盟合作</dt>
-        </dl>
-        <dl class="footer-item">
-          <dt>关于携程</dt>
-        </dl>
-        <dl class="footer-item">
-          <dt>微信公众号</dt>
-        </dl>
-      </div> -->
-      <div id="footer" class="mod footer">
-        <dl class="footer-item advantage">
-          <dt>为什么选择携程</dt>
-          <dd>
-            <div class="advan-item advan-server">
-              <div class="advan-img">
-                <i class="iconfont icon-fuwu"></i>
-              </div>
-              <div class="advan-text">
-                <p class="advan-title">放心的服务</p>
-                <p>领先的服务标准 独创的保障体系</p>
-              </div>
-            </div>
-            <div class="advan-item advan-price">
-              <div class="advan-img">
-                <i class="iconfont icon-price"></i>
-              </div>
-              <div class="advan-text">
-                <p class="advan-title">放心的价格</p>
-                <p>具竞争力的价格 无任何隐形费用</p>
-              </div>
-            </div>
-            <a
-              class="block-link"
-              target="_blank"
-              href="http://pages.ctrip.com/commerce/promote/201409/other/xcfw/index1.html"
-            ></a>
-          </dd>
-        </dl>
+
         <dl class="footer-item travel_info">
           <dt>旅游资讯</dt>
           <dd class="ft-link-item">
@@ -119,6 +78,7 @@
             >
           </dd>
         </dl>
+
         <dl class="footer-item join_in">
           <dt>加盟合作</dt>
           <dd class="ft-link-item">
@@ -180,6 +140,7 @@
             >
           </dd>
         </dl>
+
         <dl class="footer-item about_ctrip">
           <dt>关于携程</dt>
           <dd class="ft-link-item">
@@ -198,7 +159,7 @@
                 onmouseout="document.getElementById('Chot').className= 'dropdown';"
                 >携程热点<span class="caret"></span
               ></a>
-              <div class="dropdown-cont">
+              <!-- <div class="dropdown-cont">
                 <div
                   class="dropdown-news"
                   onmouseover="document.getElementById('Chot').className= 'dropdown open';"
@@ -240,7 +201,7 @@
                     >
                   </p>
                 </div>
-              </div>
+              </div> -->
             </div>
           </dd>
           <dd class="ft-link-item">
@@ -309,6 +270,7 @@
             >
           </dd>
         </dl>
+
         <dl class="footer-item wechat_code">
           <dt>微信公众号</dt>
           <dd class="ft-link-item">
@@ -345,7 +307,7 @@ export default {
   visibility: hidden;
 }
 .footerContainer {
-  overflow: hidden;
+  // overflow: hidden;
   .w {
     width: 1180px;
     margin: 0 auto;
@@ -355,6 +317,7 @@ export default {
       padding: 28px 0 30px 0;
       color: #666;
       margin: 28px auto 0;
+      
     }
     .footer-item {
       height: 150px;
@@ -368,6 +331,89 @@ export default {
         margin-bottom: 10px;
       }
     }
+    // 为什么选择携程
+    .advantage {
+      position: relative;
+      width: 245px;
+      padding-left: 0;
+      border-left: none;
+      line-height: 1.5;
+      box-sizing: border-box;
+      .advan-item {
+        margin-bottom: 15px;
+        .advan-img {
+          float: left;
+          overflow: hidden;
+          .icon {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background-image: url(//pic.c-ctrip.com/platform/online/home/pic_partner.png);
+            background-repeat: no-repeat;
+            &.icon-server {
+              background-position: -41px -250px;
+            }
+          }
+          .icon-price {
+            background-position: -41px -200px;
+          }
+        }
+        .advan-text {
+          margin-left: 45px;
+          p {
+            font-size: 12px;
+            color: #666;
+            &.advan-title {
+              font: bold 16px "Microsoft Yahei";
+              color: #2577e3;
+            }
+            &.advan-price {
+              font: bold 16px "Microsoft Yahei";
+              color: #ff9913;
+            }
+          }
+        }
+      }
+    }
+
+    // 旅游资讯
+    .travel_info,
+    .join_in,
+    .about_ctrip {
+      width: 261px;
+      padding: 0 10px 0 40px;
+      float: left;
+      display: inline-block;
+      border-left: 1px solid #dedede;
+      margin-left: -1px;
+      box-sizing: border-box;
+      .ft-link-item {
+        float: left;
+        display: inline-block;
+        width: 105px;
+        line-height: 14px;
+        margin: 6px 0;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 12px;
+        a {
+          color: #666;
+          position: relative;
+          &:hover {
+            color: #3983e5;
+          }
+        }
+        .ft-link-item_drop {
+          overflow: inherit;
+          height: 14px;
+        }
+      }
+    }
+    .wechat_code{
+      width: 157px;
+      box-sizing: border-box;
+    }
+
   }
 }
 </style>
