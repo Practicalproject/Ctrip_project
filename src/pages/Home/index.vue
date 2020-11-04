@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CarRental from "CarRental";
+import CarRental from "./CarRental";
 export default {
   name: "Home",
   components: {

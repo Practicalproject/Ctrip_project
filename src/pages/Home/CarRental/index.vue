@@ -266,7 +266,6 @@ export default {
           
         }
           li {
-            float: left;
             list-style: none;
             /* background: #3983e5; */
             color: #fff;
@@ -275,6 +274,7 @@ export default {
             line-height: 20px;
             margin-right: 15px;
             padding: 0 8px;
+          
           }
           a {
             float: right;
