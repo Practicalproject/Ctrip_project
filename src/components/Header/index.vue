@@ -161,7 +161,8 @@
             </ul>
           </li>
           <li class="active">
-            <a href="javascript:;"><span>我的订单</span></a>
+            <!-- <a href="javascript:;"><span>我的订单</span></a> -->
+            <router-link to="/order"><span>我的订单</span></router-link>
             <i class="iconfont icon-downlist"></i>
             <ul class="nav-drowndrop">
               <li>

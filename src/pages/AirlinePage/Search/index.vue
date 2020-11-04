@@ -30,7 +30,7 @@
             <li>
               <span class="radio-label">
                 <i class="iconfont icon-RadioButton"></i>
-                <i class="iconfont icon-RadioButton-1"></i>
+                <i class="iconfont icon-RadioButton-1 active"></i>
                 单程
               </span>
             </li>
@@ -308,6 +308,9 @@ export default {
           .icon-RadioButton {
             display: none;
           }
+          .active {
+            color: #06c;
+          }
         }
         .flightWay {
           position: relative;
@@ -374,11 +377,11 @@ export default {
               }
             }
           }
-        }
-        &:hover .question-container {
-          display: block;
-          width: 252px;
-          height: 320px;
+          &:hover .question-container {
+            display: block;
+            width: 252px;
+            height: 320px;
+          }
         }
       }
       .flt-subclass {

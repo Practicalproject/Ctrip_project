@@ -56,18 +56,33 @@
             <span class="order-delete"><a href="##">删除订单</a></span>
           </h3>
           <!-- 内容区 -->
-          <div class="order-items clearfix">
+          <div class="order-content clearfix">
             <div class="order-detail">
               <ul>
                 <li class="order-item-title">北京-沈阳北</li>
-                <li class="order-item-txt">出发日期：2020-09-30 22:33 至 10-01 07:25 K53</li>
-                <li class="order-item-txt">出行人：索笑宇</li>
+                <li class="order-item-txt">
+                  出发日期：2020-09-30 22:33 至 10-01 07:25 K53
+                </li>
+                <li class="order-item-txt">出行人：xxx</li>
               </ul>
             </div>
-            <div class="order-price"></div>
+            <div class="order-price">
+              <div class="order-price-detail">￥182</div>
+              <div class="order-price-status">已成交</div>
+            </div>
           </div>
         </li>
       </ul>
+
+      <!-- 底部 -->
+      <div class="footer">
+        <label class="base">
+          <input type="checkbox" />
+          <span class="allChoose">全选</span>
+        </label>
+        <a href="javascript:;" class="allDelete">删除选中的商品</a>
+        <a href="javascript:;" class="sum-btn">结算</a>
+      </div>
     </div>
   </div>
 </template>
@@ -135,7 +150,7 @@ export default {
     // 头部
     .header {
       height: 39px;
-      background-color: pink;
+      // background-color: pink;
       margin-bottom: 20px;
       a {
         float: left;
@@ -189,29 +204,76 @@ export default {
           }
         }
         // 内容区
-        .order-detail {
-          max-width: 720px;
-          float: left;
+        .order-content {
           margin: 10px 0 10px 28px;
-          ul {
-            .order-item-title {
-              font-size: 16px;
-              line-height: 20px;
-              color: #111;
-              font-weight: 700;
-              margin-bottom: 6px;
-            }
-            .order-item-txt {
-              font-size: 12px;
-              line-height: 16px;
-              color: #333;
-              margin-bottom: 6px;
+          .order-detail {
+            max-width: 720px;
+            float: left;
+            ul {
+              .order-item-title {
+                font-size: 16px;
+                line-height: 20px;
+                color: #111;
+                font-weight: 700;
+                margin-bottom: 6px;
+              }
+              .order-item-txt {
+                font-size: 12px;
+                line-height: 16px;
+                color: #333;
+                margin-bottom: 6px;
+              }
             }
           }
           .order-price {
             float: right;
+            margin-right: 12px;
+            .order-price-detail {
+              display: inline-block;
+              vertical-align: top;
+              border-right: 1px solid #d8d8d8;
+              padding-right: 7px;
+              margin-right: 7px;
+              color: #e56700;
+              font-weight: 700;
+            }
+            .order-price-status {
+              display: inline-block;
+              vertical-align: top;
+              color: #666;
+            }
           }
         }
+      }
+    }
+
+    // 底部
+    .footer {
+      .base {
+        margin-left: 10px;
+        font-size: 12px;
+        color: #333;
+        input {
+          vertical-align: middle;
+        }
+        .allChoose {
+          margin-left: 3px;
+        }
+      }
+      .allDelete {
+        margin-left: 15px;
+        color: #333;
+      }
+      .sum-btn {
+        display: block;
+        float: right;
+        width: 80px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        background: #06c;
+        color: #fff;
+        font-size: 18px;
       }
     }
   }
