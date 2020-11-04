@@ -35,17 +35,11 @@
             </dd>
           </dl>
           <dl class="keyword-long">
-            <dt>发现酒店</dt>
-            <dd>
-              <span
-                class="entrance-item"
-                title="流行与复古结合的热门人气地——首尔仁寺洞钟路"
-                ><a
-                  href="http://hotels.ctrip.com/international/faxian/t2884#ctm_ref=ssc_hp_htl_sni_txt_3"
-                  target="_blank"
-                  >流行与复古结合的热门人气地——首尔仁寺洞钟路</a
-                ></span
-              >
+            <dt>{{ tagDownName }}</dt>
+            <dd v-for="(tag, index) in tagDownList" :key="index">
+              <span class="entrance-item" :title="tag.nme">
+                <a href="javascript:;">{{ tag.nme }}</a>
+              </span>
             </dd>
           </dl>
         </div>
@@ -99,6 +93,8 @@ export default {
       adLst: {},
       tagupItemLst: [],
       tagUpName: "",
+      tagDownName: "",
+      tagDownList: [],
     };
   },
   mounted() {
@@ -111,6 +107,8 @@ export default {
       this.adLst = result.data[0].adLst[0];
       this.tagupItemLst = result.data[0].tagUp.itemLst;
       this.tagUpName = result.data[0].tagUp.nme;
+      this.tagDownName = result.data[0].tagDown.nme;
+      this.tagDownList = result.data[0].tagDown.itemLst;
     },
   },
   computed: {
@@ -122,6 +120,9 @@ export default {
     },
     tagup() {
       return this.indexHotel.tagUp;
+    },
+    tagDown() {
+      return this.indexHotel.tagDown;
     },
   },
 };
