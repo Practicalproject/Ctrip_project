@@ -4,7 +4,8 @@ module.exports = {
     devServer: {
         proxy: {
             '/api': {
-                target: 'http://www.amspur.com',
+                // target: 'http://www.amspur.com',
+                target: 'http://localhost:8080',
                 pathRewrite: { "^/api": "" }
             }
         }

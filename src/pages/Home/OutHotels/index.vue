@@ -122,12 +122,7 @@
             <!-- 境内 -->
             <div class="sub_nav">
               <ul>
-                <li>境内</li>
-                <li>日本</li>
-                <li>东南亚</li>
-                <li>欧洲</li>
-                <li>美洲</li>
-                <li>澳中东非</li>
+                <li v-for="item in tabs" :key="item">{{ item.tabNme }}</li>
               </ul>
             </div>
           </div>
@@ -204,7 +199,7 @@
             </div>
             <!-- 右侧大图 -->
             <div class="sub_big">
-              <img src="./image/02.jpg" alt="" />
+              <img src="./image/01.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -218,18 +213,23 @@ export default {
   name: "OutHotels",
   data() {
     return {
-      indexHotel:{},
-    }
+      indexHotel: {},
+    };
   },
   mounted() {
-    this.getIndexHotel()
+    this.getIndexHotel();
   },
   methods: {
-    async getIndexHotel(){
+    async getIndexHotel() {
       const result = await this.$API.getIndexHotel();
-      console.log(result)
-      this.indexHotel = result.data
-    }
+      // console.log(result);
+      this.indexHotel = result.data;
+    },
+  },
+  computed: {
+    tabs() {
+      return this.indexHotel.tabs || {};
+    },
   },
 };
 </script>
