@@ -118,7 +118,7 @@ export default {
 <style lang="less" scoped>
 .mod.copyright {
   width: 1180px;
-  height: 500px;
+  // height: 500px;
   margin: 40px auto 0;
   //   background-color: pink;
   text-align: center;
