@@ -116,6 +116,7 @@
         </div>
         <!-- 搜索路线 -->
         <div class="search-form-line">
+          <!-- 目的地 -->
           <div class="form-item-wrap">
             <div class="form-item">
               <div class="item-left">
@@ -124,8 +125,6 @@
                   <div class="city">
                     <input
                       type="text"
-                      name=""
-                      id=""
                       placeholder="可输入城市或机场"
                       value="北京（BJS）"
                     />
@@ -145,8 +144,6 @@
                   <div class="city">
                     <input
                       type="text"
-                      name=""
-                      id=""
                       placeholder="可输入城市或机场"
                       value="北京（BJS）"
                     />
@@ -157,21 +154,37 @@
               </div>
             </div>
           </div>
+
+          <!-- 出发日期 -->
           <div class="form-item-wrap">
             <!-- 出发日期 -->
             <div class="departure-date">
-              <label>
-                <div class="origin">目的地</div>
-                <div class="city">
-                  <input type="text" name="" id="" value="2020-11-03" />
-                </div>
-                <!-- 隐藏的城市下拉列表 -->
-                <div city-select-list></div>
-              </label>
+              <div class="origin">出发日期</div>
+              <el-date-picker
+                v-model="value1"
+                type="date"
+                placeholder="选择日期"
+              >
+              </el-date-picker>
             </div>
           </div>
+
+          <!-- 乘客 -->
           <div class="form-item-wrap">
-            <div class="customer"></div>
+            <div class="customer">
+              <label>
+                <div class="customerType">乘客类型</div>
+                <el-select v-model="value" placeholder="请选择">
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value2"
+                    :label="item.label"
+                    :value="item.value"
+                  >
+                  </el-option>
+                </el-select>
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -186,6 +199,11 @@
 <script>
 export default {
   name: "Search",
+  data() {
+    return {
+      value1: "2020-11-04",
+    };
+  },
 };
 </script>
 
@@ -194,7 +212,7 @@ export default {
 .w {
   width: 1180px;
   margin: 0 auto;
-  background: pink;
+  // background: pink;
 }
 
 // 搜索区域start
@@ -206,7 +224,7 @@ export default {
   height: 284px;
   border-radius: 8px 8px 8px 8px;
   margin-bottom: 60px;
-  background: blue;
+  background: #fff;
   .searchTitle {
     display: flex;
     border-radius: 8px 8px 0 0;
@@ -224,6 +242,7 @@ export default {
       &.active {
         color: #333;
         background: #fff;
+        border-radius: 6px 6px 0 0;
       }
       &:hover {
         background: rgba(0, 0, 0, 0.95);
@@ -264,13 +283,15 @@ export default {
       color: #0086f6;
     }
   }
+
+  // 搜索表单
   .search-form {
     // 搜索上部
     .search-form-top {
       width: 1132px;
       height: 33px;
       line-height: 33px;
-      background: chartreuse;
+      // background: chartreuse;
       margin: 0 auto;
       margin-bottom: 13px;
       .form-select-radio {
@@ -331,7 +352,7 @@ export default {
                     width: 3px;
                     height: 3px;
                     border-radius: 50%;
-                    background: #0086f6;
+                    // background: #0086f6;
                     display: inline-block;
                     vertical-align: middle;
                     margin-right: 3px;
@@ -412,7 +433,7 @@ export default {
     .search-form-line {
       width: 1132px;
       height: 64px;
-      background: orange;
+      // background: orange;
       margin: 0 auto;
       margin-bottom: 16px;
       // 目的地
@@ -424,21 +445,21 @@ export default {
         &:nth-child(1) {
           width: 508px;
           height: 64px;
-          background: palegreen;
+          // background: palegreen;
           border: 1px solid #ddd;
           box-sizing: border-box;
         }
         &:nth-child(2) {
           width: 384px;
           height: 64px;
-          background: palegreen;
+          // background: palegreen;
           border: 1px solid #ddd;
           box-sizing: border-box;
         }
         &:nth-child(3) {
           width: 208px;
           height: 64px;
-          background: palegreen;
+          // background: palegreen;
           margin-right: 0;
           border: 1px solid #ddd;
           box-sizing: border-box;
@@ -549,10 +570,48 @@ export default {
             }
           }
         }
+
+        // 出发日期
+        .departure-date {
+          line-height: 64px;
+          display: flex;
+          padding: 0 20px;
+          .origin {
+            margin-right: 20px;
+            // background: blue;
+          }
+          /deep/.el-input__inner {
+            border: none;
+            // background: pink;
+            width: 278px;
+            height: 58px;
+          }
+        }
+
+        // 乘客类型
+        .customer {
+          position: relative;
+          .customerType {
+            font-size: 12px;
+            color: #999;
+            position: absolute;
+            top: 10px;
+            left: 16px;
+          }
+          /deep/.el-select {
+            position: absolute;
+            top: 23px;
+            left: 0;
+            /deep/.el-input__inner {
+              border: none;
+              height: 37px;
+            }
+          }
+        }
       }
-      // 出发日期
     }
   }
+
   // 搜索按钮
   .search-btn {
     position: absolute;

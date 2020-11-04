@@ -284,8 +284,8 @@ export default {
 .w {
   width: 1180px;
   margin: 48px auto 0;
-  height: 2000px;
-  background-color: pink;
+  // height: 2000px;
+  // background-color: pink;
 }
 // 头部
 .header {

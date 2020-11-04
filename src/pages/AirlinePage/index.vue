@@ -11,17 +11,21 @@
     </div>
     <!-- 低价推荐 -->
     <Recommend></Recommend>
+    <!-- 低价地图 -->
+    <Map></Map>
   </div>
 </template>
 
 <script>
 import Search from './Search'
 import Recommend from './Recommend'
+import Map from './Map'
 export default {
   name: "AirlinePage",
   components:{
     Search,
-    Recommend
+    Recommend,
+    Map
   }
 };
 </script>

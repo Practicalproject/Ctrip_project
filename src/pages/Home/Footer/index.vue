@@ -16,7 +16,7 @@
             </div>
             <div class="advan-item advan-price">
               <div class="advan-img">
-                <i class="icon icon-price"></i>
+                <i class="icon icon-pricee"></i>
               </div>
               <div class="advan-text">
                 <p class="advan-price">放心的价格</p>
@@ -331,6 +331,8 @@ export default {
         margin-bottom: 10px;
       }
     }
+
+
     // 为什么选择携程
     .advantage {
       position: relative;
@@ -353,10 +355,13 @@ export default {
             &.icon-server {
               background-position: -41px -250px;
             }
-          }
-          .icon-price {
+            &.icon-pricee {
             background-position: -41px -200px;
           }
+          }
+          // .icon-price {
+          //   background-position: -41px -200px;
+          // }
         }
         .advan-text {
           margin-left: 45px;

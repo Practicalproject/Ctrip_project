@@ -1,5 +1,5 @@
 import AirlinePage from '@/pages/AirlinePage'
-import TrainPage from '@/pages/TrainPage'
+import Order from '@/pages/Order'
 import Hotel from '@/pages/Hotel'
 import Tourism from '@/pages/Tourism'
 import IndependentTravel from '@/pages/IndependentTravel'
@@ -13,8 +13,7 @@ import Group from '@/pages/Group'
 import useCart from '@/pages/useCart'
 import cartBoat from '@/pages/cartBoat'
 
-export default [
-    {
+export default [{
         // 用车
         path: '/usecart',
         component: useCart
@@ -24,13 +23,21 @@ export default [
         path: '/cartboat',
         component: cartBoat
     },
-    /**
-     * 飞机票路由组件
-     * author:suoxiaoyu
-     */
     {
+        /**
+         * 飞机票路由组件
+         * author:suoxiaoyu
+         */
         path: '/airlinepage',
         component: AirlinePage
+    },
+    {
+        /**
+         * 我的订单路由组件
+         * author:suoxiaoyu
+         */
+        path: '/order',
+        component: Order
     },
     {
         // bh--自由行
@@ -47,18 +54,10 @@ export default [
         path: '/hotel',
         component: Hotel
     },
-    /**
-     * 火车票路由组件
-     * author:suoxiaoyu
-     */
     {
         // 旅游
         path: '/tourism',
         component: Tourism
-    },
-    {
-        path: '/trainPage',
-        component: TrainPage
     },
     {
         // 门票
