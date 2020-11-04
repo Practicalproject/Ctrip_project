@@ -7,7 +7,7 @@
       <a href="javascript:;">费用·须知</a>
       <a href="javascript:;">用户点评（1）</a>
     </div>
-    <!-- 内容区 -->
+    <!-- 行程介绍内容区 -->
     <div class="describeList">
       <!-- 浮动区域 -->
       <div class="rou-nav">
@@ -28,10 +28,10 @@
       <!-- 旅游顺序 -->
       <div class="tripTime">
         <ul>
-          <li class="start">
+          <li class="start start1">
             <span class="time">09:00</span>
             <span class="iconfont icon-circle"></span>
-            <div class="theme">
+            <div class="theme theme3">
               <div class="poi">
                 <div class="left body">上门接：</div>
                 <div class="right">全岛上门接送</div>
@@ -42,10 +42,10 @@
               <p class="summary-time">行驶时间：约30分钟</p>
             </div>
           </li>
-          <li class="start">
+          <li class="start process">
             <span class="time">09:30</span>
             <span class="iconfont icon-circle"></span>
-            <div class="theme">
+            <div class="theme cheme1">
               <div class="poi">
                 <div class="left body">游玩景点：</div>
               </div>
@@ -63,30 +63,103 @@
               </p>
               <!-- 景区照片 -->
               <div class="scenicPhotos">
-                <a href="javascript:;">
-                  <img src="./images/查龙寺.jpg" alt="" />
-                  <p></p>
-                </a>
-                <a href="javascript:;">
-                  <img src="./images/普吉巨石.jpg" alt="" />
-                  <p></p>
-                </a>
-                <a href="javascript:;">
-                  <img src="./images/海豚馆.jpg" alt="" />
-                  <p></p>
-                </a>
-                <a href="javascript:;">
-                  <img src="./images/泰拳表演.jpg" alt="" />
-                  <p></p>
-                </a>
+                <!-- 第一排照片 -->
+                <div class="photo">
+                  <a href="javascript:;">
+                    <img class="photo1" src="./images/查龙寺.jpg" alt="" />
+                    <p>查龙寺</p>
+                  </a>
+                  <a href="javascript:;">
+                    <img src="./images/普吉巨石.jpg" alt="" />
+                    <p>普吉巨石沙滩秋千</p>
+                  </a>
+                </div>
+
+                <div class="poi poi1">
+                  <div class="left body1">游玩项目：</div>
+                </div>
+                <p class="detail-txt">
+                  <a href="javascript"> 尼莫海豚馆 、</a>
+                  <a href="javascript"> 西蒙人妖秀 、</a>
+                  <span> 卡图射击 、</span>
+                  <a href="javascript">海景大象营地骑大象 、 </a>
+                  <a href="javascript"> 芭东泰拳表演</a>
+                </p>
+                <!-- 第二排照片 -->
+                <div class="photo">
+                  <a href="javascript:;">
+                    <img src="./images/海豚馆.jpg" alt="" />
+                    <p>尼莫海豚馆</p>
+                  </a>
+                  <a href="javascript:;">
+                    <img src="./images/泰拳表演.jpg" alt="" />
+                    <p>芭东泰拳表演</p>
+                  </a>
+                </div>
               </div>
+              <p class="detail-txt">
+                游玩时间内（半日游行程时间6小时），普吉岛内众多景点自内搭配，亲亲可以提前规划好线路，如果亲亲没有规划的线路下单后也可以由我们的一对一微导为您私人规划。
+              </p>
+              <p class="summary-time">活动时间：约5小时</p>
+            </div>
+          </li>
+          <li class="start gohome">
+            <span class="time">14:30</span>
+            <span class="iconfont icon-circle"></span>
+            <div class="theme theme2">
+              <div class="poi">
+                <div class="left body">返程送回：</div>
+                <div class="right">有车送回全岛各酒店</div>
+              </div>
+              <p class="detail-txt">
+                司机会把您送回下榻的酒店 ，结束完美的一天行程
+              </p>
               <p class="summary-time">行驶时间：约30分钟</p>
             </div>
           </li>
-          <li></li>
-          <li></li>
+          <li class="start end">
+            <span class="time">15:00</span>
+            <span class="iconfont icon-circle"></span>
+            <div class="theme theme3">
+              <div class="left">愉快地结束旅程！</div>
+            </div>
+          </li>
         </ul>
+        <p class="end1">
+          *行程时间为游玩地当地时间，以上行程可能会因天气、路况等原因做相应调整，敬请谅解。
+        </p>
       </div>
+    </div>
+    <!--图文详情  -->
+    <div class="modinfo">
+      <h2 class="detail-mod">图文详情</h2>
+      <p>
+        <img src="./images/1.jpg" alt="">
+        <img src="./images/2.jpg" alt="">
+        <img src="./images/3.jpg" alt="">
+        <img src="./images/4.jpg" alt="">
+        <img src="./images/5.jpg" alt="">
+        <img src="./images/6.jpg" alt="">
+        <img src="./images/7.jpg" alt="">
+        <img src="./images/8.jpg" alt="">
+        <img src="./images/9.jpg" alt="">
+        <img src="./images/10.jpg" alt="">
+        <img src="./images/11.jpg" alt="">
+        <img src="./images/12.jpg" alt="">
+        <img src="./images/13.jpg" alt="">
+        <img src="./images/14.jpg" alt="">
+        <img src="./images/15.jpg" alt="">
+        <img src="./images/16.jpg" alt="">
+        <img src="./images/17.jpg" alt="">
+        <img src="./images/18.jpg" alt="">
+        <img src="./images/19.jpg" alt="">
+        <img src="./images/20.jpg" alt="">
+        <img src="./images/21.jpg" alt="">
+        <img src="./images/22.jpg" alt="">
+        <img src="./images/23.jpg" alt="">
+        <img src="./images/24.jpg" alt="">
+        <img src="./images/25.jpg" alt="">
+      </p>
     </div>
   </div>
 </template>
@@ -123,8 +196,8 @@ export default {
   /* 中间内容  详情区 */
   .describeList {
     width: 898px;
+    height: 938px;
     padding: 0 0 0 70px;
-    border: 1px solid #ddd;
     box-sizing: border-box;
     border: 1px solid #ddd;
     margin-top: -1px;
@@ -205,20 +278,22 @@ export default {
         }
         .theme {
           padding: 0 0 26px 16px;
-          border-left: 2px solid rgb(225, 237, 255);
-          height: 109px;
+
+          /* height: 109px; */
           .poi .left {
-            width: 56px;
+            width: 70px;
             height: 19px;
             line-height: 19px;
-            font-size: 14px;
             font-weight: 700;
             float: left;
+            color: #666;
+            font-size: 14px;
           }
           .right {
             font-size: 14px;
             height: 19px;
             line-height: 19px;
+            color: #666;
           }
           .detail-txt {
             font-size: 14px;
@@ -229,10 +304,98 @@ export default {
             font-size: 12px !important;
             color: #9da5ad !important;
             display: block !important;
-            margin-top: 5px;
+            margin-top: 8px;
+          }
+          .scenicPhotos .photo {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            margin: 10px 0;
+            a {
+              position: relative;
+              width: 318px;
+              height: 180px;
+              overflow: hidden;
+            }
+            img {
+              display: block;
+              width: 100%;
+              height: 100%;
+              position: relative;
+            }
+            p {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 318px;
+              color: #fff;
+              height: 26px;
+              line-height: 26px;
+              font-size: 14px;
+              text-indent: 0.5em;
+              display: block;
+              background: rgba(46, 47, 48, 0.5);
+            }
           }
         }
       }
+      .start1 {
+        height: 109px;
+        .theme3 {
+          height: 109px;
+          border-left: 2px solid rgb(225, 237, 255);
+        }
+      }
+      .process {
+        height: 500px;
+        .cheme1 {
+          height: 590px;
+          border-left: 2px solid rgb(225, 237, 255);
+        }
+      }
+      .gohome {
+        height: 90px;
+        .cheme2 {
+          height: 90px;
+        }
+      }
+      ul .end {
+        height: 45px;
+        .left {
+          color: #666;
+          font-size: 14px;
+        }
+        .cheme3 {
+          height: 90px;
+          color: #666;
+        }
+      }
+      .end1 {
+        line-height: 16px;
+        height: 16px;
+        font-size: 14px;
+        color: #9da5ad;
+      }
+    }
+  }
+
+  /* 图文详情区 */
+  .modinfo {
+    width: 898px;
+    height: 17680.9px;
+    margin: -1px 0 0;
+    padding: 30px 75px;
+    background: #fff;
+    border: 1px solid #ddd;
+    h2{
+      height: 48px;
+      margin: 0 0 20px;
+      color:#000;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    p img{
+      display: block;
     }
   }
 }
