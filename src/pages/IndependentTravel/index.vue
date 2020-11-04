@@ -11,6 +11,9 @@
 
     <!-- 优势 -->
     <Avantage></Avantage>
+    <!-- 广告区 -->
+    <Advertisement></Advertisement>
+    <CopyRight></CopyRight>
   </div>
 </template>
 
@@ -19,13 +22,14 @@ import SearchContainer from "./SearchContainer";
 import BaseTop from "./BaseTop";
 import LocalPro from "./LocalPro";
 import Avantage from "./Avantage";
-
+import Advertisement from "./Advertisement";
 export default {
   components: {
     SearchContainer,
     BaseTop,
     LocalPro,
     Avantage,
+    Advertisement,
   },
   name: "IndependentTravel",
 };
