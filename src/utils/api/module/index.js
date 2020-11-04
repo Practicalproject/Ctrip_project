@@ -13,6 +13,4 @@ export default {
     getIndexCountry() {
         return Ajax.instanceTwo.get("/getIndexCountry")
     }
-
-
 }

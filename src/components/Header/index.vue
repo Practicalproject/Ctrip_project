@@ -296,7 +296,6 @@ export default {
   mounted() {
     // 发请求获取导航数据
     this.getNavData();
-    this.getIndexCountry()
   },
   methods: {
     // 鼠标移入赋值navId
@@ -332,11 +331,6 @@ export default {
       }
     },
 
-    // 获取头部全部国家列表
-    async getIndexCountry(){
-      let result = await this.$API.index.getIndexCountry()
-      console.log(result.data)
-    }
   },
   computed: {
     // 计算一级分类导航
@@ -871,6 +865,9 @@ export default {
                 margin: 11px 0 0;
                 clear: none;
                 border: none;
+              }
+              &:last-of-type::after{
+                display:none
               }
             }
           }
