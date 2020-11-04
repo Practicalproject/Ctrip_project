@@ -5,6 +5,8 @@ import Tourism from '@/pages/Tourism'
 import IndependentTravel from '@/pages/IndependentTravel'
 
 import Tickets from '@/pages/Tickets'
+import HuangPuJiang from'@/pages/Tickets/HuangPuJiang'
+
 import Strategy from '@/pages/Strategy'
 import Home from '@/pages/Home'
 import Group from '@/pages/Group'
@@ -63,7 +65,7 @@ export default [
     {
         // 门票
         path: '/tickets',
-        component: Tickets
+        component: Tickets,
     },
     {
         // 攻略
@@ -79,6 +81,11 @@ export default [
     {
         path: '/',
         redirect: "/home"
+    },
+    // 黄浦江
+    {
+        path:'/huangpujiang',
+        component:HuangPuJiang
     }
 
 

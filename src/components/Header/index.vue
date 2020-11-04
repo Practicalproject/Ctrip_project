@@ -1,6 +1,6 @@
 <template>
   <!-- 头部 -->
-  <header class="headerContainer">
+  <header class="headerContainer" v-if="!this.$router.path==='/huangpujiang'">
     <div class="top">
       <div class="top-container">
         <div class="topLeft">
