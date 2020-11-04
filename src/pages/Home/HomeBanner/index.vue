@@ -34,7 +34,7 @@
           <div>
             <el-tabs :tab-position="tabPosition">
               <el-tab-pane label="酒店">
-                <el-tabs v-model="activeName" @tab-click="handleClick">
+                <el-tabs @tab-click="handleClick">
                   <el-tab-pane label="国内酒店" name="first">
                   </el-tab-pane>
                   <el-tab-pane label="海外酒店" name="second"></el-tab-pane>
@@ -42,7 +42,7 @@
                 </el-tabs>
               </el-tab-pane>
               <el-tab-pane label="机票">
-                <el-tabs v-model="activeName" @tab-click="handleClick">
+                <el-tabs @tab-click="handleClick">
                   <el-tab-pane label="国内机票" name="first"></el-tab-pane>
                   <el-tab-pane
                     label="国际•港澳台机票"
@@ -52,7 +52,7 @@
                 </el-tabs>
               </el-tab-pane>
               <el-tab-pane label="旅游" addable>
-                <el-tabs v-model="activeName" @tab-click="handleClick">
+                <el-tabs @tab-click="handleClick">
                   <el-tab-pane label="全部" name="first"></el-tab-pane>
                   <el-tab-pane label="门票" name="second"></el-tab-pane>
                   <el-tab-pane label="周边游" name="third"></el-tab-pane>
@@ -62,7 +62,7 @@
                 </el-tabs>
               </el-tab-pane>
               <el-tab-pane label="跟团游">
-                <el-tabs v-model="activeName" @tab-click="handleClick">
+                <el-tabs @tab-click="handleClick">
                   <el-tab-pane label="推荐" name="first"></el-tab-pane>
                   <el-tab-pane label="周边跟团" name="second"></el-tab-pane>
                   <el-tab-pane label="境内跟团" name="third"></el-tab-pane>
@@ -70,12 +70,12 @@
                 </el-tabs>
               </el-tab-pane>
               <el-tab-pane label="打包订">
-                <el-tabs v-model="activeName" @tab-click="handleClick">
+                <el-tabs @tab-click="handleClick">
                   <el-tab-pane label="机票+酒店" name="first"></el-tab-pane>
                 </el-tabs>
               </el-tab-pane>
               <el-tab-pane label="火车">
-                <el-tabs v-model="activeName" @tab-click="handleClick">
+                <el-tabs @tab-click="handleClick">
                   <el-tab-pane label="国内火车票" name="first"></el-tab-pane>
                   <el-tab-pane
                     label="国际/港台火车票"
@@ -85,7 +85,7 @@
                 </el-tabs>
               </el-tab-pane>
               <el-tab-pane label="用车">
-                <el-tabs v-model="activeName" @tab-click="handleClick">
+                <el-tabs @tab-click="handleClick">
                   <el-tab-pane label="国内接送机" name="first"></el-tab-pane>
                   <el-tab-pane label="境外接送机" name="second"></el-tab-pane>
                   <el-tab-pane label="国内租车" name="third"></el-tab-pane>
