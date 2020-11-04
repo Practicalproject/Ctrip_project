@@ -1,11 +1,17 @@
 <template>
   <!-- 经典详情 -->
-  <div>hello kitty</div>
+  <div>
+    <Review></Review>
+  </div>
 </template>
 
 <script>
+import Review from './Review'
 export default {
   name: "DetailSce",
+  components:{
+    Review
+  }
 };
 </script>
 
