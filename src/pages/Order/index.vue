@@ -107,7 +107,7 @@ export default {
 }
 .orderContainer {
   width: 1180px;
-  height: 1000px;
+  // height: 1000px;
   margin: 0 auto;
   // background: pink;
   display: flex;
