@@ -1,6 +1,5 @@
 <template>
   <!--   租车区域 -->
-
   <div class="modcar">
     <!-- 标题行 -->
     <div class="modhd">
@@ -123,39 +122,122 @@
 
       <!-- 内容右侧区域 -->
       <div class="product">
-        <div class="priducthd">
-          <ul class="inner-tabs">
-            <li>
-              <a href="javascript: ;">美国</a>
-            </li>
-            <li>
-              <a href="javascript: ;">泰国</a>
-            </li>
-            <li>
-              <a href="javascript: ;">澳大利亚</a>
-            </li>
-            <li>
-              <a href="javascript: ;">英国</a>
-            </li>
-            <li>
-              <a href="javascript: ;">加拿大</a>
-            </li>
-            <li>
-              <a href="javascript: ;">新西兰</a>
-            </li>
-            <li>
-              <a href="javascript: ;">德国</a>
-            </li>
-            <li>
-              <a class="iconfont"></a>
-            </li>
-          </ul>
-          <a href="javascript: ;">
-            更多境外租车
-            <i class="iconfont icon-next"></i>
-          </a>
+        <!-- 版心 -->
+        <div class="carContainer">
+          <!-- 标题 -->
+          <div class="priducthd">
+            <div class="pri_list">
+              <ul class="inner-tabs">
+                <li>
+                  <a href="javascript: ;">美国</a>
+                </li>
+                <li>
+                  <a href="javascript: ;">泰国</a>
+                </li>
+                <li>
+                  <a href="javascript: ;">澳大利亚</a>
+                </li>
+                <li>
+                  <a href="javascript: ;">英国</a>
+                </li>
+                <li>
+                  <a href="javascript: ;">加拿大</a>
+                </li>
+                <li>
+                  <a href="javascript: ;">新西兰</a>
+                </li>
+                <li>
+                  <a href="javascript: ;">德国</a>
+                </li>
+                <li>
+                  <a href="javascript: ;">更多</a>
+                  <i class="iconfont icon-xiaosanjiao"></i>
+                </li>
+                <li>
+                  <a class="iconfont"></a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="more">
+              <a href="javascript: ;">
+                更多境外租车
+                <i class="iconfont icon-next"></i>
+              </a>
+            </div>
+          </div>
+          <!-- 主题内容 -->
+          <div class="priductbd">
+            <!-- 图片详情区域 -->
+            <ul class="carContainer">
+              <li class="carList">
+                <a href="javascript:;">
+                  <p class="carImg">
+                    <img src="./images/ceshi1.png" alt="" />
+                  </p>
+                  <p class="carName">福特 嘉年华 Fiesta</p>
+                  <p class="carPrice">
+                    <span class="item-type">美国洛杉矶</span>
+                    <span class="price">
+                      <dfn>¥</dfn>
+                      164
+                      <i class="priceInfo"></i>
+                    </span>
+                  </p>
+                </a>
+              </li>
+              <li class="carList">
+                <a href="javascript:;">
+                  <p class="carImg">
+                    <img src="./images/ceshi1.png" alt="" />
+                  </p>
+                  <p class="carName">福特 嘉年华 Fiesta</p>
+                  <p class="carPrice">
+                    <span class="item-type">美国洛杉矶</span>
+                    <span class="price">
+                      <dfn>¥</dfn>
+                      164
+                      <i class="priceInfo"></i>
+                    </span>
+                  </p>
+                </a>
+              </li>
+              <li class="carList">
+                <a href="javascript:;">
+                  <p class="carImg">
+                    <img src="./images/ceshi1.png" alt="" />
+                  </p>
+                  <p class="carName">福特 嘉年华 Fiesta</p>
+                  <p class="carPrice">
+                    <span class="item-type">美国洛杉矶</span>
+                    <span class="price">
+                      <dfn>¥</dfn>
+                      164
+                      <i class="priceInfo"></i>
+                    </span>
+                  </p>
+                </a>
+              </li>
+              <li class="carList">
+                <a href="javascript:;">
+                  <p class="carImg">
+                    <img src="./images/ceshi1.png" alt="" />
+                  </p>
+                  <p class="carName">福特 嘉年华 Fiesta</p>
+                  
+                  <p class="carPrice">
+                    <span class="item-type">美国洛杉矶</span>
+                    <span class="price">
+                      <dfn class="miniLogo">¥</dfn>
+                       164
+                      <i class="priceInfo"></i>
+                    </span>
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="priductbd"></div>
       </div>
     </div>
   </div>
@@ -176,6 +258,7 @@ export default {
   .modhd {
     width: 1180px;
     height: 38px;
+    border-bottom: 3px solid #3983e5;
     .title span {
       position: relative;
       bottom: -3px;
@@ -190,7 +273,7 @@ export default {
   .modbd {
     width: 1180px;
     height: 245px;
-
+     border: 1px solid #ddd;
     display: flex;
     /* 左侧 */
     .entrance {
@@ -249,37 +332,100 @@ export default {
     .product {
       width: 950px;
       height: 245px;
-      border: 1px solid red;
+      position: relative;
+      padding: 19px 15px 0;
+      /* 标题区域 */
       .priducthd {
         font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
-        ul {
-          float: left;
-          height: 20px;
-          margin-bottom: 10px;
-          display: block;
-          list-style-type: disc;
-          margin-block-start: 1em;
-          margin-block-end: 1em;
-          margin-inline-start: 0px;
-          margin-inline-end: 0px;
-          padding-inline-start: 40px;
-          
-        }
-          li {
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        .pri_list {
+          ul {
             float: left;
-            list-style: none;
-            /* background: #3983e5; */
-            color: #fff;
-            border-radius: 3px;
-            display: inline-block;
-            line-height: 20px;
-            margin-right: 15px;
-            padding: 0 8px;
+            height: 15px;
+            line-height: 15px;
+            display: block;
+            li {
+              list-style: none;
+              /* background: #3983e5; */
+              color: #fff;
+              border-radius: 3px;
+              display: inline-block;
+              line-height: 20px;
+              margin-right: 15px;
+              padding: 0 8px;
+              .icon-xiaosanjiao {
+                /* display: inline-block; */
+                color: blue;
+              }
+            }
           }
+        }
+        .more {
+          float: right;
+          text-decoration: none;
+          height: 20px;
           a {
-            float: right;
-            text-decoration: none;
+            float: left;
+            i {
+              display: inline-block;
+              width: 6px;
+              height: 9px;
+              margin-right: 15px;
+            }
           }
+        }
+      }
+      /* 汽车详情区域 */
+      .priductbd {
+        .carList {
+          margin-left: 10px;
+          width: 210px;
+          float: left;
+          a .carImg {
+            display: block;
+            width: 100%;
+            height: 145px;
+          }
+          .carName {
+            position: relative;
+            height: 20px;
+            line-height: 20px;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 5px;
+          }
+          .carPrice {
+            height: 35px;
+            display: flex;
+            justify-content: space-between;
+          }
+              .item-type{
+                  display: block;
+                  color: #999;
+                  height: 35px;
+                  line-height: 35px;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  text-align: left;
+          }
+          .price {
+                position: relative;
+                float: right;
+                font: 22px/1.5 tahoma;
+                color: #f60;
+                .miniLogo{
+                      vertical-align: 7px;
+                      font: 12px/1.5 arial;
+                      color: #666;
+                }
+          }        
+        }
       }
     }
   }
