@@ -7,8 +7,12 @@ import IndependentTravel from '@/pages/IndependentTravel'
 import Tickets from '@/pages/Tickets'
 import Strategy from '@/pages/Strategy'
 import Home from '@/pages/Home'
+import Group from '@/pages/Group'
+
+
 import useCart from '@/pages/useCart'
 import cartBoat from '@/pages/cartBoat'
+
 export default [
     {
         // 用车
@@ -32,6 +36,11 @@ export default [
         // bh--自由行
         path: '/independenttravel',
         component: IndependentTravel
+    },
+    {
+        // bh--跟团游
+        path: "/group",
+        component: Group
     },
     {
         // 酒店
