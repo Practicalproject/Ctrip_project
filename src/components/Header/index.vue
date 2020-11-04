@@ -247,18 +247,22 @@
         </li>
         <li class="divider"></li>
         <template v-for="item in cate1Nav">
-          <li :key="item.id" @mouseenter="getNavId(item.cateID)">
+          <li
+            :key="item.id"
+            @mouseenter="getNavId(item.cateID)"
+            @mouseleave="navId = ''"
+          >
             <router-link :to="item.cateAlias"
-              >{{ item.cateName }}
-              <i class="iconfont"></i>
+              >{{ item.cateName ? item.cateName : "javascript:;" }}
+              <i v-show="item.isTwoCate" class="iconfont"></i>
               <span class="point"></span>
             </router-link>
             <div
-              v-if="navId"
+              v-show="navId && cate2Nav.length > 0"
               :style="{ 'z-index': navId === item.cateID ? 2 : 1 }"
               class="cui_subnav_wrap"
             >
-              <ul class="ul_nav_hotel" @mouseleave="navId = ''">
+              <ul class="ul_nav_hotel">
                 <li v-for="navItem in cate2Nav" :key="navItem.id">
                   <a href="javascript:;">{{ navItem.cateName }}</a>
                 </li>
@@ -288,24 +292,39 @@ export default {
     };
   },
   mounted() {
+    // 发请求获取导航数据
     this.getNavData();
   },
   methods: {
+    // 鼠标移入赋值navId
     getNavId(navId) {
       this.navId = "";
-      console.log(navId);
       this.navId = navId;
     },
+    // 获取导航数据回调函数
     async getNavData() {
       let result = await this.$API.getNavData();
+      //判断状态码是否为200
       if (result.resultDesc.errCode === 200) {
-        let id = 1;
-        let time;
+        // 自定义唯一标识
+        let time,
+          id = 1;
+        // 遍历将唯一标识塞进去
         let navList = result.resultData.map((item) => {
+          //  这里给一级导航添加是否有二级导航标识
+          let cateTwo = result.resultData.some(
+            (twoItem) => twoItem.cateParentID === item.cateID
+          );
+          //  判断通过将二级导航标识添加
+          if (cateTwo) {
+            item.isTwoCate = true;
+          }
+          //  这下面处理唯一标识
           time = Date.now();
           item.id = time + id++;
           return item;
         });
+        
         this.navList = navList;
       }
     },
