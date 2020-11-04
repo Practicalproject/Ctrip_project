@@ -1,7 +1,10 @@
 <template>
   <div>
+    <!-- tzg轮播图 -->
     <HomeBanner></HomeBanner>
+    <!-- hsf热门 -->
     <HotList></HotList>
+    <!-- hsf海外酒店 -->
     <OutHotels></OutHotels>
     <!-- bh特价机票 -->
     <PriceTicket></PriceTicket>
