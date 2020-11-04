@@ -1,17 +1,18 @@
-import AirlinePage from '@/pages/AirlinePage'
-import TrainPage from '@/pages/TrainPage'
-import Hotel from '@/pages/Hotel'
-import Tourism from '@/pages/Tourism'
-import IndependentTravel from '@/pages/IndependentTravel'
 
-import Tickets from '@/pages/Tickets'
-import Strategy from '@/pages/Strategy'
-import Home from '@/pages/Home'
-import Group from '@/pages/Group'
+const AirlinePage = () => import('@/pages/AirlinePage')
+const TrainPage = () => import('@/pages/TrainPage')
+const Hotel = () => import('@/pages/Hotel')
+const Tourism = () => import('@/pages/Tourism')
+const IndependentTravel = () => import('@/pages/IndependentTravel')
 
+const Tickets = () => import('@/pages/Tickets')
+const Strategy = () => import('@/pages/Strategy')
+const Home = () => import('@/pages/Home')
+const Group = () => import('@/pages/Group')
 
-import useCart from '@/pages/useCart'
-import cartBoat from '@/pages/cartBoat'
+const useCart = () => import('@/pages/useCart')
+const cartBoat = () => import('@/pages/cartBoat')
+const Login = () => import('@/pages/Login')
 
 export default [
     {
@@ -69,6 +70,11 @@ export default [
         // 攻略
         path: '/strategy',
         component: Strategy
+    },
+    // 登陆
+    {
+        path: "/login",
+        component: Login
     },
     // 首页
     {
