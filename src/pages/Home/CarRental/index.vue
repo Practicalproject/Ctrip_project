@@ -227,8 +227,8 @@
                   <p class="carPrice">
                     <span class="item-type">美国洛杉矶</span>
                     <span class="price">
-                      <dfn>¥</dfn>
-                      164
+                      <dfn class="miniLogo">¥</dfn>
+                       164
                       <i class="priceInfo"></i>
                     </span>
                   </p>
@@ -257,6 +257,7 @@ export default {
   .modhd {
     width: 1180px;
     height: 38px;
+    border-bottom: 3px solid #3983e5;
     .title span {
       position: relative;
       bottom: -3px;
@@ -271,7 +272,7 @@ export default {
   .modbd {
     width: 1180px;
     height: 245px;
-
+     border: 1px solid #ddd;
     display: flex;
     /* 左侧 */
     .entrance {
@@ -342,8 +343,8 @@ export default {
         .pri_list {
           ul {
             float: left;
-            height: 20px;
-            margin-bottom: 10px;
+            height: 15px;
+            line-height: 15px;
             display: block;
             li {
               list-style: none;
@@ -365,8 +366,6 @@ export default {
           float: right;
           text-decoration: none;
           height: 20px;
-          margin: 12px 0;
-          padding: 0 4px;
           a {
             float: left;
             i {
@@ -399,6 +398,29 @@ export default {
             text-overflow: ellipsis;
             padding: 0 5px;
           }
+          .carPrice {
+            height: 35px;
+          }
+              .item-type{
+                  display: block;
+                  color: #999;
+                  line-height: 12px;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  text-align: left;
+          }
+          .price {
+                position: relative;
+                float: right;
+                font: 22px/1.5 tahoma;
+                color: #f60;
+                .miniLogo{
+                      vertical-align: 7px;
+                      font: 12px/1.5 arial;
+                      color: #666;
+                }
+          }        
         }
       }
     }

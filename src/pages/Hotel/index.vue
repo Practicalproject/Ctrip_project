@@ -1,15 +1,16 @@
 <template>
   <!--  -->
-  <div class="hotel">
+   <div class="hotel">
     <!-- 背景图区域 -->
-    <div class="background">
+    <div class="background1">
       <div class="backgroundUrl"></div>
     </div>
 
     <!-- 内容区 -->
     <div class="hotelcontainer">
       <!-- 大logo区 -->
-      <div class="hotelHeaderwrapper">
+      <div class="header">
+              <div class="hotelHeaderwrapper">
         <div class="onload">
           <img src="./images/onload.png" alt="" />
         </div>
@@ -126,7 +127,32 @@
           </div>
         </div>
       </div>
+      </div>
+
+
+      <!-- 酒店服务区 -->
+      <div class="hotelServerwrapperContainer">
+        <h3>酒店业务服务升级</h3>
+        <ul>
+          <li>
+            <span>
+              <img src="./images/下载.png" alt="">
+            </span>
+            <p></p>
+          </li>
+           <li>
+            <span></span>
+            <p></p>
+          </li>
+           <li>
+            <span></span>
+            <p></p>
+          </li>
+        </ul>
+        <p class="link"></p>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -140,12 +166,13 @@ export default {
 /* 最外层容器 */
 .hotel {
   width: 100%;
-  position: relative;
+  position: absolute;
 }
 /* 背景图 */
-.background {
+.background1 {
   width: 100%;
   height: 280px;
+  position: relative;
 }
 .backgroundUrl {
   width: 100%;
@@ -163,6 +190,9 @@ export default {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  .header{
+    overflow: hidden;
+  }
 }
 /* 订酒店区域 */
 .hotelHeaderwrapper .onload {
