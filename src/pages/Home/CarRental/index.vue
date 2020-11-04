@@ -224,6 +224,7 @@
                     <img src="./images/ceshi1.png" alt="" />
                   </p>
                   <p class="carName">福特 嘉年华 Fiesta</p>
+                  
                   <p class="carPrice">
                     <span class="item-type">美国洛杉矶</span>
                     <span class="price">
@@ -400,11 +401,14 @@ export default {
           }
           .carPrice {
             height: 35px;
+            display: flex;
+            justify-content: space-between;
           }
               .item-type{
                   display: block;
                   color: #999;
-                  line-height: 12px;
+                  height: 35px;
+                  line-height: 35px;
                   white-space: nowrap;
                   text-overflow: ellipsis;
                   overflow: hidden;
