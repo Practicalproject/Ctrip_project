@@ -1,13 +1,20 @@
 <template>
   <div>
+    <!-- tzg轮播图 -->
     <HomeBanner></HomeBanner>
+    <!-- hsf热门 -->
     <HotList></HotList>
+    <!-- hsf海外酒店 -->
     <OutHotels></OutHotels>
+    <!-- bh特价机票 -->
     <PriceTicket></PriceTicket>
+    <!-- bh旅行服务 -->
+    <TravelService></TravelService>
+    <!-- bh企业商旅 -->
+    <BusinessTravel></BusinessTravel>
     <CarRental></CarRental>
     <Partner></Partner>
     <Footer></Footer>
-    
   </div>
 </template>
 
@@ -19,6 +26,8 @@ import CarRental from "./CarRental";
 import Partner from "./Partner";
 import Footer from "./Footer";
 import HomeBanner from "./HomeBanner";
+import TravelService from "./TravelService";
+import BusinessTravel from "./BusinessTravel";
 export default {
   name: "Home",
   components: {
@@ -29,6 +38,8 @@ export default {
     Partner,
     Footer,
     HomeBanner,
+    TravelService,
+    BusinessTravel,
   },
 };
 </script>

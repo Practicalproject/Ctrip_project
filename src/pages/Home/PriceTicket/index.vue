@@ -157,7 +157,7 @@ export default {
 <style lang="less" scoped>
 .flightC {
   width: 1180px;
-  height: 437px;
+  // height: 437px;
   margin: 28px auto 0;
   .flyHeader {
     height: 36px;
@@ -307,7 +307,7 @@ export default {
 
     .product_con {
       width: 1140px;
-      height: 353px;
+      // height: 353px;
       .conList {
         margin-right: -10px;
         margin-top: 10px;
