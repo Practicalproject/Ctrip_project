@@ -10,3 +10,9 @@ export default {
         return Ajax.get('/getIndexHotel')
     }
 }
+export { default as index } from "./module/index"
+
+
+
+
+

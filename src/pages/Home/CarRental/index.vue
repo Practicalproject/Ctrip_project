@@ -3,12 +3,27 @@
   <div class="modcar">
     <!-- 标题行 -->
     <div class="modhd">
-      <h2 class="title">
-        <span class="current" idx="4">境外租车</span>
-        <span idx="2">境外接送车</span>
-        <span idx="3">国内租车</span>
-        <span idx="1">国内接送车</span>
-        <span idx="0">日租包车</span>
+      <h2>
+        <span class="current">
+          境外租车
+          <i></i>
+        </span>
+        <span>
+          境外接送机
+          <i class="iconfont icon-shang"></i>
+        </span>
+        <span>
+          国内租车
+          <i></i>
+        </span>
+        <span>
+          国内接送机
+          <i></i>
+        </span>
+        <span>
+          日租包车
+          <i></i>
+        </span>
       </h2>
     </div>
     <!-- 内容区 -->
@@ -20,7 +35,7 @@
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">洛杉矶</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
@@ -31,7 +46,7 @@
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">墨尔本</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
@@ -42,79 +57,79 @@
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">古曼</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">基督城</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">吉普赛</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">温哥华</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">悉尼</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">奥克兰</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">拉斯维加斯</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">西雅图</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">伦敦</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">法兰克福</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">多伦多</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">巴西</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">迪拜</a>
-              <span class="iconfont icon-hot2"></span>
+              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
         </dl>
@@ -128,7 +143,7 @@
           <div class="priducthd">
             <div class="pri_list">
               <ul class="inner-tabs">
-                <li>
+                <li class="active">
                   <a href="javascript: ;">美国</a>
                 </li>
                 <li>
@@ -224,12 +239,12 @@
                     <img src="./images/ceshi1.png" alt="" />
                   </p>
                   <p class="carName">福特 嘉年华 Fiesta</p>
-                  
+
                   <p class="carPrice">
                     <span class="item-type">美国洛杉矶</span>
                     <span class="price">
                       <dfn class="miniLogo">¥</dfn>
-                       164
+                      164
                       <i class="priceInfo"></i>
                     </span>
                   </p>
@@ -253,33 +268,63 @@ export default {
 /* 租车区域 */
 .modcar {
   width: 1180px;
-  margin: 28px auto 0;
+  margin: 28px auto;
   /* 标题行 */
   .modhd {
     width: 1180px;
     height: 38px;
-    border-bottom: 3px solid #3983e5;
-    .title span {
-      position: relative;
-      bottom: -3px;
+    border-bottom: 2px solid #3983e5;
+    h2 {
+      text-align: left;
       float: left;
-      height: 36px;
-      line-height: 30px;
-      color: #333;
-      margin-right: 30px;
+      span {
+        color: #333;
+        bottom: -3px;
+        height: 36px;
+        line-height: 30px;
+        margin-right: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        position: relative;
+        font-weight: 700;
+        &:hover {
+          color: #06c;
+          cursor: default;
+        }
+        i {
+          position: absolute;
+          left: 50%;
+          margin-left: -6px;
+          bottom: -6px;
+          width: 12px;
+          height: 6px;
+          overflow: hidden;
+          line-height: 0;
+          font-size: 0;
+          border-bottom: 6px solid #3983e5;
+          border-top: 0 none;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+        }
+      }
+      .current {
+        cursor: default;
+        color: #06c;
+      }
     }
   }
   /* 主内容区 */
   .modbd {
     width: 1180px;
     height: 245px;
-     border: 1px solid #ddd;
+    border: 1px solid #ddd;
     display: flex;
     /* 左侧 */
     .entrance {
       width: 227px;
-      height: 220px;
+      height: 245px;
       padding: 0 20px 15px 20px;
+      border-right: 1px dashed #ddd;
       .keyword {
         width: 187px;
         height: 230px;
@@ -318,6 +363,7 @@ export default {
               width: 11px;
               height: 11px;
               background-position: -16px -32px;
+              color: red;
             }
           }
         }
@@ -359,6 +405,13 @@ export default {
               .icon-xiaosanjiao {
                 /* display: inline-block; */
                 color: blue;
+              }
+            }
+            .active {
+              background-color: #007aff;
+              font-weight: 700;
+              a {
+                color: #ddd;
               }
             }
           }
@@ -404,27 +457,27 @@ export default {
             display: flex;
             justify-content: space-between;
           }
-              .item-type{
-                  display: block;
-                  color: #999;
-                  height: 35px;
-                  line-height: 35px;
-                  white-space: nowrap;
-                  text-overflow: ellipsis;
-                  overflow: hidden;
-                  text-align: left;
+          .item-type {
+            display: block;
+            color: #999;
+            height: 35px;
+            line-height: 35px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            text-align: left;
           }
           .price {
-                position: relative;
-                float: right;
-                font: 22px/1.5 tahoma;
-                color: #f60;
-                .miniLogo{
-                      vertical-align: 7px;
-                      font: 12px/1.5 arial;
-                      color: #666;
-                }
-          }        
+            position: relative;
+            float: right;
+            font: 22px/1.5 tahoma;
+            color: #f60;
+            .miniLogo {
+              vertical-align: 7px;
+              font: 12px/1.5 arial;
+              color: #666;
+            }
+          }
         }
       }
     }

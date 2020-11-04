@@ -2,17 +2,24 @@
   <div class="hotList_wrapper">
     <!-- 头部列表 -->
     <div class="header_list">
-      <ul>
-        <li>热门</li>
-        <li>周边游</li>
-        <li>门票</li>
-        <li>出境游</li>
-        <li>境内游</li>
-        <li>游轮</li>
-        <li>当地玩乐</li>
-        <li>主题游</li>
-        <li>高端游</li>
-      </ul>
+      <h2>
+        <span class="current">
+          海外酒店
+          <i></i>
+        </span>
+        <span>
+          海外民宿+短租
+          <i class="iconfont icon-shang"></i>
+        </span>
+        <span>
+          国内酒店
+          <i></i>
+        </span>
+        <span>
+          客栈民宿
+          <i></i>
+        </span>
+      </h2>
       <div class="header_go">
         上海出发
         <i class="iconfont icon-xiala"></i>
@@ -147,12 +154,44 @@ export default {
   .header_list {
     width: 100%;
     display: flex;
+    padding-bottom: 3px;
     justify-content: space-between;
-    border-bottom: 3px solid #3983e5;
-    ul {
-      display: flex;
-      li {
+    border-bottom: 2px solid #3983e5;
+    h2 {
+      text-align: left;
+      float: left;
+      span {
+        color: #333;
+        bottom: -3px;
+        height: 36px;
+        line-height: 30px;
         margin-right: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        position: relative;
+        &:hover {
+          color: #06c;
+          cursor: default;
+        }
+        i {
+          position: absolute;
+          left: 50%;
+          margin-left: -6px;
+          bottom: -6px;
+          width: 12px;
+          height: 6px;
+          overflow: hidden;
+          line-height: 0;
+          font-size: 0;
+          border-bottom: 6px solid #3983e5;
+          border-top: 0 none;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+        }
+      }
+      .current {
+        cursor: default;
+        color: #06c;
       }
     }
     .header_go {

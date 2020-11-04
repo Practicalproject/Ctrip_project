@@ -136,7 +136,9 @@
           </div>
         </div>
         <ul class="topRight">
-          <li><a class="active" href="javascript:;">你好，请登陆</a></li>
+          <li>
+            <router-link class="active" to="/login">你好，请登陆</router-link>
+          </li>
           <li><a class="active" href="javascript:;">免费注册</a></li>
           <li>
             <i class="iconfont icon-duanxin"></i>
@@ -294,6 +296,7 @@ export default {
   mounted() {
     // 发请求获取导航数据
     this.getNavData();
+    this.getIndexCountry()
   },
   methods: {
     // 鼠标移入赋值navId
@@ -303,7 +306,7 @@ export default {
     },
     // 获取导航数据回调函数
     async getNavData() {
-      let result = await this.$API.getNavData();
+      let result = await this.$API.index.getNavData();
       //判断状态码是否为200
       if (result.resultDesc.errCode === 200) {
         // 自定义唯一标识
@@ -324,10 +327,16 @@ export default {
           item.id = time + id++;
           return item;
         });
-        
+
         this.navList = navList;
       }
     },
+
+    // 获取头部全部国家列表
+    async getIndexCountry(){
+      let result = await this.$API.index.getIndexCountry()
+      console.log(result.data)
+    }
   },
   computed: {
     // 计算一级分类导航

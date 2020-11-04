@@ -2,12 +2,24 @@
   <div class="hotList_wrapper">
     <!-- 头部列表 -->
     <div class="header_list">
-      <ul>
-        <li>海外酒店</li>
-        <li>海外民宿+短租</li>
-        <li>国内酒店</li>
-        <li>客栈民宿</li>
-      </ul>
+      <h2>
+        <span class="current">
+          海外酒店
+          <i></i>
+        </span>
+        <span>
+          海外民宿+短租
+          <i class="iconfont icon-shang"></i>
+        </span>
+        <span>
+          国内酒店
+          <i></i>
+        </span>
+        <span>
+          客栈民宿
+          <i></i>
+        </span>
+      </h2>
     </div>
     <!-- 内容主体 -->
     <div class="hotList_sub">
@@ -15,50 +27,10 @@
         <!-- 左侧区域 -->
         <div class="sub_left">
           <dl class="keyword-long">
-            <dt>促销</dt>
-            <dd>
-              <span class="entrance-item" title="睡遍全世界—新加坡国家馆"
-                ><a
-                  href="https://hotels.ctrip.com/webapp/hotelevents/plist/2018xinjiapo#ctm_ref=ssc_hp_htl_sni_txt_2"
-                  target="_blank"
-                  >睡遍全世界—新加坡国家馆</a
-                ></span
-              >
-            </dd>
-            <dd>
-              <span class="entrance-item" title="睡遍全世界—日本国家馆"
-                ><a
-                  href="https://hotels.ctrip.com/webapp/hotelevents/plist/2018ribencopy#ctm_ref=ssc_hp_htl_sni_txt_2"
-                  target="_blank"
-                  >睡遍全世界—日本国家馆</a
-                ></span
-              >
-            </dd>
-            <dd>
-              <span class="entrance-item" title="睡遍全世界—澳大利亚站"
-                ><a
-                  href="https://hotels.ctrip.com/webapp/hotelevents/plist/2018aodaliyaguan#ctm_ref=ssc_hp_htl_sni_txt_2"
-                  target="_blank"
-                  >睡遍全世界—澳大利亚站</a
-                ></span
-              >
-            </dd>
-            <dd>
-              <span class="entrance-item" title="睡遍全世界-马来西亚国家馆"
-                ><a
-                  href="https://hotels.ctrip.com/webapp/hotelevents/plist/2018malaixiya#ctm_ref=ssc_hp_htl_sni_txt_2"
-                  target="_blank"
-                  >睡遍全世界-马来西亚国家馆</a
-                ></span
-              >
-            </dd>
-            <dd>
-              <span class="entrance-item" title="睡遍全世界—泰国国家馆"
-                ><a
-                  href="https://hotels.ctrip.com/webapp/hotelevents/plist/2018thailandtest#ctm_ref=ssc_hp_htl_sni_txt_2"
-                  target="_blank"
-                  >睡遍全世界—泰国国家馆</a
-                ></span
+            <dt>{{ tagup.nme }}</dt>
+            <dd v-for="(list, index) in tagupItemLst" :key="index">
+              <span class="entrance-item" :title="list.nme">
+                <a href="javaspript:;">{{ list.nme }}</a></span
               >
             </dd>
           </dl>
@@ -75,44 +47,6 @@
                 ></span
               >
             </dd>
-            <dd>
-              <span
-                class="entrance-item"
-                title="特别的旅行，美味的餐食，绝美的夜景，这次冬季旅行就去釜山吧"
-                ><a
-                  href="http://hotels.ctrip.com/international/faxian/t2882#ctm_ref=ssc_hp_htl_sni_txt_3"
-                  target="_blank"
-                  >特别的旅行，美味的餐食，绝美的夜景，这次冬季旅行就去釜山吧</a
-                ></span
-              >
-            </dd>
-            <dd>
-              <span class="entrance-item" title="孟加拉国吉大港酒店推荐"
-                ><a
-                  href="http://hotels.ctrip.com/international/faxian/t2171#ctm_ref=ssc_hp_htl_sni_txt_3"
-                  target="_blank"
-                  >孟加拉国吉大港酒店推荐</a
-                ></span
-              >
-            </dd>
-            <dd>
-              <span class="entrance-item" title="最受国人欢迎的伦敦酒店"
-                ><a
-                  href="http://hotels.ctrip.com/international/faxian/t2225#ctm_ref=ssc_hp_htl_sni_txt_3"
-                  target="_blank"
-                  >最受国人欢迎的伦敦酒店</a
-                ></span
-              >
-            </dd>
-            <dd>
-              <span class="entrance-item" title="日本北海道洞爷湖酒店推荐"
-                ><a
-                  href="http://hotels.ctrip.com/international/faxian/t2168#ctm_ref=ssc_hp_htl_sni_txt_3"
-                  target="_blank"
-                  >日本北海道洞爷湖酒店推荐</a
-                ></span
-              >
-            </dd>
           </dl>
         </div>
         <!-- 右侧区域 -->
@@ -122,7 +56,9 @@
             <!-- 境内 -->
             <div class="sub_nav">
               <ul>
-                <li v-for="item in tabs" :key="item">{{ item.tabNme }}</li>
+                <li v-for="item in tabs" :key="item.pinyin">
+                  {{ item.tabNme }}
+                </li>
               </ul>
             </div>
           </div>
@@ -130,76 +66,22 @@
           <div class="right_bottom">
             <!-- 中间 -->
             <div class="sub_body">
-              <div class="body_item">
-                <img src="./image/01.jpg" alt="" />
+              <div class="body_item" v-for="item in prdLst" :key="item.count">
+                <img :src="item.img" alt="" />
                 <div class="item_mask">
                   <div class="title">
-                    <span class="title_text">三亚</span>
+                    <span class="title_text">{{ item.nme }}</span>
                     <div class="mask_rule"></div>
                     ￥
-                    <span>876</span>/人起
-                  </div>
-                </div>
-              </div>
-              <div class="body_item">
-                <img src="./image/01.jpg" alt="" />
-                <div class="item_mask">
-                  <div class="title">
-                    <span class="title_text">三亚</span>
-                    <div class="mask_rule"></div>
-                    ￥
-                    <span>876</span>/人起
-                  </div>
-                </div>
-              </div>
-              <div class="body_item">
-                <img src="./image/01.jpg" alt="" />
-                <div class="item_mask">
-                  <div class="title">
-                    <span class="title_text">三亚</span>
-                    <div class="mask_rule"></div>
-                    ￥
-                    <span>876</span>/人起
-                  </div>
-                </div>
-              </div>
-              <div class="body_item">
-                <img src="./image/01.jpg" alt="" />
-                <div class="item_mask">
-                  <div class="title">
-                    <span class="title_text">三亚</span>
-                    <div class="mask_rule"></div>
-                    ￥
-                    <span>876</span>/人起
-                  </div>
-                </div>
-              </div>
-              <div class="body_item">
-                <img src="./image/01.jpg" alt="" />
-                <div class="item_mask">
-                  <div class="title">
-                    <span class="title_text">三亚</span>
-                    <div class="mask_rule"></div>
-                    ￥
-                    <span>876</span>/人起
-                  </div>
-                </div>
-              </div>
-              <div class="body_item">
-                <img src="./image/01.jpg" alt="" />
-                <div class="item_mask">
-                  <div class="title">
-                    <span class="title_text">三亚</span>
-                    <div class="mask_rule"></div>
-                    ￥
-                    <span>876</span>/人起
+                    <span>{{ item.price.amt }}</span
+                    >/人起
                   </div>
                 </div>
               </div>
             </div>
             <!-- 右侧大图 -->
             <div class="sub_big">
-              <img src="./image/01.jpg" alt="" />
+              <img :src="adLst.img" alt="" />
             </div>
           </div>
         </div>
@@ -213,7 +95,9 @@ export default {
   name: "OutHotels",
   data() {
     return {
-      indexHotel: {},
+      indexHotel: [],
+      adLst: {},
+      tagupItemLst: [],
     };
   },
   mounted() {
@@ -221,14 +105,21 @@ export default {
   },
   methods: {
     async getIndexHotel() {
-      const result = await this.$API.getIndexHotel();
-      // console.log(result);
-      this.indexHotel = result.data;
+      const result = await this.$API.index.getIndexHotel();
+      this.indexHotel = result.data[0];
+      this.adLst = result.data[0].adLst[0];
+      this.tagupItemLst = result.data[0].tagUp.itemLst;
     },
   },
   computed: {
     tabs() {
-      return this.indexHotel.tabs || {};
+      return this.indexHotel.tabs;
+    },
+    prdLst() {
+      return this.indexHotel.prdLst;
+    },
+    tagup() {
+      return this.indexHotel.tagUp;
     },
   },
 };
@@ -245,11 +136,43 @@ export default {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    border-bottom: 3px solid #3983e5;
-    ul {
-      display: flex;
-      li {
+    padding-bottom: 3px;
+    border-bottom: 2px solid #3983e5;
+     h2 {
+      text-align: left;
+      float: left;
+      span {
+        color: #333;
+        bottom: -3px;
+        height: 36px;
+        line-height: 30px;
         margin-right: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        position: relative;
+        &:hover {
+          color: #06c;
+          cursor: default;
+        }
+        i {
+          position: absolute;
+          left: 50%;
+          margin-left: -6px;
+          bottom: -6px;
+          width: 12px;
+          height: 6px;
+          overflow: hidden;
+          line-height: 0;
+          font-size: 0;
+          border-bottom: 6px solid #3983e5;
+          border-top: 0 none;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+        }
+      }
+      .current {
+        cursor: default;
+        color: #06c;
       }
     }
   }

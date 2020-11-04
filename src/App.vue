@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header></Header>
+    <Header v-if="$route.path !== '/login'"></Header>
     <router-view></router-view>
     <CopyRight></CopyRight>
   </div>
