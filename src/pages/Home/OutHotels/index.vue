@@ -27,11 +27,11 @@
         <!-- 左侧区域 -->
         <div class="sub_left">
           <dl class="keyword-long">
-            <dt>{{ tagup.nme }}</dt>
+            <dt>{{ tagUpName }}</dt>
             <dd v-for="(list, index) in tagupItemLst" :key="index">
               <span class="entrance-item" :title="list.nme">
-                <a href="javaspript:;">{{ list.nme }}</a></span
-              >
+                <a href="javaspript:;">{{ list.nme }}</a>
+              </span>
             </dd>
           </dl>
           <dl class="keyword-long">
@@ -98,6 +98,7 @@ export default {
       indexHotel: [],
       adLst: {},
       tagupItemLst: [],
+      tagUpName: "",
     };
   },
   mounted() {
@@ -109,6 +110,7 @@ export default {
       this.indexHotel = result.data[0];
       this.adLst = result.data[0].adLst[0];
       this.tagupItemLst = result.data[0].tagUp.itemLst;
+      this.tagUpName = result.data[0].tagUp.nme;
     },
   },
   computed: {
@@ -138,7 +140,7 @@ export default {
     justify-content: space-between;
     padding-bottom: 3px;
     border-bottom: 2px solid #3983e5;
-     h2 {
+    h2 {
       text-align: left;
       float: left;
       span {
@@ -198,6 +200,7 @@ export default {
           }
           a {
             color: #333;
+            font-size: 15px;
           }
         }
       }
