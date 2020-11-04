@@ -245,92 +245,35 @@
         <li>
           <router-link to="/">首页</router-link>
         </li>
-        <li>
-          <router-link to="/hotel"
-            >酒店
-            <i class="iconfont"></i>
-            <span class="point"></span>
-          </router-link>
-          <div class="cui_subnav_wrap">
-            <ul class="ul_nav_hotel">
-              <li>
-                <a href="javascript:;">国内酒店</a>
-              </li>
-              <li>
-                <a href="javascript:;">海外酒店</a>
-              </li>
-              <li>
-                <a href="javascript:;">民宿客栈</a>
-              </li>
-              <li>
-                <a href="javascript:;">海外民宿</a>
-              </li>
-            </ul>
-            <a class="cui_ico_order" href="javascript:;"
-              ><i class="cui-icon-hotel"></i>酒店订单 &gt;</a
+        <li class="divider"></li>
+        <template v-for="item in cate1Nav">
+          <li
+            :key="item.id"
+            @mouseenter="getNavId(item.cateID)"
+            @mouseleave="navId = ''"
+          >
+            <router-link :to="item.cateAlias"
+              >{{ item.cateName ? item.cateName : "javascript:;" }}
+              <i v-show="item.isTwoCate" class="iconfont"></i>
+              <span class="point"></span>
+            </router-link>
+            <div
+              v-show="navId && cate2Nav.length > 0"
+              :style="{ 'z-index': navId === item.cateID ? 2 : 1 }"
+              class="cui_subnav_wrap"
             >
-          </div>
-        </li>
-        <li>
-          <router-link to="/tourism">旅游</router-link>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="javascript:;">跟团游</a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <router-link to="/independenttravel">自由行</router-link>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <router-link to="/airlinepage">机票</router-link>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <router-link to="/trainPage">火车</router-link>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="javascript:;">汽车`船</a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="javascript:;">用车</a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <router-link to="/tickets">门票</router-link>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <router-link to="/strategy">攻略</router-link>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="javascript:;">全球购</a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="javascript:;">礼品卡</a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="javascript:;">商旅</a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="javascript:;">邮轮</a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="javascript:;">目的地</a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="javascript:;">金融</a>
-        </li>
-        <li class="divider"></li>
+              <ul class="ul_nav_hotel">
+                <li v-for="navItem in cate2Nav" :key="navItem.id">
+                  <a href="javascript:;">{{ navItem.cateName }}</a>
+                </li>
+              </ul>
+              <a class="cui_ico_order" href="javascript:;"
+                ><i class="cui-icon-hotel"></i>酒店订单 &gt;</a
+              >
+            </div>
+          </li>
+          <li class="divider" :key="item.cateID"></li>
+        </template>
         <li>
           <a href="javascript:;">更多</a>
         </li>
@@ -342,8 +285,62 @@
 <script>
 export default {
   name: "Header",
+  data() {
+    return {
+      navList: [],
+      navId: "",
+    };
+  },
+  mounted() {
+    // 发请求获取导航数据
+    this.getNavData();
+  },
+  methods: {
+    // 鼠标移入赋值navId
+    getNavId(navId) {
+      this.navId = "";
+      this.navId = navId;
+    },
+    // 获取导航数据回调函数
+    async getNavData() {
+      let result = await this.$API.getNavData();
+      //判断状态码是否为200
+      if (result.resultDesc.errCode === 200) {
+        // 自定义唯一标识
+        let time,
+          id = 1;
+        // 遍历将唯一标识塞进去
+        let navList = result.resultData.map((item) => {
+          //  这里给一级导航添加是否有二级导航标识
+          let cateTwo = result.resultData.some(
+            (twoItem) => twoItem.cateParentID === item.cateID
+          );
+          //  判断通过将二级导航标识添加
+          if (cateTwo) {
+            item.isTwoCate = true;
+          }
+          //  这下面处理唯一标识
+          time = Date.now();
+          item.id = time + id++;
+          return item;
+        });
+        
+        this.navList = navList;
+      }
+    },
+  },
+  computed: {
+    // 计算一级分类导航
+    cate1Nav() {
+      return this.navList.filter((item) => !item.cateParentID);
+    },
+    // 计算二级分类导航
+    cate2Nav() {
+      return this.navList.filter((item) => item.cateParentID === this.navId);
+    },
+  },
 };
-</script>
+</script> 
 
 <style lang="less" scoped>
 // 头部
