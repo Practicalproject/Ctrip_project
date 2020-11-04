@@ -1,4 +1,3 @@
-
 const AirlinePage = () => import('@/pages/AirlinePage')
 const Order = () => import('@/pages/Order')
 const Hotel = () => import('@/pages/Hotel')
