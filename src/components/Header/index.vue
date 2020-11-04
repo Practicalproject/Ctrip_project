@@ -136,7 +136,9 @@
           </div>
         </div>
         <ul class="topRight">
-          <li><a class="active" href="javascript:;">你好，请登陆</a></li>
+          <li>
+            <router-link class="active" to="/login">你好，请登陆</router-link>
+          </li>
           <li><a class="active" href="javascript:;">免费注册</a></li>
           <li>
             <i class="iconfont icon-duanxin"></i>
@@ -324,7 +326,7 @@ export default {
           item.id = time + id++;
           return item;
         });
-        
+
         this.navList = navList;
       }
     },
