@@ -67,33 +67,51 @@
         </div>
         <div class="adult_bot">同一有效证件同一使用日期限购一份。</div>
       </div>
-
-      <!-- 111 -->
-      <el-form
-        status-icon
-        ref="ruleForm"
-        label-width="100px"
-        class="demo-ruleForm"
-      >
-        <div class="form_header">
+      <!-- 出行人信息 -->
+      <div class="goperson">
+        <div class="go_tit">
           <h2>出行人信息</h2>
-          <p>须填写 <span style="color: #f40">1个</span> 出行人</p>
+          <p>需填写<span>1个</span>出行人</p>
         </div>
-        <h2 class="header_per">出行人</h2>
-        <el-form-item label="中文姓名" prop="pass">
-          <el-input type="text" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="确认密码" prop="checkPass">
-          <el-input type="text" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="年龄" prop="age">
-          <el-input></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary">提交</el-button>
-          <el-button>重置</el-button>
-        </el-form-item>
-      </el-form>
+        <ul>
+          <li class="go_per">出行人</li>
+          <li class="go_name">
+            <p>中文姓名<span>*</span></p>
+
+            <input type="text" placeholder="须与证件上的名字一致" />
+            <div>
+              <span class="name_china">中</span>
+              <span>En</span>
+            </div>
+          </li>
+          <li class="go_name">
+            <p>手机<span>*</span></p>
+
+            <input type="text" placeholder="接收确认短信" />
+          </li>
+          <li class="go_name">
+            <p>身份证<span>*</span></p>
+
+            <input type="text" placeholder="请填写证件号码" />
+          </li>
+        </ul>
+      </div>
+
+      <!-- 联系人信息 -->
+      <div class="linkman">
+        <h2>联系信息</h2>
+        <div class="link_wrap">
+          <span class="phone">联系手机 <span>*</span> </span>
+          <input type="text" placeholder="接收确认短信" />
+        </div>
+      </div>
+
+      <!-- 支付按钮 -->
+      <div class="gomoney">去支付</div>
+    </div>
+    <!-- 固定订单 -->
+    <div class="order" @mousewheel="fixed">
+
     </div>
   </div>
 </template>
@@ -101,16 +119,24 @@
 export default {
   name: "huangpujiang",
   data() {
-    return {
-    };
+    return {};
   },
   methods: {
-
+    fixed(){
+      alert(123)
+    }
   },
 };
 </script>
 <style lang='less' scoped>
+// /中英文切换按钮改变样式
+.name_china {
+  color: #099fde !important;
+}
 .conent {
+  width: 1180px;
+  margin: 0 auto;
+  // 头部
   .header {
     width: 1180px;
     height: 59px;
@@ -131,10 +157,11 @@ export default {
       // transform: translateY(-50%);
     }
   }
+  //   内容
   .wrap {
     width: 780px;
-    height: 2000px;
-    margin: 0 auto;
+    // height: 2000px;
+    // margin: 0 auto;
     // background-color: pink;
 
     // 船票
@@ -282,42 +309,151 @@ export default {
         margin-left: -30px;
       }
     }
-    /deep/ .el-form {
+    // 出行人
+    .goperson {
+      width: 780px;
+      padding-bottom: 20px;
+      margin-bottom: 10px;
+      // height: 100%;
+      // background-color: pink;
       border: 1px solid #ccc;
-      padding: 10px 30px;
       box-sizing: border-box;
-      .form_header {
-        margin-top: -10px;
-        margin-left: -30px;
-        padding-left: 30px;
-        top: 0;
-        left: 0;
+      .go_tit {
         display: flex;
-        width: 778px;
-        height: 42px;
-        line-height: 42px;
-        background-color: #eff0f2;
-        vertical-align: bottom;
+        width: 100%;
+        padding: 10px 30px;
+        background: #eff0f2;
         h2 {
+          margin-right: 5px;
           font-size: 18px;
           font-weight: 700;
-          margin-right: 5px;
         }
         p {
           font-size: 13px;
           color: #999;
-          padding-top: 3.5px;
+          line-height: 18px;
+          margin-top: 3px;
+          span {
+            color: #f40;
+          }
         }
       }
-      .header_per {
-        padding-top: 10px;
-        height: 20px;
-        line-height: 20px;
-        font-size: 14px;
-        color: #333;
-        font-weight: 700;
+      ul {
+        li {
+          width: 748px;
+          height: 50px;
+          padding: 0 30px;
+          p {
+            vertical-align: sub;
+            width: 111px;
+            text-align: right;
+            font-size: 14px;
+            color: #000;
+            vertical-align: middle;
+            span {
+              margin: 0 10px;
+              vertical-align: middle;
+              color: #ff461b;
+            }
+          }
+          input {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+            height: 38px;
+            transform: translateY(-25%);
+            // border: none;
+            outline: none;
+          }
+        }
+        .go_per {
+          padding-top: 10px;
+          padding-left: 30px;
+          //   height: 20px;
+          //   line-height: 20px;
+          font-size: 14px;
+          color: #333;
+          font-weight: 700;
+        }
+        .go_name {
+          display: flex;
+          padding-bottom: 30px;
+          div {
+            display: flex;
+            // height: 25px
+            // padding: 5px;
+            margin-top: -8px;
+            margin-left: 15px;
+            span {
+              border: 1px solid #ccc;
+              width: 30px;
+              padding: 5px;
+              height: 35px;
+              line-height: 23px;
+              text-align: center;
+              color: #ccc;
+            }
+          }
+        }
       }
     }
+
+    // 联系人
+    .linkman {
+      width: 780px;
+      border: 1px solid #ccc;
+      margin-bottom: 30px;
+      h2 {
+        padding: 10px 30px;
+        background: #eff0f2;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .link_wrap {
+        padding: 20px 30px;
+        .phone {
+          display: inline-block;
+          width: 111px;
+          text-align: right;
+          font-size: 14px;
+          color: #000;
+          span {
+            color: #ff461b;
+            margin: 0 10px;
+          }
+        }
+         input {
+            border: 1px solid #ccc;
+            padding:  10px;
+            width: 300px;
+            height: 38px;
+            transform: translateY(-17%);
+            outline: none;
+            margin-top:30px;
+            vertical-align: sub;
+          }
+      }
+    }
+    // 去支付
+    .gomoney{
+      width: 780px;
+      height: 50px;
+      background-color: #ff7d13;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      margin-bottom: 80px;
+    }
+  }
+  // 固定订单
+  .order{
+    background-color: #099fde;
+    width: 380px;
+    height: 188px;
+    position: fixed;
+    top: 85px;
+    right: 362px;
   }
 }
 </style>
