@@ -507,7 +507,7 @@ body,html{
         font-size: 12px;
         color: rgb(102, 102, 102);
       }
-      span {
+      spanD {
         display: block;
         margin-top: 20px;
         line-height: 22px;
