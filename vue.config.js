@@ -12,6 +12,10 @@ module.exports = {
                 target: 'http://localhost:2506',
                 pathRewrite: { "^/v1": "" }
             },
+            '/v2': {
+                target: 'http://localhost:2506',
+                pathRewrite: { "^/v1": "" }
+            },
 
         }
     },

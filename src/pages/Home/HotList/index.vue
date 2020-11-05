@@ -169,6 +169,7 @@ export default {
     padding: 15px 19px 0;
     width: 100%;
     border: 1px solid #ddd;
+    background-color: white;
     .sub_nav {
       margin-bottom: 15px;
       ul {
