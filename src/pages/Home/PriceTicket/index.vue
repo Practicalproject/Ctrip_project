@@ -35,17 +35,33 @@
       <!-- 机票详情 -->
       <div class="product_hd">
         <ul>
-          <li class="active">热门往返</li>
-          <li>亚洲</li>
+          <li :class="{active:index===number}" v-for="(item,index) in tabLst" :key="index" @click="change(index)">{{item.tabNme}}</li>
+          <!-- <li>亚洲</li>
           <li>欧洲</li>
           <li>美洲</li>
-          <li>非洲</li>
+          <li>非洲</li> -->
         </ul>
         <span> 更多国际•港澳台特价机票 > </span>
       </div>
       <div class="product_con">
         <div class="conList">
-          <div class="conItem">
+          <div class="conItem" v-for="(caleLstItem,index) in caleLst" :key="index">
+            <a href="InternationalTicket.url" class="detail">
+              <p class="cityInfo">
+                {{caleLstItem.acNme}}
+                <i></i>
+                {{caleLstItem.dcNme}}
+              </p>
+              <p class="dayInfo">
+                <span>{{caleLstItem.dateTxt}}</span>
+              </p>
+              <p class="priceInfo">
+                <span class="price" v-if="caleLstItem.price"> <dfn>￥</dfn>{{caleLstItem.price.amt}}<i>起</i> </span>
+                <span class="button">立抢</span>
+              </p>
+            </a>
+          </div>
+          <!-- <div class="conItem">
             <a href="javascript:;" class="detail">
               <p class="cityInfo">
                 上海
@@ -124,23 +140,7 @@
                 <span class="button">立抢</span>
               </p>
             </a>
-          </div>
-          <div class="conItem">
-            <a href="javascript:;" class="detail">
-              <p class="cityInfo">
-                上海
-                <i></i>
-                北京
-              </p>
-              <p class="dayInfo">
-                <span>11月4日 - 11月11日</span>
-              </p>
-              <p class="priceInfo">
-                <span class="price"> <dfn>￥</dfn>690<i>起</i> </span>
-                <span class="button">立抢</span>
-              </p>
-            </a>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -150,6 +150,35 @@
 <script>
 export default {
   name: "PriceTicket",
+  data() {
+    return {
+      InternationalTicket:{},
+      number:0,
+    }
+  },
+  mounted() {
+    this.getIndexInternational()
+  },
+  methods: {
+    async getIndexInternational(){
+      let result = await this.$API.index.getIndexInternational();
+      if(result.code === 200){
+        this.InternationalTicket = result.data
+      }
+      console.log(result);
+    },
+    change(index){
+      this.number = index
+    }
+  },
+  computed: {
+    caleLst(){
+      return this.InternationalTicket.caleLst
+    },
+    tabLst(){
+      return this.InternationalTicket.tabLst
+    }
+  }
 };
 </script>
 

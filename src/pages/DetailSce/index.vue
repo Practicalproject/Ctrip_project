@@ -12,11 +12,9 @@ import Review from "./Review";
 export default {
   components: {
     DetailBan,
-  },
-  name: "DetailSce",
-  components: {
     Review,
   },
+  name: "DetailSce",
 };
 </script>
 
