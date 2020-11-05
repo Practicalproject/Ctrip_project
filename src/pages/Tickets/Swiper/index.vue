@@ -2,7 +2,24 @@
   <div class="container">
     <!-- 左侧 -->
     <div class="leftBox">
-      <div class="left_top"></div>
+      <!-- 上方 -->
+      <div class="left_top">
+        <!-- 标题 -->
+        <div class="top_header">
+          <i class="iconfont icon-3-psjnt"></i>
+        </div>
+        <!-- 内容 -->
+        <div class="top_title"></div>
+      </div>
+      <!-- 下方 -->
+      <div class="left_bottom">
+        <!-- 标题 -->
+        <div class="bottom_header">
+          <i class="iconfont icon-chengshi1"></i>
+        </div>
+        <!-- 内容 -->
+        <div class="bottom_title"></div>
+      </div>
     </div>
     <!-- 右侧 -->
     <div class="block">
@@ -35,8 +52,13 @@ export default {
     display: inline-block;
     .left_top{
       height: 200px;
-      width: 100px;      
+      width: 100%;      
       background-color: lawngreen;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+    .left_bottom{
+      background-color: skyblue;
     }
   }
   .block {

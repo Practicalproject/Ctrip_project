@@ -231,6 +231,8 @@ export default {
 .modcar {
   width: 1180px;
   margin: 28px auto;
+  background-color: #fff;
+
   /* 标题行 */
   .modhd {
     width: 1180px;

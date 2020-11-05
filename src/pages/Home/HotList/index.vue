@@ -105,7 +105,7 @@ export default {
   width: 1180px;
   margin: 0 auto;
   line-height: 30px;
-
+  background-color: #fff;
   //   头部列表
   .header_list {
     width: 100%;
