@@ -17,5 +17,12 @@ export default {
     //  获取首页全部国家列表
     reqlogin(email, pwd) {
         return Ajax.instanceTwo.post("/login", { email, pwd })
+    },
+    // 获取海外酒店
+    getIndexHotel() {
+        return Ajax.instanceTwo.get('/getIndexHotel')
+    },
+    getIndexHot() {
+        return Ajax.instanceTwo.get('/getIndexHot')
     }
 }
