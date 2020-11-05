@@ -398,7 +398,8 @@ export default {
             margin-left: 10px;
             width: 210px;
             &:hover {
-              border: 1px solid #ddd;
+              /* border: 1px solid #ddd; */
+              box-shadow: 0 1px 4px rgba(0, 0, 0, .25);
             }
             a .carImg {
               display: block;

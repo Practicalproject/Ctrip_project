@@ -292,17 +292,16 @@ export default {
             margin-left: 10px;
             width: 210px;
             &:hover {
-              border: 1px solid #ddd;
+              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
             }
             a .carImg {
               display: block;
               width: 100%;
               height: 145px;
               overflow: hidden;
-              img{
+              img {
                 width: 220px;
               }
-              
             }
             /* .carImg:hover img {
               transition: transform 0.3s ease, -webkit-transform 0.3s ease;
