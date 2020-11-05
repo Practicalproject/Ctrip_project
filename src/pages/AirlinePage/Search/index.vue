@@ -27,7 +27,8 @@
         <!-- 搜索上部 -->
         <div class="search-form-top">
           <ul class="form-select-radio">
-            <li :class="{active:(number === index)}" @click="change(index)">
+            <!-- <li :class="{active:(number === index)}" @click="change(index)"> -->
+            <li class="active">
               <span class="radio-label">
                 <i class="iconfont icon-RadioButton"></i>
                 <i class="iconfont icon-RadioButton-1"></i>
@@ -312,7 +313,7 @@ export default {
             font-size: 16px;
           }
           .icon-RadioButton {
-            // display: none;
+            display: none;
           }
           &.active {
             color: #06c;
@@ -403,7 +404,7 @@ export default {
           font-size: 14px;
           cursor: pointer;
           .icon-arrow-up-bold {
-            display: none;
+            // display: none;
           }
         }
         .class-grade-select {
