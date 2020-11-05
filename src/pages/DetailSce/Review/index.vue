@@ -2,13 +2,13 @@
   <div class="container">
     <!-- 头部区域 -->
     <div class="header">
-      <a href="javascript:;">行程介绍</a>
-      <a href="javascript:;">图文详情</a>
+      <a href="#tripname">行程介绍</a>
+      <a href="#graphic">图文详情</a>
       <a href="javascript:;">费用·须知</a>
-      <a href="javascript:;">用户点评（1）</a>
+      <a href="#reviewJ">用户点评（1）</a>
     </div>
     <!-- 行程介绍内容区 -->
-    <div class="describeList">
+    <div class="describeList" id="tripname" name="tripname">
       <!-- 浮动区域 -->
       <div class="rou-nav">
         <ul>
@@ -17,7 +17,7 @@
         </ul>
       </div>
       <!-- 行程区 -->
-      <div class="tripArea">
+      <div class="tripArea" name="trip">
         <div class="travelProfile">
           <ul>
             <li class="tp1">行程概要</li>
@@ -131,7 +131,7 @@
       </div>
     </div>
     <!--图文详情  -->
-    <div class="modinfo">
+    <div class="modinfo" id="graphic" name="graphic">
       <h2 class="detail-mod">图文详情</h2>
       <p>
         <img src="./images/1.jpg" alt="" />
@@ -163,7 +163,7 @@
     </div>
 
     <!-- 评论区 -->
-    <div class="comments">
+    <div class="comments" id="reviewJ" name="reviewJ">
       <div class="commentHeader">
         <h2>用户点评</h2>
         <div class="commentScores">
@@ -177,28 +177,49 @@
         <p>
           包车环岛游，很棒，行程不赶，自由选择景点，推荐拉威，超美的海，泰国导游都态度好好。很棒。
         </p>
-        <span></span>
+        <spanD>M25****5389 2020-02-07 </spanD>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+
+
 export default {
   name: "review",
 };
 </script>
 
 <style  lang ='less' scoped>
+body,html{
+  scroll-behavior :smooth;
+}
 .container {
   width: 1180px;
   margin: 0 auto;
+  .book_btn {
+    cursor: pointer;
+    width: 132px;
+    height: 37px;
+    line-height: 37px;
+    text-align: center;
+    background: #ff7e00;
+    color: #fff;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 20px;
+    border-bottom: 2px solid #f2590d;
+    border-right: 1px solid #f2590d;
+    margin-top: 10px;
+  }
   .header {
     height: 60px;
     width: 898px;
     padding: 0 0 0 70px;
     border: 1px solid #ddd;
     box-sizing: border-box;
+    background: white;
     a {
       line-height: 55px;
       font-size: 18px;
@@ -469,6 +490,8 @@ export default {
       width: 746px;
       height: 129px;
       padding: 20px 0;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
       h4 {
         display: block;
         width: 75px;
@@ -478,11 +501,19 @@ export default {
         height: 23px;
         padding: 0 0 5px;
       }
-      p{
+      p {
         height: 20px;
         line-height: 20px;
         font-size: 12px;
-        
+        color: rgb(102, 102, 102);
+      }
+      span {
+        display: block;
+        margin-top: 20px;
+        line-height: 22px;
+        font-size: 12px;
+        font-weight: 400;
+        color: #b5b5b5;
       }
     }
   }
