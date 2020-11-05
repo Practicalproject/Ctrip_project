@@ -12,8 +12,22 @@
       <!-- 浮动区域 -->
       <div class="rou-nav">
         <ul>
-          <li>环岛半日游</li>
-          <li>环岛一日游</li>
+          <li>
+            <a
+              href="javascript:;"
+              @click="selete(1)"
+              :class="this.index === 1 ? 'blue' : 'gery'"
+              >环岛半日游</a
+            >
+          </li>
+          <li>
+            <a
+              href="javascript:;"
+              @click="selete(2)"
+              :class="this.index === 2 ? 'blue' : 'gery'"
+              >环岛一日游</a
+            >
+          </li>
         </ul>
       </div>
       <!-- 行程区 -->
@@ -177,7 +191,7 @@
         <p>
           包车环岛游，很棒，行程不赶，自由选择景点，推荐拉威，超美的海，泰国导游都态度好好。很棒。
         </p>
-        <spanD>M25****5389 2020-02-07 </spanD>
+        <span class="spand">M25****5389 2020-02-07 </span>
       </div>
     </div>
   </div>
@@ -186,6 +200,16 @@
 <script>
 export default {
   name: "review",
+  data() {
+    return {
+      index: 1,
+    };
+  },
+  methods: {
+    selete(i) {
+      this.index = i;
+    },
+  },
 };
 </script>
 
@@ -251,22 +275,49 @@ html {
       left: 69px;
       ul li {
         margin-right: 10px;
-        display: block;
-        width: 120px;
+        /* display: block; */
+        /* width: 120px;
         height: 40px;
-        line-height: 38px;
+        line-height: 38px; */
         text-align: center;
         position: relative;
         zoom: 1;
         background-color: #fff;
         box-sizing: border-box;
-        display: block;
         color: #333;
-        text-decoration: none;
-        border: 2px solid #e3e3e3;
-        font-size: 14px;
+        /* border: 2px solid #e3e3e3; */
+        /* font-size: 14px; */
         margin-top: 10px;
         float: left;
+        .blue {
+          border: 2px solid #2680ff;
+          color: #2680ff;
+          font-weight: 700;
+        }
+      }
+      a {
+        text-decoration: none;
+        display: block;
+        font-size: 14px;
+        /* color: #333; */
+        box-sizing: border-box;
+        width: 120px;
+        height: 40px;
+        line-height: 38px;
+        color: #333;
+        border: 2px solid #e3e3e3;
+      }
+      a :hover {
+        border: 2px solid #2680ff;
+        color: #2680ff;
+        font-weight: 700;
+      }
+      .gery {
+        /* border: 2px solid #2680ff;
+        color: #2680ff;
+        font-weight: 700; */
+        color: #333;
+        border: 2px solid #e3e3e3;
       }
     }
     /* 行程区域 */
@@ -510,7 +561,7 @@ html {
         font-size: 12px;
         color: rgb(102, 102, 102);
       }
-      spanD {
+      .spand {
         display: block;
         margin-top: 20px;
         line-height: 22px;
