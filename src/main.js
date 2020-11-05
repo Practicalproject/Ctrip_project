@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from '@/router'
-import { Carousel, Card, Option, CarouselItem, Form, FormItem, Input, Select, Col, DatePicker, TimePicker, Switch, CheckboxGroup, Checkbox, Radio, RadioGroup, Button, Tabs, TabPane } from 'element-ui';
+import { Carousel, Card, Option, CarouselItem, Form, FormItem, Input, Select, Col, DatePicker, TimePicker, Switch, CheckboxGroup, Checkbox, Radio, RadioGroup, Button, Tabs, TabPane, Message } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.config.productionTip = false
@@ -29,7 +29,7 @@ Vue.use(Button)
 Vue.use(Tabs)
 Vue.use(TabPane)
 
-
+Vue.prototype.$message = Message;
 
 new Vue({
   beforeCreate() {

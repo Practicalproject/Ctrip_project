@@ -85,16 +85,27 @@
               >
             </h2>
             <div class="form_wrap">
-              <el-form :model="loginInfo" status-icon>
-                <el-form-item prop="pass">
+              <el-form
+                :model="loginInfo"
+                status-icon
+                :rules="rules"
+                show-message
+                inline-message
+              >
+                <el-form-item prop="name">
+                  <!-- <template slot-scope="error">
+                    {{ $message.error(error) }}
+                  </template> -->
                   <el-input
+                    v-model="loginInfo.email"
                     type="text"
                     autocomplete="off"
                     placeholder="国内手机号/用户名/邮箱/卡号"
                   ></el-input>
                 </el-form-item>
-                <el-form-item prop="checkPass">
+                <el-form-item prop="password">
                   <el-input
+                    v-model="loginInfo.pwd"
                     type="password"
                     autocomplete="off"
                     placeholder="登陆密码"
@@ -108,7 +119,6 @@
                   <label class="auto-login"
                     ><input
                       type="checkbox"
-                      checked="checked"
                       id="normal30day"
                     />30天内自动登录</label
                   >
@@ -117,9 +127,76 @@
                   ></a>
                 </div>
                 <el-form-item>
-                  <el-button type="primary">登 录</el-button>
+                  <el-button type="primary" @click="toLogin">登 录</el-button>
                 </el-form-item>
+                <p class="agreement-list">
+                  登录即代表您同意我们的<a
+                    href="javascript:;"
+                    class="serviceAgreement"
+                    >服务协议</a
+                  >和<a href="javascript:;" class="privacyPolicy">隐私政策</a>
+                </p>
               </el-form>
+              <div class="lg_weblogin">
+                <div class="login-about">
+                  <a href="javascript:;" id="overseas_login">境外手机</a
+                  ><span class="sep">|</span
+                  ><a href="javascript:;" class="companylogin">公司客户</a
+                  ><span class="sep">|</span
+                  ><a
+                    class="cardlogin"
+                    target="_self"
+                    href="javascript:;"
+                    style="display: none"
+                    >合作卡</a
+                  ><span class="sep" id="cardloginsep" style="display: none"
+                    >|</span
+                  ><a class="fuli" target="_self" href="javascript:;">携程通</a
+                  ><a href="javascript:;" class="free-regist" target="_black"
+                    >免费注册</a
+                  >
+                </div>
+                <div class="login-other">
+                  <a
+                    href="javascript:;"
+                    class="icon-alipay"
+                    url="/user/authorize/alipay"
+                    >支付宝</a
+                  ><a
+                    href="javascript:;"
+                    class="icon-qq"
+                    url="/user/authorize/qq"
+                    >QQ</a
+                  ><a
+                    href="javascript:;"
+                    class="icon-baidu"
+                    url="/user/authorize/baidu"
+                    >百度</a
+                  ><a
+                    href="javascript:;"
+                    class="icon-sina"
+                    url="/user/authorize/sina"
+                    >新浪微博</a
+                  ><a
+                    href="javascript:;"
+                    class="icon-wechat"
+                    url="/user/authorize/wechat"
+                    >微信</a
+                  ><a
+                    href="javascript:;"
+                    style="display: none"
+                    class="icon-163"
+                    url="/member/neteLogin/NeteAuthorize.aspx"
+                    >网易</a
+                  ><a
+                    href="javascript:;"
+                    class="icon-renren"
+                    url="/member/RenrenLogin/Authorize.aspx"
+                    style="display: none"
+                    >人人网</a
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -136,11 +213,32 @@ export default {
     return {
       testImg: "",
       // 收集登陆信息
-      loginInfo: {},
+      loginInfo: {
+        email: "",
+        pwd: "",
+      },
+      rules: {
+        name: [
+          // { required: true, message: "请输入邮箱", trigger: "blur" },
+          // { min: 3, max: 5, message: "长度在 3 到 5 个字符", trigger: "blur" },
+        ],
+        // password: [{ required: true, message: "请输入密码", trigger: "blur" }],
+      },
     };
   },
   mounted() {
     this.testImg = testImg;
+  },
+  methods: {
+    async toLogin() {
+      let { email, pwd } = this.loginInfo;
+      let result = await this.$API.index.reqlogin(email, pwd);
+      if (result.code === 20000) {
+        this.$message.success(result.msg);
+      } else {
+        this.$message.error(result.msg);
+      }
+    },
   },
 };
 </script>
@@ -262,7 +360,7 @@ export default {
                   border-radius: 0;
                   border: 1px solid #ccc;
                   &[type="password"] {
-                    padding: 5px 65px 5px 13px;
+                    padding: 5px 75px 5px 13px;
                   }
                   &:focus {
                     border: 1px solid #ccc;
@@ -270,9 +368,16 @@ export default {
                 }
                 .isPassword {
                   color: #666;
+                  margin-right: 10px;
                   &:hover {
                     text-decoration: revert;
                   }
+                }
+                .el-input__suffix-inner {
+                  float: right;
+                }
+                .el-input__validateIcon {
+                  float: right;
                 }
               }
               .login-set {
@@ -291,13 +396,123 @@ export default {
                 .login-entry-dynamic {
                   float: right;
                   color: #666;
+                  .icon-arrowr {
+                    display: inline-block;
+                    background: url(//pic.c-ctrip.com/platform/online/login/un_login_20170818.png)
+                      no-repeat;
+                    width: 12px;
+                    height: 12px;
+                    background-position: 0 0;
+                    vertical-align: -2px;
+                  }
                 }
               }
               .el-button--primary {
                 width: 100%;
                 height: 42px;
                 background-color: #ff9a14;
-                border-color: #ff9a14;
+                border: none;
+                font-size: 16px;
+                &:hover {
+                  background: #cc7b10;
+                }
+              }
+
+              .agreement-list {
+                font-size: 12px;
+                margin-top: 5px;
+                color: #999;
+                line-height: 12px;
+                text-align: center;
+                a {
+                  padding: 0 3px;
+                  color: #999;
+                  border-bottom: 1px dotted #999;
+                }
+              }
+            }
+            .lg_weblogin {
+              display: block;
+              margin-top: 52px;
+              .login-about {
+                margin-bottom: 20px;
+                line-height: 1;
+                a {
+                  color: #666;
+                  &:hover {
+                    text-decoration: revert;
+                  }
+                }
+                .sep {
+                  padding: 0 10px;
+                  color: #ccc;
+                }
+                a.free-regist {
+                  float: right;
+                  color: #3882e5;
+                }
+              }
+              .login-other {
+                text-align: left;
+                margin-right: -18px;
+                a {
+                  margin-right: 18px;
+                }
+                .icon-alipay {
+                  display: inline-block;
+                  background: url(//pic.c-ctrip.com/platform/online/login/un_login_third.png)
+                    no-repeat;
+                  vertical-align: middle;
+                  width: 30px;
+                  height: 0;
+                  padding-top: 30px;
+                  overflow: hidden;
+                  background-position: 0 0;
+                }
+                .icon-qq {
+                  display: inline-block;
+                  background: url(//pic.c-ctrip.com/platform/online/login/un_login_third.png)
+                    no-repeat;
+                  vertical-align: middle;
+                  width: 30px;
+                  height: 0;
+                  padding-top: 30px;
+                  overflow: hidden;
+                  background-position: -35px 0;
+                }
+                .icon-baidu {
+                  display: inline-block;
+                  background: url(//pic.c-ctrip.com/platform/online/login/un_login_third.png)
+                    no-repeat;
+                  vertical-align: middle;
+                  width: 30px;
+                  height: 0;
+                  padding-top: 30px;
+                  overflow: hidden;
+                  background-position: -70px 0;
+                }
+                .icon-sina {
+                  display: inline-block;
+                  background: url(//pic.c-ctrip.com/platform/online/login/un_login_third.png)
+                    no-repeat;
+                  vertical-align: middle;
+                  width: 30px;
+                  height: 0;
+                  padding-top: 30px;
+                  overflow: hidden;
+                  background-position: -105px 0;
+                }
+                .icon-wechat {
+                  display: inline-block;
+                  background: url(//pic.c-ctrip.com/platform/online/login/un_login_third.png)
+                    no-repeat;
+                  vertical-align: middle;
+                  width: 30px;
+                  height: 0;
+                  padding-top: 30px;
+                  overflow: hidden;
+                  background-position: -140px 0;
+                }
               }
             }
           }

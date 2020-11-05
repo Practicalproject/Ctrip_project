@@ -12,5 +12,10 @@ export default {
     //  获取首页全部国家列表
     getIndexCountry() {
         return Ajax.instanceTwo.get("/getIndexCountry")
+    },
+
+    //  获取首页全部国家列表
+    reqlogin(email, pwd) {
+        return Ajax.instanceTwo.post("/login", { email, pwd })
     }
 }
