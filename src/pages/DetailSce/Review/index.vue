@@ -167,7 +167,7 @@
       <div class="commentHeader">
         <h2>用户点评</h2>
         <div class="commentScores">
-          <span>5</span>
+          <span class="number">5</span>
           <i>分 </i>
           1 条评论
         </div>
@@ -184,16 +184,15 @@
 </template>
 
 <script>
-
-
 export default {
   name: "review",
 };
 </script>
 
 <style  lang ='less' scoped>
-body,html{
-  scroll-behavior :smooth;
+body,
+html {
+  scroll-behavior: smooth;
 }
 .container {
   width: 1180px;
@@ -229,7 +228,7 @@ body,html{
       display: block;
       float: left;
     }
-    a :hover {
+    a:hover {
       color: #2680ff;
     }
   }
@@ -471,6 +470,10 @@ body,html{
         top: 50px;
         color: #999;
         font-size: 12px;
+        .number {
+          font: 30px tahoma;
+          color: #2680ff;
+        }
         h4 {
           display: inline-block;
           font: 30px tahoma;
