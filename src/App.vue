@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header v-if="$route.path !== '/login'"></Header>
+    <Header v-if="($route.path !== '/login') && $route.path !== '/register'"></Header>
     <router-view></router-view>
     <CopyRight></CopyRight>
   </div>
