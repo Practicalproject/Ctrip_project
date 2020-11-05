@@ -274,7 +274,6 @@ export default {
     });
     // ------------------
   },
-  methods: {},
 };
 </script>
 
@@ -401,7 +400,7 @@ export default {
           .detail_proInfo {
             position: relative;
             height: 60px;
-            display: box;
+            // display: box;
             display: flex;
             align-items: center;
             white-space: nowrap;
