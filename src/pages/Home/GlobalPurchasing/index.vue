@@ -297,12 +297,12 @@ export default {
                 width: 200px;
               }
             }
-            .carImg:hover img {
+            /* .carImg:hover img {
               transition: transform 0.3s ease, -webkit-transform 0.3s ease;
               width: 200px;
               height: 130px;
               transform: scale(1.1);
-            }
+            } */
             .carName {
               position: relative;
               height: 20px;

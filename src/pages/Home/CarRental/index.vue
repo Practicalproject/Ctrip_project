@@ -164,17 +164,21 @@
           <div class="priductbd">
             <!-- 图片详情区域 -->
             <ul class="carContainer">
-              <li class="carList" v-for="(prdLstItem,index) in prdLst" :key="index">
+              <li
+                class="carList"
+                v-for="(prdLstItem, index) in prdLst"
+                :key="index"
+              >
                 <a href="javascript:;">
                   <p class="carImg">
                     <img :src="prdLstItem.img" alt="" />
                   </p>
-                  <p class="carName">{{prdLstItem.nme}}</p>
+                  <p class="carName">{{ prdLstItem.nme }}</p>
                   <p class="carPrice">
-                    <span class="item-type">{{prdLstItem.subNme}}</span>
+                    <span class="item-type">{{ prdLstItem.subNme }}</span>
                     <span class="price" v-if="prdLstItem.price">
                       <dfn>¥</dfn>
-                      {{prdLstItem.price.amt}}
+                      {{ prdLstItem.price.amt }}
                       <i class="priceInfo"></i>
                     </span>
                   </p>
@@ -387,58 +391,61 @@ export default {
       }
       /* 汽车详情区域 */
       .priductbd {
-        .carList {
-          margin-left: 10px;
-          width: 210px;
-          float: left;
-          &:hover {
-            border: 1px solid #ddd;
-          }
-          a .carImg {
-            display: block;
-            width: 100%;
-            height: 145px;
-          }
-          .carImg:hover img {
-            transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-            width: 277px;
-            height: 156px;
-            transform: scale(1.1);
-          }
-          .carName {
-            position: relative;
-            height: 20px;
-            line-height: 20px;
-            text-align: left;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding: 0 5px;
-          }
-          .carPrice {
-            height: 35px;
-            display: flex;
-            justify-content: space-between;
-          }
-          .item-type {
-            display: block;
-            color: #999;
-            height: 35px;
-            line-height: 35px;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            text-align: left;
-          }
-          .price {
-            position: relative;
-            float: right;
-            font: 22px/1.5 tahoma;
-            color: #f60;
-            .miniLogo {
-              vertical-align: 7px;
-              font: 12px/1.5 arial;
-              color: #666;
+        .carContainer {
+          display: flex;
+          justify-content: space-between;
+          .carList {
+            margin-left: 10px;
+            width: 210px;
+            &:hover {
+              border: 1px solid #ddd;
+            }
+            a .carImg {
+              display: block;
+              width: 100%;
+              height: 145px;
+            }
+            /* .carImg:hover img {
+              transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+              width: 277px;
+              height: 156px;
+              transform: scale(1.1);
+            } */
+            .carName {
+              position: relative;
+              height: 20px;
+              line-height: 20px;
+              text-align: left;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding: 0 5px;
+            }
+            .carPrice {
+              height: 35px;
+              display: flex;
+              justify-content: space-between;
+            }
+            .item-type {
+              display: block;
+              color: #999;
+              height: 35px;
+              line-height: 35px;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              text-align: left;
+            }
+            .price {
+              position: relative;
+              float: right;
+              font: 22px/1.5 tahoma;
+              color: #f60;
+              .miniLogo {
+                vertical-align: 7px;
+                font: 12px/1.5 arial;
+                color: #666;
+              }
             }
           }
         }

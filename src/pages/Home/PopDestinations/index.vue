@@ -304,13 +304,12 @@ export default {
               }
               
             }
-            .carImg:hover img {
+            /* .carImg:hover img {
               transition: transform 0.3s ease, -webkit-transform 0.3s ease;
               width: 220px;
               height: 130px;
               transform: scale(1.1);
-              
-            }
+            } */
             .carName {
               position: relative;
               height: 20px;
