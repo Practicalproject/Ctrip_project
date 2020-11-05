@@ -24,5 +24,9 @@ export default {
     },
     getIndexHot() {
         return Ajax.instanceTwo.get('/getIndexHot')
+    },
+
+    getIndexInternational() {
+        return Ajax.instanceTwo.get('/getIndexInternational')
     }
 }
