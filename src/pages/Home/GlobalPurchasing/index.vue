@@ -37,9 +37,10 @@
             <div class="pri_list">
               <ul class="inner-tabs">
                 <li
-                  class="active"
+                  :class="{active:index === numIndex}"
                   v-for="(tabsItem, index) in tabs"
                   :key="index"
+                  @click="changeIndex(index)"
                 >
                   <a href="javascript: ;">{{ tabsItem.tabNme }}</a>
                 </li>
@@ -92,6 +93,7 @@ export default {
     return {
       globalPurchasing: {},
       tagsItemLst: [],
+      numIndex: 0,
     };
   },
   mounted() {
@@ -103,6 +105,9 @@ export default {
       this.globalPurchasing = resule.data;
       this.tagsItemLst = resule.data.tags.itemLst;
     },
+    changeIndex(index){
+      this.numIndex = index
+    }
   },
   computed: {
     tabs() {
@@ -210,11 +215,6 @@ export default {
             }
           }
         }
-        /* .keyContainer {
-          width: 197px;
-          height: 190px;
-        background: violet;
-        } */
       }
     }
     /* 右侧 */
@@ -245,8 +245,12 @@ export default {
               line-height: 20px;
               margin-right: 15px;
               padding: 0 8px;
-              .icon-xiaosanjiao {
-                color: blue;
+              &:hover {
+                background-color: #007aff;
+                font-weight: 700;
+                a {
+                  color: #ddd;
+                }
               }
             }
             .active {
@@ -256,10 +260,6 @@ export default {
                 color: #ddd;
               }
             }
-          }
-          &:hover a {
-            background-color: #007aff;
-            color: #fff;
           }
         }
         .more {
@@ -287,7 +287,7 @@ export default {
             width: 200px;
             &:hover {
               box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-              img{
+              img {
                 transform: scale(1.1);
                 transition: transform 0.3s ease, -webkit-transform 0.3s ease;
               }

@@ -169,18 +169,18 @@ export default {
   /* 主内容区 */
   .mod_body {
     width: 1180px;
-    height: 227px;
+    height: 200px;
     border: 1px solid #ddd;
     display: flex;
     /* 左侧 */
     .entrance {
       width: 227px;
-      height: 227px;
+      height: 200px;
       padding: 0 20px 15px 20px;
       border-right: 1px dashed #ddd;
       .keyword {
         width: 187px;
-        height: 230px;
+        height: 200px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -210,29 +210,18 @@ export default {
               color: #666;
               display: inline-block;
               max-width: 72px;
-            }
-            .iconfont {
-              position: absolute;
-              top: -12px;
-              right: -4px;
-              width: 11px;
-              height: 11px;
-              background-position: -16px -32px;
-              color: red;
+              &:hover {
+                color: #007aff;
+              }
             }
           }
         }
-        /* .keyContainer {
-          width: 197px;
-          height: 190px;
-        background: violet;
-        } */
       }
     }
     /* 右侧 */
     .body_product {
       width: 950px;
-      height: 227px;
+      height: 200px;
       position: relative;
       padding: 10px 15px 0;
       .carContainer {
@@ -259,9 +248,12 @@ export default {
                 line-height: 20px;
                 margin-right: 15px;
                 padding: 0 8px;
-                .icon-xiaosanjiao {
-                  /* display: inline-block; */
-                  color: blue;
+                &:hover {
+                  background-color: #007aff;
+                  font-weight: 700;
+                  a {
+                    color: #ddd;
+                  }
                 }
               }
               .active {
@@ -328,12 +320,6 @@ export default {
                 width: 100%;
                 height: 145px;
               }
-              /* .carImg:hover img {
-              transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-              width: 277px;
-              height: 156px;
-              transform: scale(1.1);
-            } */
               .carName {
                 position: relative;
                 height: 20px;
