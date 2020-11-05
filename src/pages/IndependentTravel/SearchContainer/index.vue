@@ -56,40 +56,57 @@ export default {
   .cityContainer {
     position: relative;
     width: 176px;
-    height: 46px;
+    height: 48px;
     border: 1px solid #bbbbbb;
     display: inline-block;
     text-align: center;
     line-height: 39px;
     background-color: #eeeeee;
     vertical-align: bottom;
-    .posit {
-      position: absolute;
-      width: 14px;
-      height: 18px;
-      left: 21px;
-      top: 0px;
-      color: #06c;
-    }
-    .city {
-      color: #007aff;
-      font-size: 16px;
-      padding-right: 3px;
-    }
-    .downAndUp {
-      color: #007aff;
-      position: absolute;
-      width: 8px;
-      height: 7px;
-      background-position: -41px -5px;
-      top: 5px;
-      right: 10px;
-    }
-    .station {
-      font-size: 12px;
+    z-index: 9;
+    dt {
+      position: relative;
+      height: 47px;
+      z-index: 62;
+      .posit {
+        position: absolute;
+        width: 14px;
+        height: 18px;
+        left: 21px;
+        top: 0px;
+        color: #06c;
+      }
+      .city {
+        color: #007aff;
+        font-size: 16px;
+        padding-right: 3px;
+      }
+      .downAndUp {
+        color: #007aff;
+        position: absolute;
+        width: 8px;
+        height: 7px;
+        background-position: -41px -5px;
+        top: 5px;
+        right: 10px;
+      }
+      .station {
+        font-size: 12px;
+      }
     }
     :hover {
       background-color: #ffffff;
+      border-bottom: 1px solid #ffffff;
+    }
+    dd {
+      position: absolute;
+      background-color: #fff;
+      z-index: 60;
+      border: 1px solid #d6d6d6;
+      margin-top: -1px;
+      padding: 14px;
+      width: 320px;
+      height: 300px;
     }
   }
   .search_wrap {
