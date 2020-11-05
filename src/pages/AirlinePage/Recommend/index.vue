@@ -5,8 +5,26 @@
         <!-- 头部 -->
         <div class="header">
           <h2 class="title">低价速报</h2>
-          <div class="selectCity">北京出发</div>
-          <div class="selectDate">日期</div>
+          <el-select v-model="value" placeholder="请选择出发地" class="selectCity">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            >
+            </el-option>
+          </el-select>
+          <!-- <div class="selectCity">北京出发</div> -->
+          <el-select v-model="value" placeholder="请选择日期" class="selectDate">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            >
+            </el-option>
+          </el-select>
+          <!-- <div class="selectDate">日期</div> -->
         </div>
 
         <!-- 推荐卡 -->
@@ -153,7 +171,9 @@
                     <i class="iconfont icon-jiaohuan"></i>
                     <span class="name">东京</span>
                   </div>
-                  <div class="from-to-day">01-29&nbsp;去&nbsp;02-05 回&nbsp;</div>
+                  <div class="from-to-day">
+                    01-29&nbsp;去&nbsp;02-05 回&nbsp;
+                  </div>
                 </div>
                 <div class="flight-price">
                   <div class="price">
@@ -177,7 +197,9 @@
                     <i class="iconfont icon-jiaohuan"></i>
                     <span class="name">东京</span>
                   </div>
-                  <div class="from-to-day">01-29&nbsp;去&nbsp;02-05 回&nbsp;</div>
+                  <div class="from-to-day">
+                    01-29&nbsp;去&nbsp;02-05 回&nbsp;
+                  </div>
                 </div>
                 <div class="flight-price">
                   <div class="price">
@@ -187,7 +209,6 @@
                   <div class="hint">含税价</div>
                 </div>
               </li>
-              
             </ul>
           </div>
           <div class="district-item">
@@ -207,7 +228,9 @@
                     <i class="iconfont icon-jiaohuan"></i>
                     <span class="name">吉隆坡</span>
                   </div>
-                  <div class="from-to-day">01-29&nbsp;去&nbsp;02-05 回&nbsp;</div>
+                  <div class="from-to-day">
+                    01-29&nbsp;去&nbsp;02-05 回&nbsp;
+                  </div>
                 </div>
                 <div class="flight-price">
                   <div class="price">
@@ -231,7 +254,9 @@
                     <i class="iconfont icon-jiaohuan"></i>
                     <span class="name">吉隆坡</span>
                   </div>
-                  <div class="from-to-day">01-29&nbsp;去&nbsp;02-05 回&nbsp;</div>
+                  <div class="from-to-day">
+                    01-29&nbsp;去&nbsp;02-05 回&nbsp;
+                  </div>
                 </div>
                 <div class="flight-price">
                   <div class="price">
@@ -255,7 +280,9 @@
                     <i class="iconfont icon-jiaohuan"></i>
                     <span class="name">吉隆坡</span>
                   </div>
-                  <div class="from-to-day">01-29&nbsp;去&nbsp;02-05 回&nbsp;</div>
+                  <div class="from-to-day">
+                    01-29&nbsp;去&nbsp;02-05 回&nbsp;
+                  </div>
                 </div>
                 <div class="flight-price">
                   <div class="price">
@@ -265,7 +292,6 @@
                   <div class="hint">含税价</div>
                 </div>
               </li>
-              
             </ul>
           </div>
         </el-card>
@@ -284,36 +310,38 @@ export default {
 .w {
   width: 1180px;
   margin: 48px auto 0;
-  height: 2000px;
-  background-color: pink;
+  // height: 2000px;
+  // background-color: pink;
 }
 // 头部
 .header {
   width: 100%;
-  height: 32px;
+  height: 40px;
+  line-height: 40px;
   margin-bottom: 16px;
-  background-color: green;
+  // background-color: green;
   .title {
     float: left;
     font-size: 20px;
     color: #333333;
     font-weight: 500;
     margin-right: 24px;
+    margin-top: -10px;
   }
   .selectCity {
     float: left;
-    height: 28px;
+    height: 40px;
     width: 158px;
-    background-color: yellow;
+    // background-color: yellow;
     padding: 0 8px;
     cursor: pointer;
     position: relative;
   }
   .selectDate {
     float: left;
-    height: 28px;
+    height: 40px;
     width: 190px;
-    background-color: paleturquoise;
+    // background-color: paleturquoise;
     padding: 0 8px;
     position: relative;
     cursor: pointer;

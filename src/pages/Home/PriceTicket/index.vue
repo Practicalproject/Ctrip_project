@@ -32,6 +32,7 @@
       </div>
     </div>
     <div class="ticketsDetail">
+      <!-- 机票详情 -->
       <div class="product_hd">
         <ul>
           <li class="active">热门往返</li>
@@ -42,7 +43,106 @@
         </ul>
         <span> 更多国际•港澳台特价机票 > </span>
       </div>
-      <div class="product_con"></div>
+      <div class="product_con">
+        <div class="conList">
+          <div class="conItem">
+            <a href="javascript:;" class="detail">
+              <p class="cityInfo">
+                上海
+                <i></i>
+                北京
+              </p>
+              <p class="dayInfo">
+                <span>11月4日 - 11月11日</span>
+              </p>
+              <p class="priceInfo">
+                <span class="price"> <dfn>￥</dfn>690<i>起</i> </span>
+                <span class="button">立抢</span>
+              </p>
+            </a>
+          </div>
+          <div class="conItem">
+            <a href="javascript:;" class="detail">
+              <p class="cityInfo">
+                上海
+                <i></i>
+                北京
+              </p>
+              <p class="dayInfo">
+                <span>11月4日 - 11月11日</span>
+              </p>
+              <p class="priceInfo">
+                <span class="price"> <dfn>￥</dfn>690<i>起</i> </span>
+                <span class="button">立抢</span>
+              </p>
+            </a>
+          </div>
+          <div class="conItem">
+            <a href="javascript:;" class="detail">
+              <p class="cityInfo">
+                上海
+                <i></i>
+                北京
+              </p>
+              <p class="dayInfo">
+                <span>11月4日 - 11月11日</span>
+              </p>
+              <p class="priceInfo">
+                <span class="price"> <dfn>￥</dfn>690<i>起</i> </span>
+                <span class="button">立抢</span>
+              </p>
+            </a>
+          </div>
+          <div class="conItem">
+            <a href="javascript:;" class="detail">
+              <p class="cityInfo">
+                上海
+                <i></i>
+                北京
+              </p>
+              <p class="dayInfo">
+                <span>11月4日 - 11月11日</span>
+              </p>
+              <p class="priceInfo">
+                <span class="price"> <dfn>￥</dfn>690<i>起</i> </span>
+                <span class="button">立抢</span>
+              </p>
+            </a>
+          </div>
+          <div class="conItem">
+            <a href="javascript:;" class="detail">
+              <p class="cityInfo">
+                上海
+                <i></i>
+                北京
+              </p>
+              <p class="dayInfo">
+                <span>11月4日 - 11月11日</span>
+              </p>
+              <p class="priceInfo">
+                <span class="price"> <dfn>￥</dfn>690<i>起</i> </span>
+                <span class="button">立抢</span>
+              </p>
+            </a>
+          </div>
+          <div class="conItem">
+            <a href="javascript:;" class="detail">
+              <p class="cityInfo">
+                上海
+                <i></i>
+                北京
+              </p>
+              <p class="dayInfo">
+                <span>11月4日 - 11月11日</span>
+              </p>
+              <p class="priceInfo">
+                <span class="price"> <dfn>￥</dfn>690<i>起</i> </span>
+                <span class="button">立抢</span>
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -57,7 +157,7 @@ export default {
 <style lang="less" scoped>
 .flightC {
   width: 1180px;
-  height: 437px;
+  // height: 437px;
   margin: 28px auto 0;
   .flyHeader {
     height: 36px;
@@ -183,19 +283,116 @@ export default {
           border-radius: 3px;
         }
       }
-      a {
+      span {
         text-decoration: none;
-        // float: right;
+        width: 160px;
+        height: 26px;
+        border: 1px solid #fff;
+        line-height: 26px;
+        text-align: center;
+        cursor: pointer;
         position: absolute;
-        right: 20px;
-        top: 15px;
+        right: -10px;
+        top: 0;
+        color: #3983e5;
+        &:hover {
+          display: block;
+          width: 160px;
+          height: 26px;
+          border: 1px solid #3983e5;
+          border-radius: 5px;
+        }
       }
     }
 
     .product_con {
       width: 1140px;
-      height: 353px;
-      background-color: skyblue;
+      // height: 353px;
+      .conList {
+        margin-right: -10px;
+        margin-top: 10px;
+        // height: 353px;
+        display: flex;
+        flex-wrap: wrap;
+        .conItem {
+          margin: 0 10px 10px 0;
+          width: 220px;
+          height: 106px;
+          padding: 15px 12px;
+          background: #f8f8f8;
+          border: 1px solid #f8f8f8;
+          cursor: pointer;
+          .detail {
+            display: block;
+            width: 194px;
+            height: 77px;
+            text-decoration: none;
+            color: #666;
+            .cityInfo {
+              color: #333;
+              margin-bottom: 3px;
+              position: relative;
+              height: 20px;
+              line-height: 20px;
+              text-align: left;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding: 0 5px;
+              i {
+                width: 12px;
+                height: 7px;
+                margin: 0 5px;
+                display: inline-block;
+                overflow: hidden;
+                vertical-align: middle;
+                background: url("./images/spilt.png") -1px -116px;
+              }
+            }
+            .dayInfo {
+              height: 27px;
+              text-align: left;
+              padding: 0 5px;
+              span {
+                color: #999;
+                height: 35px;
+                text-align: left;
+              }
+            }
+            .priceInfo {
+              .price {
+                float: left;
+                font: 22px/1.5 tahoma;
+                color: #f60;
+                dfn {
+                  vertical-align: 7px;
+                  font: 12px/1.5 arial;
+                  color: #666;
+                  text-align: right;
+                }
+                i {
+                  margin-left: 3px;
+                  vertical-align: 2px;
+                  font: 12px/1.5 "Microsoft yahei";
+                  color: #666;
+                }
+              }
+              .button {
+                width: auto;
+                float: right;
+                height: 27px;
+                padding: 0 15px;
+                font: 14px/27px "Microsoft yahei";
+                margin: 3px 0 0 0;
+                background-color: #ffb000;
+                color: #fff;
+                border: none;
+                display: inline-block;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

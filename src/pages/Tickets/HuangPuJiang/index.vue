@@ -110,7 +110,7 @@
       <div class="gomoney">去支付</div>
     </div>
     <!-- 固定订单 -->
-    <div class="order" @mousewheel="fixed">
+    <div class="order">
 
     </div>
   </div>
@@ -120,6 +120,9 @@ export default {
   name: "huangpujiang",
   data() {
     return {};
+  },
+  mounted(){
+    document.documentElement
   },
   methods: {
     fixed(){

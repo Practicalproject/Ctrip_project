@@ -136,7 +136,9 @@
           </div>
         </div>
         <ul class="topRight">
-          <li><a class="active" href="javascript:;">你好，请登陆</a></li>
+          <li>
+            <router-link class="active" to="/login">你好，请登陆</router-link>
+          </li>
           <li><a class="active" href="javascript:;">免费注册</a></li>
           <li>
             <i class="iconfont icon-duanxin"></i>
@@ -161,7 +163,8 @@
             </ul>
           </li>
           <li class="active">
-            <a href="javascript:;"><span>我的订单</span></a>
+            <!-- <a href="javascript:;"><span>我的订单</span></a> -->
+            <router-link to="/order"><span>我的订单</span></router-link>
             <i class="iconfont icon-downlist"></i>
             <ul class="nav-drowndrop">
               <li>
@@ -213,22 +216,24 @@
       </div>
     </div>
 
-    <div class="logo">
-      <div class="ctriplogo">
-        <router-link to="/" title="携程旅行网">携程旅行网</router-link>
-      </div>
-      <div v-if="$route.path === '/home'" class="cui_search">
-        <input type="text" placeholder="搜索旅行地/酒店/旅游/景点门票/交通" />
-        <button class="iconfont icon-fangdajing"></button>
-      </div>
-      <div class="nav-tel">
-        <ul class="nav-tel-list">
-          <li>境内：95010</li>
-          <li>（或）400-830-6666</li>
-          <li class="tel-list-more">香港（中国）：+ 852-3008-3295</li>
-          <li class="tel-list-more">境外：+ 86-21-3406-4888</li>
-        </ul>
-        <b class="iconfont icon-downlist"></b>
+    <div class="logo-wrap">
+      <div class="logo">
+        <div class="ctriplogo">
+          <router-link to="/" title="携程旅行网">携程旅行网</router-link>
+        </div>
+        <div v-if="$route.path === '/home'" class="cui_search">
+          <input type="text" placeholder="搜索旅行地/酒店/旅游/景点门票/交通" />
+          <button class="iconfont icon-fangdajing"></button>
+        </div>
+        <div class="nav-tel">
+          <ul class="nav-tel-list">
+            <li>境内：95010</li>
+            <li>（或）400-830-6666</li>
+            <li class="tel-list-more">香港（中国）：+ 852-3008-3295</li>
+            <li class="tel-list-more">境外：+ 86-21-3406-4888</li>
+          </ul>
+          <b class="iconfont icon-downlist"></b>
+        </div>
       </div>
     </div>
     <!-- 除了首页\机票页面\攻略页面 -->
@@ -243,22 +248,26 @@
     >
       <ul class="cui_nav_ul">
         <li>
-          <router-link to="/">首页</router-link>
+          <router-link to="/home">首页</router-link>
         </li>
         <li class="divider"></li>
         <template v-for="item in cate1Nav">
-          <li :key="item.id" @mouseenter="getNavId(item.cateID)">
+          <li
+            :key="item.id"
+            @mouseenter="getNavId(item.cateID)"
+            @mouseleave="navId = ''"
+          >
             <router-link :to="item.cateAlias"
-              >{{ item.cateName }}
-              <i class="iconfont"></i>
+              >{{ item.cateName ? item.cateName : "javascript:;" }}
+              <i v-show="item.isTwoCate" class="iconfont"></i>
               <span class="point"></span>
             </router-link>
             <div
-              v-if="navId"
+              v-show="navId && cate2Nav.length > 0"
               :style="{ 'z-index': navId === item.cateID ? 2 : 1 }"
               class="cui_subnav_wrap"
             >
-              <ul class="ul_nav_hotel" @mouseleave="navId = ''">
+              <ul class="ul_nav_hotel">
                 <li v-for="navItem in cate2Nav" :key="navItem.id">
                   <a href="javascript:;">{{ navItem.cateName }}</a>
                 </li>
@@ -288,24 +297,39 @@ export default {
     };
   },
   mounted() {
+    // 发请求获取导航数据
     this.getNavData();
   },
   methods: {
+    // 鼠标移入赋值navId
     getNavId(navId) {
       this.navId = "";
-      console.log(navId);
       this.navId = navId;
     },
+    // 获取导航数据回调函数
     async getNavData() {
-      let result = await this.$API.getNavData();
+      let result = await this.$API.index.getNavData();
+      //判断状态码是否为200
       if (result.resultDesc.errCode === 200) {
-        let id = 1;
-        let time;
+        // 自定义唯一标识
+        let time,
+          id = 1;
+        // 遍历将唯一标识塞进去
         let navList = result.resultData.map((item) => {
+          //  这里给一级导航添加是否有二级导航标识
+          let cateTwo = result.resultData.some(
+            (twoItem) => twoItem.cateParentID === item.cateID
+          );
+          //  判断通过将二级导航标识添加
+          if (cateTwo) {
+            item.isTwoCate = true;
+          }
+          //  这下面处理唯一标识
           time = Date.now();
           item.id = time + id++;
           return item;
         });
+
         this.navList = navList;
       }
     },
@@ -590,114 +614,118 @@ export default {
       }
     }
   }
-
-  .logo {
-    width: 1180px;
-    margin: 0 auto;
-    height: 80px;
-    position: relative;
-    .ctriplogo {
-      float: left;
-      display: inline-block;
-      width: 203px;
-      height: 34px;
-      margin: 23px 0;
-      overflow: hidden;
-      a {
-        display: block;
-        width: 100%;
-        height: 100%;
-        background: url(./images/logo.png) no-repeat;
-        background-size: 100% 100%;
-        text-indent: -999px;
-        overflow: hidden;
-      }
-    }
-    .cui_search {
-      float: left;
-      margin: 25px 0;
-      width: 28%;
-      font-family: "Microsoft Yahei", Tahoma;
+  .logo-wrap {
+    background-color: white;
+    width: 100%;
+    .logo {
+      width: 1180px;
+      margin: 0 auto;
+      height: 80px;
       position: relative;
-
-      input {
-        width: 100%;
-        height: 30px;
-        box-sizing: border-box;
-        border: 1px solid #8ebefc;
-        box-shadow: 2px 2px 1px 0 rgba(164, 203, 255, 0.25) inset;
-        border-radius: 5px;
-        font-size: 12px;
+      .ctriplogo {
+        float: left;
+        display: inline-block;
+        width: 203px;
+        height: 34px;
+        margin: 23px 0;
+        overflow: hidden;
+        a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: url(./images/logo.png) no-repeat;
+          background-size: 100% 100%;
+          text-indent: -999px;
+          overflow: hidden;
+        }
+      }
+      .cui_search {
+        float: left;
+        margin: 25px 0;
+        width: 28%;
         font-family: "Microsoft Yahei", Tahoma;
-        margin-left: 40px;
-        padding-left: 4px;
-        outline-style: none;
-        &:focus {
-          border-color: #2b82f4;
-          box-shadow: 1px 1px 0 0 rgba(146, 187, 241, 1) inset;
-        }
-        &:focus + button {
-          border-color: #2b82f4;
-          background-color: #2b82f4;
-        }
-      }
-      button {
-        position: absolute;
-        right: -40px;
-        top: 0;
-        border-radius: 5px;
-        border: none;
-        width: 42px;
-        height: 30px;
-        border: 1px solid #8ebefc;
-        border-radius: 0 5px 5px 0;
-        background-color: #a4cbff;
-        color: white;
-        border-left: none;
-      }
-    }
-    .nav-tel {
-      position: absolute;
-      right: 0;
-      top: 10px;
-      font-family: Arial, tahoma, verdana, "Microsoft YaHei", Simsun, sans-serif;
-      padding: 10px 20px 0px 16px;
-      border: 1px solid #fff;
-      z-index: 1;
+        position: relative;
 
-      .nav-tel-list {
-        text-align: right;
-        color: #666;
-        font-size: 12px;
-        line-height: 20px;
-        li {
-          height: 20px;
-          color: #666;
-          &.tel-list-more {
-            display: none;
+        input {
+          width: 100%;
+          height: 30px;
+          box-sizing: border-box;
+          border: 1px solid #8ebefc;
+          box-shadow: 2px 2px 1px 0 rgba(164, 203, 255, 0.25) inset;
+          border-radius: 5px;
+          font-size: 12px;
+          font-family: "Microsoft Yahei", Tahoma;
+          margin-left: 40px;
+          padding-left: 4px;
+          outline-style: none;
+          &:focus {
+            border-color: #2b82f4;
+            box-shadow: 1px 1px 0 0 rgba(146, 187, 241, 1) inset;
+          }
+          &:focus + button {
+            border-color: #2b82f4;
+            background-color: #2b82f4;
           }
         }
+        button {
+          position: absolute;
+          right: -40px;
+          top: 0;
+          border-radius: 5px;
+          border: none;
+          width: 42px;
+          height: 30px;
+          border: 1px solid #8ebefc;
+          border-radius: 0 5px 5px 0;
+          background-color: #a4cbff;
+          color: white;
+          border-left: none;
+        }
       }
-      .iconfont {
-        color: #666;
+      .nav-tel {
         position: absolute;
-        top: 25px;
-        right: 5px;
-        font-size: 12px;
-      }
+        right: 0;
+        top: 10px;
+        font-family: Arial, tahoma, verdana, "Microsoft YaHei", Simsun,
+          sans-serif;
+        padding: 10px 20px 0px 16px;
+        border: 1px solid #fff;
+        z-index: 1;
 
-      &:hover {
-        background: #fff;
-        padding: 10px 20px 10px 16px;
-        border: 1px solid #d9d9d9;
-        box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.15);
-        li.tel-list-more {
-          display: block;
+        .nav-tel-list {
+          text-align: right;
+          color: #666;
+          font-size: 12px;
+          line-height: 20px;
+          li {
+            height: 20px;
+            color: #666;
+            &.tel-list-more {
+              display: none;
+            }
+          }
+        }
+        .iconfont {
+          color: #666;
+          position: absolute;
+          top: 25px;
+          right: 5px;
+          font-size: 12px;
         }
 
-        b.iconfont {
-          display: inline-block;
-          transform: rotate(180deg);
+        &:hover {
+          background: #fff;
+          padding: 10px 20px 10px 16px;
+          border: 1px solid #d9d9d9;
+          box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.15);
+          li.tel-list-more {
+            display: block;
+          }
+
+          b.iconfont {
+            display: inline-block;
+            transform: rotate(180deg);
+          }
         }
       }
     }
@@ -710,6 +738,9 @@ export default {
     margin: 0 auto 54px;
     margin-bottom: 10px;
     .cui_nav_ul {
+      .router-link-active {
+        background-color: rgb(10, 86, 187);
+      }
       position: relative;
       // z-index: 25;
       min-width: 980px !important;
@@ -843,6 +874,9 @@ export default {
                 margin: 11px 0 0;
                 clear: none;
                 border: none;
+              }
+              &:last-of-type::after {
+                display: none;
               }
             }
           }
