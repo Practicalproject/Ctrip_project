@@ -3,19 +3,19 @@
     <!-- 头部列表 -->
     <div class="header_list">
       <h2>
-        <span class="current">
+        <span :class="{current:tabNum===1}" @click="tab(1)">
           海外酒店
           <i></i>
         </span>
-        <span>
+        <span :class="{current:tabNum===2}" @click="tab(2)">
           海外民宿+短租
           <i class="iconfont icon-shang"></i>
         </span>
-        <span>
+        <span :class="{current:tabNum===3}" @click="tab(3)">
           国内酒店
           <i></i>
         </span>
-        <span>
+        <span :class="{current:tabNum===4}" @click="tab(4)">
           客栈民宿
           <i></i>
         </span>
@@ -75,12 +75,16 @@ export default {
     return {
       indexHot: {},
       numIndex: 0,
+      tabNum:1
     };
   },
   mounted() {
     this.getIndexHot();
   },
   methods: {
+    tab(num){
+      this.tabNum = num
+    },
     async getIndexHot() {
       const result = await this.$API.index.getIndexHot();
       this.indexHot = result.data;
