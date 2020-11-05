@@ -15,21 +15,25 @@
       </h2>
     </div>
     <!-- 内容区 -->
-    <div class="modbd">
+    <div class="mod_body">
       <!-- 内容区左侧 -->
       <div class="entrance">
-        <dl class="keyword">
-          <dt class="keywordTitle" v-if="tags">{{tags.nme}}</dt>
-          <dd class="keywordContainer">
+        <dl class="keyword" v-if="tags">
+          <dt class="keywordTitle" v-if="tags">{{ tags.nme }}</dt>
+          <dd
+            class="keywordContainer"
+            v-for="(itemLst, index) in tags.itemLst"
+            :key="index"
+          >
             <span class="bgspan">
-              <a href="javascript: ;">洛杉矶</a>
+              <a href="javascript: ;">{{ itemLst.nme }}</a>
             </span>
           </dd>
         </dl>
       </div>
 
       <!-- 内容右侧区域 -->
-      <div class="product">
+      <div class="body_product">
         <!-- 版心 -->
         <div class="carContainer">
           <!-- 标题 -->
@@ -37,9 +41,10 @@
             <div class="pri_list">
               <ul class="inner-tabs">
                 <li
-                  class="active"
+                  :class="{ active: index === subIndex }"
                   v-for="(tabsItem, index) in tabs"
                   :key="index"
+                  @click="chengSubIndex(index)"
                 >
                   <a href="javascript: ;">{{ tabsItem.tabNme }}</a>
                 </li>
@@ -53,9 +58,9 @@
             </div>
           </div>
           <!-- 主题内容 -->
-          <div class="priductbd">
+          <div class="priduct_body">
             <!-- 图片详情区域 -->
-            <ul class="carContainer">
+            <ul class="pri_carContainer">
               <li
                 class="carList"
                 v-for="(prdLstItem, index) in prdLst"
@@ -65,14 +70,8 @@
                   <p class="carImg">
                     <img :src="prdLstItem.img" alt="" />
                   </p>
-                  <p class="carName"></p>
-                  <p class="carPrice">
-                    <span class="item-type"></span>
-                    <span class="price">
-                      {{ prdLstItem.nme }}
-                    </span>
-                  </p>
                 </a>
+                <div class="carList_posi">{{ prdLstItem.nme }}</div>
               </li>
             </ul>
           </div>
@@ -88,6 +87,7 @@ export default {
   data() {
     return {
       destinationGuide: {},
+      subIndex: 0,
     };
   },
   mounted() {
@@ -98,6 +98,9 @@ export default {
       const resust = await this.$API.index.getDestinationGuide();
       this.destinationGuide = resust.data;
     },
+    chengSubIndex(index) {
+      this.subIndex = index;
+    },
   },
   computed: {
     tabs() {
@@ -107,9 +110,9 @@ export default {
     prdLst() {
       return this.destinationGuide.prdLst;
     },
-    tags(){
-      return this.destinationGuide.tags
-    }
+    tags() {
+      return this.destinationGuide.tags;
+    },
   },
 };
 </script>
@@ -164,21 +167,23 @@ export default {
     }
   }
   /* 主内容区 */
-  .modbd {
+  .mod_body {
     width: 1180px;
-    height: 245px;
+    height: 227px;
     border: 1px solid #ddd;
     display: flex;
     /* 左侧 */
     .entrance {
       width: 227px;
-      height: 245px;
+      height: 227px;
       padding: 0 20px 15px 20px;
       border-right: 1px dashed #ddd;
       .keyword {
         width: 187px;
         height: 230px;
-
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
         .keywordTitle {
           width: 100%;
           height: 38px;
@@ -225,122 +230,142 @@ export default {
       }
     }
     /* 右侧 */
-    .product {
+    .body_product {
       width: 950px;
-      height: 245px;
+      height: 227px;
       position: relative;
       padding: 10px 15px 0;
-      /* 标题区域 */
-      .priducthd {
-        font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
-        width: 100%;
-        overflow: hidden;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        .pri_list {
-          ul {
-            float: left;
-            height: 15px;
-            line-height: 15px;
-            display: block;
-            li {
-              list-style: none;
-              /* background: #3983e5; */
-              color: #fff;
-              border-radius: 3px;
-              display: inline-block;
-              line-height: 20px;
-              margin-right: 15px;
-              padding: 0 8px;
-              .icon-xiaosanjiao {
-                /* display: inline-block; */
-                color: blue;
-              }
-            }
-            .active {
-              background-color: #007aff;
-              font-weight: 700;
-              a {
-                color: #ddd;
-              }
-            }
-          }
-        }
-        .more {
-          float: right;
-          text-decoration: none;
-          height: 20px;
-          a {
-            float: left;
-            i {
-              display: inline-block;
-              width: 6px;
-              height: 9px;
-              margin-right: 15px;
-            }
-          }
-        }
-      }
-      /* 汽车详情区域 */
-      .priductbd {
-        .carContainer {
+      .carContainer {
+        /* 标题区域 */
+        .priducthd {
+          font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+          width: 100%;
+          overflow: hidden;
           display: flex;
           justify-content: space-between;
-          .carList {
-            margin-left: 10px;
-            width: 210px;
-            overflow: hidden;
-            &:hover {
-              /* border: 1px solid #ddd; */
-              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-              img {
-                transform: scale(1.1);
-                transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+          margin-bottom: 10px;
+          .pri_list {
+            ul {
+              float: left;
+              height: 15px;
+              line-height: 15px;
+              display: block;
+              li {
+                list-style: none;
+                /* background: #3983e5; */
+                color: #fff;
+                border-radius: 3px;
+                display: inline-block;
+                line-height: 20px;
+                margin-right: 15px;
+                padding: 0 8px;
+                .icon-xiaosanjiao {
+                  /* display: inline-block; */
+                  color: blue;
+                }
+              }
+              .active {
+                background-color: #007aff;
+                font-weight: 700;
+                a {
+                  color: #ddd;
+                }
               }
             }
-            a .carImg {
-              display: block;
-              width: 100%;
-              height: 145px;
+          }
+          .more {
+            float: right;
+            text-decoration: none;
+            height: 20px;
+            a {
+              float: left;
+              i {
+                display: inline-block;
+                width: 6px;
+                height: 9px;
+                margin-right: 15px;
+              }
             }
-            /* .carImg:hover img {
+          }
+        }
+        /* 图片区域 */
+        .priduct_body {
+          .pri_carContainer {
+            display: flex;
+            justify-content: space-between;
+
+            .carList {
+              margin-left: 10px;
+              width: 210px;
+              overflow: hidden;
+              position: relative;
+              &:hover {
+                /* border: 1px solid #ddd; */
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+                img {
+                  transform: scale(1.1);
+                  transition: transform 0.3s linear, -webkit-transform 0.3s ease;
+                }
+                .carList_posi {
+                  bottom: -30px;
+                }
+              }
+              .carList_posi {
+                background-color: rgba(0, 0, 0, 0.3);
+                height: 60px;
+                width: 100%;
+                position: absolute;
+                bottom: -40px;
+                left: 0;
+                color: white;
+                text-align: center;
+                line-height: 30px;
+                transition: all 0.5s linear;
+                font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+              }
+              a .carImg {
+                display: block;
+                width: 100%;
+                height: 145px;
+              }
+              /* .carImg:hover img {
               transition: transform 0.3s ease, -webkit-transform 0.3s ease;
               width: 277px;
               height: 156px;
               transform: scale(1.1);
             } */
-            .carName {
-              position: relative;
-              height: 20px;
-              line-height: 20px;
-              text-align: left;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              padding: 0 5px;
-            }
-            .carPrice {
-              height: 35px;
-              display: flex;
-              justify-content: space-between;
-            }
-            .item-type {
-              display: block;
-              color: #999;
-              height: 35px;
-              line-height: 35px;
-              white-space: nowrap;
-              text-overflow: ellipsis;
-              overflow: hidden;
-              text-align: left;
-            }
-            .price {
-              position: relative;
-              .miniLogo {
-                vertical-align: 7px;
-                font: 12px/1.5 arial;
-                color: #666;
+              .carName {
+                position: relative;
+                height: 20px;
+                line-height: 20px;
+                text-align: left;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 0 5px;
+              }
+              .carPrice {
+                height: 35px;
+                display: flex;
+                justify-content: space-between;
+              }
+              .item-type {
+                display: block;
+                color: #999;
+                height: 35px;
+                line-height: 35px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                text-align: left;
+              }
+              .price {
+                position: relative;
+                .miniLogo {
+                  vertical-align: 7px;
+                  font: 12px/1.5 arial;
+                  color: #666;
+                }
               }
             }
           }

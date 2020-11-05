@@ -50,7 +50,7 @@
             <!-- 境内 -->
             <div class="sub_nav">
               <ul>
-                <li v-for="item in tabs" :key="item.pinyin">
+                <li v-for="item in tabs" :key="item.pinyin" class="nav_action">
                   {{ item.tabNme }}
                 </li>
               </ul>
@@ -192,7 +192,6 @@ export default {
         height: 360px;
         width: 227px;
         border-right: 1px dashed #ddd;
-        padding: 0 20px 15px;
         box-sizing: border-box;
         overflow: hidden;
         .keyword-long {
@@ -201,7 +200,11 @@ export default {
           }
           a {
             color: #333;
-            font-size: 15px;
+            font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+
+            &:hover {
+              color: #3983e5;
+            }
           }
         }
       }
@@ -220,7 +223,12 @@ export default {
                 margin-right: 15px;
                 line-height: 20px;
                 color: #3983e5;
-                font-size: 13px;
+                font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+              }
+              .nav_action {
+                background-color: #3983e5;
+                color: #fff;
+                border-radius: 5px;
               }
             }
           }
