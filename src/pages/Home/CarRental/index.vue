@@ -143,40 +143,19 @@
           <div class="priducthd">
             <div class="pri_list">
               <ul class="inner-tabs">
-                <li class="active">
-                  <a href="javascript: ;">美国</a>
-                </li>
-                <li>
-                  <a href="javascript: ;">泰国</a>
-                </li>
-                <li>
-                  <a href="javascript: ;">澳大利亚</a>
-                </li>
-                <li>
-                  <a href="javascript: ;">英国</a>
-                </li>
-                <li>
-                  <a href="javascript: ;">加拿大</a>
-                </li>
-                <li>
-                  <a href="javascript: ;">新西兰</a>
-                </li>
-                <li>
-                  <a href="javascript: ;">德国</a>
-                </li>
-                <li>
-                  <a href="javascript: ;">更多</a>
-                  <i class="iconfont icon-xiaosanjiao"></i>
-                </li>
-                <li>
-                  <a class="iconfont"></a>
+                <li
+                  class="active"
+                  v-for="(tabsItem, index) in tabs"
+                  :key="index"
+                >
+                  <a href="javascript: ;">{{ tabsItem.tabNme }}</a>
                 </li>
               </ul>
             </div>
 
             <div class="more">
-              <a href="javascript: ;">
-                更多境外租车
+              <a href="javascript: ;" v-if="indexCarRental">
+                {{ indexCarRental.exNme }}
                 <i class="iconfont icon-next"></i>
               </a>
             </div>
@@ -185,66 +164,17 @@
           <div class="priductbd">
             <!-- 图片详情区域 -->
             <ul class="carContainer">
-              <li class="carList">
+              <li class="carList" v-for="(prdLstItem,index) in prdLst" :key="index">
                 <a href="javascript:;">
                   <p class="carImg">
-                    <img src="./images/ceshi1.png" alt="" />
+                    <img :src="prdLstItem.img" alt="" />
                   </p>
-                  <p class="carName">福特 嘉年华 Fiesta</p>
+                  <p class="carName">{{prdLstItem.nme}}</p>
                   <p class="carPrice">
-                    <span class="item-type">美国洛杉矶</span>
-                    <span class="price">
+                    <span class="item-type">{{prdLstItem.subNme}}</span>
+                    <span class="price" v-if="prdLstItem.price">
                       <dfn>¥</dfn>
-                      164
-                      <i class="priceInfo"></i>
-                    </span>
-                  </p>
-                </a>
-              </li>
-              <li class="carList">
-                <a href="javascript:;">
-                  <p class="carImg">
-                    <img src="./images/ceshi1.png" alt="" />
-                  </p>
-                  <p class="carName">福特 嘉年华 Fiesta</p>
-                  <p class="carPrice">
-                    <span class="item-type">美国洛杉矶</span>
-                    <span class="price">
-                      <dfn>¥</dfn>
-                      164
-                      <i class="priceInfo"></i>
-                    </span>
-                  </p>
-                </a>
-              </li>
-              <li class="carList">
-                <a href="javascript:;">
-                  <p class="carImg">
-                    <img src="./images/ceshi1.png" alt="" />
-                  </p>
-                  <p class="carName">福特 嘉年华 Fiesta</p>
-                  <p class="carPrice">
-                    <span class="item-type">美国洛杉矶</span>
-                    <span class="price">
-                      <dfn>¥</dfn>
-                      164
-                      <i class="priceInfo"></i>
-                    </span>
-                  </p>
-                </a>
-              </li>
-              <li class="carList">
-                <a href="javascript:;">
-                  <p class="carImg">
-                    <img src="./images/ceshi1.png" alt="" />
-                  </p>
-                  <p class="carName">福特 嘉年华 Fiesta</p>
-
-                  <p class="carPrice">
-                    <span class="item-type">美国洛杉矶</span>
-                    <span class="price">
-                      <dfn class="miniLogo">¥</dfn>
-                      164
+                      {{prdLstItem.price.amt}}
                       <i class="priceInfo"></i>
                     </span>
                   </p>
@@ -261,6 +191,29 @@
 <script>
 export default {
   name: "CarRental",
+  data() {
+    return {
+      indexCarRental: {},
+    };
+  },
+  mounted() {
+    this.getIndexCarRental();
+  },
+  methods: {
+    async getIndexCarRental() {
+      const resust = await this.$API.index.getIndexCarRental();
+      // console.log(resust);
+      this.indexCarRental = resust.data;
+    },
+  },
+  computed: {
+    tabs() {
+      return this.indexCarRental.tabs;
+    },
+    prdLst() {
+      return this.indexCarRental.prdLst;
+    },
+  },
 };
 </script>
 
@@ -379,7 +332,7 @@ export default {
       width: 950px;
       height: 245px;
       position: relative;
-      padding: 19px 15px 0;
+      padding: 10px 15px 0;
       /* 标题区域 */
       .priducthd {
         font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
@@ -387,6 +340,7 @@ export default {
         overflow: hidden;
         display: flex;
         justify-content: space-between;
+        margin-bottom: 10px;
         .pri_list {
           ul {
             float: left;
@@ -437,7 +391,7 @@ export default {
           margin-left: 10px;
           width: 210px;
           float: left;
-          &:hover{
+          &:hover {
             border: 1px solid #ddd;
           }
           a .carImg {
@@ -445,7 +399,7 @@ export default {
             width: 100%;
             height: 145px;
           }
-          .carImg:hover img{
+          .carImg:hover img {
             transition: transform 0.3s ease, -webkit-transform 0.3s ease;
             width: 277px;
             height: 156px;

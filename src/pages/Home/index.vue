@@ -10,8 +10,10 @@
     <PriceTicket></PriceTicket>
     <!-- 境外租车 -->
     <CarRental></CarRental>
-    <!-- 热门目的地 -->
+    <!-- 当地玩乐 -->
     <PopDestinations></PopDestinations>
+    <!-- 全球购 -->
+    <GlobalPurchasing></GlobalPurchasing>
     <!-- bh旅行服务 -->
     <TravelService></TravelService>
     <!-- bh企业商旅 -->
@@ -31,7 +33,8 @@ import Footer from "./Footer";
 import HomeBanner from "./HomeBanner";
 import TravelService from "./TravelService";
 import BusinessTravel from "./BusinessTravel";
-import PopDestinations from './PopDestinations'
+import PopDestinations from "./PopDestinations";
+import GlobalPurchasing from "./GlobalPurchasing";
 export default {
   name: "Home",
   components: {
@@ -45,6 +48,7 @@ export default {
     TravelService,
     BusinessTravel,
     PopDestinations,
+    GlobalPurchasing,
   },
 };
 </script>
