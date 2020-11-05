@@ -136,7 +136,9 @@
           </div>
         </div>
         <ul class="topRight">
-          <li><a class="active" href="javascript:;">你好，请登陆</a></li>
+          <li>
+            <router-link class="active" to="/login">你好，请登陆</router-link>
+          </li>
           <li><a class="active" href="javascript:;">免费注册</a></li>
           <li>
             <i class="iconfont icon-duanxin"></i>
@@ -161,7 +163,8 @@
             </ul>
           </li>
           <li class="active">
-            <a href="javascript:;"><span>我的订单</span></a>
+            <!-- <a href="javascript:;"><span>我的订单</span></a> -->
+            <router-link to="/order"><span>我的订单</span></router-link>
             <i class="iconfont icon-downlist"></i>
             <ul class="nav-drowndrop">
               <li>
@@ -243,7 +246,7 @@
     >
       <ul class="cui_nav_ul">
         <li>
-          <router-link to="/">首页</router-link>
+          <router-link to="/home">首页</router-link>
         </li>
         <li class="divider"></li>
         <template v-for="item in cate1Nav">
@@ -303,7 +306,7 @@ export default {
     },
     // 获取导航数据回调函数
     async getNavData() {
-      let result = await this.$API.getNavData();
+      let result = await this.$API.index.getNavData();
       //判断状态码是否为200
       if (result.resultDesc.errCode === 200) {
         // 自定义唯一标识
@@ -324,10 +327,11 @@ export default {
           item.id = time + id++;
           return item;
         });
-        
+
         this.navList = navList;
       }
     },
+
   },
   computed: {
     // 计算一级分类导航
@@ -729,6 +733,9 @@ export default {
     margin: 0 auto 54px;
     margin-bottom: 10px;
     .cui_nav_ul {
+      .router-link-active{
+        background-color: rgb(10, 86, 187);
+      }
       position: relative;
       // z-index: 25;
       min-width: 980px !important;
@@ -862,6 +869,9 @@ export default {
                 margin: 11px 0 0;
                 clear: none;
                 border: none;
+              }
+              &:last-of-type::after{
+                display:none
               }
             }
           }
