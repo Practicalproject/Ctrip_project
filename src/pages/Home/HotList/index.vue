@@ -3,19 +3,19 @@
     <!-- 头部列表 -->
     <div class="header_list">
       <h2>
-        <span class="current">
+        <span :class="{current:tabNum===1}" @click="tab(1)">
           热门
           <i></i>
         </span>
-        <span>
+        <span :class="{current:tabNum===2}" @click="tab(2)">
           周边游
           <i></i>
         </span>
-        <span>
+        <span :class="{current:tabNum===3}" @click="tab(3)">
           门票
           <i></i>
         </span>
-        <span>
+        <span :class="{current:tabNum===4}" @click="tab(4)">
           出境游
           <i></i>
         </span>
@@ -30,9 +30,10 @@
       <div class="sub_nav">
         <ul>
           <li
-            class="sub_nav_action"
+            :class="{ sub_nav_action: index === numIndex }"
             v-for="(hotList, index) in destCitys"
             :key="index"
+            @click="changeIndex(index)"
           >
             <a href="javascript:;">{{ hotList.nme }}</a>
           </li>
@@ -73,17 +74,24 @@ export default {
   data() {
     return {
       indexHot: {},
-      // amt: "",
+      numIndex: 0,
+      tabNum:1
     };
   },
   mounted() {
     this.getIndexHot();
   },
   methods: {
+    tab(num){
+      this.tabNum = num
+    },
     async getIndexHot() {
       const result = await this.$API.index.getIndexHot();
       console.log(result);
       this.indexHot = result.data;
+    },
+    changeIndex(index) {
+      this.numIndex = index;
     },
   },
   computed: {
@@ -175,6 +183,11 @@ export default {
             font-size: 14px;
             height: 20px;
             display: block;
+          }
+          &:hover a{
+            background-color: #3983e5;
+            color: #fff;
+            border-radius: 5px;
           }
         }
         .sub_nav_action {

@@ -2,11 +2,11 @@
   <div class="flightC">
     <div class="flyHeader">
       <h2>
-        <span class="current">
+        <span :class="{current:currNum===1} " @click="tab(1)">
           国际•港澳台特价机票
           <i></i>
         </span>
-        <span>
+        <span :class="{current:currNum===2}" @click="tab(2)">
           国内特价机票
           <i></i>
         </span>
@@ -165,14 +165,18 @@ export default {
   name: "PriceTicket",
   data() {
     return {
-      InternationalTicket: {},
-      number: 0,
-    };
+      currNum:1,
+      InternationalTicket:{},
+      number:0,
+    }
   },
   mounted() {
     this.getIndexInternational();
   },
   methods: {
+    tab(num){
+      this.currNum = num
+    },
     // 请求热门栏目列表
     async getIndexInternational(gp) {
       let result = await this.$API.index.getIndexInternational(gp);
@@ -243,6 +247,11 @@ export default {
           border-left: 6px solid transparent;
           border-right: 6px solid transparent;
         }
+      }
+      .current {
+        cursor: default;
+           color: #06c;
+        
       }
     }
     .pullRight {

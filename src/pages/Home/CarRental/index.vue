@@ -4,23 +4,23 @@
     <!-- 标题行 -->
     <div class="modhd">
       <h2>
-        <span class="current">
+        <span :class="{ current: tabNum === 1 }" @click="tab(1)">
           境外租车
           <i></i>
         </span>
-        <span>
+        <span :class="{ current: tabNum === 2 }" @click="tab(2)">
           境外接送机
           <i class="iconfont icon-shang"></i>
         </span>
-        <span>
+        <span :class="{ current: tabNum === 3 }" @click="tab(3)">
           国内租车
           <i></i>
         </span>
-        <span>
+        <span :class="{ current: tabNum === 4 }" @click="tab(4)">
           国内接送机
           <i></i>
         </span>
-        <span>
+        <span :class="{ current: tabNum === 5 }" @click="tab(5)">
           日租包车
           <i></i>
         </span>
@@ -144,9 +144,10 @@
             <div class="pri_list">
               <ul class="inner-tabs">
                 <li
-                  class="active"
+                  :class="{ active: index === numIndex }"
                   v-for="(tabsItem, index) in tabs"
                   :key="index"
+                  @click="changeIndex(index)"
                 >
                   <a href="javascript: ;">{{ tabsItem.tabNme }}</a>
                 </li>
@@ -197,17 +198,25 @@ export default {
   name: "CarRental",
   data() {
     return {
+      tabNum: 1,
       indexCarRental: {},
+      numIndex: 0,
     };
   },
   mounted() {
     this.getIndexCarRental();
   },
   methods: {
+    tab(num) {
+      this.tabNum = num;
+    },
     async getIndexCarRental() {
       const resust = await this.$API.index.getIndexCarRental();
       // console.log(resust);
       this.indexCarRental = resust.data;
+    },
+    changeIndex(index) {
+      this.numIndex = index;
     },
   },
   computed: {
@@ -353,16 +362,18 @@ export default {
             display: block;
             li {
               list-style: none;
-              /* background: #3983e5; */
               color: #fff;
               border-radius: 3px;
               display: inline-block;
               line-height: 20px;
               margin-right: 15px;
               padding: 0 8px;
-              .icon-xiaosanjiao {
-                /* display: inline-block; */
-                color: blue;
+              &:hover {
+                background-color: #007aff;
+                font-weight: 700;
+                a {
+                  color: #ddd;
+                }
               }
             }
             .active {
@@ -399,7 +410,11 @@ export default {
             width: 210px;
             &:hover {
               /* border: 1px solid #ddd; */
-              box-shadow: 0 1px 4px rgba(0, 0, 0, .25);
+              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+              img {
+                transform: scale(1.1);
+                transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+              }
             }
             a .carImg {
               display: block;

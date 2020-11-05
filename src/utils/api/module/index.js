@@ -46,5 +46,9 @@ export default {
     // 境外租车
     getIndexCarRental() {
         return Ajax.instanceTwo.get('/getIndexCarRental')
+    },
+    // 目的地攻略
+    getDestinationGuide() {
+        return Ajax.instanceTwo.get('/getDestinationGuide')
     }
 }
