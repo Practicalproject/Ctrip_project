@@ -152,8 +152,11 @@
                   ><span class="sep" id="cardloginsep" style="display: none"
                     >|</span
                   ><a class="fuli" target="_self" href="javascript:;">携程通</a
-                  ><a href="javascript:;" class="free-regist" target="_black"
-                    >免费注册</a
+                  ><router-link
+                    class="free-regist"
+                    to="/register"
+                    target="_black"
+                    >免费注册</router-link
                   >
                 </div>
                 <div class="login-other">
