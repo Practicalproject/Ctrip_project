@@ -35,13 +35,13 @@
       <!-- 机票详情 -->
       <div class="product_hd">
         <ul>
-          <li 
-          :class="{active:index===number}" 
-          v-for="(item,index) in tabLst" 
-          :key="index" 
-          @click="change(index,item.pinyin)"
+          <li
+            :class="{ active: index === number }"
+            v-for="(item, index) in tabLst"
+            :key="index"
+            @click="change(index, item.pinyin)"
           >
-          {{item.tabNme}}
+            {{ item.tabNme }}
           </li>
           <!-- <li>亚洲</li>
           <li>欧洲</li>
@@ -52,18 +52,24 @@
       </div>
       <div class="product_con">
         <div class="conList">
-          <div class="conItem" v-for="(caleLstItem,index) in caleLst" :key="index">
+          <div
+            class="conItem"
+            v-for="(caleLstItem, index) in caleLst"
+            :key="index"
+          >
             <a href="InternationalTicket.url" class="detail">
               <p class="cityInfo">
-                {{caleLstItem.acNme}}
+                {{ caleLstItem.acNme }}
                 <i></i>
-                {{caleLstItem.dcNme}}
+                {{ caleLstItem.dcNme }}
               </p>
               <p class="dayInfo">
-                <span>{{caleLstItem.dateTxt}}</span>
+                <span>{{ caleLstItem.dateTxt }}</span>
               </p>
               <p class="priceInfo">
-                <span class="price" v-if="caleLstItem.price"> <dfn>￥</dfn>{{caleLstItem.price.amt}}<i>起</i> </span>
+                <span class="price" v-if="caleLstItem.price">
+                  <dfn>￥</dfn>{{ caleLstItem.price.amt }}<i>起</i>
+                </span>
                 <span class="button">立抢</span>
               </p>
             </a>
@@ -159,36 +165,35 @@ export default {
   name: "PriceTicket",
   data() {
     return {
-      InternationalTicket:{},
-      number:0,
-    }
+      InternationalTicket: {},
+      number: 0,
+    };
   },
   mounted() {
-    this.getIndexInternational()
+    this.getIndexInternational();
   },
   methods: {
     // 请求热门栏目列表
-    async getIndexInternational(gp){
+    async getIndexInternational(gp) {
       let result = await this.$API.index.getIndexInternational(gp);
-      if(result.code === 200){
-        this.InternationalTicket = result.data
+      if (result.code === 200) {
+        this.InternationalTicket = result.data;
       }
       console.log(result);
-
     },
-    change(index,gp){
-      this.number = index
-      this.getIndexInternational(gp)
-    }
+    change(index, gp) {
+      this.number = index;
+      this.getIndexInternational(gp);
+    },
   },
   computed: {
-    caleLst(){
-      return this.InternationalTicket.caleLst
+    caleLst() {
+      return this.InternationalTicket.caleLst;
     },
-    tabLst(){
-      return this.InternationalTicket.tabLst
-    }
-  }
+    tabLst() {
+      return this.InternationalTicket.tabLst;
+    },
+  },
 };
 </script>
 
@@ -198,8 +203,7 @@ export default {
   width: 1180px;
   // height: 437px;
   margin: 28px auto 0;
-  background: #ffffff;
-  background-color: #fff;
+  
 
   .flyHeader {
     height: 36px;
@@ -298,6 +302,8 @@ export default {
     // background-color: pink;
     padding: 15px 19px 0;
     font-size: 12px;
+    background-color: #fff;
+
     .product_hd {
       width: 1140px;
       height: 20px;

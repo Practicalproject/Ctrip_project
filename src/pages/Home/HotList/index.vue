@@ -105,7 +105,6 @@ export default {
   width: 1180px;
   margin: 0 auto;
   line-height: 30px;
-  background-color: #fff;
   //   头部列表
   .header_list {
     width: 100%;
@@ -164,6 +163,8 @@ export default {
     padding: 15px 19px 0;
     width: 100%;
     border: 1px solid #ddd;
+    background-color: #fff;
+
     .sub_nav {
       margin-bottom: 15px;
       ul {
@@ -179,7 +180,7 @@ export default {
             height: 20px;
             display: block;
           }
-          &:hover a{
+          &:hover a {
             background-color: #3983e5;
             color: #fff;
             border-radius: 5px;

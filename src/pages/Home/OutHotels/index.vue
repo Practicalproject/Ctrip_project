@@ -50,7 +50,12 @@
             <!-- 境内 -->
             <div class="sub_nav">
               <ul>
-                <li @click="changeIndex(index)" v-for="(item,index) in tabs" :key="index" :class="{nav_action:index === numIndex}">
+                <li
+                  @click="changeIndex(index)"
+                  v-for="(item, index) in tabs"
+                  :key="index"
+                  :class="{ nav_action: index === numIndex }"
+                >
                   {{ item.tabNme }}
                 </li>
               </ul>
@@ -111,9 +116,9 @@ export default {
       this.tagDownName = result.data[0].tagDown.nme;
       this.tagDownList = result.data[0].tagDown.itemLst;
     },
-    changeIndex(index){
-      this.numIndex = index
-    }
+    changeIndex(index) {
+      this.numIndex = index;
+    },
   },
   computed: {
     tabs() {
@@ -137,7 +142,6 @@ export default {
   width: 1180px;
   margin: 30px auto;
   line-height: 30px;
-  background-color: #fff;
 
   //   头部列表
   .header_list {
@@ -189,6 +193,7 @@ export default {
     padding: 15px 19px 0;
     width: 100%;
     border: 1px solid #ddd;
+    background-color: #fff;
 
     .sub_img {
       display: flex;
