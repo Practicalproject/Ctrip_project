@@ -257,7 +257,9 @@
             @mouseenter="getNavId(item.cateID)"
             @mouseleave="navId = ''"
           >
-            <router-link :to="item.cateAlias"
+            <router-link
+              :to="{ path: item.cateAlias, query: { navId: item.cateID } }"
+              @click="getNavId(item.cateID)"
               >{{ item.cateName ? item.cateName : "javascript:;" }}
               <i v-show="item.isTwoCate" class="iconfont"></i>
               <span class="point"></span>
@@ -352,7 +354,7 @@ export default {
 .headerContainer {
   width: 100%;
   .mb {
-    margin-bottom: 54px;
+    margin-bottom: 40px;
     .cui_nav_ul {
       .cui_subnav_wrap {
         display: block;

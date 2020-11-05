@@ -188,6 +188,7 @@ export default {
   width: 1180px;
   // height: 437px;
   margin: 28px auto 0;
+  background: #ffffff;
   .flyHeader {
     height: 36px;
     width: 1180px;

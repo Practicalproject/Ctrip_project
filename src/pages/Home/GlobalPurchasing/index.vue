@@ -5,12 +5,8 @@
     <div class="modhd">
       <h2>
         <span class="current">
-          当天玩乐/出境
+          全球购
           <i></i>
-        </span>
-        <span>
-          当天玩乐/境内
-          <i class="iconfont icon-shang"></i>
         </span>
       </h2>
     </div>
@@ -19,7 +15,7 @@
       <!-- 内容区左侧 -->
       <div class="entrance">
         <dl class="keyword">
-          <dt class="keywordTitle">{{ tagsName }}</dt>
+          <dt class="keywordTitle">热门目的地</dt>
           <dd
             class="keywordContainer"
             v-for="(tagsItem, index) in tagsItemLst"
@@ -52,7 +48,7 @@
 
             <div class="more">
               <a href="javascript: ;">
-                {{ exNme }}
+                更多
                 <i class="iconfont icon-next"></i>
               </a>
             </div>
@@ -91,33 +87,29 @@
 
 <script>
 export default {
-  name: "PopDestinations",
+  name: "GlobalPurchasing",
   data() {
     return {
-      indexPlay: {},
+      globalPurchasing: {},
       tagsItemLst: [],
-      tagsName: "",
-      tabs: [],
-      exNme: "",
     };
   },
   mounted() {
-    this.getIndexPlay();
+    this.getGlobalPurchasing();
   },
   methods: {
-    async getIndexPlay() {
-      const result = await this.$API.index.getIndexPlay();
-      // console.log(result);
-      this.indexPlay = result.data;
-      this.tagsItemLst = result.data.tags.itemLst;
-      this.tagsName = result.data.tags.nme;
-      this.tabs = result.data.tabs;
-      this.exNme = result.data.exNme;
+    async getGlobalPurchasing() {
+      const resule = await this.$API.index.getGlobalPurchasing();
+      this.globalPurchasing = resule.data;
+      this.tagsItemLst = resule.data.tags.itemLst;
     },
   },
   computed: {
+    tabs() {
+      return this.globalPurchasing.tabs;
+    },
     prdLst() {
-      return this.indexPlay.prdLst;
+      return this.globalPurchasing.prdLst;
     },
   },
 };
@@ -238,16 +230,15 @@ export default {
         overflow: hidden;
         display: flex;
         justify-content: space-between;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         .pri_list {
-          ul {
+          .inner-tabs {
             float: left;
             height: 15px;
             line-height: 15px;
             display: block;
             li {
               list-style: none;
-              /* background: #3983e5; */
               color: #fff;
               border-radius: 3px;
               display: inline-block;
@@ -255,7 +246,6 @@ export default {
               margin-right: 15px;
               padding: 0 8px;
               .icon-xiaosanjiao {
-                /* display: inline-block; */
                 color: blue;
               }
             }
@@ -266,6 +256,10 @@ export default {
                 color: #ddd;
               }
             }
+          }
+          &:hover a {
+            background-color: #007aff;
+            color: #fff;
           }
         }
         .more {
@@ -290,22 +284,22 @@ export default {
           justify-content: space-between;
           .carList {
             margin-left: 10px;
-            width: 210px;
+            width: 200px;
             &:hover {
               box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
             }
             a .carImg {
               display: block;
               width: 100%;
-              height: 145px;
+              height: 110px;
               overflow: hidden;
               img {
-                width: 220px;
+                width: 200px;
               }
             }
             /* .carImg:hover img {
               transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-              width: 220px;
+              width: 200px;
               height: 130px;
               transform: scale(1.1);
             } */
