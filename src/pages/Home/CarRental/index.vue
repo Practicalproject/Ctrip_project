@@ -437,10 +437,19 @@ export default {
           margin-left: 10px;
           width: 210px;
           float: left;
+          &:hover{
+            border: 1px solid #ddd;
+          }
           a .carImg {
             display: block;
             width: 100%;
             height: 145px;
+          }
+          .carImg:hover img{
+            transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+            width: 277px;
+            height: 156px;
+            transform: scale(1.1);
           }
           .carName {
             position: relative;

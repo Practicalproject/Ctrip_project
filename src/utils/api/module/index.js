@@ -22,7 +22,12 @@ export default {
     getIndexHotel() {
         return Ajax.instanceTwo.get('/getIndexHotel')
     },
+    // 热门
     getIndexHot() {
         return Ajax.instanceTwo.get('/getIndexHot')
+    },
+    // 热门目的地
+    getIndexPlay() {
+        return Ajax.instanceTwo.get('/getIndexPlay')
     }
 }
