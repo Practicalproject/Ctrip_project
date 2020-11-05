@@ -303,6 +303,11 @@
 <script>
 export default {
   name: "Recommend",
+  data() {
+    return {
+      value:''
+    }
+  },
 };
 </script>
 

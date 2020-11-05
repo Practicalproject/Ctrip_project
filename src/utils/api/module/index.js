@@ -26,6 +26,10 @@ export default {
     getIndexHot() {
         return Ajax.instanceTwo.get('/getIndexHot')
     },
+
+    getIndexInternational() {
+        return Ajax.instanceTwo.get('/getIndexInternational')
+    },
     // 热门目的地
     getIndexPlay() {
         return Ajax.instanceTwo.get('/getIndexPlay')
