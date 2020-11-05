@@ -134,32 +134,51 @@
     <div class="modinfo">
       <h2 class="detail-mod">图文详情</h2>
       <p>
-        <img src="./images/1.jpg" alt="">
-        <img src="./images/2.jpg" alt="">
-        <img src="./images/3.jpg" alt="">
-        <img src="./images/4.jpg" alt="">
-        <img src="./images/5.jpg" alt="">
-        <img src="./images/6.jpg" alt="">
-        <img src="./images/7.jpg" alt="">
-        <img src="./images/8.jpg" alt="">
-        <img src="./images/9.jpg" alt="">
-        <img src="./images/10.jpg" alt="">
-        <img src="./images/11.jpg" alt="">
-        <img src="./images/12.jpg" alt="">
-        <img src="./images/13.jpg" alt="">
-        <img src="./images/14.jpg" alt="">
-        <img src="./images/15.jpg" alt="">
-        <img src="./images/16.jpg" alt="">
-        <img src="./images/17.jpg" alt="">
-        <img src="./images/18.jpg" alt="">
-        <img src="./images/19.jpg" alt="">
-        <img src="./images/20.jpg" alt="">
-        <img src="./images/21.jpg" alt="">
-        <img src="./images/22.jpg" alt="">
-        <img src="./images/23.jpg" alt="">
-        <img src="./images/24.jpg" alt="">
-        <img src="./images/25.jpg" alt="">
+        <img src="./images/1.jpg" alt="" />
+        <img src="./images/2.jpg" alt="" />
+        <img src="./images/3.jpg" alt="" />
+        <img src="./images/4.jpg" alt="" />
+        <img src="./images/5.jpg" alt="" />
+        <img src="./images/6.jpg" alt="" />
+        <img src="./images/7.jpg" alt="" />
+        <img src="./images/8.jpg" alt="" />
+        <img src="./images/9.jpg" alt="" />
+        <img src="./images/10.jpg" alt="" />
+        <img src="./images/11.jpg" alt="" />
+        <img src="./images/12.jpg" alt="" />
+        <img src="./images/13.jpg" alt="" />
+        <img src="./images/14.jpg" alt="" />
+        <img src="./images/15.jpg" alt="" />
+        <img src="./images/16.jpg" alt="" />
+        <img src="./images/17.jpg" alt="" />
+        <img src="./images/18.jpg" alt="" />
+        <img src="./images/19.jpg" alt="" />
+        <img src="./images/20.jpg" alt="" />
+        <img src="./images/21.jpg" alt="" />
+        <img src="./images/22.jpg" alt="" />
+        <img src="./images/23.jpg" alt="" />
+        <img src="./images/24.jpg" alt="" />
+        <img src="./images/25.jpg" alt="" />
       </p>
+    </div>
+
+    <!-- 评论区 -->
+    <div class="comments">
+      <div class="commentHeader">
+        <h2>用户点评</h2>
+        <div class="commentScores">
+          <span>5</span>
+          <i>分 </i>
+          1 条评论
+        </div>
+      </div>
+      <div class="basefix">
+        <h4></h4>
+        <p>
+          包车环岛游，很棒，行程不赶，自由选择景点，推荐拉威，超美的海，泰国导游都态度好好。很棒。
+        </p>
+        <span></span>
+      </div>
     </div>
   </div>
 </template>
@@ -382,20 +401,89 @@ export default {
   /* 图文详情区 */
   .modinfo {
     width: 898px;
-    height: 17680.9px;
-    margin: -1px 0 0;
+    height: 17200.9px;
     padding: 30px 75px;
     background: #fff;
+    margin: -1px 0 0;
     border: 1px solid #ddd;
-    h2{
+    h2 {
       height: 48px;
       margin: 0 0 20px;
-      color:#000;
+      color: #000;
       font-size: 24px;
       font-weight: 600;
     }
-    p img{
+    p img {
       display: block;
+    }
+  }
+
+  /* 评论区 */
+  .comments {
+    width: 898px;
+    height: 289px;
+    margin: -1px 0 0;
+    padding: 30px 75px;
+    background: #fff;
+    margin: -1px 0 0;
+    border: 1px solid #ddd;
+    position: relative;
+    .commentHeader {
+      height: 48px;
+      line-height: 48px;
+      margin-bottom: 20px;
+      h2 {
+        font-size: 24px;
+        position: relative;
+        font-weight: 600;
+        display: inline-block;
+        /* border-bottom: 1px solid #ddd; */
+      }
+      .commentScores {
+        display: inline-block;
+        margin-top: -15px;
+        height: 36px;
+        position: absolute;
+        text-align: right;
+        position: absolute;
+        left: 197px;
+        top: 50px;
+        color: #999;
+        font-size: 12px;
+        h4 {
+          display: inline-block;
+          font: 30px tahoma;
+          color: #2680ff;
+        }
+        .basefix {
+          width: 100%;
+          height: 129px;
+          padding: 20px 0;
+        }
+        i {
+          margin-right: 10px;
+        }
+      }
+    }
+    .basefix {
+      width: 746px;
+      height: 129px;
+      padding: 20px 0;
+      h4 {
+        display: block;
+        width: 75px;
+        height: 14px;
+        background: url(./images/26.png) -150px -1px no-repeat;
+        overflow: hidden;
+        height: 23px;
+        padding: 0 0 5px;
+      }
+      p{
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+        
+      }
     }
   }
 }
