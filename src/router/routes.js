@@ -1,9 +1,9 @@
-import suoxiaoyu from '@/router/modules/suoxiaoyu'
-import huangshaofei from '@/router/modules/huangshaofei'
-import tanzhiguo from '@/router/modules/tanzhiguo'
-import lvpengchao from '@/router/modules/lvpengchao'
-import aishuaikang from '@/router/modules/aishuaikang'
-import baohua from '@/router/modules/baohua'
+import suoxiaoyu from './modules/suoxiaoyu'
+import huangshaofei from './modules/huangshaofei'
+import tanzhiguo from './modules/tanzhiguo'
+import lvpengchao from './modules/lvpengchao'
+import aishuaikang from './modules/aishuaikang'
+import baohua from './modules/baohua'
 
 export default [
     ...suoxiaoyu,

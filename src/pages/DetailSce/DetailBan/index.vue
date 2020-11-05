@@ -274,7 +274,6 @@ export default {
     });
     // ------------------
   },
-  methods: {},
 };
 </script>
 
@@ -401,7 +400,6 @@ export default {
           .detail_proInfo {
             position: relative;
             height: 60px;
-            display: box;
             display: flex;
             align-items: center;
             white-space: nowrap;
@@ -572,8 +570,6 @@ export default {
               display: flex;
               justify-content: space-between;
               .peoLeft {
-                // float: left;
-                display: inline-block;
                 max-width: 310px;
                 vertical-align: sub;
                 p {
