@@ -30,9 +30,10 @@
       <div class="sub_nav">
         <ul>
           <li
-            class="sub_nav_action"
+            :class="{ sub_nav_action: index === numIndex }"
             v-for="(hotList, index) in destCitys"
             :key="index"
+            @click="changeIndex(index)"
           >
             <a href="javascript:;">{{ hotList.nme }}</a>
           </li>
@@ -41,11 +42,15 @@
       <div class="sub_img">
         <!-- 左侧区域 -->
         <div class="sub_body">
-          <div class="body_item" v-for="(tabContent,index) in tabContentLst" :key="index">
+          <div
+            class="body_item"
+            v-for="(tabContent, index) in tabContentLst"
+            :key="index"
+          >
             <img :src="tabContent.img" alt="" />
             <div class="item_mask">
               <div class="title">
-                <span class="title_text">{{tabContent.prdNme}}</span>
+                <span class="title_text">{{ tabContent.prdNme }}</span>
                 <div class="mask_rule"></div>
                 ￥
                 <span>{{ tabContent.price.amt }}</span
@@ -69,7 +74,7 @@ export default {
   data() {
     return {
       indexHot: {},
-      // amt: "",
+      numIndex: 0,
     };
   },
   mounted() {
@@ -78,8 +83,10 @@ export default {
   methods: {
     async getIndexHot() {
       const result = await this.$API.index.getIndexHot();
-      // console.log(result);
       this.indexHot = result.data;
+    },
+    changeIndex(index) {
+      this.numIndex = index;
     },
   },
   computed: {
@@ -171,6 +178,11 @@ export default {
             font-size: 14px;
             height: 20px;
             display: block;
+          }
+          &:hover a{
+            background-color: #3983e5;
+            color: #fff;
+            border-radius: 5px;
           }
         }
         .sub_nav_action {
