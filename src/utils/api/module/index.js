@@ -26,8 +26,20 @@ export default {
     getIndexHot() {
         return Ajax.instanceTwo.get('/getIndexHot')
     },
+
+    getIndexInternational() {
+        return Ajax.instanceTwo.get('/getIndexInternational')
+    },
     // 热门目的地
     getIndexPlay() {
         return Ajax.instanceTwo.get('/getIndexPlay')
+    },
+    // 全球购
+    getGlobalPurchasing() {
+        return Ajax.instanceTwo.get('/getGlobalPurchasing')
+    },
+    // 境外租车
+    getIndexCarRental() {
+        return Ajax.instanceTwo.get('/getIndexCarRental')
     }
 }
