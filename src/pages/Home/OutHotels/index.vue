@@ -50,7 +50,7 @@
             <!-- 境内 -->
             <div class="sub_nav">
               <ul>
-                <li v-for="item in tabs" :key="item.pinyin">
+                <li @click="changeIndex(index)" v-for="(item,index) in tabs" :key="index" :class="{nav_action:index === numIndex}">
                   {{ item.tabNme }}
                 </li>
               </ul>
@@ -95,6 +95,7 @@ export default {
       tagUpName: "",
       tagDownName: "",
       tagDownList: [],
+      numIndex: 0,
     };
   },
   mounted() {
@@ -110,6 +111,9 @@ export default {
       this.tagDownName = result.data[0].tagDown.nme;
       this.tagDownList = result.data[0].tagDown.itemLst;
     },
+    changeIndex(index){
+      this.numIndex = index
+    }
   },
   computed: {
     tabs() {
@@ -192,7 +196,6 @@ export default {
         height: 360px;
         width: 227px;
         border-right: 1px dashed #ddd;
-        padding: 0 20px 15px;
         box-sizing: border-box;
         overflow: hidden;
         .keyword-long {
@@ -201,7 +204,10 @@ export default {
           }
           a {
             color: #333;
-            font-size: 15px;
+            font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+            &:hover {
+              color: #3983e5;
+            }
           }
         }
       }
@@ -220,7 +226,17 @@ export default {
                 margin-right: 15px;
                 line-height: 20px;
                 color: #3983e5;
-                font-size: 13px;
+                font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+                &:hover {
+                  background-color: #3983e5;
+                  color: #fff;
+                  border-radius: 5px;
+                }
+              }
+              .nav_action {
+                background-color: #3983e5;
+                color: #fff;
+                border-radius: 5px;
               }
             }
           }

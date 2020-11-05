@@ -144,9 +144,10 @@
             <div class="pri_list">
               <ul class="inner-tabs">
                 <li
-                  class="active"
+                  :class="{ active: index === numIndex }"
                   v-for="(tabsItem, index) in tabs"
                   :key="index"
+                  @click="changeIndex(index)"
                 >
                   <a href="javascript: ;">{{ tabsItem.tabNme }}</a>
                 </li>
@@ -198,6 +199,7 @@ export default {
   data() {
     return {
       indexCarRental: {},
+      numIndex: 0,
     };
   },
   mounted() {
@@ -208,6 +210,9 @@ export default {
       const resust = await this.$API.index.getIndexCarRental();
       // console.log(resust);
       this.indexCarRental = resust.data;
+    },
+    changeIndex(index) {
+      this.numIndex = index;
     },
   },
   computed: {
@@ -353,16 +358,18 @@ export default {
             display: block;
             li {
               list-style: none;
-              /* background: #3983e5; */
               color: #fff;
               border-radius: 3px;
               display: inline-block;
               line-height: 20px;
               margin-right: 15px;
               padding: 0 8px;
-              .icon-xiaosanjiao {
-                /* display: inline-block; */
-                color: blue;
+              &:hover {
+                background-color: #007aff;
+                font-weight: 700;
+                a {
+                  color: #ddd;
+                }
               }
             }
             .active {
@@ -399,7 +406,11 @@ export default {
             width: 210px;
             &:hover {
               /* border: 1px solid #ddd; */
-              box-shadow: 0 1px 4px rgba(0, 0, 0, .25);
+              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+              img {
+                transform: scale(1.1);
+                transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+              }
             }
             a .carImg {
               display: block;

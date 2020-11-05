@@ -16,7 +16,10 @@ export default {
 
     //  获取首页全部国家列表
     reqlogin(email, pwd) {
-        return Ajax.instanceTwo.post("/login", { email, pwd })
+        return Ajax.instanceTwo.post("/login", {
+            email,
+            pwd
+        })
     },
     // 获取海外酒店
     getIndexHotel() {
@@ -27,9 +30,11 @@ export default {
         return Ajax.instanceTwo.get('/getIndexHot')
     },
 
-    getIndexInternational() {
-        return Ajax.instanceTwo.get('/getIndexInternational')
+    //国际港澳台特价机票
+    getIndexInternational(gp) {
+        return Ajax.instanceTwo.get('/getIndexInternational' + (gp ? '?gp=' + gp : ''))
     },
+
     // 热门目的地
     getIndexPlay() {
         return Ajax.instanceTwo.get('/getIndexPlay')
@@ -41,5 +46,9 @@ export default {
     // 境外租车
     getIndexCarRental() {
         return Ajax.instanceTwo.get('/getIndexCarRental')
+    },
+    // 目的地攻略
+    getDestinationGuide() {
+        return Ajax.instanceTwo.get('/getDestinationGuide')
     }
 }
