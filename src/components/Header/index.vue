@@ -246,7 +246,7 @@
     >
       <ul class="cui_nav_ul">
         <li>
-          <router-link to="/">首页</router-link>
+          <router-link to="/home">首页</router-link>
         </li>
         <li class="divider"></li>
         <template v-for="item in cate1Nav">
@@ -733,6 +733,9 @@ export default {
     margin: 0 auto 54px;
     margin-bottom: 10px;
     .cui_nav_ul {
+      .router-link-active{
+        background-color: rgb(10, 86, 187);
+      }
       position: relative;
       // z-index: 25;
       min-width: 980px !important;

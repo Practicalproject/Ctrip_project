@@ -78,7 +78,7 @@ export default {
   methods: {
     async getIndexHot() {
       const result = await this.$API.index.getIndexHot();
-      console.log(result);
+      // console.log(result);
       this.indexHot = result.data;
     },
   },
