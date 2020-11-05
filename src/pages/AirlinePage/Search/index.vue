@@ -27,10 +27,10 @@
         <!-- 搜索上部 -->
         <div class="search-form-top">
           <ul class="form-select-radio">
-            <li>
+            <li :class="{active:(number === index)}" @click="change(index)">
               <span class="radio-label">
                 <i class="iconfont icon-RadioButton"></i>
-                <i class="iconfont icon-RadioButton-1 active"></i>
+                <i class="iconfont icon-RadioButton-1"></i>
                 单程
               </span>
             </li>
@@ -202,8 +202,14 @@ export default {
   data() {
     return {
       value1: "2020-11-04",
+      number: 0,
     };
   },
+  methods: {
+    change(index) {
+      this.number = index;
+    },
+  }
 };
 </script>
 
@@ -306,9 +312,9 @@ export default {
             font-size: 16px;
           }
           .icon-RadioButton {
-            display: none;
+            // display: none;
           }
-          .active {
+          &.active {
             color: #06c;
           }
         }
