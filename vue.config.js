@@ -9,7 +9,7 @@ module.exports = {
                 pathRewrite: { "^/api": "" }
             },
             '/v1': {
-                target: 'http://localhost:8080',
+                target: 'http://localhost:2506',
                 pathRewrite: { "^/v1": "" }
             },
 
