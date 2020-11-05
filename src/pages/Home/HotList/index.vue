@@ -4,19 +4,19 @@
     <div class="header_list">
       <h2>
         <span class="current">
-          海外酒店
+          热门
           <i></i>
         </span>
         <span>
-          海外民宿+短租
-          <i class="iconfont icon-shang"></i>
-        </span>
-        <span>
-          国内酒店
+          周边游
           <i></i>
         </span>
         <span>
-          客栈民宿
+          门票
+          <i></i>
+        </span>
+        <span>
+          出境游
           <i></i>
         </span>
       </h2>
@@ -41,11 +41,15 @@
       <div class="sub_img">
         <!-- 左侧区域 -->
         <div class="sub_body">
-          <div class="body_item" v-for="(tabContent,index) in tabContentLst" :key="index">
+          <div
+            class="body_item"
+            v-for="(tabContent, index) in tabContentLst"
+            :key="index"
+          >
             <img :src="tabContent.img" alt="" />
             <div class="item_mask">
               <div class="title">
-                <span class="title_text">{{tabContent.prdNme}}</span>
+                <span class="title_text">{{ tabContent.prdNme }}</span>
                 <div class="mask_rule"></div>
                 ￥
                 <span>{{ tabContent.price.amt }}</span
@@ -78,7 +82,7 @@ export default {
   methods: {
     async getIndexHot() {
       const result = await this.$API.index.getIndexHot();
-      // console.log(result);
+      console.log(result);
       this.indexHot = result.data;
     },
   },
@@ -96,7 +100,7 @@ export default {
 <style lang='less' scoped>
 .hotList_wrapper {
   width: 1180px;
-  margin: 0 auto;
+  margin: 30px auto;
   line-height: 30px;
 
   //   头部列表
@@ -122,6 +126,10 @@ export default {
           color: #06c;
           cursor: default;
         }
+      }
+      .current {
+        cursor: default;
+        color: #06c;
         i {
           position: absolute;
           left: 50%;
@@ -137,10 +145,6 @@ export default {
           border-left: 6px solid transparent;
           border-right: 6px solid transparent;
         }
-      }
-      .current {
-        cursor: default;
-        color: #06c;
       }
     }
     .header_go {
