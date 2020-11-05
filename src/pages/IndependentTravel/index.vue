@@ -38,7 +38,6 @@ export default {
 // #007aff
 .mainContainer {
   width: 1180px;
-  height: 3000px;
   margin: 0 auto;
 }
 </style>
