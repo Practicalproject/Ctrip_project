@@ -5,24 +5,12 @@
     <div class="modhd">
       <h2>
         <span class="current">
-          境外租车
+          目的地攻略
           <i></i>
         </span>
         <span>
-          境外接送机
+          旅游旗舰店
           <i class="iconfont icon-shang"></i>
-        </span>
-        <span>
-          国内租车
-          <i></i>
-        </span>
-        <span>
-          国内接送机
-          <i></i>
-        </span>
-        <span>
-          日租包车
-          <i></i>
         </span>
       </h2>
     </div>
@@ -31,105 +19,10 @@
       <!-- 内容区左侧 -->
       <div class="entrance">
         <dl class="keyword">
-          <dt class="keywordTitle">热门城市</dt>
+          <dt class="keywordTitle" v-if="tags">{{tags.nme}}</dt>
           <dd class="keywordContainer">
             <span class="bgspan">
               <a href="javascript: ;">洛杉矶</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">旧金山</a>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">墨尔本</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">纽约</a>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">古曼</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">基督城</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">吉普赛</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">温哥华</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">悉尼</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">奥克兰</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">拉斯维加斯</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">西雅图</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">伦敦</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">法兰克福</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">多伦多</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">巴西</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">迪拜</a>
-              <span class="iconfont icon-huomiao"></span>
             </span>
           </dd>
         </dl>
@@ -154,8 +47,7 @@
             </div>
 
             <div class="more">
-              <a href="javascript: ;" v-if="indexCarRental">
-                {{ indexCarRental.exNme }}
+              <a href="javascript: ;">
                 <i class="iconfont icon-next"></i>
               </a>
             </div>
@@ -173,13 +65,11 @@
                   <p class="carImg">
                     <img :src="prdLstItem.img" alt="" />
                   </p>
-                  <p class="carName">{{ prdLstItem.nme }}</p>
+                  <p class="carName"></p>
                   <p class="carPrice">
-                    <span class="item-type">{{ prdLstItem.subNme }}</span>
-                    <span class="price" v-if="prdLstItem.price">
-                      <dfn>¥</dfn>
-                      {{ prdLstItem.price.amt }}
-                      <i class="priceInfo"></i>
+                    <span class="item-type"></span>
+                    <span class="price">
+                      {{ prdLstItem.nme }}
                     </span>
                   </p>
                 </a>
@@ -194,29 +84,32 @@
 
 <script>
 export default {
-  name: "CarRental",
+  name: "DestinationGuide",
   data() {
     return {
-      indexCarRental: {},
+      destinationGuide: {},
     };
   },
   mounted() {
-    this.getIndexCarRental();
+    this.getDestinationGuide();
   },
   methods: {
-    async getIndexCarRental() {
-      const resust = await this.$API.index.getIndexCarRental();
-      // console.log(resust);
-      this.indexCarRental = resust.data;
+    async getDestinationGuide() {
+      const resust = await this.$API.index.getDestinationGuide();
+      this.destinationGuide = resust.data;
     },
   },
   computed: {
     tabs() {
-      return this.indexCarRental.tabs;
+      // tabNme
+      return this.destinationGuide.tabs;
     },
     prdLst() {
-      return this.indexCarRental.prdLst;
+      return this.destinationGuide.prdLst;
     },
+    tags(){
+      return this.destinationGuide.tags
+    }
   },
 };
 </script>
@@ -397,10 +290,11 @@ export default {
           .carList {
             margin-left: 10px;
             width: 210px;
+            overflow: hidden;
             &:hover {
               /* border: 1px solid #ddd; */
-              box-shadow: 0 1px 4px rgba(0, 0, 0, .25);
-              img{
+              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+              img {
                 transform: scale(1.1);
                 transition: transform 0.3s ease, -webkit-transform 0.3s ease;
               }
@@ -443,9 +337,6 @@ export default {
             }
             .price {
               position: relative;
-              float: right;
-              font: 22px/1.5 tahoma;
-              color: #f60;
               .miniLogo {
                 vertical-align: 7px;
                 font: 12px/1.5 arial;

@@ -14,6 +14,8 @@
     <PopDestinations></PopDestinations>
     <!-- 全球购 -->
     <GlobalPurchasing></GlobalPurchasing>
+    <!-- 攻略 -->
+    <DestinationGuide></DestinationGuide>
     <!-- bh旅行服务 -->
     <TravelService></TravelService>
     <!-- bh企业商旅 -->
@@ -35,6 +37,7 @@ import TravelService from "./TravelService";
 import BusinessTravel from "./BusinessTravel";
 import PopDestinations from "./PopDestinations";
 import GlobalPurchasing from "./GlobalPurchasing";
+import DestinationGuide from "./DestinationGuide";
 export default {
   name: "Home",
   components: {
@@ -49,6 +52,7 @@ export default {
     BusinessTravel,
     PopDestinations,
     GlobalPurchasing,
+    DestinationGuide,
   },
 };
 </script>

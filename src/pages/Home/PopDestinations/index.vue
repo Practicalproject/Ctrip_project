@@ -293,6 +293,10 @@ export default {
             width: 210px;
             &:hover {
               box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+              img{
+                transform: scale(1.1);
+                transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+              }
             }
             a .carImg {
               display: block;
