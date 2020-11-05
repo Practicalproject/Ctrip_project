@@ -35,7 +35,14 @@
       <!-- 机票详情 -->
       <div class="product_hd">
         <ul>
-          <li :class="{active:index===number}" v-for="(item,index) in tabLst" :key="index" @click="change(index)">{{item.tabNme}}</li>
+          <li 
+          :class="{active:index===number}" 
+          v-for="(item,index) in tabLst" 
+          :key="index" 
+          @click="change(index,item.pinyin)"
+          >
+          {{item.tabNme}}
+          </li>
           <!-- <li>亚洲</li>
           <li>欧洲</li>
           <li>美洲</li>
@@ -160,15 +167,18 @@ export default {
     this.getIndexInternational()
   },
   methods: {
-    async getIndexInternational(){
-      let result = await this.$API.index.getIndexInternational();
+    // 请求热门栏目列表
+    async getIndexInternational(gp){
+      let result = await this.$API.index.getIndexInternational(gp);
       if(result.code === 200){
         this.InternationalTicket = result.data
       }
       console.log(result);
+
     },
-    change(index){
+    change(index,gp){
       this.number = index
+      this.getIndexInternational(gp)
     }
   },
   computed: {
