@@ -2,16 +2,21 @@
   <!-- 经典详情 -->
   <div>
     <DetailBan></DetailBan>
+    <Review></Review>
   </div>
 </template>
 
 <script>
 import DetailBan from "./DetailBan";
+import Review from "./Review";
 export default {
   components: {
     DetailBan,
   },
   name: "DetailSce",
+  components: {
+    Review,
+  },
 };
 </script>
 

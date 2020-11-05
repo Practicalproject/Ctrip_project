@@ -1,22 +1,29 @@
-
 const AirlinePage = () => import('@/pages/AirlinePage')
-const TrainPage = () => import('@/pages/TrainPage')
+const Order = () => import('@/pages/Order')
 const Hotel = () => import('@/pages/Hotel')
 const Tourism = () => import('@/pages/Tourism')
 const IndependentTravel = () => import('@/pages/IndependentTravel')
 
+// import Tickets from '@/pages/Tickets'
+import HuangPuJiang from '@/pages/Tickets/HuangPuJiang'
+
+// import Strategy from '@/pages/Strategy'
+// import Home from '@/pages/Home'
+// import Group from '@/pages/Group' 
+
 const Tickets = () => import('@/pages/Tickets')
 const Strategy = () => import('@/pages/Strategy')
 const Home = () => import('@/pages/Home')
-const Group = () => import('@/pages/Group')
-
+const Group = () => import('@/pages/Group') 
 const useCart = () => import('@/pages/useCart')
 const cartBoat = () => import('@/pages/cartBoat')
-const Login = () => import('@/pages/Login')
 const DetailSce = () => import('@/pages/DetailSce')
 
-export default [
-    {
+const Login = () => import('@/pages/Login')
+const Register = () => import('@/pages/Register')
+
+
+export default [{
         // 用车
         path: '/usecart',
         component: useCart
@@ -31,14 +38,55 @@ export default [
         path: '/cartboat',
         component: cartBoat
     },
-    /**
-     * 飞机票路由组件
-     * author:suoxiaoyu
-     */
     {
+        /**
+         * 飞机票路由组件
+         * author:suoxiaoyu
+         */
         path: '/airlinepage',
         component: AirlinePage
     },
+    {
+        /**
+         * 我的订单路由组件
+         * author:suoxiaoyu
+         */
+
+        // 旅游
+        path: '/tourism',
+        component: Tourism
+    },
+    {
+        // 门票
+        path: '/tickets',
+        component: Tickets,
+    },
+    {
+        // 攻略
+        path: '/strategy',
+        component: Strategy
+    },
+    // 首页
+    {
+        path: "/home",
+        component: Home
+    },
+    // 重定向
+    {
+        path: '/',
+        redirect: "/home"
+    },
+    // 黄浦江
+    {
+        path: '/huangpujiang',
+        component: HuangPuJiang
+    },
+    {
+        path: '/order',
+        component: Order
+    },
+
+
     {
         // bh--自由行
         path: '/independenttravel',
@@ -54,18 +102,10 @@ export default [
         path: '/hotel',
         component: Hotel
     },
-    /**
-     * 火车票路由组件
-     * author:suoxiaoyu
-     */
     {
         // 旅游
         path: '/tourism',
         component: Tourism
-    },
-    {
-        path: '/trainPage',
-        component: TrainPage
     },
     {
         // 门票
@@ -81,6 +121,11 @@ export default [
     {
         path: "/login",
         component: Login
+    },
+    // 注册
+    {
+        path: "/register",
+        component: Register
     },
     // 首页
     {

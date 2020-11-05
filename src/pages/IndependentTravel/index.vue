@@ -13,7 +13,6 @@
     <Avantage></Avantage>
     <!-- 广告区 -->
     <Advertisement></Advertisement>
-    <CopyRight></CopyRight>
   </div>
 </template>
 

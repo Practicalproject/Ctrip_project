@@ -3,31 +3,21 @@
     <div class="wrap">
       <!-- swiper轮播图 -->
       <div class="wrp_wiper">
-        <div class="swiper_contain">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="./images/1.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/2.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/3.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/4.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/5.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/6.jpg" />
-              </div>
+        <div class="swiper-container" ref="mySwiper1">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/1.jpg" />
             </div>
-            <!-- 如果需要分页器 -->
-            <div class="swiper-pagination"></div>
+            <div class="swiper-slide">
+              <img src="./images/2.jpg" />
+            </div>
           </div>
+          <!-- 如果需要分页器 -->
+          <div class="swiper-pagination"></div>
+
+          <!-- 如果需要导航按钮 -->
+          <!-- <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div> -->
         </div>
       </div>
       <!-- 搜索框 -->
@@ -36,26 +26,26 @@
           <!-- 左侧列表 -->
           <div class="small_left">
             <ul>
-              <li>
-                <span>酒店</span>
+              <li class="active">
+                <a href="javascript:;">酒店</a>
               </li>
               <li>
-                <span>酒店</span>
+                <a href="javascript:;">酒店</a>
               </li>
               <li>
-                <span>酒店</span>
+                <a href="javascript:;">酒店</a>
               </li>
               <li>
-                <span>酒店</span>
+                <a href="javascript:;">酒店</a>
               </li>
               <li>
-                <span>酒店</span>
+                <a href="javascript:;">酒店</a>
               </li>
               <li>
-                <span>酒店</span>
+                <a href="javascript:;">酒店</a>
               </li>
               <li>
-                <span>酒店</span>
+                <a href="javascript:;">酒店</a>
               </li>
             </ul>
           </div>
@@ -63,9 +53,15 @@
           <div class="small_right">
             <!-- 上方导航 -->
             <div class="right_top">
-              <span>国内酒店</span>
-              <span>海外酒店</span>
-              <span>民宿</span>
+              <span >
+                <a href="javascript:;">国内酒店</a>
+              </span>
+              <span class="right_top_action">
+                <a href="javascript:;">海外酒店</a>
+              </span>
+              <span>
+                <a href="javascript:;">民宿</a>
+              </span>
             </div>
             <!-- 下方表单 -->
             <div class="right_bot">
@@ -147,6 +143,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import "swiper/css/swiper.min.css";
 import Swiper from "swiper";
@@ -166,9 +163,26 @@ export default {
       },
     };
   },
-  methods: {
-    onSubmit() {
-      console.log("submit!");
+  watch: {
+    bannerList: {
+      immediate: true,
+      handler() {
+        this.$nextTick(() => {
+          new Swiper(this.$refs.mySwiper1, {
+            loop: true, // 循环模式选项
+            // 如果需要分页器
+            pagination: {
+              el: ".swiper-pagination",
+            },
+
+            // 如果需要前进后退按钮
+            // navigation: {
+            //   nextEl: ".swiper-button-next",
+            //   prevEl: ".swiper-button-prev",
+            // },
+          });
+        });
+      },
     },
   },
 };
@@ -180,15 +194,12 @@ export default {
   position: relative;
   // 轮播图
   .wrp_wiper {
-    .swiper_contain {
-      margin-bottom: 20px;
-      .swiper-container {
-        height: 340px;
-        .swiper-wrapper {
-          .swiper-slide {
-            img {
-              height: 340px;
-            }
+    .swiper-container {
+      height: 340px;
+      .swiper-wrapper {
+        .swiper-slide {
+          img {
+            height: 340px;
           }
         }
       }
@@ -219,16 +230,25 @@ export default {
         background-color: #2577e3;
         ul {
           li {
-            height: 42px;
-            line-height: 42px;
+            height: 40px;
+            line-height: 40px;
             // text-align: center;
-            span {
+            a {
+              font-size: 14px;
               display: block;
-              height: 42px;
+              height: 35px;
               width: 60px;
               margin-left: 20px;
               border-bottom: 1px dashed #fff;
               color: white;
+            }
+          }
+          .active {
+            background-color: #fff;
+            border-left: 5px solid #ff9915;
+            a {
+              color: #2577e3;
+              font-weight: 700;
             }
           }
         }
@@ -242,10 +262,24 @@ export default {
           display: flex;
           border-bottom: 1px solid #ddd;
           margin-bottom: 8px;
+          .right_top_action {
+            a {
+              color: #06c;
+              background-position: 50% -10px;
+              cursor: default;
+              text-decoration: none;
+              border-bottom: 2px solid #2577e3;
+            }
+          }
           span {
-            height: 25px;
-            line-height: 25px;
-            margin-right: 20px;
+            a {
+              height: 25px;
+              line-height: 25px;
+              margin-right: 20px;
+              color: #333;
+              font-size: 16px;
+              padding-bottom: 3px;
+            }
           }
         }
         .right_bot {

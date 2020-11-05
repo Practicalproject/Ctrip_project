@@ -8,11 +8,16 @@
     <OutHotels></OutHotels>
     <!-- bh特价机票 -->
     <PriceTicket></PriceTicket>
+    <!-- 境外租车 -->
+    <CarRental></CarRental>
+    <!-- 当地玩乐 -->
+    <PopDestinations></PopDestinations>
+    <!-- 全球购 -->
+    <GlobalPurchasing></GlobalPurchasing>
     <!-- bh旅行服务 -->
     <TravelService></TravelService>
     <!-- bh企业商旅 -->
     <BusinessTravel></BusinessTravel>
-    <CarRental></CarRental>
     <Partner></Partner>
     <Footer></Footer>
   </div>
@@ -28,6 +33,8 @@ import Footer from "./Footer";
 import HomeBanner from "./HomeBanner";
 import TravelService from "./TravelService";
 import BusinessTravel from "./BusinessTravel";
+import PopDestinations from "./PopDestinations";
+import GlobalPurchasing from "./GlobalPurchasing";
 export default {
   name: "Home",
   components: {
@@ -40,6 +47,8 @@ export default {
     HomeBanner,
     TravelService,
     BusinessTravel,
+    PopDestinations,
+    GlobalPurchasing,
   },
 };
 </script>
