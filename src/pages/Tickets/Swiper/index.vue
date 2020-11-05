@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <!-- 左侧 -->
-    <div class="leftBox"></div>
+    <div class="leftBox">
+      <div class="left_top"></div>
+    </div>
     <!-- 右侧 -->
     <div class="block">
       <el-carousel trigger="click" height="150px">
@@ -31,6 +33,11 @@ export default {
     box-shadow: #0086f6 0 0 0 2px inset;
     border-radius: 4px;
     display: inline-block;
+    .left_top{
+      height: 200px;
+      width: 100px;      
+      background-color: lawngreen;
+    }
   }
   .block {
     float: right;
