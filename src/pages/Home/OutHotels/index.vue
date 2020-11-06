@@ -148,6 +148,9 @@ export default {
       //   this.getIndexHotel("LuYouShengDi");
       // }
     },
+    changeIndex(index) {
+      this.numIndex = index;
+    },
   },
   computed: {
     // tabs() {
@@ -213,7 +216,8 @@ export default {
     padding: 15px 19px 0;
     width: 100%;
     border: 1px solid #ddd;
-    background-color: white;
+    background-color: #fff;
+
     .sub_img {
       display: flex;
       // justify-content: space-between;

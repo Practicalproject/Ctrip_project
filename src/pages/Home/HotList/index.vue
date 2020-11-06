@@ -133,7 +133,6 @@ export default {
   width: 1180px;
   margin: 30px auto;
   line-height: 30px;
-
   //   头部列表
   .header_list {
     width: 100%;
@@ -186,8 +185,8 @@ export default {
     padding: 15px 19px 0;
     width: 100%;
     border: 1px solid #ddd;
+    background-color: #fff;
 
-    // 内容导航区域
     .sub_nav {
       margin-bottom: 15px;
       ul {

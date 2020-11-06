@@ -4,11 +4,11 @@
     <!-- 标题行 -->
     <div class="modhd">
       <h2>
-        <span :class="{current:tabNum===1}" @click="tab(1)">
+        <span :class="{ current: tabNum === 0 }" @click="tab(0)">
           当天玩乐/出境
           <i></i>
         </span>
-        <span :class="{current:tabNum===2}" @click="tab(2)">
+        <span :class="{ current: tabNum === 1 }" @click="tab(1)">
           当天玩乐/境内
           <i class="iconfont icon-shang"></i>
         </span>
@@ -18,11 +18,11 @@
     <div class="modbd">
       <!-- 内容区左侧 -->
       <div class="entrance">
-        <dl class="keyword">
-          <dt class="keywordTitle">{{ tagsName }}</dt>
+        <dl class="keyword" v-if="tags">
+          <dt class="keywordTitle">{{ tags.nme }}</dt>
           <dd
             class="keywordContainer"
-            v-for="(tagsItem, index) in tagsItemLst"
+            v-for="(tagsItem, index) in tags.itemLst"
             :key="index"
           >
             <span class="bgspan">
@@ -33,7 +33,7 @@
       </div>
 
       <!-- 内容右侧区域 -->
-      <div class="product">
+      <div class="body_product">
         <!-- 版心 -->
         <div class="carContainer">
           <!-- 标题 -->
@@ -41,10 +41,10 @@
             <div class="pri_list">
               <ul class="inner-tabs">
                 <li
-                  :class="{active:index === numIndex}"
+                  :class="{ active: index === numIndex }"
                   v-for="(tabsItem, index) in tabs"
                   :key="index"
-                  @click="changeIndex(index)"
+                  @click="changeIndex(index, tabsItem.pinyin)"
                 >
                   <a href="javascript: ;">{{ tabsItem.tabNme }}</a>
                 </li>
@@ -52,16 +52,16 @@
             </div>
 
             <div class="more">
-              <a href="javascript: ;">
-                {{ exNme }}
+              <a href="javascript: ;" v-if="indexPlay">
+                {{ indexPlay.exNme }}
                 <i class="iconfont icon-next"></i>
               </a>
             </div>
           </div>
           <!-- 主题内容 -->
-          <div class="priductbd">
+          <div class="priduct_body">
             <!-- 图片详情区域 -->
-            <ul class="carContainer">
+            <ul class="pri_carContainer">
               <li
                 class="carList"
                 v-for="(prdLstItem, index) in prdLst"
@@ -75,9 +75,11 @@
                   <p class="carPrice">
                     <span class="item-type">{{ prdLstItem.subNme }}</span>
                     <span class="price" v-if="prdLstItem.price">
-                      <dfn>¥</dfn>
-                      {{ prdLstItem.price.amt }}
-                      <i class="priceInfo"></i>
+                      <span>￥</span>
+                      <span class="priceInfo">
+                        {{ prdLstItem.price.amt }}
+                      </span>
+                      <span>起</span>
                     </span>
                   </p>
                 </a>
@@ -95,38 +97,74 @@ export default {
   name: "PopDestinations",
   data() {
     return {
-      indexPlay: {},
-      tagsItemLst: [],
-      tagsName: "",
-      tabs: [],
-      exNme: "",
-      numIndex: 0,
-      tabNum:1
+      indexPlay: {}, // 页面数据
+      tabNum: 0, // 标题切换
+      numIndex: 0, // 小标题切换
+      Territory: "", // 出境，境内
+      // tagsItemLst: [],
+      // tagsName: "",
+      // tabs: [],
+      // exNme: "",
     };
   },
   mounted() {
-    this.getIndexPlay();
+    this.getIndexPlay("YiRiYou");
   },
   methods: {
-    tab(num){
-      this.tabNum = num
-    },
-    async getIndexPlay() {
-      const result = await this.$API.index.getIndexPlay();
+    // 发送请求获取函数
+    async getIndexPlay(gp) {
+      let { Territory } = this;
+      const result = await this.$API.index.getIndexPlay(Territory, gp);
       // console.log(result);
-      this.indexPlay = result.data;
-      this.tagsItemLst = result.data.tags.itemLst;
-      this.tagsName = result.data.tags.nme;
-      this.tabs = result.data.tabs;
-      this.exNme = result.data.exNme;
+      if (result.code === 200) this.indexPlay = result.data;
     },
-    changeIndex(index) {
+
+    // tab标题切换
+    tab(num) {
+      this.tabNum = num;
+      // this.Territory = num;
+      // console.log(this.Territory);
+      if (num === 0) {
+        this.Territory = "";
+      } else {
+        this.Territory = "Territory";
+      }
+      this.getIndexPlay("YiRiYou");
+      this.numIndex = 0;
+    },
+
+    // tab小标题切换
+    changeIndex(index, gp) {
       this.numIndex = index;
+      this.getIndexPlay(gp);
     },
+    // async getIndexPlay() {
+    //   const result = await this.$API.index.getIndexPlay();
+    //   // console.log(result);
+    //   this.indexPlay = result.data;
+    //   this.tagsItemLst = result.data.tags.itemLst;
+    //   this.tagsName = result.data.tags.nme;
+    //   this.tabs = result.data.tabs;
+    //   this.exNme = result.data.exNme;
+    // },
   },
   computed: {
+    // prdLst() {
+    //   return this.indexPlay.prdLst;
+    // },
+    // 计算出 tags 数据
+    tags() {
+      return this.indexPlay.tags;
+    },
+
+    // 计算 prdLst 数据
     prdLst() {
       return this.indexPlay.prdLst;
+    },
+
+    // 计算 tabs 数据
+    tabs() {
+      return this.indexPlay.tabs;
     },
   },
 };
@@ -188,7 +226,8 @@ export default {
     height: 245px;
     border: 1px solid #ddd;
     display: flex;
-    background-color: white;
+    background-color: #fff;
+
     /* 左侧 */
     .entrance {
       width: 227px;
@@ -225,6 +264,9 @@ export default {
               color: #666;
               display: inline-block;
               max-width: 72px;
+              &:hover {
+                color: #007aff;
+              }
             }
           }
         }
@@ -236,129 +278,127 @@ export default {
       }
     }
     /* 右侧 */
-    .product {
+    .body_product {
       width: 950px;
-      height: 245px;
+      height: 200px;
       position: relative;
-      padding: 15px 15px 0;
-      /* 标题区域 */
-      .priducthd {
-        font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
-        width: 100%;
-        overflow: hidden;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 5px;
-        .pri_list {
-          ul {
-            float: left;
-            height: 15px;
-            line-height: 15px;
-            display: block;
-            li {
-              list-style: none;
-              color: #fff;
-              border-radius: 3px;
-              display: inline-block;
-              line-height: 20px;
-              margin-right: 15px;
-              padding: 0 8px;
-              &:hover {
+      padding: 10px 15px 0;
+      .carContainer {
+        /* 标题区域 */
+        .priducthd {
+          font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+          width: 100%;
+          overflow: hidden;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          .pri_list {
+            ul {
+              float: left;
+              height: 15px;
+              line-height: 15px;
+              display: block;
+              li {
+                list-style: none;
+                color: #fff;
+                border-radius: 3px;
+                display: inline-block;
+                line-height: 20px;
+                margin-right: 15px;
+                padding: 0 8px;
+                &:hover {
+                  background-color: #007aff;
+                  font-weight: 700;
+                  a {
+                    color: #fff;
+                  }
+                }
+              }
+              .active {
                 background-color: #007aff;
                 font-weight: 700;
                 a {
-                  color: #ddd;
+                  color: #fff;
                 }
               }
             }
-            .active {
-              background-color: #007aff;
-              font-weight: 700;
-              a {
-                color: #ddd;
+          }
+          .more {
+            float: right;
+            text-decoration: none;
+            height: 20px;
+            a {
+              float: left;
+              i {
+                display: inline-block;
+                width: 6px;
+                height: 9px;
+                margin-right: 15px;
               }
             }
           }
         }
-        .more {
-          float: right;
-          text-decoration: none;
-          height: 20px;
-          a {
-            float: left;
-            i {
-              display: inline-block;
-              width: 6px;
-              height: 9px;
-              margin-right: 15px;
-            }
-          }
-        }
-      }
-      /* 汽车详情区域 */
-      .priductbd {
-        .carContainer {
-          display: flex;
-          justify-content: space-between;
-          .carList {
-            margin-left: 10px;
-            width: 210px;
-            &:hover {
-              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-              img {
-                transform: scale(1.1);
-                transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-              }
-            }
-            a .carImg {
-              display: block;
-              width: 100%;
-              height: 145px;
+        /* 图片区域 */
+        .priduct_body {
+          .pri_carContainer {
+            display: flex;
+            justify-content: space-between;
+
+            .carList {
+              /* margin-left: 10px; */
+              width: 210px;
               overflow: hidden;
-              img {
-                width: 220px;
-              }
-            }
-            /* .carImg:hover img {
-              transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-              width: 220px;
-              height: 130px;
-              transform: scale(1.1);
-            } */
-            .carName {
               position: relative;
-              height: 20px;
-              line-height: 20px;
-              text-align: left;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              padding: 0 5px;
-            }
-            .carPrice {
-              height: 35px;
-              display: flex;
-              justify-content: space-between;
-            }
-            .item-type {
-              display: block;
-              color: #999;
-              height: 35px;
-              line-height: 35px;
-              white-space: nowrap;
-              text-overflow: ellipsis;
-              overflow: hidden;
-              text-align: left;
-            }
-            .price {
-              position: relative;
-              float: right;
-              font: 22px/1.5 tahoma;
-              color: #f60;
-              .miniLogo {
-                vertical-align: 7px;
-                font: 12px/1.5 arial;
-                color: #666;
+              &:hover {
+                /* border: 1px solid #ddd; */
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+                img {
+                  transform: scale(1.1);
+                  transition: transform 0.3s linear, -webkit-transform 0.3s ease;
+                }
+                .carList_posi {
+                  bottom: -30px;
+                }
+              }
+              a .carImg {
+                display: block;
+                width: 100%;
+                height: 145px;
+              }
+              .carName {
+                position: relative;
+                height: 20px;
+                line-height: 20px;
+                text-align: left;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 0 5px;
+                color: #333;
+              }
+              .carPrice {
+                height: 35px;
+                display: flex;
+                justify-content: space-between;
+                /* color: #333; */
+                .item-type {
+                  display: block;
+                  color: #999;
+                  height: 35px;
+                  line-height: 35px;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  text-align: left;
+                }
+                .price {
+                  line-height: 35px;
+                  color: #333;
+                  .priceInfo {
+                    font: 22px/1.5 tahoma;
+                    color: #f60;
+                  }
+                }
               }
             }
           }

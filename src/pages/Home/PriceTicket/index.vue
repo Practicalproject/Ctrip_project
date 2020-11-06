@@ -206,6 +206,7 @@ export default {
           this.InternationalTicket = result.data;
         }
       }
+      // console.log(result);
     },
     change(index, gp) {
       this.number = index;
@@ -345,6 +346,8 @@ export default {
     background: #ffffff;
     padding: 15px 19px 0;
     font-size: 12px;
+    background-color: #fff;
+
     .product_hd {
       width: 1140px;
       height: 20px;
