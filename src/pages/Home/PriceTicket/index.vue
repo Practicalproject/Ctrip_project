@@ -2,13 +2,13 @@
   <div class="flightC">
     <div class="flyHeader">
       <h2>
-        <span class="current">
+        <span :class="{current:currNum===1} " @click="tab(1)">
           国际•港澳台特价机票
           <i></i>
         </span>
-        <span>
+        <span :class="{current:currNum===2}" @click="tab(2)">
           国内特价机票
-          <i class="iconfont icon-shang"></i>
+          <i></i>
         </span>
       </h2>
       <div class="pullRight">
@@ -35,7 +35,14 @@
       <!-- 机票详情 -->
       <div class="product_hd">
         <ul>
-          <li :class="{active:index===number}" v-for="(item,index) in tabLst" :key="index" @click="change(index)">{{item.tabNme}}</li>
+          <li
+            :class="{ active: index === number }"
+            v-for="(item, index) in tabLst"
+            :key="index"
+            @click="change(index, item.pinyin)"
+          >
+            {{ item.tabNme }}
+          </li>
           <!-- <li>亚洲</li>
           <li>欧洲</li>
           <li>美洲</li>
@@ -45,18 +52,24 @@
       </div>
       <div class="product_con">
         <div class="conList">
-          <div class="conItem" v-for="(caleLstItem,index) in caleLst" :key="index">
+          <div
+            class="conItem"
+            v-for="(caleLstItem, index) in caleLst"
+            :key="index"
+          >
             <a href="InternationalTicket.url" class="detail">
               <p class="cityInfo">
-                {{caleLstItem.acNme}}
+                {{ caleLstItem.acNme }}
                 <i></i>
-                {{caleLstItem.dcNme}}
+                {{ caleLstItem.dcNme }}
               </p>
               <p class="dayInfo">
-                <span>{{caleLstItem.dateTxt}}</span>
+                <span>{{ caleLstItem.dateTxt }}</span>
               </p>
               <p class="priceInfo">
-                <span class="price" v-if="caleLstItem.price"> <dfn>￥</dfn>{{caleLstItem.price.amt}}<i>起</i> </span>
+                <span class="price" v-if="caleLstItem.price">
+                  <dfn>￥</dfn>{{ caleLstItem.price.amt }}<i>起</i>
+                </span>
                 <span class="button">立抢</span>
               </p>
             </a>
@@ -152,33 +165,39 @@ export default {
   name: "PriceTicket",
   data() {
     return {
+      currNum:1,
       InternationalTicket:{},
       number:0,
     }
   },
   mounted() {
-    this.getIndexInternational()
+    this.getIndexInternational();
   },
   methods: {
-    async getIndexInternational(){
-      let result = await this.$API.index.getIndexInternational();
-      if(result.code === 200){
-        this.InternationalTicket = result.data
+    tab(num){
+      this.currNum = num
+    },
+    // 请求热门栏目列表
+    async getIndexInternational(gp) {
+      let result = await this.$API.index.getIndexInternational(gp);
+      if (result.code === 200) {
+        this.InternationalTicket = result.data;
       }
       console.log(result);
     },
-    change(index){
-      this.number = index
-    }
+    change(index, gp) {
+      this.number = index;
+      this.getIndexInternational(gp);
+    },
   },
   computed: {
-    caleLst(){
-      return this.InternationalTicket.caleLst
+    caleLst() {
+      return this.InternationalTicket.caleLst;
     },
-    tabLst(){
-      return this.InternationalTicket.tabLst
-    }
-  }
+    tabLst() {
+      return this.InternationalTicket.tabLst;
+    },
+  },
 };
 </script>
 
@@ -188,7 +207,7 @@ export default {
   width: 1180px;
   // height: 437px;
   margin: 28px auto 0;
-  background: #ffffff;
+  // background: #ffffff;
   .flyHeader {
     height: 36px;
     width: 1180px;
@@ -209,6 +228,10 @@ export default {
           color: #06c;
           cursor: default;
         }
+      }
+      .current {
+        cursor: default;
+        color: #06c;
         i {
           position: absolute;
           left: 50%;
@@ -227,7 +250,8 @@ export default {
       }
       .current {
         cursor: default;
-        color: #06c;
+           color: #06c;
+        
       }
     }
     .pullRight {
@@ -283,7 +307,7 @@ export default {
     }
   }
   .ticketsDetail {
-    // background-color: pink;
+    background-color: white;
     padding: 15px 19px 0;
     font-size: 12px;
     .product_hd {

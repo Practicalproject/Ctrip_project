@@ -3,19 +3,19 @@
     <!-- 头部列表 -->
     <div class="header_list">
       <h2>
-        <span class="current">
+        <span :class="{current:tabNum===1}" @click="tab(1)">
           海外酒店
           <i></i>
         </span>
-        <span>
+        <span :class="{current:tabNum===2}" @click="tab(2)" >
           海外民宿+短租
           <i class="iconfont icon-shang"></i>
         </span>
-        <span>
+        <span :class="{current:tabNum===3}" @click="tab(3)">
           国内酒店
           <i></i>
         </span>
-        <span>
+        <span :class="{current:tabNum===4}" @click="tab(4)">
           客栈民宿
           <i></i>
         </span>
@@ -50,7 +50,7 @@
             <!-- 境内 -->
             <div class="sub_nav">
               <ul>
-                <li v-for="item in tabs" :key="item.pinyin">
+                <li @click="changeIndex(index)" v-for="(item,index) in tabs" :key="index" :class="{nav_action:index === numIndex}">
                   {{ item.tabNme }}
                 </li>
               </ul>
@@ -95,12 +95,17 @@ export default {
       tagUpName: "",
       tagDownName: "",
       tagDownList: [],
+      numIndex: 0,
+      tabNum:1
     };
   },
   mounted() {
     this.getIndexHotel();
   },
   methods: {
+    tab(num){
+      this.tabNum = num
+    },
     async getIndexHotel() {
       const result = await this.$API.index.getIndexHotel();
       this.indexHotel = result.data[0];
@@ -110,6 +115,9 @@ export default {
       this.tagDownName = result.data[0].tagDown.nme;
       this.tagDownList = result.data[0].tagDown.itemLst;
     },
+    changeIndex(index){
+      this.numIndex = index
+    }
   },
   computed: {
     tabs() {
@@ -184,7 +192,7 @@ export default {
     padding: 15px 19px 0;
     width: 100%;
     border: 1px solid #ddd;
-
+    background-color: white;
     .sub_img {
       display: flex;
       // justify-content: space-between;
@@ -192,7 +200,6 @@ export default {
         height: 360px;
         width: 227px;
         border-right: 1px dashed #ddd;
-        padding: 0 20px 15px;
         box-sizing: border-box;
         overflow: hidden;
         .keyword-long {
@@ -201,7 +208,10 @@ export default {
           }
           a {
             color: #333;
-            font-size: 15px;
+            font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+            &:hover {
+              color: #3983e5;
+            }
           }
         }
       }
@@ -220,7 +230,17 @@ export default {
                 margin-right: 15px;
                 line-height: 20px;
                 color: #3983e5;
-                font-size: 13px;
+                font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+                &:hover {
+                  background-color: #3983e5;
+                  color: #fff;
+                  border-radius: 5px;
+                }
+              }
+              .nav_action {
+                background-color: #3983e5;
+                color: #fff;
+                border-radius: 5px;
               }
             }
           }

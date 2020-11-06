@@ -307,20 +307,24 @@ export default {
   visibility: hidden;
 }
 .footerContainer {
+  margin-top: 28px;
   // overflow: hidden;
+  background-color: white;
+  // height: 100%;
   .w {
     width: 1180px;
     margin: 0 auto;
     // height: 1000px;
     // background: pink;
+    overflow: hidden;
     .mod.footer {
-      padding: 28px 0 30px 0;
+      padding: 0 0 30px 0;
       color: #666;
       margin: 28px auto 0;
-      
+      overflow: hidden;
     }
     .footer-item {
-      height: 150px;
+      // height: 150px;
       padding: 0 10px 0 40px;
       float: left;
       display: inline-block;
@@ -331,7 +335,6 @@ export default {
         margin-bottom: 10px;
       }
     }
-
 
     // 为什么选择携程
     .advantage {
@@ -356,8 +359,8 @@ export default {
               background-position: -41px -250px;
             }
             &.icon-pricee {
-            background-position: -41px -200px;
-          }
+              background-position: -41px -200px;
+            }
           }
           // .icon-price {
           //   background-position: -41px -200px;
@@ -414,11 +417,43 @@ export default {
         }
       }
     }
-    .wechat_code{
-      width: 157px;
-      box-sizing: border-box;
+    .wechat_code {
+      padding-right: 0;
+      padding-left: 30px;
+      text-align: center;
+      dt {
+        margin-bottom: 1px;
+        font: 12px/20px "Microsoft yahei";
+        margin-top: -3px;
+        position: relative;
+      }
+      .ft-link-item {
+        float: left;
+        display: inline-block;
+        line-height: 14px;
+        margin: 6px 0;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 114px;
+        padding: 8px;
+        border: 1px solid #efefef;
+        .code-wechat {
+          display: inline-block;
+        }
+        .wechat_text {
+          margin-top: 0px;
+          line-height: 1.3;
+          color: #999;
+          overflow: hidden;
+          white-space: break-spaces;
+          word-break: break-all;
+          font-size: 12px;
+          &:first-of-type {
+            margin-top: 10px;
+          }
+        }
+      }
     }
-
   }
 }
 </style>

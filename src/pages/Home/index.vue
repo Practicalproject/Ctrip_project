@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="homeContainer">
     <!-- tzg轮播图 -->
     <HomeBanner></HomeBanner>
     <!-- hsf热门 -->
@@ -14,6 +14,8 @@
     <PopDestinations></PopDestinations>
     <!-- 全球购 -->
     <GlobalPurchasing></GlobalPurchasing>
+    <!-- 攻略 -->
+    <DestinationGuide></DestinationGuide>
     <!-- bh旅行服务 -->
     <TravelService></TravelService>
     <!-- bh企业商旅 -->
@@ -35,6 +37,7 @@ import TravelService from "./TravelService";
 import BusinessTravel from "./BusinessTravel";
 import PopDestinations from "./PopDestinations";
 import GlobalPurchasing from "./GlobalPurchasing";
+import DestinationGuide from "./DestinationGuide";
 export default {
   name: "Home",
   components: {
@@ -49,9 +52,13 @@ export default {
     BusinessTravel,
     PopDestinations,
     GlobalPurchasing,
+    DestinationGuide,
   },
 };
 </script>
 
 <style lang="less" scoped>
+.homeContainer {
+  background-color: #f6f6f6;
+}
 </style>

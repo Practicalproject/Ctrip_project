@@ -4,11 +4,11 @@
     <!-- 标题行 -->
     <div class="modhd">
       <h2>
-        <span class="current">
+        <span :class="{current:tabNum===1}" @click="tab(1)">
           当天玩乐/出境
           <i></i>
         </span>
-        <span>
+        <span :class="{current:tabNum===2}" @click="tab(2)">
           当天玩乐/境内
           <i class="iconfont icon-shang"></i>
         </span>
@@ -41,9 +41,10 @@
             <div class="pri_list">
               <ul class="inner-tabs">
                 <li
-                  class="active"
+                  :class="{active:index === numIndex}"
                   v-for="(tabsItem, index) in tabs"
                   :key="index"
+                  @click="changeIndex(index)"
                 >
                   <a href="javascript: ;">{{ tabsItem.tabNme }}</a>
                 </li>
@@ -99,12 +100,17 @@ export default {
       tagsName: "",
       tabs: [],
       exNme: "",
+      numIndex: 0,
+      tabNum:1
     };
   },
   mounted() {
     this.getIndexPlay();
   },
   methods: {
+    tab(num){
+      this.tabNum = num
+    },
     async getIndexPlay() {
       const result = await this.$API.index.getIndexPlay();
       // console.log(result);
@@ -113,6 +119,9 @@ export default {
       this.tagsName = result.data.tags.nme;
       this.tabs = result.data.tabs;
       this.exNme = result.data.exNme;
+    },
+    changeIndex(index) {
+      this.numIndex = index;
     },
   },
   computed: {
@@ -179,6 +188,7 @@ export default {
     height: 245px;
     border: 1px solid #ddd;
     display: flex;
+    background-color: white;
     /* 左侧 */
     .entrance {
       width: 227px;
@@ -247,16 +257,18 @@ export default {
             display: block;
             li {
               list-style: none;
-              /* background: #3983e5; */
               color: #fff;
               border-radius: 3px;
               display: inline-block;
               line-height: 20px;
               margin-right: 15px;
               padding: 0 8px;
-              .icon-xiaosanjiao {
-                /* display: inline-block; */
-                color: blue;
+              &:hover {
+                background-color: #007aff;
+                font-weight: 700;
+                a {
+                  color: #ddd;
+                }
               }
             }
             .active {
@@ -293,6 +305,10 @@ export default {
             width: 210px;
             &:hover {
               box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+              img {
+                transform: scale(1.1);
+                transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+              }
             }
             a .carImg {
               display: block;

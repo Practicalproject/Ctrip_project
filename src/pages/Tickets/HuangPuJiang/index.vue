@@ -110,8 +110,18 @@
       <div class="gomoney">去支付</div>
     </div>
     <!-- 固定订单 -->
-    <div class="order">
-
+    <div class="order" >
+      <h2>
+        订单总额
+        <div>￥80</div>
+      </h2>
+      <ul>
+        <li style="color: #000">
+          黄浦江游览（十六铺码头）精华游船票
+          <span style="color: #ff7d13">￥80</span>
+        </li>
+        <li class="li_">成人票 <span>￥80X1</span></li>
+      </ul>
     </div>
   </div>
 </template>
@@ -121,13 +131,23 @@ export default {
   data() {
     return {};
   },
-  mounted(){
-    document.documentElement
+  mounted() {
+    this.res()
   },
   methods: {
-    fixed(){
-      alert(123)
-    }
+    // fixed() {
+    //   alert(123);
+    // },
+    res() {
+      document.body.onscroll = function () {
+        let soll = document.documentElement.scrollTop
+        if(soll>85){
+          document.querySelector('.order').style.top = 0+'px'
+        }else if(soll<85){
+          document.querySelector('.order').style.top = 85+'px'
+        }
+      };
+    },
   },
 };
 </script>
@@ -147,6 +167,7 @@ export default {
     display: flex;
     justify-content: space-between;
     margin: 18px auto 8px;
+    background-color: #fff;
     a {
       display: block;
       width: 126px;
@@ -174,7 +195,7 @@ export default {
       border: 1px solid #ccc;
       margin-bottom: 10px;
       h2 {
-        background: #fff;
+        background: #eff0f2;
         padding: 20px 30px;
         font-size: 25px;
         font-weight: 700;
@@ -425,20 +446,20 @@ export default {
             margin: 0 10px;
           }
         }
-         input {
-            border: 1px solid #ccc;
-            padding:  10px;
-            width: 300px;
-            height: 38px;
-            transform: translateY(-17%);
-            outline: none;
-            margin-top:30px;
-            vertical-align: sub;
-          }
+        input {
+          border: 1px solid #ccc;
+          padding: 10px;
+          width: 300px;
+          height: 38px;
+          transform: translateY(-17%);
+          outline: none;
+          margin-top: 30px;
+          vertical-align: sub;
+        }
       }
     }
     // 去支付
-    .gomoney{
+    .gomoney {
       width: 780px;
       height: 50px;
       background-color: #ff7d13;
@@ -450,13 +471,45 @@ export default {
     }
   }
   // 固定订单
-  .order{
-    background-color: #099fde;
+  .order {
+    // background-color: #099fde;
     width: 380px;
     height: 188px;
     position: fixed;
     top: 85px;
     right: 362px;
+    border: 1px solid #ccc;
+    h2 {
+      background-color: #eff0f2;
+      display: flex;
+      justify-content: space-between;
+      padding: 30px 15px 30px 15px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #000;
+      div {
+        color: #f40;
+      }
+    }
+    ul {
+      width: 378px;
+      height: 102px;
+      padding: 0 15px;
+      li {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 50%;
+        text-align: center;
+        padding-top: 20px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .li_ {
+        color: #999;
+        font-weight: 100;
+      }
+    }
   }
 }
 </style>
