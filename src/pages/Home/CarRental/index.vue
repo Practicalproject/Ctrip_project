@@ -4,23 +4,23 @@
     <!-- 标题行 -->
     <div class="modhd">
       <h2>
-        <span class="current">
+        <span :class="{ current: tabNum === 1 }" @click="tab(1)">
           境外租车
           <i></i>
         </span>
-        <span>
+        <span :class="{ current: tabNum === 2 }" @click="tab(2)">
           境外接送机
           <i class="iconfont icon-shang"></i>
         </span>
-        <span>
+        <span :class="{ current: tabNum === 3 }" @click="tab(3)">
           国内租车
           <i></i>
         </span>
-        <span>
+        <span :class="{ current: tabNum === 4 }" @click="tab(4)">
           国内接送机
           <i></i>
         </span>
-        <span>
+        <span :class="{ current: tabNum === 5 }" @click="tab(5)">
           日租包车
           <i></i>
         </span>
@@ -198,6 +198,7 @@ export default {
   name: "CarRental",
   data() {
     return {
+      tabNum: 1,
       indexCarRental: {},
       numIndex: 0,
     };
@@ -206,6 +207,9 @@ export default {
     this.getIndexCarRental();
   },
   methods: {
+    tab(num) {
+      this.tabNum = num;
+    },
     async getIndexCarRental() {
       const resust = await this.$API.index.getIndexCarRental();
       // console.log(resust);

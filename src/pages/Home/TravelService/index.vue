@@ -242,6 +242,9 @@ export default {
       // margin-left: 10px;
       border: 1px solid #e0e0e0;
       background: #fff;
+      &:first-of-type{
+        margin-left: 0;
+      }
       .supplyHd {
         width: 384px;
         height: 102px;

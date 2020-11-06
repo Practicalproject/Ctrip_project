@@ -3,20 +3,20 @@
     <!-- 头部列表 -->
     <div class="header_list">
       <h2>
-        <span class="current">
-          海外酒店
+        <span :class="{current:tabNum===1}" @click="tab(1)">
+          热门
           <i></i>
         </span>
-        <span>
-          海外民宿+短租
-          <i class="iconfont icon-shang"></i>
-        </span>
-        <span>
-          国内酒店
+        <span :class="{current:tabNum===2}" @click="tab(2)">
+          周边游
           <i></i>
         </span>
-        <span>
-          客栈民宿
+        <span :class="{current:tabNum===3}" @click="tab(3)">
+          门票
+          <i></i>
+        </span>
+        <span :class="{current:tabNum===4}" @click="tab(4)">
+          出境游
           <i></i>
         </span>
       </h2>
@@ -75,14 +75,19 @@ export default {
     return {
       indexHot: {},
       numIndex: 0,
+      tabNum:1
     };
   },
   mounted() {
     this.getIndexHot();
   },
   methods: {
+    tab(num){
+      this.tabNum = num
+    },
     async getIndexHot() {
       const result = await this.$API.index.getIndexHot();
+      console.log(result);
       this.indexHot = result.data;
     },
     changeIndex(index) {
@@ -103,7 +108,7 @@ export default {
 <style lang='less' scoped>
 .hotList_wrapper {
   width: 1180px;
-  margin: 0 auto;
+  margin: 30px auto;
   line-height: 30px;
   //   头部列表
   .header_list {
@@ -128,6 +133,10 @@ export default {
           color: #06c;
           cursor: default;
         }
+      }
+      .current {
+        cursor: default;
+        color: #06c;
         i {
           position: absolute;
           left: 50%;
@@ -143,10 +152,6 @@ export default {
           border-left: 6px solid transparent;
           border-right: 6px solid transparent;
         }
-      }
-      .current {
-        cursor: default;
-        color: #06c;
       }
     }
     .header_go {
