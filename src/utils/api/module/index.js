@@ -9,7 +9,6 @@ import huangshaofei from './huangshaofei'
 
 import tanzhiguo from './tanzhiguo' 
 import baohua from './baohua'
-import tanzhiguo from './tanzhiguo'
 import lvpengchao from './lvpengchao'
 export default {
     ...aishuaikang,
@@ -18,7 +17,6 @@ export default {
 
     ...tanzhiguo,
     ...baohua,
-    ...tanzhiguo,
     ...lvpengchao
 }
 
