@@ -23,7 +23,7 @@
     </div>
 
     <!-- 热门内容主体 -->
-    <div class="hotList_sub" style="display: none">
+    <div class="hotList_sub" style="display: block">
       <!-- 热门 -->
       <!-- 内容导航 -->
       <div class="sub_nav">
@@ -86,7 +86,7 @@
     </div>
 
     <!-- 周边游内容主体 -->
-    <div class="mod-bd-panel" idx="3" style="display: block" eb="1">
+    <div class="mod-bd-panel" idx="3" style="display: none" eb="1">
       <div class="entrance">
         <dl class="keyword-short">
           <dt>热门主题游</dt>
