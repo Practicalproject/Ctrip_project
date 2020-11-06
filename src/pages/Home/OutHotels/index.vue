@@ -9,13 +9,14 @@
         </span>
         <span :class="{ current: tabNum === 2 }" @click="tab(2)">
           海外民宿+短租
-          <i class="iconfont icon-shang"></i>
+          <!-- <i class="iconfont icon-shang"></i> -->
+          <i></i>
         </span>
-        <span :class="{ current: tabNum === 3 }" @click="tab(3)">
+        <span>
           国内酒店
           <i></i>
         </span>
-        <span :class="{ current: tabNum === 4 }" @click="tab(4)">
+        <span>
           客栈民宿
           <i></i>
         </span>
@@ -133,8 +134,10 @@ export default {
       }
     },
     changeIndex(index, pinyin) {
-      this.getIndexHotel(pinyin);
       this.numIndex = index;
+      this.getIndexHotel(pinyin);
+      console.log(pinyin);
+      console.log(index);
       // if (this.numIndex === 0) {
       //   this.getIndexHotel("ReMenChengShi");
       // }
@@ -148,9 +151,9 @@ export default {
       //   this.getIndexHotel("LuYouShengDi");
       // }
     },
-    changeIndex(index) {
-      this.numIndex = index;
-    },
+    // changeIndex(index) {
+    //   this.numIndex = index;
+    // },
   },
   computed: {
     // tabs() {
@@ -189,6 +192,10 @@ export default {
           color: #06c;
           cursor: default;
         }
+      }
+      .current {
+        cursor: default;
+        color: #06c;
         i {
           position: absolute;
           left: 50%;
@@ -204,10 +211,6 @@ export default {
           border-left: 6px solid transparent;
           border-right: 6px solid transparent;
         }
-      }
-      .current {
-        cursor: default;
-        color: #06c;
       }
     }
   }
