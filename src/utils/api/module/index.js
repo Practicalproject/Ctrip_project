@@ -25,9 +25,11 @@ export default {
     getIndexHotel() {
         return Ajax.instanceTwo.get('/getIndexHotel')
     },
+
+    
     // 热门
-    getIndexHot() {
-        return Ajax.instanceTwo.get('/getIndexHot')
+    getIndexHot(diqu) {
+        return Ajax.instanceTwo.get('/getIndexHot?diqu=' + diqu)
     },
 
     //国际港澳台特价机票
