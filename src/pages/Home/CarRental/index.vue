@@ -204,6 +204,7 @@ export default {
 .modcar {
   width: 1180px;
   margin: 28px auto;
+
   /* 标题行 */
   .modhd {
     width: 1180px;
@@ -254,7 +255,7 @@ export default {
     height: 245px;
     border: 1px solid #ddd;
     display: flex;
-    background-color: white;
+    background-color: #fff;
 
     /* 左侧 */
     .entrance {
