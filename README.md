@@ -254,3 +254,43 @@ gp:
     KanHaiYouYouLe
     JiaoNiMaiMaiMai
 ```
+
+# 获取首页第七板块 旅游旗舰店 数据
+
+## URL
+/getIndexTourism
+## 请求方式
+GET
+
+## 请求参数
+
+```
+无
+```
+
+# 获取自由行页面 境外自由行 数据
+
+## URL
+/getIndependentOverseas
+## 请求方式
+GET
+
+## 请求参数
+
+```
+无
+```
+
+# 获取自由行页面 境内自由行 数据	
+
+
+## URL
+/getIndependentTerritory
+## 请求方式
+GET
+
+## 请求参数
+
+```
+无
+```
