@@ -184,10 +184,11 @@ export default {
     this.getIndexInternational();
   },
   methods: {
+    // 选择下拉城市
     chooseCity() {
       this.isFlag = !this.isFlag;
     },
-
+    // 标题切换并发请求
     tab(gp, num) {
       this.currNum = num;
       this.getIndexInternational(gp, num);
@@ -197,7 +198,7 @@ export default {
       this.changeId = num;
       if (num === 1) {
         let result = await this.$API.index.getIndexInternational(gp);
-        if (result.code === "200") {
+        if (result.code === 200) {
           this.InternationalTicket = result.data;
         }
       } else {
@@ -208,6 +209,7 @@ export default {
       }
       // console.log(result);
     },
+    // 选择内部导航
     change(index, gp) {
       this.number = index;
       this.getIndexInternational(gp, this.changeId);
