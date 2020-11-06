@@ -967,7 +967,7 @@ export default {
     line-height: 39px;
     background-color: #eeeeee;
     vertical-align: bottom;
-    z-index: 70;
+    z-index: 100;
     dt {
       position: relative;
       height: 47px;

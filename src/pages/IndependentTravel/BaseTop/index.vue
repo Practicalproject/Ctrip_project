@@ -1892,12 +1892,13 @@ export default {
         padding-top: 19px;
       }
       li {
+        width: 259px;
         border: 1px solid #eaeaea;
         padding: 9px 15px 8px 20px;
         margin-bottom: -1px;
         vertical-align: top;
         position: relative;
-        z-index: 99;
+        z-index: 102;
         h4 {
           position: relative;
           padding-left: 28px;
@@ -1935,18 +1936,19 @@ export default {
           position: absolute;
           z-index: 88;
           left: 256px;
-          width: 674px;
-          height: 200px;
+          width: 676px;
+          // height: 200px;
           border: 1px solid #bbb;
           background: #fff;
           top: -1px;
-          // display: flex;
+
           .left_detail {
-            // float: left;
-            width: 337px;
+            width: 676px;
             padding: 25px 0 15px;
+            display: flex;
+            flex-wrap: wrap;
             .subdetail_list {
-              display: flex;
+              width: 337px;
               overflow: hidden;
               margin-bottom: 15px;
               dt {
@@ -1978,7 +1980,9 @@ export default {
           }
         }
         &:hover {
-          border: 1px solid #fff;
+          .area {
+            border-left: none;
+          }
           &:nth-child(1) h4 i {
             background: url("../images/icon.jpg") no-repeat -40px 0;
           }
