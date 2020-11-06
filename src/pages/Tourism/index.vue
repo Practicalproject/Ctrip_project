@@ -17,7 +17,17 @@
         </div>
       </div>
       <!-- 头部搜索区 -->
-      <div class="city-search"></div>
+      <div class="city-search">
+          <!-- 左侧输入区 -->
+        <div class="new-search-content">
+            <div class="search-left" >
+
+             </div>
+          <a class="search-right" href="javascript:;"></a>
+        </div>
+        <!-- 右侧点击区 -->
+        <div class="hot-search-box"></div>
+      </div>
     </div>
 
     <div class="main-content"></div>
@@ -35,7 +45,7 @@ export default {
 .mainContainer {
   width: 1180px;
   height: 1180px;
-  border: 1px solid red;
+
   margin: 0 auto;
   background: white;
   // 头部
@@ -44,25 +54,26 @@ export default {
     height: 46px;
     margin: 0 0 20px;
     padding: 6px 0 0;
-    border: 1px solid blue;
+
     // 头部左侧区域
     .header-left {
-      width: 270px;
+      width: 350px;
       height: 40px;
-      border: 1px solid blue;
       position: relative;
       float: left;
       padding-left: 94px;
+      display: flex;
       // 左侧小飞机图标
       .header-url {
-        background-image: url(./images/03.png);
+        background-image: url(./images/1.png);
         background-repeat: no-repeat;
         position: absolute;
-        width: 94px;
+        width: 170px;
         height: 43px;
         background-position: 0 0;
         top: -3px;
         left: 0;
+        display: block;
       }
       // 城市选择区
       .city-wrap {
@@ -70,8 +81,11 @@ export default {
         height: 40px;
         font-size: 12px;
         line-height: 1.5;
+        position: absolute;
+        top: 0;
+        left: 170px;
         // position: relative;
-        width: 90px;
+        // width: 90px;
         cursor: pointer;
         dt {
           height: 38px;
@@ -81,6 +95,7 @@ export default {
           padding: 0 34px 0 50px;
           position: relative;
           display: block;
+          border: 1px solid #d6d6d6;
           i {
             display: block;
             position: absolute;
@@ -108,6 +123,14 @@ export default {
         //   color: #06c;
         // }
       }
+    }
+    .city-search{
+      width: 810px;
+      height: 40px;
+      float: right;
+        // .new-search-content{
+
+        // }
     }
   }
 }
