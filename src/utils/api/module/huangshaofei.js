@@ -1,14 +1,14 @@
 import Ajax from '@/utils/request'
-import { baseURLapi, baseURLv1 } from "@/utils/api/config"
+import { baseURLapi, baseURLv1, baseURLv2 } from "@/utils/api/config"
 export default {
     // 获取海外酒店
     getIndexHotel() {
         return Ajax.get(baseURLv1 + '/getIndexHotel')
     },
     // 热门
-    getIndexHot() {
-        return Ajax.get(baseURLv1 + '/getIndexHot')
-    },
+    // getIndexHot() {
+    //     return Ajax.get(baseURLv1 + '/getIndexHot')
+    // },
     // 热门目的地
     getIndexPlay() {
         return Ajax.get(baseURLv1 + '/getIndexPlay')

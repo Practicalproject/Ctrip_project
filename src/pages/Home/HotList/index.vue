@@ -3,19 +3,19 @@
     <!-- 头部列表 -->
     <div class="header_list">
       <h2>
-        <span class="current">
+        <span :class="{ current: currNum === 1 }" @click="tab(1)">
           热门
           <i></i>
         </span>
-        <span>
+        <span :class="{ current: currNum === 2 }" @click="tab(2)">
           周边游
           <i></i>
         </span>
-        <span>
+        <span :class="{ current: currNum === 3 }" @click="tab(3)">
           门票
           <i></i>
         </span>
-        <span>
+        <span :class="{ current: currNum === 4 }" @click="tab(4)">
           出境游
           <i></i>
         </span>
@@ -24,26 +24,17 @@
 
     <!-- 内容主体 -->
     <div class="hotList_sub">
+      <!-- 热门 -->
       <!-- 内容导航 -->
       <div class="sub_nav">
         <ul>
-          <li class="active">
-            <a href="javascript:;">境内</a>
-          </li>
-          <li>
-            <a href="javascript:;">日本</a>
-          </li>
-          <li>
-            <a href="javascript:;">东南亚</a>
-          </li>
-          <li>
-            <a href="javascript:;">欧洲</a>
-          </li>
-          <li>
-            <a href="javascript:;">美洲</a>
-          </li>
-          <li>
-            <a href="javascript:;">澳中东非</a>
+          <li
+            :class="{ active: number === index }"
+            v-for="(item, index) in destCitys"
+            :key="item.pinyin"
+            @click="change(index, item.pinyin)"
+          >
+            <a href="javascript:;">{{ item.nme }}</a>
           </li>
         </ul>
       </div>
@@ -51,30 +42,30 @@
       <div class="sub_img">
         <!-- 左侧多图区域 -->
         <div class="sub_body">
-          <div class="body_item">
-            <a href="javascript:;">
-              <img
-                src="//dimg07.c-ctrip.com/images/100o1f000001gp6di1DB0_C_221_166.jpg"
-                alt=""
-              />
+          <div
+            class="body_item"
+            v-for="(tabContentItem, index) in tabContentLst"
+            :key="tabContentItem.sort"
+          >
+            <a :href="tabContentItem.prdLnk">
+              <img :src="tabContentItem.img" alt="" />
               <div class="item_mask">
                 <div class="title">
-                  <span class="title_text">三亚</span>
+                  <span class="title_text">{{ tabContentItem.prdNme }}</span>
                   <div class="mask_rule"></div>
                   ￥
-                  <span>866</span>/人起
+                  <span>{{ tabContentItem.price.amt }}</span
+                  >/人起
                 </div>
               </div>
               <!-- 鼠标滑过遮罩 -->
               <div class="product-detail">
-                <p class="title">三亚</p>
+                <p class="title">{{ tabContentItem.prdNme }}</p>
                 <p class="info">
-                  <i class="icon-scenic"></i
-                  >景点:蜈支洲岛、三亚亚特兰蒂斯水世界、亚龙湾、亚龙湾热带天堂森林公园、三亚亚特兰蒂斯度假区、海棠湾、西岛、南山寺、天涯海角、南山海上观音
+                  <i class="icon-scenic"></i>{{ tabContentItem.sight }}
                 </p>
                 <p class="info">
-                  <i class="icon-food"></i
-                  >美食:冬瓜海螺汤、和乐蟹、清补凉、椰子饭、抱罗粉、海鲜、文昌鸡、革命菜、四角豆、竹筒饭、水果炒冰、加积鸭、东山羊、椰子鸡、地瓜叶
+                  <i class="icon-food"></i>{{ tabContentItem.food }}
                 </p>
                 <p class="link">立即查看3000条产品&gt;</p>
               </div>
@@ -82,9 +73,13 @@
           </div>
         </div>
         <!-- 右侧大图 -->
-        <div class="sub_big">
-          <a href="javascript:;">
-            <img src="./image/02.jpg" alt="" />
+        <div
+          class="sub_big"
+          v-for="imgItem in indexHot.adLst"
+          :key="imgItem.img"
+        >
+          <a :href="imgItem.url">
+            <img :src="imgItem.img" alt="" />
           </a>
         </div>
       </div>
@@ -95,6 +90,41 @@
 <script>
 export default {
   name: "HotList",
+  data() {
+    return {
+      indexHot: {},
+      number: 0,
+      currNum: 1,
+    };
+  },
+  mounted() {
+    this.getIndexHot("JingNei");
+  },
+  methods: {
+    tab(num) {
+      this.currNum = num;
+    },
+    // 请求各大洲的函数
+    async getIndexHot(diqu) {
+      let result = await this.$API.index.getIndexHot(diqu);
+      if (result.code === 200) {
+        this.indexHot = result.data;
+      }
+    },
+    // 点击切换各大洲并发请求
+    change(index, diqu) {
+      this.number = index;
+      this.getIndexHot(diqu);
+    },
+  },
+  computed: {
+    tabContentLst() {
+      return this.indexHot.tabContentLst;
+    },
+    destCitys() {
+      return this.indexHot.destCitys;
+    },
+  },
 };
 </script>
 
@@ -135,7 +165,7 @@ export default {
           position: absolute;
           left: 50%;
           margin-left: -6px;
-          bottom: -4px;
+          bottom: -6px;
           width: 0;
           height: 0;
           overflow: hidden;
@@ -156,7 +186,8 @@ export default {
     padding: 15px 19px 0;
     width: 100%;
     border: 1px solid #ddd;
-    background-color: white;
+
+    // 内容导航区域
     .sub_nav {
       margin-bottom: 15px;
       ul {
@@ -171,14 +202,19 @@ export default {
           padding: 0 8px;
           &:hover {
             background: #3983e5;
-            color: #fff;
             border-radius: 3px;
+            a {
+              color: #fff;
+            }
           }
         }
         .active {
           background: #3983e5;
-          color:#fff;
+          color: #fff;
           border-radius: 3px;
+          a {
+            color: #fff;
+          }
         }
       }
     }
