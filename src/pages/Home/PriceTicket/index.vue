@@ -183,7 +183,7 @@ export default {
       if (result.code === 200) {
         this.InternationalTicket = result.data;
       }
-      console.log(result);
+      // console.log(result);
     },
     change(index, gp) {
       this.number = index;
