@@ -1,5 +1,5 @@
 import Ajax from '@/utils/request'
-import { baseURLapi, baseURLv1 } from "@/utils/api/config"
+import { baseURLapi, baseURLv1, baseURLv2 } from "@/utils/api/config"
 export default {
     // 获取海外酒店
     getIndexHotel() {
