@@ -342,7 +342,7 @@ export default {
     }
   }
   .ticketsDetail {
-    background-color: white;
+    background: #ffffff;
     padding: 15px 19px 0;
     font-size: 12px;
     .product_hd {
