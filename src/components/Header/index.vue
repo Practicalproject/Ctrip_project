@@ -139,7 +139,7 @@
           <li>
             <router-link class="active" to="/login">你好，请登陆</router-link>
           </li>
-          <li><a class="active" href="javascript:;">免费注册</a></li>
+          <li><router-link class="active" to="/register">免费注册</router-link></li>
           <li>
             <i class="iconfont icon-duanxin"></i>
             <a href="javascript:;">消息</a>

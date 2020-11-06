@@ -9,9 +9,10 @@
 import aishuaikang from './aishuaikang'
 import suoxiaoyu from './suoxiaoyu'
 import huangshaofei from './huangshaofei'
-
+import tanzhiguo from './tanzhiguo' 
 export default {
     ...aishuaikang,
     ...suoxiaoyu,
-    ...huangshaofei
+    ...huangshaofei,
+    ...tanzhiguo
 }
