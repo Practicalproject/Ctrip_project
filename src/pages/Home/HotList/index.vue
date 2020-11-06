@@ -185,13 +185,8 @@ export default {
     padding: 15px 19px 0;
     width: 100%;
     border: 1px solid #ddd;
-<<<<<<< HEAD
     background-color: #fff;
 
-=======
-
-    // 内容导航区域
->>>>>>> ba00cb9600001a6b2bfb445e7b96d944ad85ce2e
     .sub_nav {
       margin-bottom: 15px;
       ul {
