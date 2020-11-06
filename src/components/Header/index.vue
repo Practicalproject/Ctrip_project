@@ -1,6 +1,11 @@
 <template>
   <!-- 头部 -->
-  <header class="headerContainer">
+  <header
+    class="headerContainer"
+    :class="{
+      mb: $route.path !== '/home',
+    }"
+  >
     <div class="top">
       <div class="top-container">
         <div class="topLeft">
@@ -139,7 +144,7 @@
           <li>
             <router-link class="active" to="/login">你好，请登陆</router-link>
           </li>
-          <li><a class="active" href="javascript:;">免费注册</a></li>
+          <li><router-link class="active" to="/register">免费注册</router-link></li>
           <li>
             <i class="iconfont icon-duanxin"></i>
             <a href="javascript:;">消息</a>
@@ -239,12 +244,7 @@
     <!-- 除了首页\机票页面\攻略页面 -->
     <nav
       class="navContainer"
-      :class="{
-        mb:
-          $route.path !== '/home' ||
-          $route.path !== '/airlinepage' ||
-          $route.path !== '/strategy',
-      }"
+      @mouseleave="navId = $route.query.navId"
     >
       <ul class="cui_nav_ul">
         <li>
@@ -255,7 +255,7 @@
           <li
             :key="item.id"
             @mouseenter="getNavId(item.cateID)"
-            @mouseleave="navId = ''"
+            @mouseleave="removed"
           >
             <router-link
               :to="{ path: item.cateAlias, query: { navId: item.cateID } }"
@@ -265,7 +265,7 @@
               <span class="point"></span>
             </router-link>
             <div
-              v-show="navId && cate2Nav.length > 0"
+              v-show="isShow && cate2Nav.length > 0"
               :style="{ 'z-index': navId === item.cateID ? 2 : 1 }"
               class="cui_subnav_wrap"
             >
@@ -295,7 +295,8 @@ export default {
   data() {
     return {
       navList: [],
-      navId: "",
+      navId: this.$route.query.navId ? this.$route.query.navId : "",
+      isShow: false,
     };
   },
   mounted() {
@@ -303,10 +304,16 @@ export default {
     this.getNavData();
   },
   methods: {
+    // 鼠标移除
+    removed() {
+      // this.prevNavId = this.navId;
+      // this.navId = this.prevNavId;
+    },
     // 鼠标移入赋值navId
     getNavId(navId) {
       this.navId = "";
       this.navId = navId;
+      // this.isShow = true;
     },
     // 获取导航数据回调函数
     async getNavData() {
@@ -346,6 +353,17 @@ export default {
       return this.navList.filter((item) => item.cateParentID === this.navId);
     },
   },
+  watch: {
+    $route: {
+      immediate: true,
+      handler() {
+        this.navId = this.$route.query.navId;
+        // if(this.cate2Nav.length > 0){
+        this.isShow = true;
+        // }
+      },
+    },
+  },
 };
 </script> 
 
@@ -353,7 +371,8 @@ export default {
 // 头部
 .headerContainer {
   width: 100%;
-  .mb {
+  // margin-bottom: 10px;
+  &.mb {
     margin-bottom: 40px;
     .cui_nav_ul {
       .cui_subnav_wrap {
@@ -737,11 +756,13 @@ export default {
     width: 100%;
     height: 40px;
     background-color: #2577e3;
-    margin: 0 auto 54px;
-    margin-bottom: 10px;
+    margin: 0 auto;
     .cui_nav_ul {
       .router-link-active {
         background-color: rgb(10, 86, 187);
+        .point {
+          display: block;
+        }
       }
       position: relative;
       // z-index: 25;

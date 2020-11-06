@@ -238,6 +238,7 @@ export default {
       let result = await this.$API.index.reqlogin(email, pwd);
       if (result.code === 20000) {
         this.$message.success(result.msg);
+        this.$router.push('/home')
       } else {
         this.$message.error(result.msg);
       }

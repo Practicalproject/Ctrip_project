@@ -12,7 +12,7 @@ module.exports = {
                 pathRewrite: { "^/v1": "" }
             },
             '/v2': {
-                target: 'https://easy-mock.com/mock/5fa3eca94096d37b31fcca7b/ctrip',
+                target: 'http://www.wangshuo1998.cn:7300/mock/5fa507865739e5605209913f/ctrip',
                 pathRewrite: { "^/v2": "" }
             },
 
