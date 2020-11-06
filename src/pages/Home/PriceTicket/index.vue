@@ -2,33 +2,42 @@
   <div class="flightC">
     <div class="flyHeader">
       <h2>
-        <span :class="{current:currNum===1} " @click="tab(1)">
+        <span
+          :class="{ current: currNum === 1 }"
+          @click="tab('ReMenWangFan', 1)"
+        >
           国际•港澳台特价机票
           <i></i>
         </span>
-        <span :class="{current:currNum===2}" @click="tab(2)">
+        <span
+          :class="{ current: currNum === 2 }"
+          @click="tab('GuoNeiReMen', 2)"
+        >
           国内特价机票
           <i></i>
         </span>
       </h2>
+
       <div class="pullRight">
-        <a class="dropdown">
+        <a class="dropdown" @click="chooseCity">
           上海出发
-          <!-- <i class="iconfont icon-shang"></i> -->
-          <span class="iconfont icon-downlist"></span>
+          <span v-if="isFlag" class="iconfont icon-downlist"></span>
+          <i v-else class="iconfont icon-shang"></i>
         </a>
-        <div class="dropCon">
-          <div class="dropList">
-            <a href="javascript:;">北京</a>
-            <a href="javascript:;">上海</a>
-            <a href="javascript:;">广州</a>
-            <a href="javascript:;">深圳</a>
-            <a href="javascript:;">杭州</a>
-            <a href="javascript:;">成都</a>
-            <a href="javascript:;">南京</a>
-            <a href="javascript:;">武汉</a>
+        <transition name="slide-fade">
+          <div class="dropCon" v-if="!isFlag">
+            <div class="dropList">
+              <a href="javascript:;">北京</a>
+              <a href="javascript:;">上海</a>
+              <a href="javascript:;">广州</a>
+              <a href="javascript:;">深圳</a>
+              <a href="javascript:;">杭州</a>
+              <a href="javascript:;">成都</a>
+              <a href="javascript:;">南京</a>
+              <a href="javascript:;">武汉</a>
+            </div>
           </div>
-        </div>
+        </transition>
       </div>
     </div>
     <div class="ticketsDetail">
@@ -48,7 +57,6 @@
           <li>美洲</li>
           <li>非洲</li> -->
         </ul>
-        <span> 更多国际•港澳台特价机票 > </span>
       </div>
       <div class="product_con">
         <div class="conList">
@@ -165,29 +173,43 @@ export default {
   name: "PriceTicket",
   data() {
     return {
-      currNum:1,
-      InternationalTicket:{},
-      number:0,
-    }
+      currNum: 1,
+      InternationalTicket: {},
+      number: 0,
+      isFlag: true,
+      changeId: 1,
+    };
   },
   mounted() {
     this.getIndexInternational();
   },
   methods: {
-    tab(num){
-      this.currNum = num
+    chooseCity() {
+      this.isFlag = !this.isFlag;
+    },
+
+    tab(gp, num) {
+      this.currNum = num;
+      this.getIndexInternational(gp, num);
     },
     // 请求热门栏目列表
-    async getIndexInternational(gp) {
-      let result = await this.$API.index.getIndexInternational(gp);
-      if (result.code === 200) {
-        this.InternationalTicket = result.data;
+    async getIndexInternational(gp, num = 1) {
+      this.changeId = num;
+      if (num === 1) {
+        let result = await this.$API.index.getIndexInternational(gp);
+        if (result.code === "200") {
+          this.InternationalTicket = result.data;
+        }
+      } else {
+        let result = await this.$API.index.getIndexDomestic(gp);
+        if (result.code === 200) {
+          this.InternationalTicket = result.data;
+        }
       }
-      console.log(result);
     },
     change(index, gp) {
       this.number = index;
-      this.getIndexInternational(gp);
+      this.getIndexInternational(gp, this.changeId);
     },
   },
   computed: {
@@ -236,7 +258,7 @@ export default {
           position: absolute;
           left: 50%;
           margin-left: -6px;
-          bottom: -6px;
+          bottom: -7px;
           width: 12px;
           height: 6px;
           overflow: hidden;
@@ -250,8 +272,7 @@ export default {
       }
       .current {
         cursor: default;
-           color: #06c;
-        
+        color: #06c;
       }
     }
     .pullRight {
@@ -266,6 +287,7 @@ export default {
         padding: 4px 5px 0;
         display: inline-block;
         overflow: hidden;
+        cursor: pointer;
         // span {
         // display: block;
         // position: absolute;
@@ -282,7 +304,20 @@ export default {
         height: 186px;
         background: #fff;
         border: 1px solid #999;
-        // display: none;
+        /* 可以设置不同的进入和离开动画 */
+        /* 设置持续时间和动画函数 */
+        &.slide-fade-enter-active {
+          transition: all 0.3s ease;
+        }
+        &.slide-fade-leave-active {
+          transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+        }
+        &.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+          transform: translateY(10px);
+          opacity: 0;
+        }
+
         .dropList {
           width: 87px;
           padding: 4px;
@@ -365,7 +400,7 @@ export default {
       .conList {
         margin-right: -10px;
         margin-top: 10px;
-        // height: 353px;
+        height: 353px;
         display: flex;
         flex-wrap: wrap;
         .conItem {
