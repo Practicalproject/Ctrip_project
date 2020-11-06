@@ -1,5 +1,6 @@
 <template>
   <div class="hotList_wrapper">
+<<<<<<< HEAD
     <!-- 头部列表 -->
     <div class="header_list">
       <h2>
@@ -50,88 +51,179 @@
             <!-- 境内 -->
             <div class="sub_nav">
               <ul>
-                <li @click="changeIndex(index)" v-for="(item,index) in tabs" :key="index" :class="{nav_action:index === numIndex}">
+                <li
+                  @click="changeIndex(index)"
+                  v-for="(item, index) in tabs"
+                  :key="index"
+                  :class="{ nav_action: index === numIndex }"
+                >
                   {{ item.tabNme }}
                 </li>
               </ul>
             </div>
+=======
+    <div>
+      <!-- 头部列表 -->
+      <div class="header_list">
+        <h2>
+          <span :class="{ current: tabNum === 1 }" @click="tab(1)">
+            海外酒店
+            <i></i>
+          </span>
+          <span :class="{ current: tabNum === 2 }" @click="tab(2)">
+            海外民宿+短租
+            <i class="iconfont icon-shang"></i>
+          </span>
+          <span :class="{ current: tabNum === 3 }" @click="tab(3)">
+            国内酒店
+            <i></i>
+          </span>
+          <span :class="{ current: tabNum === 4 }" @click="tab(4)">
+            客栈民宿
+            <i></i>
+          </span>
+        </h2>
+      </div>
+      <!-- 内容主体 -->
+      <div class="hotList_sub">
+        <div class="sub_img">
+          <!-- 左侧区域 -->
+          <div class="sub_left">
+            <dl class="keyword-long" v-if="indexHotel.tagUp">
+              <dt>{{ indexHotel.tagUp.nme }}</dt>
+              <dd v-for="list in indexHotel.tagUp.itemLst" :key="list.name">
+                <span class="entrance-item" :title="list.nme">
+                  <a href="javaspript:;">{{ list.nme }}</a>
+                </span>
+              </dd>
+            </dl>
+            <dl class="keyword-long" v-if="indexHotel.tagDown">
+              <dt>{{ indexHotel.tagDown.nme }}</dt>
+              <dd
+                v-for="(tag, index) in indexHotel.tagDown.itemLst"
+                :key="tag.name"
+              >
+                <span class="entrance-item" :title="tag.nme">
+                  <a href="javascript:;">{{ tag.nme }}</a>
+                </span>
+              </dd>
+            </dl>
+>>>>>>> ba00cb9600001a6b2bfb445e7b96d944ad85ce2e
           </div>
-          <!-- 右侧区域下侧区域 -->
-          <div class="right_bottom">
-            <!-- 中间 -->
-            <div class="sub_body">
-              <div class="body_item" v-for="item in prdLst" :key="item.count">
-                <img :src="item.img" alt="" />
-                <div class="item_mask">
-                  <div class="title">
-                    <span class="title_text">{{ item.nme }}</span>
-                    <div class="mask_rule"></div>
-                    ￥
-                    <span>{{ item.price.amt }}</span
-                    >/人起
+          <!-- 右侧区域 -->
+          <div class="sub_right">
+            <!-- 右侧区域上侧区域 -->
+            <div class="right_top">
+              <!-- 境内 -->
+              <div class="sub_nav">
+                <ul>
+                  <li
+                    @click="changeIndex(index, item.pinyin)"
+                    v-for="(item, index) in indexHotel.tabs"
+                    :key="index"
+                    :class="{ nav_action: index === numIndex }"
+                  >
+                    {{ item.tabNme }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- 右侧区域下侧区域 -->
+            <div class="right_bottom">
+              <!-- 中间 -->
+              <div class="sub_body">
+                <div
+                  class="body_item"
+                  v-for="item in indexHotel.prdLst"
+                  :key="item.count"
+                >
+                  <img :src="item.img" alt="" />
+                  <div class="item_mask">
+                    <div class="title">
+                      <span class="title_text">{{ item.nme }}</span>
+                      <div class="mask_rule"></div>
+                      ￥
+                      <span>{{ item.price.amt }}</span
+                      >/人起
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- 右侧大图 -->
-            <div class="sub_big">
-              <img :src="adLst.img" alt="" />
+              <!-- 右侧大图 -->
+              <div
+                class="sub_big"
+                v-for="imgItem in indexHotel.adLst"
+                :key="imgItem.alt"
+              >
+                <img :src="imgItem.img" alt="" />
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <Accommodation></Accommodation>
   </div>
 </template>
 
 <script>
+import Accommodation from "./Accommodation";
 export default {
   name: "OutHotels",
+  components: {
+    Accommodation,
+  },
   data() {
     return {
       indexHotel: [],
-      adLst: {},
-      tagupItemLst: [],
-      tagUpName: "",
-      tagDownName: "",
-      tagDownList: [],
+      // tagupItemLst: [],
+      // tagUpName: "",
+      // tagDownName: "",
+      // tagDownList: [],
       numIndex: 0,
-      tabNum:1
+      tabNum: 1,
     };
   },
   mounted() {
-    this.getIndexHotel();
+    this.getIndexHotel("ReMenChengShi");
   },
   methods: {
-    tab(num){
-      this.tabNum = num
+    tab(num) {
+      this.tabNum = num;
     },
-    async getIndexHotel() {
-      const result = await this.$API.index.getIndexHotel();
-      this.indexHotel = result.data[0];
-      this.adLst = result.data[0].adLst[0];
-      this.tagupItemLst = result.data[0].tagUp.itemLst;
-      this.tagUpName = result.data[0].tagUp.nme;
-      this.tagDownName = result.data[0].tagDown.nme;
-      this.tagDownList = result.data[0].tagDown.itemLst;
+    async getIndexHotel(dq) {
+      let result = await this.$API.index.getIndexHotel(dq);
+      if (result.code === 200) {
+        this.indexHotel = result.data;
+      }
     },
-    changeIndex(index){
-      this.numIndex = index
-    }
+    changeIndex(index, pinyin) {
+      this.getIndexHotel(pinyin);
+      this.numIndex = index;
+      // if (this.numIndex === 0) {
+      //   this.getIndexHotel("ReMenChengShi");
+      // }
+      // if (this.numIndex === 1) {
+      //   this.getIndexHotel("DuShiGouWu");
+      // }
+      // if (this.numIndex === 2) {
+      //   this.getIndexHotel("HaiDaoXiuXian");
+      // }
+      // if (this.numIndex === 3) {
+      //   this.getIndexHotel("LuYouShengDi");
+      // }
+    },
+<<<<<<< HEAD
+    changeIndex(index) {
+      this.numIndex = index;
+    },
+=======
+>>>>>>> ba00cb9600001a6b2bfb445e7b96d944ad85ce2e
   },
   computed: {
-    tabs() {
-      return this.indexHotel.tabs;
-    },
-    prdLst() {
-      return this.indexHotel.prdLst;
-    },
-    tagup() {
-      return this.indexHotel.tagUp;
-    },
-    tagDown() {
-      return this.indexHotel.tagDown;
-    },
+    // tabs() {
+    //   return this.indexHotel.tabs;
+    // },
   },
 };
 </script>
@@ -192,7 +284,8 @@ export default {
     padding: 15px 19px 0;
     width: 100%;
     border: 1px solid #ddd;
-    background-color: white;
+    background-color: #fff;
+
     .sub_img {
       display: flex;
       // justify-content: space-between;
@@ -204,13 +297,38 @@ export default {
         overflow: hidden;
         .keyword-long {
           dt {
-            font-weight: 700;
+            // font-weight: 700;
+            padding: 4px 0 0 0;
+            font: 700 14px/34px "Microsoft yahei";
           }
-          a {
-            color: #333;
-            font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
-            &:hover {
-              color: #3983e5;
+          dd {
+            margin-left: -10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: relative;
+            zoom: 1;
+            .entrance-item {
+              position: relative;
+              float: left;
+              display: block;
+              border-left: 1px solid #ececec;
+              padding: 0 10px;
+              line-height: 18px;
+              height: 18px;
+              margin: 7px 0;
+              *margin: 8px 0;
+              a {
+                display: block;
+                width: 187px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: #666;
+                &:hover {
+                  color: #3983e5;
+                }
+              }
             }
           }
         }
@@ -230,6 +348,8 @@ export default {
                 margin-right: 15px;
                 line-height: 20px;
                 color: #3983e5;
+                cursor: pointer;
+
                 font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
                 &:hover {
                   background-color: #3983e5;

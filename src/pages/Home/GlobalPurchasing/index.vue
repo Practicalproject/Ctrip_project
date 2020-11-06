@@ -37,7 +37,7 @@
             <div class="pri_list">
               <ul class="inner-tabs">
                 <li
-                  :class="{active:index === numIndex}"
+                  :class="{ active: index === numIndex }"
                   v-for="(tabsItem, index) in tabs"
                   :key="index"
                   @click="changeIndex(index)"
@@ -105,9 +105,9 @@ export default {
       this.globalPurchasing = resule.data;
       this.tagsItemLst = resule.data.tags.itemLst;
     },
-    changeIndex(index){
-      this.numIndex = index
-    }
+    changeIndex(index) {
+      this.numIndex = index;
+    },
   },
   computed: {
     tabs() {
@@ -176,7 +176,8 @@ export default {
     height: 245px;
     border: 1px solid #ddd;
     display: flex;
-    background-color: white;
+    background-color: #fff;
+
     /* 左侧 */
     .entrance {
       width: 227px;

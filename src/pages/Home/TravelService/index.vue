@@ -235,10 +235,11 @@ export default {
     margin: 10px 0 0 0px;
     width: 1180px;
     display: flex;
+    justify-content: space-between;
     .supplyBox {
       width: 384px;
       height: 145px;
-      margin-left: 10px;
+      // margin-left: 10px;
       border: 1px solid #e0e0e0;
       background: #fff;
       &:first-of-type{
