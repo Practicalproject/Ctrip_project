@@ -5,7 +5,6 @@ module.exports = {
         proxy: {
             '/api': {
                 target: 'http://www.amspur.com',
-                // target: 'http://localhost:8080',
                 pathRewrite: { "^/api": "" }
             },
             '/v1': {
@@ -13,8 +12,8 @@ module.exports = {
                 pathRewrite: { "^/v1": "" }
             },
             '/v2': {
-                target: 'http://localhost:2506',
-                pathRewrite: { "^/v1": "" }
+                target: 'https://easy-mock.com/mock/5fa3eca94096d37b31fcca7b/ctrip',
+                pathRewrite: { "^/v2": "" }
             },
 
         }
