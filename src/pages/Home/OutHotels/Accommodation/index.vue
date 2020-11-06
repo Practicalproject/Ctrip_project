@@ -192,13 +192,14 @@ export default {
   height: 375px;
   padding: 15px 19px 0;
   border-left: 1px dotted #a3a3a3;
+  background-color: #fff;
   .product-hd {
     width: 1139px;
     height: 20px;
     a {
       position: absolute;
       right: 20px;
-      top: 15px;
+      top: 8px;
       color: #3983e5;
       text-decoration: none;
     }
@@ -250,6 +251,8 @@ export default {
           }
           .item-info {
             position: absolute;
+            top: 30px;
+            font-size: 14px;
             z-index: 99;
             left: 10px;
             color: #fff;
@@ -257,6 +260,13 @@ export default {
             text-align: left;
             height: 35px;
             padding: 0 5px;
+            margin: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent;
+            text-decoration: none;
           }
           .item-num {
             top: auto;
@@ -271,6 +281,37 @@ export default {
             left: 10px;
             color: #fff;
           }
+          .price {
+            top: auto;
+            bottom: 10px;
+            left: 0;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 0 10px;
+            text-shadow: none;
+            font-size: 18px;
+            float: right;
+            position: absolute;
+            color: #fff;
+            text-align: left;
+            // line-height: ;
+            z-index: 99;
+            border-radius: 10px;
+            font: 22px/1.5 tahoma;
+            dfn {
+              font-size: 14px;
+              padding-right: 3px;
+              color: #fff;
+              vertical-align: 1px;
+              font: 12px/1.5 arial;
+            }
+            .price_info {
+              margin-left: 3px;
+              font: 12px/1.5 "Microsoft yahei";
+            }
+          }
+        }
+        &:hover a img {
+          transform: scale(1.05);
         }
       }
       .extra-item {
@@ -282,6 +323,7 @@ export default {
         right: 230px;
         clear: both;
         overflow: hidden;
+        transition: all 0.2s linear;
         a {
           color: #3983e5;
           text-decoration: none;
@@ -294,6 +336,7 @@ export default {
               height: auto;
               border: none;
               vertical-align: middle;
+              transition: all 0.2s linear;
             }
           }
           .item-name {
@@ -327,6 +370,9 @@ export default {
             padding: 0 5px;
           }
         }
+        &:hover a img {
+          transform: scale(1.05);
+        }
       }
       .homestay-product {
         position: absolute;
@@ -357,6 +403,9 @@ export default {
               img {
                 transition: transform 0.3s ease 0s;
                 width: 220px;
+              }
+              &:hover a img {
+                transform: scale(1.05);
               }
             }
             .item-overlay {
