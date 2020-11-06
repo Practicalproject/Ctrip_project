@@ -1,5 +1,15 @@
 import Ajax from '@/utils/request'
-import { baseURLapi, baseURLv1, baseURLv2 } from "@/utils/api/config"
+import { baseURLapi, baseURLv1 } from "@/utils/api/config"
 export default {
-    // 这里写接口
+    loginUser(email,pwd,nick_name=''){
+        return Ajax({
+            url:baseURLv1+'/register',
+            method:'post',
+            data:{
+                email,
+                pwd,
+                nick_name
+            }
+        })
+    }
 }

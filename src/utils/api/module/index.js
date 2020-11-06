@@ -6,16 +6,17 @@
 import aishuaikang from './aishuaikang'
 import suoxiaoyu from './suoxiaoyu'
 import huangshaofei from './huangshaofei'
-import baohua from './baohua'
-import tanzhiguo from './tanzhiguo'
-import lvpengchao from './lvpengchao'
 
+import tanzhiguo from './tanzhiguo' 
+import baohua from './baohua'
+import lvpengchao from './lvpengchao'
 export default {
     ...aishuaikang,
     ...suoxiaoyu,
     ...huangshaofei,
-    ...baohua,
+
     ...tanzhiguo,
+    ...baohua,
     ...lvpengchao
 }
 

@@ -207,6 +207,7 @@ export default {
           this.InternationalTicket = result.data;
         }
       }
+      // console.log(result);
     },
     // 选择内部导航
     change(index, gp) {
@@ -347,6 +348,8 @@ export default {
     background: #ffffff;
     padding: 15px 19px 0;
     font-size: 12px;
+    background-color: #fff;
+
     .product_hd {
       width: 1140px;
       height: 20px;
