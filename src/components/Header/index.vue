@@ -1,6 +1,11 @@
 <template>
   <!-- 头部 -->
-  <header class="headerContainer">
+  <header
+    class="headerContainer"
+    :class="{
+      mb: $route.path !== '/home',
+    }"
+  >
     <div class="top">
       <div class="top-container">
         <div class="topLeft">
@@ -239,12 +244,7 @@
     <!-- 除了首页\机票页面\攻略页面 -->
     <nav
       class="navContainer"
-      :class="{
-        mb:
-          $route.path !== '/home' ||
-          $route.path !== '/airlinepage' ||
-          $route.path !== '/strategy',
-      }"
+      @mouseleave="navId = $route.query.navId"
     >
       <ul class="cui_nav_ul">
         <li>
@@ -255,7 +255,7 @@
           <li
             :key="item.id"
             @mouseenter="getNavId(item.cateID)"
-            @mouseleave="navId = ''"
+            @mouseleave="removed"
           >
             <router-link
               :to="{ path: item.cateAlias, query: { navId: item.cateID } }"
@@ -265,7 +265,7 @@
               <span class="point"></span>
             </router-link>
             <div
-              v-show="navId && cate2Nav.length > 0"
+              v-show="isShow && cate2Nav.length > 0"
               :style="{ 'z-index': navId === item.cateID ? 2 : 1 }"
               class="cui_subnav_wrap"
             >
@@ -286,46 +286,6 @@
         </li>
       </ul>
     </nav>
-    <div class="mod">
-      <h2 class="line-title">境外直通车<i class="icon-arrow"></i></h2>
-      <ul class="line-list">
-        <li>
-          <i class="cui-icon-hotel"></i><a href="javascript:;">海外酒店</a>
-        </li>
-        <li>
-          <i class="cui-icon-flight"></i
-          ><a href="javascript:;">国际•港澳台机票</a>
-        </li>
-        <li><i class="cui-icon-car"></i><a href="javascript:;">境外租车</a></li>
-        <li>
-          <i class="cui-icon-train"></i
-          ><a href="javascript:;">国际/港台火车票</a>
-        </li>
-        <li>
-          <i class="cui-icon-outboundtravel"></i
-          ><a href="javascript:;">出境游</a>
-        </li>
-        <li>
-          <i class="cui-icon-HHtravel"></i><a href="javascript:;">高端游</a>
-        </li>
-        <li>
-          <i class="cui-icon-ticket"></i><a href="javascript:;">门票•玩乐</a>
-        </li>
-        <li><i class="cui-icon-visa"></i><a href="javascript:;">签证</a></li>
-        <li>
-          <i class="cui-icon-insurance"></i><a href="javascript:;">保险</a>
-        </li>
-        <li>
-          <i class="cui-icon-wifi"></i><a href="javascript:;">WiFi•电话卡</a>
-        </li>
-        <li>
-          <i class="cui-icon-pickup"></i><a href="javascript:;">境外接送机</a>
-        </li>
-        <li>
-          <i class="cui-icon-foreign"></i><a href="javascript:;">外币兑换</a>
-        </li>
-      </ul>
-    </div>
   </header>
 </template>
 
@@ -335,7 +295,8 @@ export default {
   data() {
     return {
       navList: [],
-      navId: "",
+      navId: this.$route.query.navId ? this.$route.query.navId : "",
+      isShow: false,
     };
   },
   mounted() {
@@ -343,10 +304,16 @@ export default {
     this.getNavData();
   },
   methods: {
+    // 鼠标移除
+    removed() {
+      // this.prevNavId = this.navId;
+      // this.navId = this.prevNavId;
+    },
     // 鼠标移入赋值navId
     getNavId(navId) {
       this.navId = "";
       this.navId = navId;
+      // this.isShow = true;
     },
     // 获取导航数据回调函数
     async getNavData() {
@@ -386,6 +353,17 @@ export default {
       return this.navList.filter((item) => item.cateParentID === this.navId);
     },
   },
+  watch: {
+    $route: {
+      immediate: true,
+      handler() {
+        this.navId = this.$route.query.navId;
+        // if(this.cate2Nav.length > 0){
+        this.isShow = true;
+        // }
+      },
+    },
+  },
 };
 </script> 
 
@@ -393,7 +371,8 @@ export default {
 // 头部
 .headerContainer {
   width: 100%;
-  .mb {
+  // margin-bottom: 10px;
+  &.mb {
     margin-bottom: 40px;
     .cui_nav_ul {
       .cui_subnav_wrap {
@@ -777,11 +756,13 @@ export default {
     width: 100%;
     height: 40px;
     background-color: #2577e3;
-    margin: 0 auto 54px;
-    margin-bottom: 10px;
+    margin: 0 auto;
     .cui_nav_ul {
       .router-link-active {
         background-color: rgb(10, 86, 187);
+        .point {
+          display: block;
+        }
       }
       position: relative;
       // z-index: 25;
@@ -957,198 +938,6 @@ export default {
         background-color: #1d67dd;
         clear: none;
         border: none;
-      }
-    }
-  }
-
-  .mod {
-    width: 1180px;
-    margin: 0 auto;
-    height: 22px;
-    line-height: 22px;
-    .line-title {
-      position: relative;
-      float: left;
-      margin-right: 20px;
-      padding: 0 5px;
-      background: #74a8ed;
-      color: #fff;
-      font-size: 12px;
-      font-weight: bold;
-      border-radius: 2px;
-      .icon-arrow {
-        position: absolute;
-        right: -8px;
-        _right: -9px;
-        top: 6px;
-        width: 0;
-        height: 0;
-        border: 4px solid #74a8ed;
-        border-color: #fff #fff #fff #74a8ed;
-        overflow: hidden;
-      }
-    }
-    .line-list {
-      li {
-        
-        float: left;
-        margin: 0 13px 0 0;
-        line-height: 22px;
-        a{
-              color: #666;
-              &:hover{
-                color: #3983e5;
-              }
-        }
-        .cui-icon-flight,
-        .cui-icon-hotel,
-        .cui-icon-train,
-        .cui-icon-bus,
-        .cui-icon-boat,
-        .cui-icon-car,
-        .cui-icon-vacations,
-        .cui-icon-ticket,
-        .cui-icon-huodong,
-        .cui-icon-insurance,
-        .cui-icon-HHtravel,
-        .cui-icon-wifi,
-        .cui-icon-visa,
-        .cui-icon-outboundtravel,
-        .cui-icon-taocan,
-        .cui-icon-card,
-        .cui-icon-g,
-        .cui-icon-tuan,
-        .cui-icon-standby,
-        .cui-icon-foreign,
-        .cui-icon-pickup {
-          display: inline-block;
-          background-image: url(//pic.c-ctrip.com/platform/online/home/un_icon_index_type20170111.png);
-          background-repeat: no-repeat;
-          width: 16px;
-          height: 16px;
-          vertical-align: middle;
-          margin-right: 5px;
-          margin-top: -1px;
-        }
-        /*机票*/
-
-        .cui-icon-hotel {
-          background-position: -26px 0;
-        }
-
-        /*酒店*/
-
-        .cui-icon-train {
-          background-position: -52px 0;
-        }
-
-        /*火车票*/
-
-        .cui-icon-bus {
-          background-position: -78px 0;
-        }
-
-        /*汽车票*/
-
-        .cui-icon-boat {
-          background-position: -104px 0;
-        }
-
-        /*船票*/
-
-        .cui-icon-car {
-          width: 17px;
-          background-position: -130px 0;
-        }
-
-        /*用车*/
-
-        .cui-icon-vacations {
-          background-position: 0 -26px;
-        }
-
-        /*旅游*/
-
-        .cui-icon-ticket {
-          background-position: -26px -26px;
-        }
-
-        /*门票*/
-
-        .cui-icon-huodong {
-          background-position: -52px -26px;
-        }
-
-        /*玩乐*/
-
-        .cui-icon-insurance {
-          background-position: -78px -26px;
-        }
-
-        /*保险*/
-
-        .cui-icon-HHtravel {
-          background-position: -104px -26px;
-        }
-
-        /*HHtravel*/
-
-        .cui-icon-wifi {
-          background-position: -130px -26px;
-        }
-
-        /*wifi*/
-
-        .cui-icon-visa {
-          background-position: 0 -52px;
-        }
-
-        /*签证*/
-
-        .cui-icon-outboundtravel {
-          background-position: -26px -52px;
-        }
-
-        /*出境游*/
-
-        .cui-icon-taocan {
-          background-position: -52px -52px;
-        }
-
-        /*酒+景*/
-
-        .cui-icon-card {
-          background-position: -78px -52px;
-        }
-
-        /*礼品卡*/
-
-        .cui-icon-g {
-          background-position: -104px -52px;
-        }
-
-        /*全球购*/
-
-        .cui-icon-tuan {
-          background-position: -130px -52px;
-        }
-
-        /*团购*/
-
-        .cui-icon-standby {
-          background-position: 0 -78px;
-        }
-
-        /*保底*/
-
-        .cui-icon-foreign {
-          background-position: -24px -79px;
-        }
-
-        .cui-icon-pickup {
-          background-position: -26px -78px;
-          background-image: url(//pic.c-ctrip.com/platform/online/home/un_icon_index_type.png);
-        }
       }
     }
   }
