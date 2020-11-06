@@ -1,5 +1,15 @@
 <template>
   <div class="registerContainer">
+    <button
+      class="button1 iconfont icon-hj"
+      @click="butpas1"
+      v-show="!gopas"
+    ></button>
+    <button
+      class="button2 iconfont icon-hj"
+      @click="butpas2"
+      v-show="!gopas"
+    ></button>
     <!-- 头部 -->
     <header>
       <h1 class="ctriplogo_login">
@@ -14,13 +24,14 @@
           <el-step title="注册成功"></el-step>
         </el-steps>
         <div class="reg_form">
-          <el-form class="demo-form-inline">
+          <el-form class="demo-form-inline" v-if="gopas">
             <el-form-item label="手机号" label-width="185px">
-              <el-input placeholder="有效手机号"></el-input>
+              <el-input placeholder="有效手机号" v-model="phone"></el-input>
             </el-form-item>
             <el-form-item label="" label-width="185px">
-              <label class="base_label"
-                >同意
+              <label class="base_label">
+                <input type="radio" :checked="isRead" @click="isRead_neg" />
+                同意
                 <a id="agreementUrl" href="javascript:;">《服务协议》</a>和<a
                   id="policyUrl"
                   href="javascript:;"
@@ -29,7 +40,42 @@
               >
             </el-form-item>
             <el-form-item label="" label-width="185px">
-              <el-button type="primary" @click="onSubmit">下一步，设置密码</el-button>
+              <el-button type="primary" @click="verPhone" :disabled="!isRead"
+                >下一步，设置密码</el-button
+              >
+            </el-form-item>
+          </el-form>
+          <el-form
+            status-icon
+            ref="ruleForm"
+            label-width="100px"
+            class="demo-ruleForm setForm"
+            v-else
+          >
+            <el-form-item label="注册手机号" prop="pass">
+              <span>{{ changePhone() }}</span>
+            </el-form-item>
+            <el-form-item label="密码" prop="pass">
+              <el-input
+                :type="password1"
+                autocomplete="off"
+                v-model="passw"
+                placeholder="6-20位字母和数字的组合"
+              >
+              </el-input>
+            </el-form-item>
+            <el-form-item label="确认密码" prop="checkPass">
+              <el-input
+                :type="password2"
+                autocomplete="off"
+                v-model="passwo"
+                placeholder="确认密码"
+              ></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" style="width: 202px" @click="sign"
+                >完成</el-button
+              >
             </el-form-item>
           </el-form>
         </div>
@@ -43,8 +89,119 @@ export default {
   name: "Register",
   data() {
     return {
-      active: 1,
+      active: 1, //时间线进度条
+      phone: "", //注册手机号
+      isRead: false, //阅读服务条款按钮
+      gopas: true, //切换显示
+      passw: "", //密码
+      passwo: "", //确认密码
+      password1: "password",
+      password2: "password",
+      userData: {},
     };
+  },
+  methods: {
+    // 手机号正则验证
+    verPhone() {
+      if (!/^1[3456789]\d{9}$/.test(this.phone)) {
+        this.open3();
+      } else {
+        this.active = 2; //修改时间线进度条
+        // 验证通过显示密码
+        this.gopas = false;
+      }
+    },
+    // 手机号错误提示框
+    open3() {
+      this.$message({
+        message: "请输入正确的手机号码哦~",
+        type: "warning",
+      });
+    },
+    // 切换服务条款按钮切换状态
+    isRead_neg() {
+      this.isRead = !this.isRead;
+    },
+
+    // 切歌手机号中间四位替换****
+    changePhone() {
+      return this.phone.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2");
+    },
+
+    // 设置密码
+
+    //点击小眼睛切换输入状态
+    butpas1() {
+      if (this.password1 === "password") {
+        this.password1 = "text";
+      } else {
+        this.password1 = "password";
+      }
+    },
+    butpas2() {
+      if (this.password2 === "password") {
+        this.password2 = "text";
+      } else {
+        this.password2 = "password";
+      }
+    },
+
+    // 注册
+    async sign() {
+      // 正则为true并且确认密码一致
+      if (
+        /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(this.passw) &&
+        this.passw === this.passwo
+      ) {
+        this.userData = await this.$API.index.loginUser(this.phone, this.passw);
+        if (this.userData.code === 20000) {
+          this.open6();
+          this.active = 3
+          setTimeout(()=>{
+            this.$router.push('/login')
+          },3000)
+        }else if(this.userData.code===20001){
+          this.open7()
+        }
+        // 正则不通过,提示消息
+      } else if (
+        !/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(this.passw)
+      ) {
+        this.open4();
+      } else if (this.passw !== this.passwo) {
+        this.open5();
+      }
+    },
+
+    // 弹窗
+    //正则弹窗
+    open4() {
+      this.$message({
+        message: "密码需为6-20位字母和数字的组合哦~",
+        type: "warning",
+      });
+    },
+    open5() {
+      this.$message({
+        message: "您两次输入的密码不一致哦~",
+        type: "warning",
+      });
+    },
+    //登录弹窗
+    // 注册成功
+    open6() {
+      this.$message({
+        message: "恭喜老铁注册成功喽~,即将为您跳转到登录页,么么哒.... ",
+        type: "success",
+      });
+    },
+    // 用户已注册
+    open7() {
+      this.$message({
+        message: "警告哦~该用户已经注册喽~~",
+        type: "warning",
+      });
+    },
   },
 };
 </script>
@@ -53,6 +210,32 @@ export default {
 .registerContainer {
   width: 100%;
   // 头部
+  .button1 {
+    position: absolute;
+    left: 862px;
+    top: 252px;
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #c0c4cc;
+    z-index: 10;
+    outline: none;
+  }
+  .button2 {
+    position: absolute;
+    left: 862px;
+    top: 302px;
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #c0c4cc;
+    z-index: 10;
+    outline: none;
+  }
   header {
     width: 980px;
     height: 90px;
@@ -99,6 +282,9 @@ export default {
               color: #999;
             }
           }
+        }
+        .setForm {
+          padding-left: 84px;
         }
       }
     }
