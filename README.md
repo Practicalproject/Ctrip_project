@@ -219,3 +219,21 @@ gp:
     DangDiMeiShi
     LvXingFuWu
 ```
+
+# 获取第六板块 全球购 数据
+
+## URL
+/getIndexGlobalpurchasing
+## 请求方式
+GET
+
+## 请求参数
+
+```
+gp:
+    ReMenChengShi
+    XinDianShouXuan
+    ShePinDaPai
+    KouBeiTuiJian
+    ZongHeShangChang
+```
