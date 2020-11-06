@@ -6,9 +6,9 @@ export default {
         return Ajax.get(baseURLv1 + '/getIndexHotel')
     },
     // 热门
-    getIndexHot() {
-        return Ajax.get(baseURLv1 + '/getIndexHot')
-    },
+    // getIndexHot() {
+    //     return Ajax.get(baseURLv1 + '/getIndexHot')
+    // },
     // 热门目的地
     getIndexPlay() {
         return Ajax.get(baseURLv1 + '/getIndexPlay')
