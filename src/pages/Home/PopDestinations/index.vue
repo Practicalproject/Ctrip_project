@@ -6,11 +6,11 @@
       <h2>
         <span :class="{ current: tabNum === 0 }" @click="tab(0)">
           当天玩乐/出境
-          <i></i>
+          <i v-if="this.tabNum === 0" class="iconfont icon-shang"></i>
         </span>
         <span :class="{ current: tabNum === 1 }" @click="tab(1)">
           当天玩乐/境内
-          <i class="iconfont icon-shang"></i>
+          <i v-if="this.tabNum === 1" class="iconfont icon-shang"></i>
         </span>
       </h2>
     </div>
@@ -362,7 +362,7 @@ export default {
                 .carList_posi {
                   bottom: -30px;
                 }
-                &:nth-last-child(1){
+                &:nth-last-child(1) {
                   margin-right: 0;
                 }
               }
