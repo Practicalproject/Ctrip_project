@@ -1,67 +1,5 @@
 <template>
   <div class="hotList_wrapper">
-<<<<<<< HEAD
-    <!-- 头部列表 -->
-    <div class="header_list">
-      <h2>
-        <span :class="{current:tabNum===1}" @click="tab(1)">
-          海外酒店
-          <i></i>
-        </span>
-        <span :class="{current:tabNum===2}" @click="tab(2)" >
-          海外民宿+短租
-          <i class="iconfont icon-shang"></i>
-        </span>
-        <span :class="{current:tabNum===3}" @click="tab(3)">
-          国内酒店
-          <i></i>
-        </span>
-        <span :class="{current:tabNum===4}" @click="tab(4)">
-          客栈民宿
-          <i></i>
-        </span>
-      </h2>
-    </div>
-    <!-- 内容主体 -->
-    <div class="hotList_sub">
-      <div class="sub_img">
-        <!-- 左侧区域 -->
-        <div class="sub_left">
-          <dl class="keyword-long">
-            <dt>{{ tagUpName }}</dt>
-            <dd v-for="(list, index) in tagupItemLst" :key="index">
-              <span class="entrance-item" :title="list.nme">
-                <a href="javaspript:;">{{ list.nme }}</a>
-              </span>
-            </dd>
-          </dl>
-          <dl class="keyword-long">
-            <dt>{{ tagDownName }}</dt>
-            <dd v-for="(tag, index) in tagDownList" :key="index">
-              <span class="entrance-item" :title="tag.nme">
-                <a href="javascript:;">{{ tag.nme }}</a>
-              </span>
-            </dd>
-          </dl>
-        </div>
-        <!-- 右侧区域 -->
-        <div class="sub_right">
-          <!-- 右侧区域上侧区域 -->
-          <div class="right_top">
-            <!-- 境内 -->
-            <div class="sub_nav">
-              <ul>
-                <li
-                  @click="changeIndex(index)"
-                  v-for="(item, index) in tabs"
-                  :key="index"
-                  :class="{ nav_action: index === numIndex }"
-                >
-                  {{ item.tabNme }}
-                </li>
-              </ul>
-            </div>
-=======
     <div>
       <!-- 头部列表 -->
       <div class="header_list">
@@ -108,7 +46,6 @@
                 </span>
               </dd>
             </dl>
->>>>>>> ba00cb9600001a6b2bfb445e7b96d944ad85ce2e
           </div>
           <!-- 右侧区域 -->
           <div class="sub_right">
@@ -213,12 +150,9 @@ export default {
       //   this.getIndexHotel("LuYouShengDi");
       // }
     },
-<<<<<<< HEAD
     changeIndex(index) {
       this.numIndex = index;
     },
-=======
->>>>>>> ba00cb9600001a6b2bfb445e7b96d944ad85ce2e
   },
   computed: {
     // tabs() {
