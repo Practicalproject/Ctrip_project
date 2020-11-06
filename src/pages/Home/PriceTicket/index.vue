@@ -207,7 +207,7 @@ export default {
   width: 1180px;
   // height: 437px;
   margin: 28px auto 0;
-  background: #ffffff;
+  // background: #ffffff;
   .flyHeader {
     height: 36px;
     width: 1180px;
@@ -307,7 +307,7 @@ export default {
     }
   }
   .ticketsDetail {
-    // background-color: pink;
+    background-color: white;
     padding: 15px 19px 0;
     font-size: 12px;
     .product_hd {

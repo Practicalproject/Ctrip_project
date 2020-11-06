@@ -285,6 +285,8 @@ export default {
     height: 245px;
     border: 1px solid #ddd;
     display: flex;
+    background-color: white;
+
     /* 左侧 */
     .entrance {
       width: 227px;

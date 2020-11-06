@@ -176,6 +176,7 @@ export default {
     height: 200px;
     border: 1px solid #ddd;
     display: flex;
+    background-color: white;
     /* 左侧 */
     .entrance {
       width: 227px;
