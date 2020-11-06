@@ -219,3 +219,38 @@ gp:
     DangDiMeiShi
     LvXingFuWu
 ```
+
+# 获取第六板块 全球购 数据
+
+## URL
+/getIndexGlobalpurchasing
+## 请求方式
+GET
+
+## 请求参数
+
+```
+gp:
+    ReMenChengShi
+    XinDianShouXuan
+    ShePinDaPai
+    KouBeiTuiJian
+    ZongHeShangChang
+```
+
+# 获取首页第七板块 目的地攻略 数据
+
+## URL
+/getIndexDestination
+## 请求方式
+GET
+
+## 请求参数
+
+```
+gp:
+    QingQiQiuZhuanLan
+    LvXingZhengDangShi
+    KanHaiYouYouLe
+    JiaoNiMaiMaiMai
+```

@@ -1,105 +1,104 @@
 <template>
   <div class="hotList_wrapper">
-    <div>
-      <!-- 头部列表 -->
-      <div class="header_list">
-        <h2>
-          <span :class="{ current: tabNum === 1 }" @click="tab(1)">
-            海外酒店
-            <i></i>
-          </span>
-          <span :class="{ current: tabNum === 2 }" @click="tab(2)">
-            海外民宿+短租
-            <i class="iconfont icon-shang"></i>
-          </span>
-          <span :class="{ current: tabNum === 3 }" @click="tab(3)">
-            国内酒店
-            <i></i>
-          </span>
-          <span :class="{ current: tabNum === 4 }" @click="tab(4)">
-            客栈民宿
-            <i></i>
-          </span>
-        </h2>
-      </div>
-      <!-- 内容主体 -->
-      <div class="hotList_sub">
-        <div class="sub_img">
-          <!-- 左侧区域 -->
-          <div class="sub_left">
-            <dl class="keyword-long" v-if="indexHotel.tagUp">
-              <dt>{{ indexHotel.tagUp.nme }}</dt>
-              <dd v-for="list in indexHotel.tagUp.itemLst" :key="list.name">
-                <span class="entrance-item" :title="list.nme">
-                  <a href="javaspript:;">{{ list.nme }}</a>
-                </span>
-              </dd>
-            </dl>
-            <dl class="keyword-long" v-if="indexHotel.tagDown">
-              <dt>{{ indexHotel.tagDown.nme }}</dt>
-              <dd
-                v-for="(tag, index) in indexHotel.tagDown.itemLst"
-                :key="tag.name"
-              >
-                <span class="entrance-item" :title="tag.nme">
-                  <a href="javascript:;">{{ tag.nme }}</a>
-                </span>
-              </dd>
-            </dl>
-          </div>
-          <!-- 右侧区域 -->
-          <div class="sub_right">
-            <!-- 右侧区域上侧区域 -->
-            <div class="right_top">
-              <!-- 境内 -->
-              <div class="sub_nav">
-                <ul>
-                  <li
-                    @click="changeIndex(index, item.pinyin)"
-                    v-for="(item, index) in indexHotel.tabs"
-                    :key="index"
-                    :class="{ nav_action: index === numIndex }"
-                  >
-                    {{ item.tabNme }}
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- 右侧区域下侧区域 -->
-            <div class="right_bottom">
-              <!-- 中间 -->
-              <div class="sub_body">
-                <div
-                  class="body_item"
-                  v-for="item in indexHotel.prdLst"
-                  :key="item.count"
+    <!-- 头部列表 -->
+    <div class="header_list">
+      <h2>
+        <span :class="{ current: tabNum === 1 }" @click="tab(1)">
+          海外酒店
+          <i></i>
+        </span>
+        <span :class="{ current: tabNum === 2 }" @click="tab(2)">
+          海外民宿+短租
+          <!-- <i class="iconfont icon-shang"></i> -->
+          <i></i>
+        </span>
+        <span>
+          国内酒店
+          <i></i>
+        </span>
+        <span>
+          客栈民宿
+          <i></i>
+        </span>
+      </h2>
+    </div>
+    <!-- 内容主体 -->
+    <div class="hotList_sub" v-show="tabNum === 1">
+      <div class="sub_img">
+        <!-- 左侧区域 -->
+        <div class="sub_left">
+          <dl class="keyword-long" v-if="indexHotel.tagUp">
+            <dt>{{ indexHotel.tagUp.nme }}</dt>
+            <dd v-for="list in indexHotel.tagUp.itemLst" :key="list.name">
+              <span class="entrance-item" :title="list.nme">
+                <a href="javaspript:;">{{ list.nme }}</a>
+              </span>
+            </dd>
+          </dl>
+          <dl class="keyword-long" v-if="indexHotel.tagDown">
+            <dt>{{ indexHotel.tagDown.nme }}</dt>
+            <dd
+              v-for="(tag, index) in indexHotel.tagDown.itemLst"
+              :key="tag.name"
+            >
+              <span class="entrance-item" :title="tag.nme">
+                <a href="javascript:;">{{ tag.nme }}</a>
+              </span>
+            </dd>
+          </dl>
+        </div>
+        <!-- 右侧区域 -->
+        <div class="sub_right">
+          <!-- 右侧区域上侧区域 -->
+          <div class="right_top">
+            <!-- 境内 -->
+            <div class="sub_nav">
+              <ul>
+                <li
+                  @click="changeIndex(index, item.pinyin)"
+                  v-for="(item, index) in indexHotel.tabs"
+                  :key="index"
+                  :class="{ nav_action: index === numIndex }"
                 >
-                  <img :src="item.img" alt="" />
-                  <div class="item_mask">
-                    <div class="title">
-                      <span class="title_text">{{ item.nme }}</span>
-                      <div class="mask_rule"></div>
-                      ￥
-                      <span>{{ item.price.amt }}</span
-                      >/人起
-                    </div>
+                  {{ item.tabNme }}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- 右侧区域下侧区域 -->
+          <div class="right_bottom">
+            <!-- 中间 -->
+            <div class="sub_body">
+              <div
+                class="body_item"
+                v-for="item in indexHotel.prdLst"
+                :key="item.count"
+              >
+                <img :src="item.img" alt="" />
+                <div class="item_mask">
+                  <div class="title">
+                    <span class="title_text">{{ item.nme }}</span>
+                    <div class="mask_rule"></div>
+                    ￥
+                    <span>{{ item.price.amt }}</span
+                    >/人起
                   </div>
                 </div>
               </div>
-              <!-- 右侧大图 -->
-              <div
-                class="sub_big"
-                v-for="imgItem in indexHotel.adLst"
-                :key="imgItem.alt"
-              >
-                <img :src="imgItem.img" alt="" />
-              </div>
+            </div>
+            <!-- 右侧大图 -->
+            <div
+              class="sub_big"
+              v-for="imgItem in indexHotel.adLst"
+              :key="imgItem.alt"
+            >
+              <img :src="imgItem.img" alt="" />
             </div>
           </div>
         </div>
       </div>
     </div>
-    <Accommodation></Accommodation>
+    <Accommodation v-show="tabNum === 2"></Accommodation>
   </div>
 </template>
 
@@ -135,8 +134,10 @@ export default {
       }
     },
     changeIndex(index, pinyin) {
-      this.getIndexHotel(pinyin);
       this.numIndex = index;
+      this.getIndexHotel(pinyin);
+      console.log(pinyin);
+      console.log(index);
       // if (this.numIndex === 0) {
       //   this.getIndexHotel("ReMenChengShi");
       // }
@@ -150,9 +151,9 @@ export default {
       //   this.getIndexHotel("LuYouShengDi");
       // }
     },
-    changeIndex(index) {
-      this.numIndex = index;
-    },
+    // changeIndex(index) {
+    //   this.numIndex = index;
+    // },
   },
   computed: {
     // tabs() {
@@ -191,6 +192,10 @@ export default {
           color: #06c;
           cursor: default;
         }
+      }
+      .current {
+        cursor: default;
+        color: #06c;
         i {
           position: absolute;
           left: 50%;
@@ -206,10 +211,6 @@ export default {
           border-left: 6px solid transparent;
           border-right: 6px solid transparent;
         }
-      }
-      .current {
-        cursor: default;
-        color: #06c;
       }
     }
   }
