@@ -2,11 +2,11 @@
   <div class="flightC">
     <div class="flyHeader">
       <h2>
-        <span :class="{current:currNum===1} " @click="tab(1)">
+        <span :class="{ current: currNum === 1 }" @click="tab(1)">
           国际•港澳台特价机票
           <i></i>
         </span>
-        <span :class="{current:currNum===2}" @click="tab(2)">
+        <span :class="{ current: currNum === 2 }" @click="tab(2)">
           国内特价机票
           <i></i>
         </span>
@@ -165,17 +165,17 @@ export default {
   name: "PriceTicket",
   data() {
     return {
-      currNum:1,
-      InternationalTicket:{},
-      number:0,
-    }
+      currNum: 1,
+      InternationalTicket: {},
+      number: 0,
+    };
   },
   mounted() {
     this.getIndexInternational();
   },
   methods: {
-    tab(num){
-      this.currNum = num
+    tab(num) {
+      this.currNum = num;
     },
     // 请求热门栏目列表
     async getIndexInternational(gp) {
@@ -250,8 +250,7 @@ export default {
       }
       .current {
         cursor: default;
-           color: #06c;
-        
+        color: #06c;
       }
     }
     .pullRight {
@@ -307,7 +306,7 @@ export default {
     }
   }
   .ticketsDetail {
-    background-color: white;
+    background: #ffffff;
     padding: 15px 19px 0;
     font-size: 12px;
     .product_hd {
