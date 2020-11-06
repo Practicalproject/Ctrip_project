@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="homeContainer">
     <!-- tzg轮播图 -->
     <HomeBanner></HomeBanner>
     <!-- hsf热门 -->
@@ -58,4 +58,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.homeContainer {
+  background-color: #f6f6f6;
+}
 </style>

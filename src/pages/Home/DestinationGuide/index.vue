@@ -4,13 +4,13 @@
     <!-- 标题行 -->
     <div class="modhd">
       <h2>
-        <span class="current">
+        <span :class="{current:tabNum===1}" @click="tab(1)">
           目的地攻略
           <i></i>
         </span>
-        <span>
+        <span :class="{current:tabNum===2}" @click="tab(2)">
           旅游旗舰店
-          <i class="iconfont icon-shang"></i>
+          <i class="iconfont icon-shang "></i>
         </span>
       </h2>
     </div>
@@ -86,6 +86,7 @@ export default {
   name: "DestinationGuide",
   data() {
     return {
+      tabNum:1,
       destinationGuide: {},
       subIndex: 0,
     };
@@ -94,6 +95,9 @@ export default {
     this.getDestinationGuide();
   },
   methods: {
+    tab(num){
+      this.tabNum = num
+    },
     async getDestinationGuide() {
       const resust = await this.$API.index.getDestinationGuide();
       this.destinationGuide = resust.data;
@@ -172,6 +176,7 @@ export default {
     height: 200px;
     border: 1px solid #ddd;
     display: flex;
+    background-color: white;
     /* 左侧 */
     .entrance {
       width: 227px;

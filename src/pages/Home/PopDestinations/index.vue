@@ -4,11 +4,11 @@
     <!-- 标题行 -->
     <div class="modhd">
       <h2>
-        <span class="current">
+        <span :class="{current:tabNum===1}" @click="tab(1)">
           当天玩乐/出境
           <i></i>
         </span>
-        <span>
+        <span :class="{current:tabNum===2}" @click="tab(2)">
           当天玩乐/境内
           <i class="iconfont icon-shang"></i>
         </span>
@@ -101,12 +101,16 @@ export default {
       tabs: [],
       exNme: "",
       numIndex: 0,
+      tabNum:1
     };
   },
   mounted() {
     this.getIndexPlay();
   },
   methods: {
+    tab(num){
+      this.tabNum = num
+    },
     async getIndexPlay() {
       const result = await this.$API.index.getIndexPlay();
       // console.log(result);
@@ -184,6 +188,7 @@ export default {
     height: 245px;
     border: 1px solid #ddd;
     display: flex;
+    background-color: white;
     /* 左侧 */
     .entrance {
       width: 227px;
