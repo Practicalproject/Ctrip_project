@@ -4,23 +4,23 @@
     <!-- 标题行 -->
     <div class="modhd">
       <h2>
-        <span :class="{ current: tabNum === 1 }" @click="tab(1)">
+        <span :class="{ current: tabNum === 1 }" @click="changeNum(1)">
           境外租车
           <i></i>
         </span>
-        <span :class="{ current: tabNum === 2 }" @click="tab(2)">
+        <span :class="{ current: tabNum === 2 }" @click="changeNum(2)">
           境外接送机
           <i class="iconfont icon-shang"></i>
         </span>
-        <span :class="{ current: tabNum === 3 }" @click="tab(3)">
+        <span :class="{ current: tabNum === 3 }" @click="changeNum(3)">
           国内租车
           <i></i>
         </span>
-        <span :class="{ current: tabNum === 4 }" @click="tab(4)">
+        <span :class="{ current: tabNum === 4 }" @click="changeNum(4)">
           国内接送机
           <i></i>
         </span>
-        <span :class="{ current: tabNum === 5 }" @click="tab(5)">
+        <span :class="{ current: tabNum === 5 }" @click="changeNum(5)">
           日租包车
           <i></i>
         </span>
@@ -142,12 +142,12 @@
           <!-- 标题 -->
           <div class="priducthd">
             <div class="pri_list">
-              <ul class="inner-tabs">
+              <ul class="inner-tabs" v-if="IndexOutside">
                 <li
                   :class="{ active: index === numIndex }"
-                  v-for="(tabsItem, index) in tabs"
+                  v-for="(tabsItem, index) in IndexOutside.tabs"
                   :key="index"
-                  @click="changeIndex(index)"
+                  @click="changeIndex(index, tabsItem.pinyin)"
                 >
                   <a href="javascript: ;">{{ tabsItem.tabNme }}</a>
                 </li>
@@ -155,8 +155,8 @@
             </div>
 
             <div class="more">
-              <a href="javascript: ;" v-if="indexCarRental">
-                {{ indexCarRental.exNme }}
+              <a href="javascript: ;" v-if="IndexOutside">
+                {{ IndexOutside.exNme }}
                 <i class="iconfont icon-next"></i>
               </a>
             </div>
@@ -164,10 +164,10 @@
           <!-- 主题内容 -->
           <div class="priductbd">
             <!-- 图片详情区域 -->
-            <ul class="carContainer">
+            <ul class="carContainer" v-if="IndexOutside">
               <li
                 class="carList"
-                v-for="(prdLstItem, index) in prdLst"
+                v-for="(prdLstItem, index) in IndexOutside.prdLst"
                 :key="index"
               >
                 <a href="javascript:;">
@@ -198,35 +198,90 @@ export default {
   name: "CarRental",
   data() {
     return {
-      tabNum: 1,
-      indexCarRental: {},
-      numIndex: 0,
-    };
+      IndexOutside:{},
+      tabNum :1,
+      numIndex :0,
+ 
+      
+    }
   },
   mounted() {
-    this.getIndexCarRental();
+    this.getIndexOutside('MeiGuo');
   },
   methods: {
-    tab(num) {
-      this.tabNum = num;
+      // 境外接送机
+     async getIndexPickup(gb) {
+      const result = await this.$API.index.getIndexPickup(gb);
+      console.log('111111',result);
+      if(result.code  === 200) {
+        this.IndexOutside = result.data
+      }
     },
-    async getIndexCarRental() {
-      const resust = await this.$API.index.getIndexCarRental();
-      // console.log(resust);
-      this.indexCarRental = resust.data;
+    // 境外租车
+    async getIndexOutside(gb) {
+      const result = await this.$API.index.getIndexOutside(gb);
+      console.log('222222',result);
+      if(result.code  === 200) {
+        this.IndexOutside = result.data
+      }
     },
-    changeIndex(index) {
-      this.numIndex = index;
+    // 境外接送机 和 大标题 高亮
+    changeNum(index){
+      if(index === 1){
+      this.getIndexOutside('MeiGuo')
+ 
+      // console.log(this.IndexOutside.tabs)
+      }else if( index === 2){
+        this.getIndexPickup('GangAoTai')
+        // console.log(this.IndexOutside)
+
+      }
+      this.tabNum = index
+      // console.log(this.IndexOutside)
     },
+    // 详情图  切换
+    changeIndex(number,name){
+      if(this.tabNum  === 1){
+        this.getIndexOutside(name)
+      } else {
+        this.getIndexPickup(name)
+      }
+      //  this.numIndex  = number
+       
+    }
+   
   },
-  computed: {
-    tabs() {
-      return this.indexCarRental.tabs;
-    },
-    prdLst() {
-      return this.indexCarRental.prdLst;
-    },
-  },
+  // data() {
+  //   return {
+  //     tabNum: 1,
+  //     indexCarRental: {},
+  //     numIndex: 0,
+  //   };
+  // },
+  // mounted() {
+  //   this.getIndexCarRental();
+  // },
+  // methods: {
+  //   tab(num) {
+  //     this.tabNum = num;
+  //   },
+  //   async getIndexCarRental() {
+  //     const resust = await this.$API.index.getIndexCarRental();
+  //     // console.log(resust);
+  //     this.indexCarRental = resust.data;
+  //   },
+  //   changeIndex(index) {
+  //     this.numIndex = index;
+  //   },
+  // },
+  // computed: {
+  //   tabs() {
+  //     return this.indexCarRental.tabs;
+  //   },
+  //   prdLst() {
+  //     return this.indexCarRental.prdLst;
+  //   },
+  // },
 };
 </script>
 
