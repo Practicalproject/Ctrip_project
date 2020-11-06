@@ -340,15 +340,18 @@ export default {
         }
         /* 图片区域 */
         .priduct_body {
+          height: 200px;
           .pri_carContainer {
-            display: flex;
-            justify-content: space-between;
-
+            /* display: flex;
+            justify-content: space-between; */
+            /* width: 300px; */
             .carList {
               /* margin-left: 10px; */
               width: 210px;
               overflow: hidden;
-              position: relative;
+              /* position: relative; */
+              float: left;
+              margin-right: 10px;
               &:hover {
                 /* border: 1px solid #ddd; */
                 box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
@@ -358,6 +361,9 @@ export default {
                 }
                 .carList_posi {
                   bottom: -30px;
+                }
+                &:nth-last-child(1){
+                  margin-right: 0;
                 }
               }
               a .carImg {
