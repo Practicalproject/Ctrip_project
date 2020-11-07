@@ -72,25 +72,46 @@
           <!-- 左侧列表 -->
           <div class="small_left">
             <ul>
-              <li class="active">
+              <li
+                :class="{ active: leftIndex === 0 }"
+                @click="changLeftIndex(0)"
+              >
                 <a href="javascript:;">酒店</a>
               </li>
-              <li>
+              <li
+                :class="{ active: leftIndex === 1 }"
+                @click="changLeftIndex(1)"
+              >
                 <a href="javascript:;">酒店</a>
               </li>
-              <li>
+              <li
+                :class="{ active: leftIndex === 2 }"
+                @click="changLeftIndex(2)"
+              >
                 <a href="javascript:;">酒店</a>
               </li>
-              <li>
+              <li
+                :class="{ active: leftIndex === 3 }"
+                @click="changLeftIndex(3)"
+              >
                 <a href="javascript:;">酒店</a>
               </li>
-              <li>
+              <li
+                :class="{ active: leftIndex === 4 }"
+                @click="changLeftIndex(4)"
+              >
                 <a href="javascript:;">酒店</a>
               </li>
-              <li>
+              <li
+                :class="{ active: leftIndex === 5 }"
+                @click="changLeftIndex(5)"
+              >
                 <a href="javascript:;">酒店</a>
               </li>
-              <li>
+              <li
+                :class="{ active: leftIndex === 6 }"
+                @click="changLeftIndex(6)"
+              >
                 <a href="javascript:;">酒店</a>
               </li>
             </ul>
@@ -217,11 +238,15 @@ export default {
         desc: "",
       },
       tabNum: 0,
+      leftIndex: 0,
     };
   },
   methods: {
     changeIndes(index) {
       this.tabNum = index;
+    },
+    changLeftIndex(index) {
+      this.leftIndex = index;
     },
   },
   watch: {
