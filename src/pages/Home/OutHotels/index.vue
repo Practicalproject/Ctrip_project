@@ -23,13 +23,13 @@
       </h2>
     </div>
     <!-- 内容主体 -->
-    <div class="hotList_sub" v-show="tabNum === 1">
+    <div class="hotList_sub" v-if="tabNum === 1">
       <div class="sub_img">
         <!-- 左侧区域 -->
         <div class="sub_left">
-          <dl class="keyword-long" v-if="indexHotel.tagUp">
-            <dt>{{ indexHotel.tagUp.nme }}</dt>
-            <dd v-for="list in indexHotel.tagUp.itemLst" :key="list.name">
+          <dl class="keyword-long" v-if="tagUp">
+            <dt>{{ tagUp.nme }}</dt>
+            <dd v-for="list in tagUp.itemLst" :key="list.name">
               <span class="entrance-item" :title="list.nme">
                 <a href="javaspript:;">{{ list.nme }}</a>
               </span>
@@ -53,7 +53,7 @@
           <div class="right_top">
             <!-- 境内 -->
             <div class="sub_nav">
-              <ul>
+              <ul v-if="indexHotel">
                 <li
                   @click="changeIndex(index, item.pinyin)"
                   v-for="(item, index) in indexHotel.tabs"
@@ -98,7 +98,7 @@
         </div>
       </div>
     </div>
-    <Accommodation v-show="tabNum === 2"></Accommodation>
+    <Accommodation v-else></Accommodation>
   </div>
 </template>
 
@@ -128,7 +128,11 @@ export default {
       this.tabNum = num;
     },
     async getIndexHotel(dq) {
+      if(dq === "LvYouShengDi"){
+        dq = "LuYouShengDi"
+      }
       let result = await this.$API.index.getIndexHotel(dq);
+      // console.log(result);
       if (result.code === 200) {
         this.indexHotel = result.data;
       }
@@ -136,8 +140,8 @@ export default {
     changeIndex(index, pinyin) {
       this.numIndex = index;
       this.getIndexHotel(pinyin);
-      console.log(pinyin);
-      console.log(index);
+      // console.log(pinyin);
+      // console.log(index);
       // if (this.numIndex === 0) {
       //   this.getIndexHotel("ReMenChengShi");
       // }
@@ -159,6 +163,9 @@ export default {
     // tabs() {
     //   return this.indexHotel.tabs;
     // },
+    tagUp(){
+      return this.indexHotel.tagUp
+    }
   },
 };
 </script>
