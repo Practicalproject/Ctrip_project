@@ -57,6 +57,11 @@
             <div class="swiper-slide">
               <img src="./images/2.jpg" />
             </div>
+            <div class="swiper-slide">
+              <img
+                src="https://dimg04.c-ctrip.com/images/0zg4k1200086fom4w2758.jpg"
+              />
+            </div>
           </div>
           <!-- 如果需要分页器 -->
           <div class="swiper-pagination"></div>
@@ -82,37 +87,37 @@
                 :class="{ active: leftIndex === 1 }"
                 @click="changLeftIndex(1)"
               >
-                <a href="javascript:;">酒店</a>
+                <a href="javascript:;">机票</a>
               </li>
               <li
                 :class="{ active: leftIndex === 2 }"
                 @click="changLeftIndex(2)"
               >
-                <a href="javascript:;">酒店</a>
+                <a href="javascript:;">旅游</a>
               </li>
               <li
                 :class="{ active: leftIndex === 3 }"
                 @click="changLeftIndex(3)"
               >
-                <a href="javascript:;">酒店</a>
+                <a href="javascript:;">跟团游</a>
               </li>
               <li
                 :class="{ active: leftIndex === 4 }"
                 @click="changLeftIndex(4)"
               >
-                <a href="javascript:;">酒店</a>
+                <a href="javascript:;">打包订</a>
               </li>
               <li
                 :class="{ active: leftIndex === 5 }"
                 @click="changLeftIndex(5)"
               >
-                <a href="javascript:;">酒店</a>
+                <a href="javascript:;">火车</a>
               </li>
               <li
                 :class="{ active: leftIndex === 6 }"
                 @click="changLeftIndex(6)"
               >
-                <a href="javascript:;">酒店</a>
+                <a href="javascript:;">用车</a>
               </li>
             </ul>
           </div>
@@ -148,10 +153,11 @@
                 size="mini"
               >
                 <el-form-item label="目的地">
-                  <el-input
-                    v-model="sizeForm.name"
-                    placeholder="中文/拼音"
-                  ></el-input>
+                  <el-cascader
+                    placeholder="试试搜索：指南"
+                    :options="options"
+                    filterable
+                  ></el-cascader>
                 </el-form-item>
 
                 <el-form-item label="入住日期">
@@ -190,7 +196,11 @@
                 </el-form-item>
 
                 <el-form-item label="酒店级别">
-                  <el-select placeholder="酒店级别" v-model="formInline_hot" value="酒店级别">
+                  <el-select
+                    placeholder="酒店级别"
+                    v-model="formInline_hot"
+                    value="酒店级别"
+                  >
                     <el-option label="不限" value="buxian"></el-option>
                     <el-option label="五星豪华" value="wuxing"></el-option>
                     <el-option label="四星高档" value="sixing"></el-option>
@@ -229,7 +239,275 @@ export default {
       tabNum: 0,
       leftIndex: 0,
       formInline_num: "",
-      formInline_hot:""
+      formInline_hot: "",
+      options: [
+        {
+          value: "zhinan",
+          label: "指南",
+          children: [
+            {
+              value: "shejiyuanze",
+              label: "设计原则",
+              children: [
+                {
+                  value: "yizhi",
+                  label: "一致",
+                },
+                {
+                  value: "fankui",
+                  label: "反馈",
+                },
+                {
+                  value: "xiaolv",
+                  label: "效率",
+                },
+                {
+                  value: "kekong",
+                  label: "可控",
+                },
+              ],
+            },
+            {
+              value: "daohang",
+              label: "导航",
+              children: [
+                {
+                  value: "cexiangdaohang",
+                  label: "侧向导航",
+                },
+                {
+                  value: "dingbudaohang",
+                  label: "顶部导航",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          value: "zujian",
+          label: "组件",
+          children: [
+            {
+              value: "basic",
+              label: "Basic",
+              children: [
+                {
+                  value: "layout",
+                  label: "Layout 布局",
+                },
+                {
+                  value: "color",
+                  label: "Color 色彩",
+                },
+                {
+                  value: "typography",
+                  label: "Typography 字体",
+                },
+                {
+                  value: "icon",
+                  label: "Icon 图标",
+                },
+                {
+                  value: "button",
+                  label: "Button 按钮",
+                },
+              ],
+            },
+            {
+              value: "form",
+              label: "Form",
+              children: [
+                {
+                  value: "radio",
+                  label: "Radio 单选框",
+                },
+                {
+                  value: "checkbox",
+                  label: "Checkbox 多选框",
+                },
+                {
+                  value: "input",
+                  label: "Input 输入框",
+                },
+                {
+                  value: "input-number",
+                  label: "InputNumber 计数器",
+                },
+                {
+                  value: "select",
+                  label: "Select 选择器",
+                },
+                {
+                  value: "cascader",
+                  label: "Cascader 级联选择器",
+                },
+                {
+                  value: "switch",
+                  label: "Switch 开关",
+                },
+                {
+                  value: "slider",
+                  label: "Slider 滑块",
+                },
+                {
+                  value: "time-picker",
+                  label: "TimePicker 时间选择器",
+                },
+                {
+                  value: "date-picker",
+                  label: "DatePicker 日期选择器",
+                },
+                {
+                  value: "datetime-picker",
+                  label: "DateTimePicker 日期时间选择器",
+                },
+                {
+                  value: "upload",
+                  label: "Upload 上传",
+                },
+                {
+                  value: "rate",
+                  label: "Rate 评分",
+                },
+                {
+                  value: "form",
+                  label: "Form 表单",
+                },
+              ],
+            },
+            {
+              value: "data",
+              label: "Data",
+              children: [
+                {
+                  value: "table",
+                  label: "Table 表格",
+                },
+                {
+                  value: "tag",
+                  label: "Tag 标签",
+                },
+                {
+                  value: "progress",
+                  label: "Progress 进度条",
+                },
+                {
+                  value: "tree",
+                  label: "Tree 树形控件",
+                },
+                {
+                  value: "pagination",
+                  label: "Pagination 分页",
+                },
+                {
+                  value: "badge",
+                  label: "Badge 标记",
+                },
+              ],
+            },
+            {
+              value: "notice",
+              label: "Notice",
+              children: [
+                {
+                  value: "alert",
+                  label: "Alert 警告",
+                },
+                {
+                  value: "loading",
+                  label: "Loading 加载",
+                },
+                {
+                  value: "message",
+                  label: "Message 消息提示",
+                },
+                {
+                  value: "message-box",
+                  label: "MessageBox 弹框",
+                },
+                {
+                  value: "notification",
+                  label: "Notification 通知",
+                },
+              ],
+            },
+            {
+              value: "navigation",
+              label: "Navigation",
+              children: [
+                {
+                  value: "menu",
+                  label: "NavMenu 导航菜单",
+                },
+                {
+                  value: "tabs",
+                  label: "Tabs 标签页",
+                },
+                {
+                  value: "breadcrumb",
+                  label: "Breadcrumb 面包屑",
+                },
+                {
+                  value: "dropdown",
+                  label: "Dropdown 下拉菜单",
+                },
+                {
+                  value: "steps",
+                  label: "Steps 步骤条",
+                },
+              ],
+            },
+            {
+              value: "others",
+              label: "Others",
+              children: [
+                {
+                  value: "dialog",
+                  label: "Dialog 对话框",
+                },
+                {
+                  value: "tooltip",
+                  label: "Tooltip 文字提示",
+                },
+                {
+                  value: "popover",
+                  label: "Popover 弹出框",
+                },
+                {
+                  value: "card",
+                  label: "Card 卡片",
+                },
+                {
+                  value: "carousel",
+                  label: "Carousel 走马灯",
+                },
+                {
+                  value: "collapse",
+                  label: "Collapse 折叠面板",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          value: "ziyuan",
+          label: "资源",
+          children: [
+            {
+              value: "axure",
+              label: "Axure Components",
+            },
+            {
+              value: "sketch",
+              label: "Sketch Templates",
+            },
+            {
+              value: "jiaohu",
+              label: "组件交互文档",
+            },
+          ],
+        },
+      ],
     };
   },
   methods: {
@@ -506,18 +784,29 @@ export default {
           height: 300px;
           background-color: #2577e3;
           ul {
+            display: flex;
+            flex-direction: column;
+            // justify-content: space-between;
             li {
-              height: 40px;
-              line-height: 40px;
+              height: 43px;
+              line-height: 43px;
               // text-align: center;
               a {
                 font-size: 14px;
                 display: block;
-                height: 35px;
+                // height: 48px;
                 width: 60px;
                 margin-left: 20px;
                 border-bottom: 1px dashed #fff;
                 color: white;
+              }
+              &:hover {
+                background-color: #fff;
+                border-left: 5px solid #ff9915;
+                a {
+                  color: #2577e3;
+                  font-weight: 700;
+                }
               }
             }
             .active {
@@ -556,6 +845,11 @@ export default {
                 color: #333;
                 font-size: 16px;
                 padding-bottom: 3px;
+                &:hover {
+                  color: #06c;
+                  cursor: default;
+                  text-decoration: none;
+                }
               }
             }
           }
