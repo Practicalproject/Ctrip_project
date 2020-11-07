@@ -185,7 +185,7 @@ export default {
   name: "Accommodation",
   data() {
     return {
-      // indexRentals:''
+      indexRentals: {},
     };
   },
   mounted() {
@@ -195,8 +195,8 @@ export default {
     async getIndexRentals() {
       let result = await this.$API.index.getIndexRentals();
       if (result.code === 200) {
-        this.indexHotel = result.data;
-        console.log();
+        this.indexRentals = result.data;
+        console.log("@@@@", result.data);
       }
     },
   },
