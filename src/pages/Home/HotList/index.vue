@@ -48,7 +48,7 @@
             :key="tabContentItem.sort"
           >
             <a :href="tabContentItem.prdLnk">
-              <img :src="tabContentItem.img" alt="" />
+              <img v-lazy="tabContentItem.img" alt="" />
               <div class="item_mask">
                 <div class="title">
                   <span class="title_text">{{ tabContentItem.prdNme }}</span>
@@ -253,7 +253,7 @@
             >
               <a :href="tabContentItem.prdLnk" target="_blank"
                 ><div class="item-thumbnail">
-                  <img :src="tabContentItem.img" :alt="tabContentItem.prdNme" />
+                  <img v-lazy="tabContentItem.img" :alt="tabContentItem.prdNme" />
                 </div>
                 <p class="item-name">
                   {{ tabContentItem.prdNme }}
