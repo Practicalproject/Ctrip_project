@@ -198,58 +198,53 @@ export default {
   name: "CarRental",
   data() {
     return {
-      IndexOutside:{},
-      tabNum :1,
-      numIndex :0,
- 
-      
-    }
+      IndexOutside: {},
+      tabNum: 1,
+      numIndex: 0,
+    };
   },
   mounted() {
-    this.getIndexOutside('MeiGuo');
+    this.getIndexOutside("MeiGuo");
   },
   methods: {
-      // 境外接送机
-     async getIndexPickup(gb) {
+    // 境外接送机
+    async getIndexPickup(gb) {
       const result = await this.$API.index.getIndexPickup(gb);
-      console.log('111111',result);
-      if(result.code  === 200) {
-        this.IndexOutside = result.data
+      // console.log('111111',result);
+      if (result.code === 200) {
+        this.IndexOutside = result.data;
       }
     },
     // 境外租车
     async getIndexOutside(gb) {
       const result = await this.$API.index.getIndexOutside(gb);
-      console.log('222222',result);
-      if(result.code  === 200) {
-        this.IndexOutside = result.data
+      // console.log('222222',result);
+      if (result.code === 200) {
+        this.IndexOutside = result.data;
       }
     },
     // 境外接送机 和 大标题 高亮
-    changeNum(index){
-      if(index === 1){
-      this.getIndexOutside('MeiGuo')
- 
-      // console.log(this.IndexOutside.tabs)
-      }else if( index === 2){
-        this.getIndexPickup('GangAoTai')
-        // console.log(this.IndexOutside)
+    changeNum(index) {
+      if (index === 1) {
+        this.getIndexOutside("MeiGuo");
 
+        // console.log(this.IndexOutside.tabs)
+      } else if (index === 2) {
+        this.getIndexPickup("GangAoTai");
+        // console.log(this.IndexOutside)
       }
-      this.tabNum = index
+      this.tabNum = index;
       // console.log(this.IndexOutside)
     },
     // 详情图  切换
-    changeIndex(number,name){
-      if(this.tabNum  === 1){
-        this.getIndexOutside(name)
+    changeIndex(number, name) {
+      if (this.tabNum === 1) {
+        this.getIndexOutside(name);
       } else {
-        this.getIndexPickup(name)
+        this.getIndexPickup(name);
       }
-      //  this.numIndex  = number
-       
-    }
-   
+      this.numIndex = number;
+    },
   },
   // data() {
   //   return {
