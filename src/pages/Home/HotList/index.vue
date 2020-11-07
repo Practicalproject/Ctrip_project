@@ -79,7 +79,7 @@
           :key="imgItem.img"
         >
           <a :href="imgItem.url">
-            <img :src="imgItem.img" alt="" />
+            <img v-lazy="imgItem.img" alt="" />
           </a>
         </div>
       </div>
