@@ -172,7 +172,7 @@
               >
                 <a href="javascript:;">
                   <p class="carImg">
-                    <img :src="prdLstItem.img" alt="" />
+                    <img v-lazy="prdLstItem.img" alt="" />
                   </p>
                   <p class="carName">{{ prdLstItem.nme }}</p>
                   <p class="carPrice">
