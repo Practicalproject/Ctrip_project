@@ -212,6 +212,9 @@ export default {
             display: block;
             width: 100%;
             height: 100%;
+              a:hover {
+              color: #06c;
+            }
             a {
               text-decoration: none;
               color: #666;
