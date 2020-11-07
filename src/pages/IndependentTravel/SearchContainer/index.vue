@@ -1006,7 +1006,7 @@ export default {
       text-align: left;
       position: absolute;
       background-color: #fff;
-      z-index: 60;
+      z-index: 110;
       border: 1px solid #d6d6d6;
       margin-top: -1px;
       padding: 14px;
