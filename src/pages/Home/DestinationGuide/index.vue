@@ -4,29 +4,28 @@
     <!-- 标题行 -->
     <div class="modhd">
       <h2>
-        <span :class="{current:tabNum===1}" @click="tab(1)">
+        <span :class="{ current: tabNum === 1 }" @click="tab(1)">
           目的地攻略
           <i></i>
         </span>
-        <span :class="{current:tabNum===2}" @click="tab(2)">
+        <span :class="{ current: tabNum === 2 }" @click="tab(2)">
           旅游旗舰店
-          <i class="iconfont icon-shang "></i>
+          <i></i>
         </span>
       </h2>
     </div>
     <!-- 内容区 -->
-    <div class="mod_body">
+    <div class="mod_body" v-if="resData.tags">
       <!-- 内容区左侧 -->
       <div class="entrance">
-        <dl class="keyword" v-if="tags">
-          <dt class="keywordTitle" v-if="tags">{{ tags.nme }}</dt>
+        <dl class="keyword" >
+          <dt class="keywordTitle" >{{resData.tags.nme}}</dt>
           <dd
             class="keywordContainer"
-            v-for="(itemLst, index) in tags.itemLst"
-            :key="index"
+            v-for="(item, index) in resData.tags.itemLst" :key="index"
           >
             <span class="bgspan">
-              <a href="javascript: ;">{{ itemLst.nme }}</a>
+              <a :href="item.lnk">{{ item.nme }}</a>
             </span>
           </dd>
         </dl>
@@ -42,11 +41,10 @@
               <ul class="inner-tabs">
                 <li
                   :class="{ active: index === subIndex }"
-                  v-for="(tabsItem, index) in tabs"
-                  :key="index"
-                  @click="chengSubIndex(index)"
+                  v-for="(tab, index) in resData.tabs" :key="index"
+                  @click="chengSubIndex(index,tab.pinyin)"
                 >
-                  <a href="javascript: ;">{{ tabsItem.tabNme }}</a>
+                  <a href="javascript: ;">{{ tab.tabNme }}</a>
                 </li>
               </ul>
             </div>
@@ -58,15 +56,15 @@
             </div>
           </div>
           <!-- 主题内容 -->
-          <div class="priduct_body">
+          <div class="priduct_body" v-if="resData.prdLst">
             <!-- 图片详情区域 -->
             <ul class="pri_carContainer">
               <li
                 class="carList"
-                v-for="(prdLstItem, index) in prdLst"
+                v-for="(prdLstItem, index) in resData.prdLst"
                 :key="index"
               >
-                <a href="javascript:;">
+                <a :href="prdLstItem.lnk">
                   <p class="carImg">
                     <img :src="prdLstItem.img" alt="" />
                   </p>
@@ -86,37 +84,33 @@ export default {
   name: "DestinationGuide",
   data() {
     return {
-      tabNum:1,
+      tabNum: 1,
       destinationGuide: {},
       subIndex: 0,
+      resData: {},
+      QingQiQiuZhuanLan:'QingQiQiuZhuanLan',
     };
   },
   mounted() {
-    this.getDestinationGuide();
+    this.getDes(this.QingQiQiuZhuanLan);
   },
   methods: {
+    async getDes(qqq) {
+      let result = await this.$API.index.refDes(qqq);
+      if (result.code === 200) {
+        this.resData = result.data;
+      }
+    },
+    chengSubIndex(subIndex,flag){
+      this.subIndex = subIndex
+       this.getDes(flag);
+    },
     tab(num){
       this.tabNum = num
-    },
-    async getDestinationGuide() {
-      const resust = await this.$API.index.getDestinationGuide();
-      this.destinationGuide = resust.data;
-    },
-    chengSubIndex(index) {
-      this.subIndex = index;
-    },
+    }
   },
   computed: {
-    tabs() {
-      // tabNme
-      return this.destinationGuide.tabs;
-    },
-    prdLst() {
-      return this.destinationGuide.prdLst;
-    },
-    tags() {
-      return this.destinationGuide.tags;
-    },
+    
   },
 };
 </script>
@@ -149,6 +143,11 @@ export default {
           color: #06c;
           cursor: default;
         }
+        
+      }
+      .current {
+        cursor: default;
+        color: #06c;
         i {
           position: absolute;
           left: 50%;
@@ -164,10 +163,6 @@ export default {
           border-left: 6px solid transparent;
           border-right: 6px solid transparent;
         }
-      }
-      .current {
-        cursor: default;
-        color: #06c;
       }
     }
   }
