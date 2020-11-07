@@ -6,11 +6,11 @@
       <h2>
         <span :class="{ current: tabNum === 0 }" @click="tab(0)">
           当天玩乐/出境
-          <i></i>
+          <i v-if="this.tabNum === 0" class="iconfont icon-shang"></i>
         </span>
         <span :class="{ current: tabNum === 1 }" @click="tab(1)">
           当天玩乐/境内
-          <i class="iconfont icon-shang"></i>
+          <i v-if="this.tabNum === 1" class="iconfont icon-shang"></i>
         </span>
       </h2>
     </div>
@@ -69,7 +69,7 @@
               >
                 <a href="javascript:;">
                   <p class="carImg">
-                    <img :src="prdLstItem.img" alt="" />
+                    <img v-lazy="prdLstItem.img" alt="" />
                   </p>
                   <p class="carName">{{ prdLstItem.nme }}</p>
                   <p class="carPrice">
@@ -340,15 +340,18 @@ export default {
         }
         /* 图片区域 */
         .priduct_body {
+          height: 200px;
           .pri_carContainer {
-            display: flex;
-            justify-content: space-between;
-
+            /* display: flex;
+            justify-content: space-between; */
+            /* width: 300px; */
             .carList {
               /* margin-left: 10px; */
               width: 210px;
               overflow: hidden;
-              position: relative;
+              /* position: relative; */
+              float: left;
+              margin-right: 10px;
               &:hover {
                 /* border: 1px solid #ddd; */
                 box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
@@ -358,6 +361,9 @@ export default {
                 }
                 .carList_posi {
                   bottom: -30px;
+                }
+                &:nth-last-child(1) {
+                  margin-right: 0;
                 }
               }
               a .carImg {

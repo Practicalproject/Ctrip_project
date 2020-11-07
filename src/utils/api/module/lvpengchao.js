@@ -7,11 +7,15 @@ export default {
         return Ajax.get(baseURLv2 + '/getIndexOutside?gp=' + (gp ? gp : ''))
     },
     // 当地玩乐
-    getIndexPlaylocal(gp) {
-        return Ajax.get(baseURLv2 + '/getIndexPlaylocal?gp=' + (gp ? gp : ''))
-    },
+    // getIndexPlaylocal(gp) {
+    //     return Ajax.get(baseURLv2 + '/getIndexPlaylocal?gp=' + (gp ? gp : ''))
+    // },
     // 境外接送机
     getIndexPickup(gp) {
         return Ajax.get(baseURLv2 + '/getIndexPickup?gp=' + (gp ? gp : ''))
     },
+    // 全球购
+    getIndexGlobalpurchasing(gp) {
+        return Ajax.get(baseURLv2 + '/getIndexGlobalpurchasing?gp=' + (gp ? gp : ''))
+    }
 }

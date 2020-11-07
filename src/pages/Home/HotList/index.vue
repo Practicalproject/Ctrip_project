@@ -48,7 +48,7 @@
             :key="tabContentItem.sort"
           >
             <a :href="tabContentItem.prdLnk">
-              <img :src="tabContentItem.img" alt="" />
+              <img v-lazy="tabContentItem.img" alt="" />
               <div class="item_mask">
                 <div class="title">
                   <span class="title_text">{{ tabContentItem.prdNme }}</span>
@@ -79,7 +79,7 @@
           :key="imgItem.img"
         >
           <a :href="imgItem.url">
-            <img :src="imgItem.img" alt="" />
+            <img v-lazy="imgItem.img" alt="" />
           </a>
         </div>
       </div>
@@ -144,7 +144,7 @@
               class="entrance-item"
               :title="hotLnk.nme"
               v-for="(hotLnk, index) in hotLnks"
-              :key="hotLnks.pinyin"
+              :key="hotLnk.pinyin"
               ><a :href="hotLnks.lnk" target="_blank">{{ hotLnk.nme }}</a></span
             >
             <!-- <span class="entrance-item" title="上海"
@@ -253,7 +253,10 @@
             >
               <a :href="tabContentItem.prdLnk" target="_blank"
                 ><div class="item-thumbnail">
-                  <img :src="tabContentItem.img" :alt="tabContentItem.prdNme" />
+                  <img
+                    v-lazy="tabContentItem.img"
+                    :alt="tabContentItem.prdNme"
+                  />
                 </div>
                 <p class="item-name">
                   {{ tabContentItem.prdNme }}
