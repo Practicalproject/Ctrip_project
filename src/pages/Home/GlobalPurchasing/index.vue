@@ -11,18 +11,19 @@
       </h2>
     </div>
     <!-- 内容区 -->
-    <div class="modbd">
+    <div class="modbd" v-if="IndexGlobal">
       <!-- 内容区左侧 -->
       <div class="entrance">
         <dl class="keyword">
           <dt class="keywordTitle">热门目的地</dt>
           <dd
             class="keywordContainer"
-            v-for="(tagsItem, index) in tagsItemLst"
+            v-for="(itemtabs, index) in itemLst"
             :key="index"
           >
             <span class="bgspan">
-              <a href="javascript: ;">{{ tagsItem.nme }}</a>
+              <a href="javascript: ;"> {{ itemtabs.nme }}</a>
+              <!-- <span v-if="item.isHot === 'Y'" class="iconfont icon-huomiao"> </span> -->
             </span>
           </dd>
         </dl>
@@ -37,12 +38,12 @@
             <div class="pri_list">
               <ul class="inner-tabs">
                 <li
-                  :class="{ active: index === numIndex }"
-                  v-for="(tabsItem, index) in tabs"
+                  :class="{ active: tagsindex === index }"
+                  v-for="(itemtabs, index) in IndexGlobal.tabs"
                   :key="index"
-                  @click="changeIndex(index)"
+                  @click="changeIndex(index, itemtabs.pinyin)"
                 >
-                  <a href="javascript: ;">{{ tabsItem.tabNme }}</a>
+                  <a href="javascript: ;">{{ itemtabs.tabNme }} </a>
                 </li>
               </ul>
             </div>
@@ -57,22 +58,22 @@
           <!-- 主题内容 -->
           <div class="priductbd">
             <!-- 图片详情区域 -->
-            <ul class="carContainer">
+            <ul class="carContainer" v-if="IndexGlobal">
               <li
                 class="carList"
-                v-for="(prdLstItem, index) in prdLst"
+                v-for="(itemprdLst, index) in IndexGlobal.prdLst"
                 :key="index"
               >
                 <a href="javascript:;">
                   <p class="carImg">
-                    <img :src="prdLstItem.img" alt="" />
+                    <img :src="itemprdLst.img" alt="" />
                   </p>
-                  <p class="carName">{{ prdLstItem.nme }}</p>
+                  <p class="carName">{{ itemprdLst.nme }}</p>
                   <p class="carPrice">
-                    <span class="item-type">{{ prdLstItem.subNme }}</span>
-                    <span class="price" v-if="prdLstItem.price">
-                      <dfn>¥</dfn>
-                      {{ prdLstItem.price.amt }}
+                    <span class="item-type">{{ itemprdLst.subNme }}</span>
+                    <span class="price">
+                      <dfn v-if="!itemprdLst.disct" >¥</dfn>
+                      <!-- {{ prdLstItem.price.amt }} -->
                       <i class="priceInfo"></i>
                     </span>
                   </p>
@@ -91,30 +92,32 @@ export default {
   name: "GlobalPurchasing",
   data() {
     return {
-      globalPurchasing: {},
-      tagsItemLst: [],
-      numIndex: 0,
+      IndexGlobal: {},
+      tagsindex: 0,
+      tags: {},
     };
   },
   mounted() {
-    this.getGlobalPurchasing();
+    this.getIndexGlobalpurchasing("ReMenShangHu");
   },
   methods: {
-    async getGlobalPurchasing() {
-      const resule = await this.$API.index.getGlobalPurchasing();
-      this.globalPurchasing = resule.data;
-      this.tagsItemLst = resule.data.tags.itemLst;
+    async getIndexGlobalpurchasing(gp) {
+      if(gp === 'ReMenShangHu') gp = 'ReMenChengShi'
+      const result = await this.$API.index.getIndexGlobalpurchasing(gp);
+      // console.log(result);
+      this.IndexGlobal = result.data;
+      this.tags = result.data.tags;
     },
-    changeIndex(index) {
-      this.numIndex = index;
+    changeIndex(index, name) {
+      this.tagsindex = index;
+      
+      this.getIndexGlobalpurchasing(name);
+      // console.log(index, name)
     },
   },
   computed: {
-    tabs() {
-      return this.globalPurchasing.tabs;
-    },
-    prdLst() {
-      return this.globalPurchasing.prdLst;
+    itemLst() {
+      return this.tags.itemLst;
     },
   },
 };
