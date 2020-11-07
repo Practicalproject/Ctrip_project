@@ -81,18 +81,62 @@
     </div>
     <!-- 右侧 -->
     <div class="block">
-      <el-carousel trigger="click" height="150px">
-        <el-carousel-item>
-          <img class="item" src="" alt="" />
-        </el-carousel-item>
-      </el-carousel>
+      <div class="swiper-container" ref="mySwiper1">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img
+              src="https://dimg04.c-ctrip.com/images/0zg4612000852nrt0CDAE.jpg"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://dimg04.c-ctrip.com/images/0zg1m1200087lhhp087AD.jpg"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://dimg04.c-ctrip.com/images/0zg4612000852nrt0CDAE.jpg"
+            />
+          </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <!-- <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div> -->
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Swiper from "swiper";
+import "swiper/css/swiper.min.css";
 export default {
   name: "Swiper",
+  watch: {
+    bannerList: {
+      immediate: true,
+      handler() {
+        this.$nextTick(() => {
+          new Swiper(this.$refs.mySwiper1, {
+            loop: true, // 循环模式选项
+            // 如果需要分页器
+            pagination: {
+              el: ".swiper-pagination",
+            },
+
+            // 如果需要前进后退按钮
+            // navigation: {
+            //   nextEl: ".swiper-button-next",
+            //   prevEl: ".swiper-button-prev",
+            // },
+          });
+        });
+      },
+    },
+  },
 };
 </script>
 
@@ -100,6 +144,9 @@ export default {
 .container {
   width: 1180px;
   margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  // 左侧
   .leftBox {
     padding: 20px;
     height: 371px;
@@ -136,10 +183,12 @@ export default {
         }
       }
       .top_title {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        // display: flex;
+        // flex-wrap: wrap;
+        // justify-content: space-between;
         span {
+          float: left;
+          margin-right: 10px;
           a {
             color: #333;
             font-size: 14px;
@@ -152,7 +201,7 @@ export default {
       // background-color: skyblue;
       height: 200px;
       width: 100%;
-      border-bottom: 1px solid #ddd;
+      // border-bottom: 1px solid #ddd;
       margin-bottom: 10px;
       .bottom_header {
         font-size: 16px;
@@ -172,12 +221,14 @@ export default {
           font-size: 14px;
         }
       }
-      .bottom_title{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+      .bottom_title {
+        // display: flex;
+        // flex-wrap: wrap;
+        // justify-content: space-between;
         overflow: hidden;
         span {
+          float: left;
+          margin-right: 10px;
           a {
             color: #333;
             font-size: 14px;
@@ -189,26 +240,27 @@ export default {
       }
     }
   }
+  // 右侧
   .block {
-    float: right;
+    // float: right;
     width: 830px;
     // height: 410px;
     background-color: red;
-  }
-  .el-carousel__item h3 {
-    color: #475669;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 150px;
-    margin: 0;
-  }
-
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-
-  .el-carousel__item:nth-child(2n + 1) {
-    background-color: #d3dce6;
+    .swiper-container {
+      width: 830px;
+      height: 411px;
+      .swiper-wrapper {
+        img {
+          width: 830px;
+          height: 411px;
+        }
+      }
+      .swiper-pagination {
+        .swiper-pagination-bullet swiper-pagination-bullet-active {
+          background-color: red;
+        }
+      }
+    }
   }
 }
 </style>

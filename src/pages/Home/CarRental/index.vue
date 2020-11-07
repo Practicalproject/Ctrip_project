@@ -83,7 +83,7 @@
               >
                 <a href="javascript:;">
                   <p class="carImg">
-                    <img :src="prdLstItem.img" alt="" />
+                    <img v-lazy="prdLstItem.img" alt="" />
                   </p>
                   <p class="carName">{{ prdLstItem.nme }}</p>
                   <p class="carPrice">
@@ -121,7 +121,7 @@ export default {
     // 境外接送机
     async getIndexPickup(gb) {
       const result = await this.$API.index.getIndexPickup(gb);
-      // console.log("111111", result);
+      // console.log('111111',result);
       if (result.code === 200) {
         this.IndexOutside = result.data;
       }
@@ -129,7 +129,7 @@ export default {
     // 境外租车
     async getIndexOutside(gb) {
       const result = await this.$API.index.getIndexOutside(gb);
-      // console.log("222222", result);
+      // console.log('222222',result);
       if (result.code === 200) {
         this.IndexOutside = result.data;
       }
@@ -155,14 +155,6 @@ export default {
         this.getIndexPickup(name);
       }
       this.numIndex = number;
-    },
-
-    iconFont(item) {
-      if (item.isHot === "Y") {
-        return true
-      } else {
-        return false
-      }
     },
   },
   // data() {

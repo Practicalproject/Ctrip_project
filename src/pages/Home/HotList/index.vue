@@ -11,19 +11,19 @@
           周边游
           <i></i>
         </span>
-        <span :class="{ current: currNum === 3 }" @click="tab(3)">
+        <!-- <span :class="{ current: currNum === 3 }" @click="tab(3)">
           门票
           <i></i>
         </span>
         <span :class="{ current: currNum === 4 }" @click="tab(4)">
           出境游
           <i></i>
-        </span>
+        </span> -->
       </h2>
     </div>
 
     <!-- 热门内容主体 -->
-    <div class="hotList_sub" style="display: none">
+    <div class="hotList_sub" v-if="currNum === 1">
       <!-- 热门 -->
       <!-- 内容导航 -->
       <div class="sub_nav">
@@ -32,7 +32,7 @@
             :class="{ active: number === index }"
             v-for="(item, index) in destCitys"
             :key="item.pinyin"
-            @click="change(index, item.pinyin)"
+            @click="change(index, item.pinyin, currNum)"
           >
             <a href="javascript:;">{{ item.nme }}</a>
           </li>
@@ -48,7 +48,7 @@
             :key="tabContentItem.sort"
           >
             <a :href="tabContentItem.prdLnk">
-              <img :src="tabContentItem.img" alt="" />
+              <img v-lazy="tabContentItem.img" alt="" />
               <div class="item_mask">
                 <div class="title">
                   <span class="title_text">{{ tabContentItem.prdNme }}</span>
@@ -79,67 +79,75 @@
           :key="imgItem.img"
         >
           <a :href="imgItem.url">
-            <img :src="imgItem.img" alt="" />
+            <img v-lazy="imgItem.img" alt="" />
           </a>
         </div>
       </div>
     </div>
 
     <!-- 周边游内容主体 -->
-    <div class="mod-bd-panel" idx="3" style="display: block" eb="1">
+    <div v-else class="mod-bd-panel" idx="3" style="display: block" eb="1">
       <div class="entrance">
         <dl class="keyword-short">
           <dt>热门主题游</dt>
           <dd>
-            <span class="entrance-item" title="海岛"
-              ><a
-                href="https://vacations.ctrip.com/list/whole/sc2.html?sv=%e6%b5%b7%e5%b2%9b&amp;st=%e6%b5%b7%e5%b2%9b#ctm_ref=ssc_hp_tour_rt_txt_02"
-                target="_blank"
-                >海岛</a
-              ></span
-            ><span class="entrance-item" title="古镇"
-              ><a
+            <span
+              class="entrance-item"
+              :title="themeItem.nme"
+              v-for="(themeItem, index) in themeLst"
+              :key="themeItem.pinyin"
+            >
+              <a :href="themeItem.url" target="_blank">{{ themeItem.nme }} </a>
+            </span>
+
+            <!-- <span class="entrance-item" title="古镇">
+              <a
                 href="https://vacations.ctrip.com/list/whole/sc2.html?sv=%e5%8f%a4%e9%95%87&amp;st=%e5%8f%a4%e9%95%87#ctm_ref=ssc_hp_tour_rt_txt_02"
                 target="_blank"
-                >古镇</a
-              ></span
-            ><span class="entrance-item" title="蜜月"
+                >古镇
+              </a>
+            </span> -->
+            <!-- <span class="entrance-item" title="蜜月"
               ><a
                 href="https://vacations.ctrip.com/list/whole/sc2.html?sv=%e8%9c%9c%e6%9c%88&amp;st=%e8%9c%9c%e6%9c%88#ctm_ref=ssc_hp_tour_rt_txt_02"
                 target="_blank"
                 >蜜月</a
               ></span
-            ><span class="entrance-item" title="亲子"
+            > -->
+            <!-- <span class="entrance-item" title="亲子"
               ><a
                 href="https://vacations.ctrip.com/list/whole/sc2.html?sv=%e4%ba%b2%e5%ad%90&amp;st=%e4%ba%b2%e5%ad%90#ctm_ref=ssc_hp_tour_rt_txt_02"
                 target="_blank"
                 >亲子</a
               ></span
-            ><span class="entrance-item" title="爸妈游"
+            > -->
+            <!-- <span class="entrance-item" title="爸妈游"
               ><a
                 href="https://vacations.ctrip.com/list/whole/sc2.html?sv=%e7%88%b8%e5%a6%88%e6%b8%b8&amp;st=%e7%88%b8%e5%a6%88%e6%b8%b8#ctm_ref=ssc_hp_tour_rt_txt_02"
                 target="_blank"
                 >爸妈游</a
               ></span
-            ><span class="entrance-item" title="美食"
+            > -->
+            <!-- <span class="entrance-item" title="美食"
               ><a
                 href="https://vacations.ctrip.com/list/whole/sc2.html?sv=%e7%be%8e%e9%a3%9f&amp;st=%e7%be%8e%e9%a3%9f#ctm_ref=ssc_hp_tour_rt_txt_02"
                 target="_blank"
                 >美食</a
               ></span
-            >
+            > -->
           </dd>
         </dl>
         <dl class="keyword-short">
           <dt>热门目的地</dt>
           <dd>
-            <span class="entrance-item" title="精选"
-              ><a
-                href="https://vacations.ctrip.com/list/whole/sc2.html?sv=%e7%b2%be%e9%80%89&amp;st=%e7%b2%be%e9%80%89#ctm_ref=ssc_hp_tour_rt_txt_03"
-                target="_blank"
-                >精选</a
-              ></span
-            ><span class="entrance-item" title="上海"
+            <span
+              class="entrance-item"
+              :title="hotLnk.nme"
+              v-for="(hotLnk, index) in hotLnks"
+              :key="hotLnk.pinyin"
+              ><a :href="hotLnks.lnk" target="_blank">{{ hotLnk.nme }}</a></span
+            >
+            <!-- <span class="entrance-item" title="上海"
               ><a
                 href="https://vacations.ctrip.com/list/whole/d-shanghai-2.html?salecity=2#ctm_ref=ssc_hp_tour_rt_txt_03"
                 target="_blank"
@@ -193,23 +201,30 @@
                 target="_blank"
                 >安吉</a
               ></span
-            >
+            > -->
           </dd>
         </dl>
       </div>
       <div class="product">
         <div class="product-hd">
           <ul class="inner-tabs-nav">
-            <li class="active">
-              <a href="javascript:void(0);" pinyin="JingXuan">精选</a>
+            <li
+              :class="{ active: number === index }"
+              v-for="(destCity, index) in destCitysList"
+              :key="destCity.pinyin"
+              @click="change(index, destCity.pinyin)"
+            >
+              <a href="javascript:void(0);" :pinyin="destCity.pinyin">{{
+                destCity.nme
+              }}</a>
             </li>
-            <li><a href="javascript:void(0);" pinyin="ShangHai">上海</a></li>
+            <!-- <li><a href="javascript:void(0);" pinyin="ShangHai">上海</a></li>
             <li><a href="javascript:void(0);" pinyin="HangZhou">杭州</a></li>
             <li><a href="javascript:void(0);" pinyin="SuZhou">苏州</a></li>
             <li><a href="javascript:void(0);" pinyin="HuangShan">黄山</a></li>
             <li><a href="javascript:void(0);" pinyin="NanJing">南京</a></li>
             <li><a href="javascript:void(0);" pinyin="ZhouShan">舟山</a></li>
-            <li><a href="javascript:void(0);" pinyin="WuXi">无锡</a></li>
+            <li><a href="javascript:void(0);" pinyin="WuXi">无锡</a></li> -->
             <!-- <li class="dropdown-li">
               <div class="dropdown">
                 <a
@@ -233,29 +248,28 @@
             <div
               class="product-item"
               title="苏州+乌镇+杭州3日2晚跟团游(5钻)·万人纯玩明星线 『夜宿乌镇 2晚5钻酒店+三5A景+蟹意满满』留园+网红乌镇+漫游西湖 甄选明星阵容丨打卡乌镇西栅日与夜【三宴·高餐标50元丨苏式&amp;乌镇水乡宴&amp;龙井御茶宴】双11爆单款"
+              v-for="(tabContentItem, index) in tabContentLstInfo"
+              :key="index"
             >
-              <a
-                href="https://vacations.ctrip.com/tour/detail/p3541461s2.html#ctm_ref=ssc_hp_tour_rt_pro_01"
-                target="_blank"
+              <a :href="tabContentItem.prdLnk" target="_blank"
                 ><div class="item-thumbnail">
                   <img
-                    src="https://dimg04.c-ctrip.com/images/0303u120006swk805EF4A_C_228_132.jpg"
-                    alt="苏州+乌镇+杭州3日2晚跟团游(5钻)·万人纯玩明星线 『夜宿乌镇 2晚5钻酒店+三5A景+蟹意满满』留园+网红乌镇+漫游西湖 甄选明星阵容丨打卡乌镇西栅日与夜【三宴·高餐标50元丨苏式&amp;乌镇水乡宴&amp;龙井御茶宴】双11爆单款"
+                    v-lazy="tabContentItem.img"
+                    :alt="tabContentItem.prdNme"
                   />
                 </div>
                 <p class="item-name">
-                  苏州+乌镇+杭州3日2晚跟团游(5钻)·万人纯玩明星线 『夜宿乌镇
-                  2晚5钻酒店+三5A景+蟹意满满』留园+网红乌镇+漫游西湖
-                  甄选明星阵容丨打卡乌镇西栅日与夜【三宴·高餐标50元丨苏式&amp;乌镇水乡宴&amp;龙井御茶宴】双11爆单款
+                  {{ tabContentItem.prdNme }}
                 </p>
                 <p class="item-info">
                   <span class="price"
-                    ><dfn>¥</dfn>496<i class="price_info">起</i></span
+                    ><dfn>¥</dfn>{{ tabContentItem.price.amt
+                    }}<i class="price_info">起</i></span
                   ><span class="diamond diamond05"></span></p
               ></a>
             </div>
 
-            <div
+            <!-- <div
               class="product-item"
               title="上海2日1晚自由行(4钻)·【亲子自驾】住海昌海洋公园度假酒店1晚+上海海昌海洋公园门票2张·跨日无限次入园！畅游2日玩到爽！海豚 企鹅 美人鱼|和海洋生物亲密接触！"
             >
@@ -418,7 +432,7 @@
                     ><dfn>¥</dfn>1578<i class="price_info">起</i></span
                   ><span class="diamond diamond05"></span></p
               ></a>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -432,28 +446,46 @@ export default {
   data() {
     return {
       indexHot: {},
+      indexSurrounding: {},
       number: 0,
       currNum: 1,
     };
   },
   mounted() {
     this.getIndexHot("JingNei");
+    this.getIndexSurrounding("JingXuan");
   },
   methods: {
     tab(num) {
       this.currNum = num;
+      if (num === 1) {
+        this.getIndexHot("JingNei");
+      } else {
+        this.getIndexSurrounding("JingXuan");
+      }
     },
-    // 请求各大洲的函数
+    // 请求热门的函数
     async getIndexHot(diqu) {
       let result = await this.$API.index.getIndexHot(diqu);
       if (result.code === 200) {
         this.indexHot = result.data;
       }
     },
+    //  请求周边游
+    async getIndexSurrounding(diqu) {
+      let result = await this.$API.index.getIndexSurrounding(diqu);
+      if (result.code === 200) {
+        this.indexSurrounding = result.data;
+      }
+    },
     // 点击切换各大洲并发请求
-    change(index, diqu) {
+    change(index, diqu, currNum) {
       this.number = index;
-      this.getIndexHot(diqu);
+      if (currNum === 1) {
+        this.getIndexHot(diqu);
+      } else {
+        this.getIndexSurrounding(diqu);
+      }
     },
   },
   computed: {
@@ -462,6 +494,18 @@ export default {
     },
     destCitys() {
       return this.indexHot.destCitys;
+    },
+    tabContentLstInfo() {
+      return this.indexSurrounding.tabContentLst;
+    },
+    themeLst() {
+      return this.indexSurrounding.themeLst;
+    },
+    destCitysList() {
+      return this.indexSurrounding.destCitys;
+    },
+    hotLnks() {
+      return this.indexSurrounding.hotLnks;
     },
   },
 };
@@ -692,6 +736,10 @@ export default {
 
   // 周边游内容主体
   .mod-bd-panel {
+    padding: 0px 0px 10px 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    background-color: #fff;
     // 左侧
     .entrance {
       position: relative;
@@ -912,8 +960,8 @@ export default {
               }
             }
             &:hover {
-              box-shadow: 0 2px 2px rgba(0, 0, 0,.3);
-              img{
+              box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+              img {
                 transform: scale(1.1);
               }
             }

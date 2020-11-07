@@ -48,7 +48,7 @@
             :class="{ active: index === number }"
             v-for="(item, index) in tabLst"
             :key="index"
-            @click="change(index, item.pinyin)"
+            @click="change(index, item.pinyin,current)"
           >
             {{ item.tabNme }}
           </li>
@@ -193,7 +193,7 @@ export default {
       this.currNum = num;
       this.getIndexInternational(gp, num);
     },
-    // 请求热门栏目列表
+    // 请求机票列表函数
     async getIndexInternational(gp, num = 1) {
       this.changeId = num;
       if (num === 1) {
@@ -207,7 +207,6 @@ export default {
           this.InternationalTicket = result.data;
         }
       }
-      // console.log(result);
     },
     // 选择内部导航
     change(index, gp) {
@@ -369,6 +368,7 @@ export default {
             background: #3983e5;
             color: #fff;
             border-radius: 3px;
+            cursor: pointer;
           }
         }
         .active {
