@@ -153,6 +153,7 @@
                     placeholder="中文/拼音"
                   ></el-input>
                 </el-form-item>
+
                 <el-form-item label="入住日期">
                   <el-col :span="10">
                     <el-date-picker
@@ -172,44 +173,32 @@
                     ></el-time-picker>
                   </el-col>
                 </el-form-item>
-                <el-form-item label="入住日期">
-                  <el-col :span="10">
-                    <el-date-picker
-                      type="date"
-                      placeholder="选择日期"
-                      v-model="sizeForm.date1"
-                      style="width: 100%"
-                    ></el-date-picker>
-                  </el-col>
-                  <el-col class="line" :span="4">退房日期</el-col>
-                  <el-col :span="10">
-                    <el-time-picker
-                      type="date"
-                      placeholder="选择日期"
-                      v-model="sizeForm.date2"
-                      style="width: 100%"
-                    ></el-time-picker>
-                  </el-col>
+
+                <el-form-item label="房间数">
+                  <el-select
+                    placeholder="房间数"
+                    v-model="formInline_num"
+                    value="房间数"
+                  >
+                    <el-option
+                      :label="item"
+                      v-for="(item, index) in 10"
+                      :key="index"
+                      value="index"
+                    ></el-option>
+                  </el-select>
                 </el-form-item>
-                <el-form-item label="入住日期">
-                  <el-col :span="10">
-                    <el-date-picker
-                      type="date"
-                      placeholder="选择日期"
-                      v-model="sizeForm.date1"
-                      style="width: 100%"
-                    ></el-date-picker>
-                  </el-col>
-                  <el-col class="line" :span="4">退房日期</el-col>
-                  <el-col :span="10">
-                    <el-time-picker
-                      type="date"
-                      placeholder="选择日期"
-                      v-model="sizeForm.date2"
-                      style="width: 100%"
-                    ></el-time-picker>
-                  </el-col>
+
+                <el-form-item label="酒店级别">
+                  <el-select placeholder="酒店级别" v-model="formInline_hot" value="酒店级别">
+                    <el-option label="不限" value="buxian"></el-option>
+                    <el-option label="五星豪华" value="wuxing"></el-option>
+                    <el-option label="四星高档" value="sixing"></el-option>
+                    <el-option label="三星舒适" value="sanxing"></el-option>
+                    <el-option label="二星经济" value="erxing"></el-option>
+                  </el-select>
                 </el-form-item>
+
                 <el-button type="success" class="el_button">搜索</el-button>
               </el-form>
             </div>
@@ -239,6 +228,8 @@ export default {
       },
       tabNum: 0,
       leftIndex: 0,
+      formInline_num: "",
+      formInline_hot:""
     };
   },
   methods: {
@@ -573,6 +564,11 @@ export default {
             .el_button {
               position: absolute;
               right: 0;
+            }
+
+            display: flex;
+            /deep/.el-select .el-select--mini {
+              width: 130px;
             }
           }
         }
