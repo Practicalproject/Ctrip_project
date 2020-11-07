@@ -28,6 +28,9 @@
             <el-form-item label="手机号" label-width="185px">
               <el-input placeholder="有效手机号" v-model="phone"></el-input>
             </el-form-item>
+            <el-form-item label="验证码" label-width="185px">
+              <el-input v-model="yanzhengma" placeholder="请输入验证码"></el-input>
+            </el-form-item>
             <el-form-item label="" label-width="185px">
               <label class="base_label">
                 <input type="radio" :checked="isRead" @click="isRead_neg" />
@@ -98,6 +101,7 @@ export default {
       password1: "password",
       password2: "password",
       userData: {},
+      yanzhengma:''
     };
   },
   methods: {
