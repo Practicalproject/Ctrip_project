@@ -17,4 +17,8 @@ export default {
     getIndexDomestic(gp) {
         return Ajax.get(baseURLv2 + '/getIndexDomestic?gp=' + gp)
     },
+    // 周边游
+    getIndexSurrounding(diqu){
+        return Ajax.get(baseURLv2 + '/getIndexSurrounding?diqu=' + diqu)
+    }
 }
