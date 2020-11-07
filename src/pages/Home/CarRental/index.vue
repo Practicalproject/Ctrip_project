@@ -6,23 +6,23 @@
       <h2>
         <span :class="{ current: tabNum === 1 }" @click="changeNum(1)">
           境外租车
-          <i></i>
+         <i class="iconfont icon-shang" v-if="tabNum === 1 " ></i>
         </span>
         <span :class="{ current: tabNum === 2 }" @click="changeNum(2)">
           境外接送机
-          <i class="iconfont icon-shang"></i>
+          <i class="iconfont icon-shang" v-if="tabNum === 2 "></i>
         </span>
         <span :class="{ current: tabNum === 3 }" @click="changeNum(3)">
           国内租车
-          <i></i>
+          <i class="iconfont icon-shang" v-if="tabNum === 3 "></i>
         </span>
         <span :class="{ current: tabNum === 4 }" @click="changeNum(4)">
           国内接送机
-          <i></i>
+         <i class="iconfont icon-shang" v-if="tabNum === 4 "></i>
         </span>
         <span :class="{ current: tabNum === 5 }" @click="changeNum(5)">
           日租包车
-          <i></i>
+         <i class="iconfont icon-shang" v-if="tabNum === 5 "></i>
         </span>
       </h2>
     </div>
@@ -30,106 +30,17 @@
     <div class="modbd">
       <!-- 内容区左侧 -->
       <div class="entrance">
-        <dl class="keyword">
-          <dt class="keywordTitle">热门城市</dt>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">洛杉矶</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">旧金山</a>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">墨尔本</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">纽约</a>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">古曼</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">基督城</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">吉普赛</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">温哥华</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">悉尼</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">奥克兰</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">拉斯维加斯</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">西雅图</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">伦敦</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">法兰克福</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">多伦多</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">巴西</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">迪拜</a>
-              <span class="iconfont icon-huomiao"></span>
+        <dl class="keyword" v-if="IndexOutside.tags">
+          <dt class="keywordTitle">{{ IndexOutside.tags.nme }}</dt>
+          <dd
+            class="keywordContainer"
+            v-for="(item, index) in IndexOutside.tags.itemLst"
+            :key="index"
+          >
+            <span class="bgspan" v-if="IndexOutside.tags">
+              <a href="javascript: ;">{{ item.nme }}</a>
+              <!-- <span :class="{item.isHot === 'Y' ? (iconfont icon-huomiao) ? iconfont}"> </span> -->
+              <span v-if="item.isHot === 'Y'" class="iconfont icon-huomiao"> </span>
             </span>
           </dd>
         </dl>
@@ -489,6 +400,7 @@ export default {
               overflow: hidden;
               text-overflow: ellipsis;
               padding: 0 5px;
+              color: #666;
             }
             .carPrice {
               height: 35px;
