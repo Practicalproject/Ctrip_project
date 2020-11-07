@@ -1,5 +1,6 @@
 <template>
   <div class="swiper-container">
+    <!-- 导航 -->
     <div class="mod-wrap">
       <div class="mod">
         <h2 class="line-title">境外直通车<i class="icon-arrow"></i></h2>
@@ -44,7 +45,7 @@
         </ul>
       </div>
     </div>
-
+    <!-- 主体 -->
     <div class="wrap">
       <!-- swiper轮播图 -->
       <div class="wrp_wiper">
@@ -98,13 +99,22 @@
           <div class="small_right">
             <!-- 上方导航 -->
             <div class="right_top">
-              <span>
+              <span
+                :class="{ right_top_action: tabNum === 0 }"
+                @click="changeIndes(0)"
+              >
                 <a href="javascript:;">国内酒店</a>
               </span>
-              <span class="right_top_action">
+              <span
+                :class="{ right_top_action: tabNum === 1 }"
+                @click="changeIndes(1)"
+              >
                 <a href="javascript:;">海外酒店</a>
               </span>
-              <span>
+              <span
+                :class="{ right_top_action: tabNum === 2 }"
+                @click="changeIndes(2)"
+              >
                 <a href="javascript:;">民宿</a>
               </span>
             </div>
@@ -206,7 +216,13 @@ export default {
         resource: "",
         desc: "",
       },
+      tabNum: 0,
     };
+  },
+  methods: {
+    changeIndes(index) {
+      this.tabNum = index;
+    },
   },
   watch: {
     bannerList: {
