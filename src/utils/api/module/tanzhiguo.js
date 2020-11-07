@@ -20,7 +20,16 @@ export default {
             url:baseURLv2+'/getIndexDestination?gp='+qqq,
             method:'get',
         })
-    }
+    },
 
+
+    // 验证码
+    reqLogin(phone){
+        return Ajax({
+            url:baseURLv1+'/login/digits',
+            method:'post',
+            data:phone
+        })
+    }
     
 }

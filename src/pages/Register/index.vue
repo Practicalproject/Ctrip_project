@@ -1,5 +1,8 @@
 <template>
   <div class="registerContainer">
+    <button type="primary" class="ver" @click="clickver" ref="btn" :disabled='timeOut<60||!(/^1[3456789]\d{9}$/.test(phone))' v-if="gopas">
+      点击发送验证码
+    </button>
     <button
       class="button1 iconfont icon-hj"
       @click="butpas1"
@@ -26,10 +29,13 @@
         <div class="reg_form">
           <el-form class="demo-form-inline" v-if="gopas">
             <el-form-item label="手机号" label-width="185px">
-              <el-input placeholder="有效手机号" v-model="phone"></el-input>
+              <el-input placeholder="请输入有效手机号" v-model="phone"></el-input>
             </el-form-item>
             <el-form-item label="验证码" label-width="185px">
-              <el-input v-model="yanzhengma" placeholder="请输入验证码"></el-input>
+              <el-input
+                v-model="yanzhengma"
+                placeholder="请输入验证码"
+              ></el-input>
             </el-form-item>
             <el-form-item label="" label-width="185px">
               <label class="base_label">
@@ -101,10 +107,26 @@ export default {
       password1: "password",
       password2: "password",
       userData: {},
-      yanzhengma:''
+      yanzhengma: "",
+      timeOut: 60,
     };
   },
   methods: {
+    // 点击发送验证码
+    clickver() {
+      console.log(this.phone.length);
+    let setInt = setInterval(() => {
+        this.timeOut--;
+        this.$refs.btn.innerHTML = '验证码已发送('+this.timeOut+'s)';
+        if(this.timeOut === 0){
+          clearInterval(setInt)
+          this.timeOut = 60
+          this.$refs.btn.innerHTML = '点击发送验证码';
+        }
+      }, 1000);
+      // 发送请求 //  /login/digits
+      this.$API.index.reqLogin(this.phone)
+    },
     // 手机号正则验证
     verPhone() {
       if (!/^1[3456789]\d{9}$/.test(this.phone)) {
@@ -160,12 +182,12 @@ export default {
         this.userData = await this.$API.index.loginUser(this.phone, this.passw);
         if (this.userData.code === 20000) {
           this.open6();
-          this.active = 3
-          setTimeout(()=>{
-            this.$router.push('/login')
-          },3000)
-        }else if(this.userData.code===20001){
-          this.open7()
+          this.active = 3;
+          setTimeout(() => {
+            this.$router.push("/login");
+          }, 3000);
+        } else if (this.userData.code === 20001) {
+          this.open7();
         }
         // 正则不通过,提示消息
       } else if (
@@ -213,6 +235,14 @@ export default {
 <style lang="less" scoped>
 .registerContainer {
   width: 100%;
+
+  //验证码按钮
+  .ver {
+    position: absolute;
+    top: 196px;
+    left: 880px;
+    z-index: 10;
+  }
   // 头部
   .button1 {
     position: absolute;
