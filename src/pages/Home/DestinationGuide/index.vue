@@ -18,11 +18,12 @@
     <div class="mod_body" v-if="resData.tags">
       <!-- 内容区左侧 -->
       <div class="entrance">
-        <dl class="keyword" >
-          <dt class="keywordTitle" >{{resData.tags.nme}}</dt>
+        <dl class="keyword">
+          <dt class="keywordTitle">{{ resData.tags.nme }}</dt>
           <dd
             class="keywordContainer"
-            v-for="(item, index) in resData.tags.itemLst" :key="index"
+            v-for="(item, index) in resData.tags.itemLst"
+            :key="index"
           >
             <span class="bgspan">
               <a :href="item.lnk">{{ item.nme }}</a>
@@ -41,8 +42,9 @@
               <ul class="inner-tabs">
                 <li
                   :class="{ active: index === subIndex }"
-                  v-for="(tab, index) in resData.tabs" :key="index"
-                  @click="chengSubIndex(index,tab.pinyin)"
+                  v-for="(tab, index) in resData.tabs"
+                  :key="index"
+                  @click="chengSubIndex(index, tab.pinyin)"
                 >
                   <a href="javascript: ;">{{ tab.tabNme }}</a>
                 </li>
@@ -88,7 +90,7 @@ export default {
       destinationGuide: {},
       subIndex: 0,
       resData: {},
-      QingQiQiuZhuanLan:'QingQiQiuZhuanLan',
+      QingQiQiuZhuanLan: "QingQiQiuZhuanLan",
     };
   },
   mounted() {
@@ -101,17 +103,15 @@ export default {
         this.resData = result.data;
       }
     },
-    chengSubIndex(subIndex,flag){
-      this.subIndex = subIndex
-       this.getDes(flag);
+    chengSubIndex(subIndex, flag) {
+      this.subIndex = subIndex;
+      this.getDes(flag);
     },
-    tab(num){
-      this.tabNum = num
-    }
+    tab(num) {
+      this.tabNum = num;
+    },
   },
-  computed: {
-    
-  },
+  computed: {},
 };
 </script>
 
@@ -143,7 +143,6 @@ export default {
           color: #06c;
           cursor: default;
         }
-        
       }
       .current {
         cursor: default;
@@ -152,7 +151,7 @@ export default {
           position: absolute;
           left: 50%;
           margin-left: -6px;
-          bottom: -6px;
+          bottom: -8px;
           width: 12px;
           height: 6px;
           overflow: hidden;
