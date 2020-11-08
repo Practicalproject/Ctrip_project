@@ -731,38 +731,44 @@ export default {
                 box-shadow: 1px 1px 1px #ddd inset;
               }
 
-              .el-button {
-                float: right;
-                margin-top: 30px;
-                width: 145px;
-                height: 33px;
-                color: #fff;
-                text-shadow: 1px 1px 0 #cf7000;
-                background-color: #ffb000;
-                border: solid 1px #e77c00;
-                padding: 0;
-                font-size: 16px;
-                font-family: "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;
-                font-weight: bold;
-                cursor: pointer;
-                text-align: center;
-                letter-spacing: 0.4em;
-                text-indent: 0.4em;
-                box-shadow: 0 1px 0 rgba(95, 50, 0, 0.7);
-                border-radius: 3px;
-                &:hover {
-                  border: 2px solid #000;
-                  box-shadow: none;
-                  background-color: #f79700;
-                  //border-color: #de7800;
-                }
+              .el-form-item__content {
+                position: static;
 
-                span {
-                  width: 100%;
-                  height: 100%;
-                }
+                .el-button {
+                  float: right;
+                  margin-top: 30px;
+                  width: 145px;
+                  height: 33px;
+                  color: #fff;
+                  text-shadow: 1px 1px 0 #cf7000;
+                  background-color: #ffb000;
+                  border: solid 1px #e77c00;
+                  padding: 0;
+                  font-size: 16px;
+                  font-family: "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;
+                  font-weight: bold;
+                  cursor: pointer;
+                  text-align: center;
+                  letter-spacing: 0.4em;
+                  text-indent: 0.4em;
+                  box-shadow: 0 1px 0 rgba(95, 50, 0, 0.7);
+                  border-radius: 3px;
 
+                  &:hover {
+                    border: 2px solid #000;
+                    box-shadow: none;
+                    background-color: #f79700;
+                    //border-color: #de7800;
+                  }
+
+                  span {
+                    width: 100%;
+                    height: 100%;
+                  }
+
+                }
               }
+
             }
 
 
