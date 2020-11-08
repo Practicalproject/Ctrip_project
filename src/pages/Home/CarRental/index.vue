@@ -6,23 +6,23 @@
       <h2>
         <span :class="{ current: tabNum === 1 }" @click="changeNum(1)">
           境外租车
-          <i></i>
+          <i class="iconfont icon-shang" v-if="tabNum === 1"></i>
         </span>
         <span :class="{ current: tabNum === 2 }" @click="changeNum(2)">
           境外接送机
-          <i class="iconfont icon-shang"></i>
+          <i class="iconfont icon-shang" v-if="tabNum === 2"></i>
         </span>
         <span :class="{ current: tabNum === 3 }" @click="changeNum(3)">
           国内租车
-          <i></i>
+          <i class="iconfont icon-shang" v-if="tabNum === 3"></i>
         </span>
         <span :class="{ current: tabNum === 4 }" @click="changeNum(4)">
           国内接送机
-          <i></i>
+          <i class="iconfont icon-shang" v-if="tabNum === 4"></i>
         </span>
         <span :class="{ current: tabNum === 5 }" @click="changeNum(5)">
           日租包车
-          <i></i>
+          <i class="iconfont icon-shang" v-if="tabNum === 5"></i>
         </span>
       </h2>
     </div>
@@ -30,106 +30,18 @@
     <div class="modbd">
       <!-- 内容区左侧 -->
       <div class="entrance">
-        <dl class="keyword">
-          <dt class="keywordTitle">热门城市</dt>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">洛杉矶</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">旧金山</a>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">墨尔本</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">纽约</a>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">古曼</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">基督城</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">吉普赛</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">温哥华</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">悉尼</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">奥克兰</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">拉斯维加斯</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">西雅图</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">伦敦</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">法兰克福</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">多伦多</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">巴西</a>
-              <span class="iconfont icon-huomiao"></span>
-            </span>
-          </dd>
-          <dd class="keywordContainer">
-            <span class="bgspan">
-              <a href="javascript: ;">迪拜</a>
-              <span class="iconfont icon-huomiao"></span>
+        <dl class="keyword" v-if="IndexOutside.tags">
+          <dt class="keywordTitle">{{ IndexOutside.tags.nme }}</dt>
+          <dd
+            class="keywordContainer"
+            v-for="(item, index) in IndexOutside.tags.itemLst"
+            :key="index"
+          >
+            <span class="bgspan" v-if="IndexOutside.tags">
+              <a href="javascript: ;">{{ item.nme }}</a>
+              <!-- <span :class="{item.isHot === 'Y' ? (iconfont icon-huomiao) ? iconfont}"> </span> -->
+              <span v-if="item.isHot === 'Y'" class="iconfont icon-huomiao">
+              </span>
             </span>
           </dd>
         </dl>
@@ -172,7 +84,7 @@
               >
                 <a href="javascript:;">
                   <p class="carImg">
-                    <img :src="prdLstItem.img" alt="" />
+                    <img v-lazy="prdLstItem.img" alt="" />
                   </p>
                   <p class="carName">{{ prdLstItem.nme }}</p>
                   <p class="carPrice">
@@ -198,58 +110,53 @@ export default {
   name: "CarRental",
   data() {
     return {
-      IndexOutside:{},
-      tabNum :1,
-      numIndex :0,
- 
-      
-    }
+      IndexOutside: {},
+      tabNum: 1,
+      numIndex: 0,
+    };
   },
   mounted() {
-    this.getIndexOutside('MeiGuo');
+    this.getIndexOutside("MeiGuo");
   },
   methods: {
-      // 境外接送机
-     async getIndexPickup(gb) {
+    // 境外接送机
+    async getIndexPickup(gb) {
       const result = await this.$API.index.getIndexPickup(gb);
-      console.log('111111',result);
-      if(result.code  === 200) {
-        this.IndexOutside = result.data
+      // console.log('111111',result);
+      if (result.code === 200) {
+        this.IndexOutside = result.data;
       }
     },
     // 境外租车
     async getIndexOutside(gb) {
       const result = await this.$API.index.getIndexOutside(gb);
-      console.log('222222',result);
-      if(result.code  === 200) {
-        this.IndexOutside = result.data
+      // console.log('222222',result);
+      if (result.code === 200) {
+        this.IndexOutside = result.data;
       }
     },
     // 境外接送机 和 大标题 高亮
-    changeNum(index){
-      if(index === 1){
-      this.getIndexOutside('MeiGuo')
- 
-      // console.log(this.IndexOutside.tabs)
-      }else if( index === 2){
-        this.getIndexPickup('GangAoTai')
-        // console.log(this.IndexOutside)
+    changeNum(index) {
+      if (index === 1) {
+        this.getIndexOutside("MeiGuo");
 
+        // console.log(this.IndexOutside.tabs)
+      } else if (index === 2) {
+        this.getIndexPickup("GangAoTai");
+        // console.log(this.IndexOutside)
       }
-      this.tabNum = index
+      this.tabNum = index;
       // console.log(this.IndexOutside)
     },
     // 详情图  切换
-    changeIndex(number,name){
-      if(this.tabNum  === 1){
-        this.getIndexOutside(name)
+    changeIndex(number, name) {
+      if (this.tabNum === 1) {
+        this.getIndexOutside(name);
       } else {
-        this.getIndexPickup(name)
+        this.getIndexPickup(name);
       }
-      //  this.numIndex  = number
-       
-    }
-   
+      this.numIndex = number;
+    },
   },
   // data() {
   //   return {
@@ -317,7 +224,7 @@ export default {
           position: absolute;
           left: 50%;
           margin-left: -6px;
-          bottom: -6px;
+          bottom: -8px;
           width: 12px;
           height: 6px;
           overflow: hidden;
@@ -374,12 +281,16 @@ export default {
             display: block;
             width: 100%;
             height: 100%;
+            a:hover {
+              color: #06c;
+            }
             a {
               text-decoration: none;
               color: #666;
               display: inline-block;
               max-width: 72px;
             }
+
             .iconfont {
               position: absolute;
               top: -12px;
@@ -494,6 +405,7 @@ export default {
               overflow: hidden;
               text-overflow: ellipsis;
               padding: 0 5px;
+              color: #666;
             }
             .carPrice {
               height: 35px;

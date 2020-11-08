@@ -22,6 +22,7 @@
     <BusinessTravel></BusinessTravel>
     <Partner></Partner>
     <Footer></Footer>
+    <Advertising></Advertising>
   </div>
 </template>
 
@@ -38,6 +39,8 @@ import BusinessTravel from "./BusinessTravel";
 import PopDestinations from "./PopDestinations";
 import GlobalPurchasing from "./GlobalPurchasing";
 import DestinationGuide from "./DestinationGuide";
+import Advertising from "./Advertising"
+
 export default {
   name: "Home",
   components: {
@@ -53,6 +56,7 @@ export default {
     PopDestinations,
     GlobalPurchasing,
     DestinationGuide,
+    Advertising
   },
 };
 </script>

@@ -9,6 +9,17 @@ export default {
 
     // 获取第二板块 海外民宿+短租 数据
     getIndexRentals() {
-        return Ajax.get(baseURLv2 + 'getIndexRentals')
+        return Ajax.get(baseURLv2 + '/getIndexRentals')
+    },
+
+    // 自由行
+    getIndependentOverseas() {
+        return Ajax.get(baseURLv2 + '/getIndependentOverseas')
+    },
+
+
+    // 周边游
+    getIndependentTerritory() {
+        return Ajax.get(baseURLv2 + '/getIndependentTerritory')
     }
 }
