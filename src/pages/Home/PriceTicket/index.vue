@@ -48,7 +48,7 @@
             :class="{ active: index === number }"
             v-for="(item, index) in tabLst"
             :key="index"
-            @click="change(index, item.pinyin,current)"
+            @click="change(index, item.pinyin)"
           >
             {{ item.tabNme }}
           </li>
@@ -178,6 +178,7 @@ export default {
       number: 0,
       isFlag: true,
       changeId: 1,
+      prevNum: 0,
     };
   },
   mounted() {
@@ -190,8 +191,12 @@ export default {
     },
     // 标题切换并发请求
     tab(gp, num) {
+      this.number = 0
       this.currNum = num;
+
       this.getIndexInternational(gp, num);
+
+      // this.prevNum = this.number;
     },
     // 请求机票列表函数
     async getIndexInternational(gp, num = 1) {

@@ -9,7 +9,14 @@ module.exports = {
         "libraryName": "element-ui",
         "styleLibraryName": "theme-chalk"
       }
-    ]
+    ],
+    [
+      'import',
+      {
+        libraryName: '@amap/amap-vue',
+        libraryDirectory: 'lib',
+      },
+    ],
   ]
 
 }

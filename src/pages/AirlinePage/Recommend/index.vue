@@ -305,7 +305,8 @@ export default {
   name: "Recommend",
   data() {
     return {
-      value:''
+      value:'',
+      options:[]
     }
   },
 };

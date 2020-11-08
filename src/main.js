@@ -1,7 +1,30 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from '@/router'
-import { Carousel, Card, Option, CarouselItem, Form, FormItem, Input, Select, Col, DatePicker, TimePicker, Switch, CheckboxGroup, Checkbox, Radio, RadioGroup, Button, Tabs, TabPane, Message, Steps, Step } from 'element-ui';
+import {
+  Carousel,
+  Card,
+  Option,
+  CarouselItem,
+  Form,
+  FormItem,
+  Input,
+  Select,
+  Col,
+  DatePicker,
+  TimePicker,
+  Switch,
+  CheckboxGroup,
+  Checkbox,
+  Radio,
+  RadioGroup,
+  Button,
+  Tabs,
+  TabPane,
+  Message,
+  Steps,
+  Step
+} from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.config.productionTip = false
@@ -9,6 +32,14 @@ Vue.use(Carousel);
 Vue.use(CarouselItem);
 Vue.use(Card);
 Vue.use(Option);
+
+
+// 高德地图
+// import AmapVue from "@amap/amap-vue";
+import AmapVueConfig from '@amap/amap-vue/lib/config';
+AmapVueConfig.key = '01f74d729627b2a02e27c22d4546c4e5';
+// Vue.use(AmapVue);
+
 
 // 引入API
 import * as API from "@/utils/api"
