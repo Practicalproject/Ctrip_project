@@ -65,7 +65,8 @@
             v-for="(caleLstItem, index) in caleLst"
             :key="index"
           >
-            <a href="InternationalTicket.url" class="detail">
+            <!-- <a href="InternationalTicket.url" class="detail"> -->
+            <router-link to="/airlinepage" class="detail">
               <p class="cityInfo">
                 {{ caleLstItem.acNme }}
                 <i></i>
@@ -80,7 +81,8 @@
                 </span>
                 <span class="button">立抢</span>
               </p>
-            </a>
+              <!-- </a> -->
+            </router-link>
           </div>
           <!-- <div class="conItem">
             <a href="javascript:;" class="detail">
@@ -191,7 +193,7 @@ export default {
     },
     // 标题切换并发请求
     tab(gp, num) {
-      this.number = 0
+      this.number = 0;
       this.currNum = num;
 
       this.getIndexInternational(gp, num);
