@@ -1,7 +1,8 @@
 <template>
   <div id="fl_wrap_default">
     <div class="fl_open_wrap" :class="{active:isShow}">
-      <div class="fl_open_wrap_cntr" id="float_100_open" @click="toAD"></div>
+      <div class="fl_open_wrap_cntr" id="float_100_open" :style="{'background-position': `${time}px`}"
+           @click="toAD"></div>
     </div>
 
     <div class="fl_pop_wrap" :class="{active:!isShow}">
@@ -29,14 +30,20 @@ export default {
   name: "index",
   data() {
     return {
+      time: 0,
       isShow: true
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.time = -82
+    }, 5000)
   },
   methods: {
     toAD() {
       this.isShow = !this.isShow
     }
-  }
+  },
 }
 </script>
 
@@ -58,7 +65,6 @@ export default {
     }
 
 
-
     .fl_open_wrap_cntr {
       position: absolute;
       left: 0;
@@ -68,6 +74,8 @@ export default {
       background: url(./images/fl_open_wrap.png) no-repeat;
       cursor: pointer;
       background-position: -82px 0;
+      transition: all 1s ease;
+
     }
   }
 
@@ -85,7 +93,7 @@ export default {
     &.active {
       left: 0;
     }
-;
+  ;
 
     .fl_pop_wrap_cntr {
       position: absolute;
