@@ -783,6 +783,7 @@
 
       <!-- 常见问题内容 -->
       <div class="question">
+        <!-- 接送机 -->
         <div class="question_item">
           <div class="item_top">
             <img src="./images/04.png" alt="" />
@@ -790,7 +791,135 @@
           </div>
           <div class="item_bottom">
             <ul>
-              <li><a href="javascript:;">航班延误的话，司机还会不会继续等我，有没有额外等候的费用需要我支付？</a></li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  航班延误的话，司机还会不会继续等我，有没有额外等候的费用需要我支付？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  使用接送机产品时所要到达的区域不在可选择的范围内怎么办？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  使用接送机产品时不知道所要送达的区域怎么办？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  我如何找到我的司机、车辆或接送地点？
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 境外租车 -->
+        <div class="question_item">
+          <div class="item_top">
+            <img src="./images/05.png" alt="" />
+            <span>境外租车</span>
+          </div>
+          <div class="item_bottom">
+            <ul>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  境外租车的取车流程是怎样的？怎么取车？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  境外自驾租车需提前多久预订？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  境外租车的附加设备/附加服务有哪些？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                 境外租车资格和所需驾照\证件是哪些？
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 国内租车 -->
+        <div class="question_item">
+          <div class="item_top">
+            <img src="./images/06.png" alt="" />
+            <span>国内租车</span>
+          </div>
+          <div class="item_bottom">
+            <ul>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  什么是异地还车？是否需收费？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  用车时间超出了预订的时间怎么收费？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  香港、台湾以及外籍人士如何预订国内自驾产品？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  若提前还车，已经预付的金额可以退还吗？
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 按天包车 -->
+        <div class="question_item">
+          <div class="item_top">
+            <img src="./images/07.png" alt="" />
+            <span>按天包车</span>
+          </div>
+          <div class="item_bottom">
+            <ul>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  什么是夜间服务费？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  长途行驶费是如何计算的？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  日用车仅限在市内使用及上下车地点只可在市内该怎么理解？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  出发下车地点不在主市区之内是否可以使用日用车及半日用车服务？
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -798,6 +927,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import "swiper/css/swiper.min.css";
 import Swiper from "swiper";
@@ -828,6 +958,8 @@ export default {
   },
 };
 </script>
+
+
 <style lang='less' scoped>
 .wrap {
   position: relative;
@@ -1355,8 +1487,10 @@ export default {
     display: flex;
     justify-content: space-between;
     .question_item {
+      width: 275px;
       .item_top {
         height: 36px;
+        margin-bottom: 10px;
         span {
           line-height: 36px;
           font: 18px/36px Microsoft Yahei;
@@ -1365,6 +1499,21 @@ export default {
         img {
           height: 20px;
           margin-right: 10px;
+        }
+      }
+      .item_bottom {
+        ul {
+          li {
+            margin-bottom: 10px;
+            a {
+              font: 12px/1.5 arial, Simsun, sans-serif;
+              color: #333;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 1;
+              overflow: hidden;
+            }
+          }
         }
       }
     }
