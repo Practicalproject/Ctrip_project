@@ -142,9 +142,30 @@
         </div>
         <ul class="topRight">
           <li>
-            <router-link class="active" to="/login">你好，请登陆</router-link>
+            <a
+              class="active userhover"
+              v-if="userData"
+              style="margin-right: 10px"
+            >
+              <div class="user">
+                <img :src="userData.avatar" />
+                <div>{{ userData.nickName }}</div>
+                <div class="outuser" @click="outuser">
+                  退出
+                </div>
+              </div>
+              尊敬的会员
+              <i class="iconfont icon-xiaosanjiao"></i>
+            </a>
+            <router-link class="active" to="/login" v-else
+              >你好，请登陆</router-link
+            >
           </li>
-          <li><router-link class="active" to="/register">免费注册</router-link></li>
+          <li>
+            <router-link class="active" to="/register" v-if="!userData"
+              >免费注册</router-link
+            >
+          </li>
           <li>
             <i class="iconfont icon-duanxin"></i>
             <a href="javascript:;">消息</a>
@@ -242,10 +263,7 @@
       </div>
     </div>
     <!-- 除了首页\机票页面\攻略页面 -->
-    <nav
-      class="navContainer"
-      @mouseleave="navId = $route.query.navId"
-    >
+    <nav class="navContainer" @mouseleave="navId = $route.query.navId">
       <ul class="cui_nav_ul">
         <li>
           <router-link to="/home">首页</router-link>
@@ -297,13 +315,20 @@ export default {
       navList: [],
       navId: this.$route.query.navId ? this.$route.query.navId : "",
       isShow: false,
+      userData: {},
     };
   },
   mounted() {
     // 发请求获取导航数据
     this.getNavData();
+    this.userData = JSON.parse(localStorage.getItem("USERDATA"));
   },
   methods: {
+    // 退出登录
+    outuser(){
+      this.userData = ''
+      localStorage.removeItem('USERDATA')
+    },
     // 鼠标移除
     removed() {
       // this.prevNavId = this.navId;
@@ -395,6 +420,7 @@ export default {
       display: flex;
       justify-content: space-between;
       position: relative;
+
       .topLeft {
         width: 50%;
         height: 100%;
@@ -481,12 +507,14 @@ export default {
         }
       }
       .topRight {
+        box-sizing: border-box;
         > li {
           float: left;
           height: 36px;
           line-height: 36px;
           padding: 0 10px;
           position: relative;
+          box-sizing: border-box;
           &:nth-of-type(1)::after,
           &:nth-last-of-type(1)::after,
           &:nth-last-of-type(2)::after {
@@ -631,6 +659,54 @@ export default {
               }
             }
           }
+        }
+        .userhover {
+          padding: 0 15px;
+          // background-color: pink;
+          box-sizing: border-box;
+          border: 1px solid transparent;
+          border-top:none;
+          border-bottom: none;
+          .user {
+            width: 240px;
+            position: absolute;
+            top: 36px;
+            left: 10px;
+            background-color: #fff;
+            z-index: 10;
+            padding: 10px;
+            display: flex;
+            line-height: 84px;
+            border: 1px solid #d9d9d9;
+            display: none;
+            // border-top: none;
+            img {
+              display: block;
+              width: 64px;
+              height: 64px;
+              border-radius: 50%;
+              margin-right: 60px;
+            }
+            .outuser{
+              // background-color: pink;
+              position: absolute;
+              top: -30px;
+              right: 8px;
+              cursor: pointer;
+            }
+          }
+        }
+        .userhover:hover {
+          background-color: #fff;
+          border: 1px solid #d9d9d9;
+          box-sizing: border-box;
+          border-top: none;
+          // width: 106px;
+          // height: 36px;
+        }
+        .userhover:hover .user {
+          display: block;
+          display: flex;
         }
       }
     }

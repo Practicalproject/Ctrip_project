@@ -23,7 +23,8 @@ import {
   TabPane,
   Message,
   Steps,
-  Step
+  Step,
+  TimeSelect
 } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
@@ -68,7 +69,7 @@ Vue.use(Tabs)
 Vue.use(TabPane)
 Vue.use(Steps)
 Vue.use(Step)
-
+Vue.use(TimeSelect)
 Vue.prototype.$message = Message;
 
 new Vue({

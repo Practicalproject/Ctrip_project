@@ -34,43 +34,83 @@
       <div class="searchOut">
         <div class="searchBox">
           <p class="searchTag">
-            <a>境外租车</a>
-            <a>国内租车</a>
-            <a>接送机</a>
-            <a>接送火车</a>
-            <a>按天包车</a>
+            <a :class="{ current: num === 1 }" @click="changecla(1)"
+              ><i></i> 境外租车</a
+            >
+            <a :class="{ current: num === 2 }" @click="changecla(2)"
+              ><i></i> 国内租车</a
+            >
+            <a :class="{ current: num === 3 }" @click="changecla(3)">
+              <i></i> 接送机</a
+            >
+            <a :class="{ current: num === 4 }" @click="changecla(4)">
+              <i></i> 接送火车</a
+            >
+            <a :class="{ current: num === 5 }" @click="changecla(5)"
+              ><i></i> 按天包车</a
+            >
           </p>
           <div class="searchs">
             <!-- 境外租车 -->
             <div class="searchItem">
-              <form>
+              <form ref="form">
                 <ul>
                   <li>
                     <span>取车地点</span>
                     <!--  class="s-input s-jj-input-w3 w1 points-ltlb focus in ui-placeholder"              data-picker="osdselector" -->
-                    <input data-picker type="text" />
+                    <input
+                      data-picker
+                      type="text"
+                      placeholder="请输入您要取车的城市/机场/商圈"
+                    />
                   </li>
                   <li>
                     <span>还车地点</span>
-                    <input type="text" data-picker />
+                    <input
+                      type="text"
+                      data-picker
+                      placeholder="请输入您要还车的城市/机场/商圈"
+                    />
                   </li>
                   <li>
                     <span>取车时间</span>
-                    <input
-                      style="width: 268px; margin-right: 2px"
-                      type="text"
-                      data-picker
-                    />
-                    <input style="width: 154px" type="text" data-picker />
+                    <el-date-picker
+                      v-model="pickUpDate"
+                      type="date"
+                      placeholder="取车日期"
+                      
+                    >
+                    </el-date-picker>
+                    <el-time-picker
+                      v-model="upTime"
+                      :picker-options="{
+                        selectableRange: '18:30:00 - 20:30:00',
+                      }"
+                      placeholder="取车时间"
+                      data
+                    >
+                    </el-time-picker>
                   </li>
                   <li>
                     <span>还车时间</span>
-                    <input
-                      style="width: 268px; margin-right: 2px"
-                      type="text"
-                      data-picker
-                    />
-                    <input style="width: 154px" type="text" data-picker />
+                    <el-date-picker
+                      v-model="pickDonwDate"
+                      type="date"
+                      placeholder="还车日期"
+                    >
+                    </el-date-picker>
+                    <el-time-picker
+                      v-model="downTime"
+                      :picker-options="{
+                        selectableRange: '18:30:00 - 20:30:00',
+                      }"
+                      placeholder="还车时间"
+                      data
+                    >
+                    </el-time-picker>
+                  </li>
+                  <li>
+                    <button @click.prevent>去选车</button>
                   </li>
                 </ul>
               </form>
@@ -703,9 +743,20 @@
 <script>
 import "swiper/css/swiper.min.css";
 import Swiper from "swiper";
+import routes from "@/router/routes";
 export default {
+  data() {
+    return {
+      num: 1,
+      pickUpDate: "", //取车日期
+      pickDonwDate: "", //还车日期
+      upTime: "", //取车时间
+      downTime: "", //还车时间
+    };
+  },
   name: "useCart",
   mounted() {
+    
     var mySwiper = new Swiper(".swiper-container", {
       loop: true, // 循环模式选项
       autoplay: true,
@@ -717,6 +768,11 @@ export default {
       //   clickable: true,
       // },
     });
+  },
+  methods: {
+    changecla(num) {
+      this.num = num;
+    },
   },
 };
 </script>
@@ -759,9 +815,57 @@ export default {
     left: 360px;
     top: 18px;
     .searchBox {
-      .searTag {
+      .searchTag {
+        background-color: #1d74e7;
+        height: 44px;
+        padding: 8px 0;
+        overflow: hidden;
+        width: 100%;
+        a{
+          cursor: pointer;
+        }
+        .current {
+          background-color: #fff;
+          color: #06c;
+          top: -13px;
+          padding: 8px 19px 8px 20px;
+          border-right: 0;
+          vertical-align: -15px;
+          i {
+            display: inline-block;
+            width: 100%;
+            height: 4px;
+            background-color: #ff9a00;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
         a {
-          display: block;
+          padding: 12px 18px 12px 17px !important;
+          color: #fff;
+          font-size: 16px;
+          line-height: 28px;
+          border-right: #6aa2ec 1px solid;
+          // margin-right: -5px;
+          vertical-align: middle;
+          position: relative;
+        }
+        a:hover {
+          background-color: #fff;
+          color: #06c;
+          padding: 12px 18px 12px 17px;
+          border-right: none;
+          // top: -8px;
+        }
+        a:hover i {
+          display: inline-block;
+          width: 100%;
+          height: 4px;
+          background-color: #ff9a00;
+          position: absolute;
+          top: 0;
+          left: 0;
         }
       }
       .searchs {
@@ -790,7 +894,39 @@ export default {
                     border-color: #5d9de5;
                   }
                 }
+                input::-webkit-input-placeholder {
+                  color: #b3b3b3;
+                }
+                button {
+                  width: 148px;
+                  height: 38px;
+                  line-height: 38px;
+                  background-color: #f67f0d;
+                  color: #fff;
+                  text-align: center;
+                  font-size: 16px;
+                  position: absolute;
+                  right: 44px;
+                  bottom: 18px;
+                  text-shadow: 1px 1px 1px #c15c00;
+                  border-radius: 4px;
+                  box-shadow: 0 1px 1px #e26e00;
+                  border: none;
+                  outline: none;
+
+                }
+            /deep/.el-input__inner{
+                  width: 212px;
+                  height: 30px;
+                  line-height: 30px;
+                }
               }
+            /deep/.el-date-editor{
+              line-height: 30px;
+              i{
+                margin-top:-10px;
+              }
+            }
             }
           }
         }

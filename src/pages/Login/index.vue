@@ -97,7 +97,7 @@
                     {{ $message.error(error) }}
                   </template> -->
                   <el-input
-                    v-model="loginInfo.email"
+                    v-model="loginInfo.phone"
                     type="text"
                     autocomplete="off"
                     placeholder="国内手机号/用户名/邮箱/卡号"
@@ -105,7 +105,7 @@
                 </el-form-item>
                 <el-form-item prop="password">
                   <el-input
-                    v-model="loginInfo.pwd"
+                    v-model="loginInfo.password"
                     type="password"
                     autocomplete="off"
                     placeholder="登陆密码"
@@ -127,7 +127,9 @@
                   ></a>
                 </div>
                 <el-form-item>
-                  <el-button type="primary" @click="toLogin">登 录</el-button>
+                  <el-button type="primary" @click.prevent="toLogin"
+                    >登 录</el-button
+                  >
                 </el-form-item>
                 <p class="agreement-list">
                   登录即代表您同意我们的<a
@@ -215,10 +217,12 @@ export default {
   data() {
     return {
       testImg: "",
+      // 登录用户信息
+      homeData: {},
       // 收集登陆信息
       loginInfo: {
-        email: "",
-        pwd: "",
+        phone: "",
+        password: "",
       },
       rules: {
         name: [
@@ -234,11 +238,15 @@ export default {
   },
   methods: {
     async toLogin() {
-      let { email, pwd } = this.loginInfo;
-      let result = await this.$API.index.reqlogin(email, pwd);
+      let { phone, password } = this.loginInfo;
+      let result = await this.$API.index.reqlogin(phone, password);
       if (result.code === 20000) {
-        this.$message.success(result.msg);
-        this.$router.push('/home')
+        let resu = await this.$API.index.reqLoginData();
+        if (resu.code === 20000) {
+          this.homeData = resu.data;
+          localStorage.setItem("USERDATA", JSON.stringify(this.homeData));
+          this.$router.push("/home");
+        }
       } else {
         this.$message.error(result.msg);
       }
