@@ -168,9 +168,6 @@
             >
           </li>
           <li>
-            <router-link class="active" to="/register">免费注册</router-link>
-          </li>
-          <li>
             <i class="iconfont icon-duanxin"></i>
             <a href="javascript:;">消息</a>
           </li>
@@ -440,7 +437,7 @@ export default {
           top: 0;
           font-size: 12px;
           cursor: pointer;
-
+          z-index: 120;
           &:hover {
             background: #e4e7eb;
             text-decoration: none;
