@@ -131,6 +131,7 @@
               <p class="item-info">距离牛水车步行可达</p></a
             >
           </div>
+          <!-- 带头像 -->
           <div class="homestay-product">
             <div class="product-item product-item_mask">
               <a
