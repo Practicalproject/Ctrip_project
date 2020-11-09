@@ -35,40 +35,46 @@
     <div class="rightContainer">
       <!-- 头部 -->
       <div class="header">
-        <a href="##" class="current">全部订单</a>
-        <a href="##">未出行</a>
-        <a href="##">待支付</a>
-        <a href="##">待点评</a>
+        <a href="##" :class="{current:number === 1}" @click="change(1)">全部订单</a>
+        <a href="##" :class="{current:number === 2}" @click="change(2)">未出行</a>
+        <a href="##" :class="{current:number === 3}" @click="change(3)">待支付</a>
+        <a href="##" :class="{current:number === 4}" @click="change(4)">待点评</a>
       </div>
 
       <!-- 主体 -->
       <ul class="orderBody">
-        <li class="order-info">
+        <li class="order-info" v-for="(item, index) in todos" :key="item.id">
           <!-- 标题 -->
           <h3>
             <label class="base_label">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                :checked="item.isOver"
+                @click="updateO(index)"
+              />
             </label>
             <span class="order-number"
-              >订单号：<a href="##">13182347153</a>
+              >订单号：<a href="##">{{ item.order }}</a>
             </span>
-            <span>预订日期：2020-09-12 </span>
-            <span class="order-delete"><a href="##">删除订单</a></span>
+            <span>预订日期：{{ item.orderDate }} </span>
+            <span class="order-delete" @click="deleteO(index)"
+              ><a href="##">删除订单</a></span
+            >
           </h3>
           <!-- 内容区 -->
           <div class="order-content clearfix">
             <div class="order-detail">
               <ul>
-                <li class="order-item-title">北京-沈阳北</li>
+                <li class="order-item-title">{{ item.city }}</li>
                 <li class="order-item-txt">
-                  出发日期：2020-09-30 22:33 至 10-01 07:25 K53
+                  {{ item.departureDate }}
                 </li>
-                <li class="order-item-txt">出行人：xxx</li>
+                <li class="order-item-txt">出行人：{{ item.name }}</li>
               </ul>
             </div>
             <div class="order-price">
-              <div class="order-price-detail">￥182</div>
-              <div class="order-price-status">已成交</div>
+              <div class="order-price-detail">￥{{ item.price }}</div>
+              <div class="order-price-status">{{ item.state }}</div>
             </div>
           </div>
         </li>
@@ -77,10 +83,10 @@
       <!-- 底部 -->
       <div class="footer">
         <label class="base">
-          <input type="checkbox" />
+          <input type="checkbox" v-model="isCheckAll" />
           <span class="allChoose">全选</span>
         </label>
-        <a href="javascript:;" class="allDelete">删除选中的商品</a>
+        <a href="javascript:;" class="allDelete" @click="deleteAll()">删除选中的商品</a>
         <a href="javascript:;" class="sum-btn">结算</a>
       </div>
     </div>
@@ -90,6 +96,98 @@
 <script>
 export default {
   name: "Order",
+  data() {
+    return {
+      todos: [
+        {
+          id: 1,
+          order: 18502410702,
+          orderDate: "2020-11-01",
+          city: "北京-沈阳北",
+          departureDate: "出发日期：2020-11-30 22:33 至 12-01 07:25 K53",
+          name: "yyy",
+          price: 182,
+          state: "未出行",
+          isOver: true,
+        },
+        {
+          id: 2,
+          order: 17702411234,
+          orderDate: "2020-11-09",
+          city: "北京-慕尼黑",
+          departureDate: "出发日期：2020-11-20 07:20 至 11-20 18:25 CA167",
+          name: "www",
+          price: 8900,
+          state: "待支付",
+          isOver: false,
+        },
+        {
+          id: 3,
+          order: 13302410566,
+          orderDate: "2020-09-01",
+          city: "深圳-广州",
+          departureDate: "出发日期：2020-09-30 12:33 至 09-30 13:25 T5",
+          name: "aaa",
+          price: 200,
+          state: "待点评",
+          isOver: false,
+        },
+      ],
+      number:1
+    };
+  },
+  methods: {
+    // 修改单个todo的完成状态
+    updateO(index) {
+      this.todos[index].isOver = !this.todos[index].isOver;
+    },
+    // 删除单个
+    deleteO(index) {
+      this.todos.splice(index, 1);
+    },
+    // 全选,修改所有的完成状态
+    updateAll(val) {
+      // 遍历所有，拿一个修改一个
+      this.todos.forEach(item => item.isOver = val)
+    },
+    // 删除全选
+    deleteAll(){
+      // 要把所有打钩的删除
+      // 从原来的数组中过滤出未完成的所有，把这些所有组成一个数组，赋值给新的数组
+      // 拿出所有为false的项，之后把数组重新赋值，重新显示
+      this.todos=this.todos.filter(item =>!item.isOver)
+    },
+    change(num){
+      this.number = num
+    }
+  },
+  computed: {
+    overNum() {
+      return this.todos.filter((item) => item.isOver).length;
+      // return this.todos.filter(function(item){
+      //   return item.isOver
+      // }).length
+    },
+    allNum() {
+      return this.todos.length;
+    },
+
+    // 全选
+    isCheckAll: {
+      // 获取是否打钩，需要计算
+      get() {
+        return this.overNum === this.allNum && this.allNum > 0;
+      },
+      // 点击的时候，修改打钩的状态
+      set(val) {
+        // val是自动获取到的最新值
+        //点击了全选，相当于在修改打勾的状态，修改后需要干点事
+        //把我们的数据所有的修改状态
+        // console.log(val);
+        this.updateAll(val);
+      },
+    },
+  },
 };
 </script>
 
