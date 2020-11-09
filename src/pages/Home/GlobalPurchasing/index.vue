@@ -64,7 +64,7 @@
                 v-for="(itemprdLst, index) in IndexGlobal.prdLst"
                 :key="index"
               >
-                <a href="javascript:;">
+               <router-link   to="/detailsce">    
                   <p class="carImg">
                     <img :src="itemprdLst.img" alt="" />
                   </p>
@@ -77,7 +77,7 @@
                       <i class="priceInfo"></i>
                     </span>
                   </p>
-                </a>
+                </router-link>
               </li>
             </ul>
           </div>
@@ -121,6 +121,26 @@ export default {
     },
   },
 };
+//  window.οnlοad=
+//         function(){
+//             var oDiv = document.getElementByClassName("header"),
+//                 H = 0,
+//                 Y = oDiv        
+//             while (Y) {
+//                 H += Y.offsetTop; 
+//                 Y = Y.offsetParent;
+//             }
+//             window.onscroll = function()
+//             {
+//                 var s = document.body.scrollTop || document.documentElement.scrollTop
+//                 if(s>H) {
+//                     oDiv.style = "position:fixed;top:0;"
+//                 } else {
+//                     oDiv.style = ""
+//                 }
+//             }
+//         }
+
 </script>
 
 <style  lang ='less' scoped>

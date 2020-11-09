@@ -21,5 +21,9 @@ export default {
     // 周边游
     getIndependentTerritory() {
         return Ajax.get(baseURLv2 + '/getIndependentTerritory')
-    }
+    },
+    // 详情页
+    getDetails() {
+        return Ajax.get(baseURLv2 + '/getDetails')
+    },
 }
