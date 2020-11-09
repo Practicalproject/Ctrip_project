@@ -709,9 +709,225 @@
           <h2>用车点评</h2>
         </div>
       </div>
+
+      <!-- 点评内容 -->
+      <div class="remark_box">
+        <div class="box_item">
+          <!-- 左侧图片 -->
+          <div class="item_left">
+            <img src="./images/01.png" alt="" />
+          </div>
+          <!-- 右侧文本 -->
+          <div class="item_right">
+            <!-- 上侧文本 -->
+            <div class="right_top">
+              <span class="top_title">境外租车</span>
+              <span>林女士</span>
+              <span class="iconfont icon-zu2350"> 2020-11-09 </span>
+            </div>
+            <!-- 下方文本 -->
+            <div class="right_bottom">
+              所有租车公司柜台在同一个楼里，取车很顺利，只要了护照和驾照，主动给了驾照翻译件。德州理论上应该可以自驾90天，给的National的车，提车时看我们的价格说不是SUV，我们只给她看SUV几个字，于是在FULLSIZE的SUV去让我们自选一辆，我们选了量北美版的道奇酷威，驾驶感受不错。还车前装了十个箱子3个人去机场竟然神奇的装的下，就是还车附近没有加油站，我们跑了两圈在附近也没找到，最后去还车时说明了情况，工作人员很NICE的算了我们满箱油（实际半箱）。
+              就是200元返现一直没到账，不懂为什么？到达门店的方式:乘坐穿梭巴士到达机场外的柜台取车
+            </div>
+          </div>
+        </div>
+        <div class="box_item">
+          <!-- 左侧图片 -->
+          <div class="item_left">
+            <img src="./images/02.png" alt="" />
+          </div>
+          <!-- 右侧文本 -->
+          <div class="item_right">
+            <!-- 上侧文本 -->
+            <div class="right_top">
+              <span class="top_title">境外接送机</span>
+              <span>侯先生</span>
+              <span class="iconfont icon-zu2350"> 2020-11-09 </span>
+            </div>
+            <!-- 下方文本 -->
+            <div class="right_bottom">
+              早上6点半，司机很准时就到了，只是我们睡过头了，他也没打电话也没发消息，没有联系我，自己走掉了，后来我们赶紧打电话给司机，至少他又开回来载我们了。顺利赶上飞机，总是还是感谢的。
+            </div>
+          </div>
+        </div>
+        <div class="box_item">
+          <!-- 左侧图片 -->
+          <div class="item_left">
+            <img src="./images/03.png" alt="" />
+          </div>
+          <!-- 右侧文本 -->
+          <div class="item_right">
+            <!-- 上侧文本 -->
+            <div class="right_top">
+              <span class="top_title">国内租车</span>
+              <span>唐先生</span>
+              <span class="iconfont icon-zu2350"> 2020-11-09 </span>
+            </div>
+            <!-- 下方文本 -->
+            <div class="right_bottom">
+              一嗨的服务态度不错，在机场取车还车都很方便，只是1.6的自排车辆在上山时就感觉动力不够，油门踩得比较费力。最奇葩的是导航，人生地不熟的我们从揭阳到南澳来回居然被导了两条完全不同的路线（高速去国道回，不是我们故意安排的），结果意料之外地把去时漏过的景点都补齐了，甚至看到了汕头大学，买到了价廉物美的杨桃，所以还是要给“智能”导航点赞。只是去时2小时不到的车程回来开了3个多小时，还是赶紧给导航仪升级吧，它连南澳大桥都不知道。其它的都挺不错，下次还会考虑选一嗨的，如果能早点把扣押的定金还给我就更好了。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 常见问题 -->
+      <div class="sundry">
+        <!-- 点评 -->
+        <div class="remark">
+          <span></span>
+          <h2>常见问题</h2>
+        </div>
+      </div>
+
+      <!-- 常见问题内容 -->
+      <div class="question">
+        <!-- 接送机 -->
+        <div class="question_item">
+          <div class="item_top">
+            <img src="./images/04.png" alt="" />
+            <span>接送机</span>
+          </div>
+          <div class="item_bottom">
+            <ul>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  航班延误的话，司机还会不会继续等我，有没有额外等候的费用需要我支付？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  使用接送机产品时所要到达的区域不在可选择的范围内怎么办？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  使用接送机产品时不知道所要送达的区域怎么办？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  我如何找到我的司机、车辆或接送地点？
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 境外租车 -->
+        <div class="question_item">
+          <div class="item_top">
+            <img src="./images/05.png" alt="" />
+            <span>境外租车</span>
+          </div>
+          <div class="item_bottom">
+            <ul>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  境外租车的取车流程是怎样的？怎么取车？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  境外自驾租车需提前多久预订？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  境外租车的附加设备/附加服务有哪些？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                 境外租车资格和所需驾照\证件是哪些？
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 国内租车 -->
+        <div class="question_item">
+          <div class="item_top">
+            <img src="./images/06.png" alt="" />
+            <span>国内租车</span>
+          </div>
+          <div class="item_bottom">
+            <ul>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  什么是异地还车？是否需收费？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  用车时间超出了预订的时间怎么收费？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  香港、台湾以及外籍人士如何预订国内自驾产品？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  若提前还车，已经预付的金额可以退还吗？
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 按天包车 -->
+        <div class="question_item">
+          <div class="item_top">
+            <img src="./images/07.png" alt="" />
+            <span>按天包车</span>
+          </div>
+          <div class="item_bottom">
+            <ul>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  什么是夜间服务费？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  长途行驶费是如何计算的？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  日用车仅限在市内使用及上下车地点只可在市内该怎么理解？
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="iconfont icon-fangkuai"></i>
+                  出发下车地点不在主市区之内是否可以使用日用车及半日用车服务？
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
 <script>
 import "swiper/css/swiper.min.css";
 import Swiper from "swiper";
@@ -742,6 +958,8 @@ export default {
   },
 };
 </script>
+
+
 <style lang='less' scoped>
 .wrap {
   position: relative;
@@ -1178,9 +1396,7 @@ export default {
   // 用车点评.问题,伙伴
   .sundry {
     width: 1180px;
-    height: 1000px;
     margin: 0 auto;
-    background-color: pink;
     // 点评
     .remark {
       width: 100%;
@@ -1208,6 +1424,97 @@ export default {
         position: relative;
         z-index: 1;
         margin: 0 auto;
+      }
+    }
+  }
+
+  // 点评内容
+  .remark_box {
+    width: 1180px;
+    margin: 0 auto;
+    // background-color: red;
+    height: 200px;
+    .box_item {
+      display: flex;
+      width: 590px;
+      // background-color: skyblue;
+      height: 90px;
+      float: left;
+      margin-bottom: 10px;
+      // 左侧图片
+      .item_left {
+        height: 90px;
+        width: 90px;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      // 右侧文本
+      .item_right {
+        height: 90px;
+        width: 500px;
+        // background-color: orange;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 15px;
+        cursor: pointer;
+        .right_top {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          .top_title {
+            font-weight: bold;
+            font-size: 16px;
+          }
+        }
+        .right_bottom {
+          font: 14px Microsoft Yahei;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  // 常见问题
+  .question {
+    width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    .question_item {
+      width: 275px;
+      .item_top {
+        height: 36px;
+        margin-bottom: 10px;
+        span {
+          line-height: 36px;
+          font: 18px/36px Microsoft Yahei;
+          font-weight: 700;
+        }
+        img {
+          height: 20px;
+          margin-right: 10px;
+        }
+      }
+      .item_bottom {
+        ul {
+          li {
+            margin-bottom: 10px;
+            a {
+              font: 12px/1.5 arial, Simsun, sans-serif;
+              color: #333;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 1;
+              overflow: hidden;
+            }
+          }
+        }
       }
     }
   }

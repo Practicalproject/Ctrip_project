@@ -20,7 +20,9 @@
     <TravelService></TravelService>
     <!-- bh企业商旅 -->
     <BusinessTravel></BusinessTravel>
+    <!-- suo合作伙伴 -->
     <Partner></Partner>
+    <!-- suo底部网站服务 -->
     <Footer></Footer>
     <!--    ad广告-->
     <Advertising></Advertising>
