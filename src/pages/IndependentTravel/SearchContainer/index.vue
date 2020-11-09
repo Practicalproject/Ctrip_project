@@ -890,11 +890,11 @@
     <div class="search_wrap">
       <div class="searchContent">
         <dl class="catalogList">
-          <dt>
-            <i>自由行</i>
+          <dt @mousemove="toDDblock">
+            <i>{{ searchName ? searchName : "自由行" }}</i>
             <b class="iconfont icon-downlist downAndUp"></b>
           </dt>
-          <dd style="display: block">
+          <dd @click="searchChange" ref="dd">
             <a data-id="126" href="javascript:;">全部产品</a
             ><a data-id="64" href="javascript:;">出发地参团</a
             ><a data-id="512" href="javascript:;">目的地参团</a
@@ -909,12 +909,6 @@
             ><a data-id="1024" href="javascript:;">一日游</a
             ><a data-id="32" href="javascript:;">签证</a>
           </dd>
-          <!-- <dd>
-              <a href="javascript:;">全部产品</a>
-            </dd>
-            <dd>
-              <a href="javascript:;">全部产品</a>
-            </dd> -->
         </dl>
         <div>
           <input type="text" name="" placeholder="请输入目的地、主题或关键字" />
@@ -935,12 +929,25 @@ export default {
     return {
       isShow: false,
       num: 0,
+      tab: 0,
+      searchName: "",
     };
   },
   methods: {
+    //下拉框的显现
+    toDDblock() {
+      this.$refs.dd.style.display = "block";
+    },
+    // 下拉框的点击当前显示
+    searchChange($event) {
+      this.searchName = $event.target.innerHTML;
+      this.$refs.dd.style.display = "none";
+    },
+    // 城市列表的显示与隐藏
     showBlock() {
       this.isShow = !this.isShow;
     },
+    // 多个城市列表的切换
     checkCity(index) {
       this.num = index;
     },
@@ -1057,7 +1064,7 @@ export default {
           padding-bottom: 10px;
           background-color: #fff;
           position: relative;
-          z-index: 2;
+          z-index: 10;
           a {
             text-decoration: none;
             padding: 0 10px;

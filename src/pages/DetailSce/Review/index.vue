@@ -2,10 +2,13 @@
   <div class="container">
     <!-- 头部区域 -->
     <div class="header">
-      <a href="#tripname">行程介绍</a>
-      <a href="#graphic">图文详情</a>
-      <a href="javascript:;">费用·须知</a>
-      <a href="#reviewJ">用户点评（1）</a>
+      <div class="header-left">
+        <a href="#tripname">行程介绍</a>
+        <a href="#graphic">图文详情</a>
+        <a href="javascript:;">费用·须知</a>
+        <a href="#reviewJ">用户点评（1）</a>
+      </div>
+      <div class="header-right">立即预定</div>
     </div>
     <!-- 行程介绍内容区 -->
     <div class="describeList" id="tripname" name="tripname">
@@ -144,6 +147,7 @@
         </p>
       </div>
     </div>
+    
     <!--图文详情  -->
     <div class="modinfo" id="graphic" name="graphic">
       <h2 class="detail-mod">图文详情</h2>
@@ -243,7 +247,7 @@ html {
     border: 1px solid #ddd;
     box-sizing: border-box;
     background: white;
-    a {
+    .header-left a {
       line-height: 55px;
       font-size: 18px;
       font-weight: 600;
@@ -251,6 +255,21 @@ html {
       color: #333;
       display: block;
       float: left;
+    }
+    .header-right {
+      cursor: pointer;
+      float: right;
+      width: 132px;
+      height: 37px;
+      line-height: 37px;
+      text-align: center;
+      background: #ff7e00;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 20px;
+      border-bottom: 2px solid #f2590d;
+      border-right: 1px solid #f2590d;
+      margin-top: 10px;
     }
     a:hover {
       color: #2680ff;
