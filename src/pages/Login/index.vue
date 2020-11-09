@@ -246,6 +246,7 @@ export default {
           this.homeData = resu.data;
           localStorage.setItem("USERDATA", JSON.stringify(this.homeData));
           this.$router.push("/home");
+          this.$message.success("登陆成功,恭喜老铁么么哒!!~")
         }
       } else {
         this.$message.error(result.msg);

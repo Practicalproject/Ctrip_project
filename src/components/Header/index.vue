@@ -330,6 +330,7 @@ export default {
     outuser(){
       this.userData = ''
       localStorage.removeItem('USERDATA')
+      this.$message.info("宝贝不要走,哇偶哇偶噢噢噢噢~~~我会想你的!~")
     },
     // 鼠标移除
     removed() {
