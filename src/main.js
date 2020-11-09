@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from '@/router'
+//  引入store
+import store from "@/store"
 import {
   Carousel,
   Card,
@@ -39,6 +41,7 @@ Vue.use(Option);
 // 高德地图
 // import AmapVue from "@amap/amap-vue";
 import AmapVueConfig from '@amap/amap-vue/lib/config';
+
 AmapVueConfig.key = '01f74d729627b2a02e27c22d4546c4e5';
 // Vue.use(AmapVue);
 //图片懒加载
@@ -74,10 +77,12 @@ Vue.use(Step)
 
 Vue.prototype.$message = Message;
 
+
 new Vue({
-  beforeCreate() {
-    Vue.prototype.$API = API
-  },
-  render: h => h(App),
-  router
+    beforeCreate() {
+        Vue.prototype.$API = API
+    },
+    render: h => h(App),
+    router,
+    store
 }).$mount('#app')

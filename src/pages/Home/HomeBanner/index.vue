@@ -1,276 +1,278 @@
 <template>
-  <div class="swiper-container">
-    <!-- 导航 -->
-    <div class="mod-wrap">
-      <div class="mod">
-        <h2 class="line-title">境外直通车<i class="icon-arrow"></i></h2>
-        <ul class="line-list">
-          <li>
-            <i class="cui-icon-hotel"></i><a href="javascript:;">海外酒店</a>
-          </li>
-          <li>
-            <i class="cui-icon-flight"></i
-            ><a href="javascript:;">国际•港澳台机票</a>
-          </li>
-          <li>
-            <i class="cui-icon-car"></i><a href="javascript:;">境外租车</a>
-          </li>
-          <li>
-            <i class="cui-icon-train"></i
-            ><a href="javascript:;">国际/港台火车票</a>
-          </li>
-          <li>
-            <i class="cui-icon-outboundtravel"></i
-            ><a href="javascript:;">出境游</a>
-          </li>
-          <li>
-            <i class="cui-icon-HHtravel"></i><a href="javascript:;">高端游</a>
-          </li>
-          <li>
-            <i class="cui-icon-ticket"></i><a href="javascript:;">门票•玩乐</a>
-          </li>
-          <li><i class="cui-icon-visa"></i><a href="javascript:;">签证</a></li>
-          <li>
-            <i class="cui-icon-insurance"></i><a href="javascript:;">保险</a>
-          </li>
-          <li>
-            <i class="cui-icon-wifi"></i><a href="javascript:;">WiFi•电话卡</a>
-          </li>
-          <li>
-            <i class="cui-icon-pickup"></i><a href="javascript:;">境外接送机</a>
-          </li>
-          <li>
-            <i class="cui-icon-foreign"></i><a href="javascript:;">外币兑换</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <!-- 主体 -->
-    <div class="wrap">
-      <!-- swiper轮播图 -->
-      <div class="wrp_wiper">
-        <div class="swiper-container" ref="mySwiper1">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="./images/1.jpg"/>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/2.jpg"/>
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://dimg04.c-ctrip.com/images/0zg4k1200086fom4w2758.jpg"
-              />
-            </div>
-          </div>
-          <!-- 如果需要分页器 -->
-          <div class="swiper-pagination"></div>
-
-          <!-- 如果需要导航按钮 -->
-          <!-- <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div> -->
+  <div ref="swiperContainer" class="swiper-container">
+    <div class="swiper-container">
+      <!-- 导航 -->
+      <div class="mod-wrap">
+        <div class="mod">
+          <h2 class="line-title">境外直通车<i class="icon-arrow"></i></h2>
+          <ul class="line-list">
+            <li>
+              <i class="cui-icon-hotel"></i><a href="javascript:;">海外酒店</a>
+            </li>
+            <li>
+              <i class="cui-icon-flight"></i
+              ><a href="javascript:;">国际•港澳台机票</a>
+            </li>
+            <li>
+              <i class="cui-icon-car"></i><a href="javascript:;">境外租车</a>
+            </li>
+            <li>
+              <i class="cui-icon-train"></i
+              ><a href="javascript:;">国际/港台火车票</a>
+            </li>
+            <li>
+              <i class="cui-icon-outboundtravel"></i
+              ><a href="javascript:;">出境游</a>
+            </li>
+            <li>
+              <i class="cui-icon-HHtravel"></i><a href="javascript:;">高端游</a>
+            </li>
+            <li>
+              <i class="cui-icon-ticket"></i><a href="javascript:;">门票•玩乐</a>
+            </li>
+            <li><i class="cui-icon-visa"></i><a href="javascript:;">签证</a></li>
+            <li>
+              <i class="cui-icon-insurance"></i><a href="javascript:;">保险</a>
+            </li>
+            <li>
+              <i class="cui-icon-wifi"></i><a href="javascript:;">WiFi•电话卡</a>
+            </li>
+            <li>
+              <i class="cui-icon-pickup"></i><a href="javascript:;">境外接送机</a>
+            </li>
+            <li>
+              <i class="cui-icon-foreign"></i><a href="javascript:;">外币兑换</a>
+            </li>
+          </ul>
         </div>
       </div>
-      <!-- 搜索框 -->
-      <div class="wrap_positioning">
-        <div class="positioning_small">
-          <!-- 左侧列表 -->
-          <ul class="s_tab">
-            <li class="s_tab_current active"><b>酒店</b></li>
-            <li class="s_tab_nocurrent"><b>机票</b></li>
-            <li class="s_tab_nocurrent"><b>旅游</b></li>
-            <li class="s_tab_nocurrent"><b>跟团游</b></li>
-            <li class="s_tab_nocurrent"><b>打包订</b></li>
-            <li class="s_tab_nocurrent"><b>火车</b></li>
-            <li class="s_tab_nocurrent"><span class="label-cn" style="right:-6px;top:-6px;"><em>租车周三惠</em><i
-                class="triangle"></i></span><b>用车</b></li>
-          </ul>
-          <!--          右侧列表-->
-          <div class="s_content">
-            <p class="s_subtab_a" id="hotelSwitch">
-              <a href="javascript:;" class="current">国内酒店</a>
-              <a href="javascript:;">海外酒店</a>
-              <a href="javascript:;">民宿</a>
-              <a style="display:none;" href="javascript:;" data-index="3" class="">酒店团购</a>
-              <a style="display:none;" href="javascript:;" data-index="4" class="">酒店+景点</a>
-              <a style="display:none;" href="javascript:;" data-index="5" class="">会议•团房</a>
-            </p>
-            <el-form label-width="80px">
-              <el-form-item label="目的地">
-                <el-input placeholder="中文/拼音"></el-input>
-              </el-form-item>
+      <!-- 主体 -->
+      <div class="wrap">
+        <!-- swiper轮播图 -->
+        <div class="wrp_wiper">
+          <div class="swiper-container" ref="mySwiper1">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./images/1.jpg"/>
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/2.jpg"/>
+              </div>
+              <div class="swiper-slide">
+                <img
+                    src="https://dimg04.c-ctrip.com/images/0zg4k1200086fom4w2758.jpg"
+                />
+              </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
 
-              <template>
-                <el-col :span="12">
-                  <el-form-item label="入住日期">
-                    <el-date-picker placeholder="选择时间" style="width: 100%;"></el-date-picker>
-                  </el-form-item>
-                </el-col>
-                <el-col :span="12">
-                  <el-form-item label="退房日期">
-                    <el-date-picker placeholder="选择时间" style="width: 100%;"></el-date-picker>
-                  </el-form-item>
-                </el-col>
-              </template>
-
-              <template>
-                <el-col :span="12">
-                  <el-form-item label="房间数">
-                    <el-select v-model="value" placeholder="请选择">
-                      <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-                      </el-option>
-                    </el-select>
-                  </el-form-item>
-                </el-col>
-                <el-col :span="12">
-                  <el-form-item label="住客数">
-                    <el-input @focus="popUp"/>
-                  </el-form-item>
-                </el-col>
-              </template>
-
-              <template>
-                <el-col :span="12">
-                  <el-form-item label="酒店级别">
-                    <el-select v-model="value" placeholder="请选择">
-                      <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-                      </el-option>
-                    </el-select>
-                  </el-form-item>
-                </el-col>
-                <el-col :span="12">
-                  <el-form-item label="关键词">
-                    <el-input @focus="popUp" placeholder="(选填)酒店名/地标/商圈"/>
-                  </el-form-item>
-                </el-col>
-              </template>
-              <el-form-item>
-                <el-button>搜索</el-button>
-              </el-form-item>
-            </el-form>
+            <!-- 如果需要导航按钮 -->
+            <!-- <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div> -->
           </div>
-          <!--          <div class="small_left">-->
-          <!--            <ul>-->
-          <!--              <li class="active">-->
-          <!--                <a href="javascript:;">酒店</a>-->
-          <!--              </li>-->
-          <!--              <li>-->
-          <!--                <a href="javascript:;">酒店</a>-->
-          <!--              </li>-->
-          <!--              <li>-->
-          <!--                <a href="javascript:;">酒店</a>-->
-          <!--              </li>-->
-          <!--              <li>-->
-          <!--                <a href="javascript:;">酒店</a>-->
-          <!--              </li>-->
-          <!--              <li>-->
-          <!--                <a href="javascript:;">酒店</a>-->
-          <!--              </li>-->
-          <!--              <li>-->
-          <!--                <a href="javascript:;">酒店</a>-->
-          <!--              </li>-->
-          <!--              <li>-->
-          <!--                <a href="javascript:;">酒店</a>-->
-          <!--              </li>-->
-          <!--            </ul>-->
-          <!--          </div>-->
-          <!--          &lt;!&ndash; 右侧内容 &ndash;&gt;-->
-          <!--          <div class="small_right">-->
-          <!--            &lt;!&ndash; 上方导航 &ndash;&gt;-->
-          <!--            <div class="right_top">-->
-          <!--              <span>-->
-          <!--                <a href="javascript:;">国内酒店</a>-->
-          <!--              </span>-->
-          <!--              <span class="right_top_action">-->
-          <!--                <a href="javascript:;">海外酒店</a>-->
-          <!--              </span>-->
-          <!--              <span>-->
-          <!--                <a href="javascript:;">民宿</a>-->
-          <!--              </span>-->
-          <!--            </div>-->
-          <!--            &lt;!&ndash; 下方表单 &ndash;&gt;-->
-          <!--            <div class="right_bot">-->
-          <!--              <el-form-->
-          <!--                  ref="form"-->
-          <!--                  :model="sizeForm"-->
-          <!--                  label-width="80px"-->
-          <!--                  size="mini"-->
-          <!--              >-->
-          <!--                <el-form-item label="目的地">-->
-          <!--                  <el-input-->
-          <!--                      v-model="sizeForm.name"-->
-          <!--                      placeholder="中文/拼音"-->
-          <!--                  ></el-input>-->
-          <!--                </el-form-item>-->
-          <!--                <el-form-item label="入住日期">-->
-          <!--                  <el-col :span="10">-->
-          <!--                    <el-date-picker-->
-          <!--                        type="date"-->
-          <!--                        placeholder="选择日期"-->
-          <!--                        v-model="sizeForm.date1"-->
-          <!--                        style="width: 100%"-->
-          <!--                    ></el-date-picker>-->
-          <!--                  </el-col>-->
-          <!--                  <el-col class="line" :span="4">退房日期</el-col>-->
-          <!--                  <el-col :span="10">-->
-          <!--                    <el-time-picker-->
-          <!--                        type="date"-->
-          <!--                        placeholder="选择日期"-->
-          <!--                        v-model="sizeForm.date2"-->
-          <!--                        style="width: 100%"-->
-          <!--                    ></el-time-picker>-->
-          <!--                  </el-col>-->
-          <!--                </el-form-item>-->
-          <!--                <el-form-item label="入住日期">-->
-          <!--                  <el-col :span="10">-->
-          <!--                    <el-date-picker-->
-          <!--                        type="date"-->
-          <!--                        placeholder="选择日期"-->
-          <!--                        v-model="sizeForm.date1"-->
-          <!--                        style="width: 100%"-->
-          <!--                    ></el-date-picker>-->
-          <!--                  </el-col>-->
-          <!--                  <el-col class="line" :span="4">退房日期</el-col>-->
-          <!--                  <el-col :span="10">-->
-          <!--                    <el-time-picker-->
-          <!--                        type="date"-->
-          <!--                        placeholder="选择日期"-->
-          <!--                        v-model="sizeForm.date2"-->
-          <!--                        style="width: 100%"-->
-          <!--                    ></el-time-picker>-->
-          <!--                  </el-col>-->
-          <!--                </el-form-item>-->
-          <!--                <el-form-item label="入住日期">-->
-          <!--                  <el-col :span="10">-->
-          <!--                    <el-date-picker-->
-          <!--                        type="date"-->
-          <!--                        placeholder="选择日期"-->
-          <!--                        v-model="sizeForm.date1"-->
-          <!--                        style="width: 100%"-->
-          <!--                    ></el-date-picker>-->
-          <!--                  </el-col>-->
-          <!--                  <el-col class="line" :span="4">退房日期</el-col>-->
-          <!--                  <el-col :span="10">-->
-          <!--                    <el-time-picker-->
-          <!--                        type="date"-->
-          <!--                        placeholder="选择日期"-->
-          <!--                        v-model="sizeForm.date2"-->
-          <!--                        style="width: 100%"-->
-          <!--                    ></el-time-picker>-->
-          <!--                  </el-col>-->
-          <!--                </el-form-item>-->
-          <!--                <el-button type="success" class="el_button">搜索</el-button>-->
-          <!--              </el-form>-->
-          <!--            </div>-->
-          <!--          </div>-->
+        </div>
+        <!-- 搜索框 -->
+        <div class="wrap_positioning">
+          <div class="positioning_small">
+            <!-- 左侧列表 -->
+            <ul class="s_tab">
+              <li class="s_tab_current active"><b>酒店</b></li>
+              <li class="s_tab_nocurrent"><b>机票</b></li>
+              <li class="s_tab_nocurrent"><b>旅游</b></li>
+              <li class="s_tab_nocurrent"><b>跟团游</b></li>
+              <li class="s_tab_nocurrent"><b>打包订</b></li>
+              <li class="s_tab_nocurrent"><b>火车</b></li>
+              <li class="s_tab_nocurrent"><span class="label-cn" style="right:-6px;top:-6px;"><em>租车周三惠</em><i
+                  class="triangle"></i></span><b>用车</b></li>
+            </ul>
+            <!--          右侧列表-->
+            <div class="s_content">
+              <p class="s_subtab_a" id="hotelSwitch">
+                <a href="javascript:;" class="current">国内酒店</a>
+                <a href="javascript:;">海外酒店</a>
+                <a href="javascript:;">民宿</a>
+                <a style="display:none;" href="javascript:;" data-index="3" class="">酒店团购</a>
+                <a style="display:none;" href="javascript:;" data-index="4" class="">酒店+景点</a>
+                <a style="display:none;" href="javascript:;" data-index="5" class="">会议•团房</a>
+              </p>
+              <el-form label-width="80px">
+                <el-form-item label="目的地">
+                  <el-input placeholder="中文/拼音"></el-input>
+                </el-form-item>
+
+                <template>
+                  <el-col :span="12">
+                    <el-form-item label="入住日期">
+                      <el-date-picker placeholder="选择时间" style="width: 100%;"></el-date-picker>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="12">
+                    <el-form-item label="退房日期">
+                      <el-date-picker placeholder="选择时间" style="width: 100%;"></el-date-picker>
+                    </el-form-item>
+                  </el-col>
+                </template>
+
+                <template>
+                  <el-col :span="12">
+                    <el-form-item label="房间数">
+                      <el-select v-model="value" placeholder="请选择">
+                        <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value">
+                        </el-option>
+                      </el-select>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="12">
+                    <el-form-item label="住客数">
+                      <el-input @focus="popUp"/>
+                    </el-form-item>
+                  </el-col>
+                </template>
+
+                <template>
+                  <el-col :span="12">
+                    <el-form-item label="酒店级别">
+                      <el-select v-model="value" placeholder="请选择">
+                        <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value">
+                        </el-option>
+                      </el-select>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="12">
+                    <el-form-item label="关键词">
+                      <el-input @focus="popUp" placeholder="(选填)酒店名/地标/商圈"/>
+                    </el-form-item>
+                  </el-col>
+                </template>
+                <el-form-item>
+                  <el-button>搜索</el-button>
+                </el-form-item>
+              </el-form>
+            </div>
+            <!--          <div class="small_left">-->
+            <!--            <ul>-->
+            <!--              <li class="active">-->
+            <!--                <a href="javascript:;">酒店</a>-->
+            <!--              </li>-->
+            <!--              <li>-->
+            <!--                <a href="javascript:;">酒店</a>-->
+            <!--              </li>-->
+            <!--              <li>-->
+            <!--                <a href="javascript:;">酒店</a>-->
+            <!--              </li>-->
+            <!--              <li>-->
+            <!--                <a href="javascript:;">酒店</a>-->
+            <!--              </li>-->
+            <!--              <li>-->
+            <!--                <a href="javascript:;">酒店</a>-->
+            <!--              </li>-->
+            <!--              <li>-->
+            <!--                <a href="javascript:;">酒店</a>-->
+            <!--              </li>-->
+            <!--              <li>-->
+            <!--                <a href="javascript:;">酒店</a>-->
+            <!--              </li>-->
+            <!--            </ul>-->
+            <!--          </div>-->
+            <!--          &lt;!&ndash; 右侧内容 &ndash;&gt;-->
+            <!--          <div class="small_right">-->
+            <!--            &lt;!&ndash; 上方导航 &ndash;&gt;-->
+            <!--            <div class="right_top">-->
+            <!--              <span>-->
+            <!--                <a href="javascript:;">国内酒店</a>-->
+            <!--              </span>-->
+            <!--              <span class="right_top_action">-->
+            <!--                <a href="javascript:;">海外酒店</a>-->
+            <!--              </span>-->
+            <!--              <span>-->
+            <!--                <a href="javascript:;">民宿</a>-->
+            <!--              </span>-->
+            <!--            </div>-->
+            <!--            &lt;!&ndash; 下方表单 &ndash;&gt;-->
+            <!--            <div class="right_bot">-->
+            <!--              <el-form-->
+            <!--                  ref="form"-->
+            <!--                  :model="sizeForm"-->
+            <!--                  label-width="80px"-->
+            <!--                  size="mini"-->
+            <!--              >-->
+            <!--                <el-form-item label="目的地">-->
+            <!--                  <el-input-->
+            <!--                      v-model="sizeForm.name"-->
+            <!--                      placeholder="中文/拼音"-->
+            <!--                  ></el-input>-->
+            <!--                </el-form-item>-->
+            <!--                <el-form-item label="入住日期">-->
+            <!--                  <el-col :span="10">-->
+            <!--                    <el-date-picker-->
+            <!--                        type="date"-->
+            <!--                        placeholder="选择日期"-->
+            <!--                        v-model="sizeForm.date1"-->
+            <!--                        style="width: 100%"-->
+            <!--                    ></el-date-picker>-->
+            <!--                  </el-col>-->
+            <!--                  <el-col class="line" :span="4">退房日期</el-col>-->
+            <!--                  <el-col :span="10">-->
+            <!--                    <el-time-picker-->
+            <!--                        type="date"-->
+            <!--                        placeholder="选择日期"-->
+            <!--                        v-model="sizeForm.date2"-->
+            <!--                        style="width: 100%"-->
+            <!--                    ></el-time-picker>-->
+            <!--                  </el-col>-->
+            <!--                </el-form-item>-->
+            <!--                <el-form-item label="入住日期">-->
+            <!--                  <el-col :span="10">-->
+            <!--                    <el-date-picker-->
+            <!--                        type="date"-->
+            <!--                        placeholder="选择日期"-->
+            <!--                        v-model="sizeForm.date1"-->
+            <!--                        style="width: 100%"-->
+            <!--                    ></el-date-picker>-->
+            <!--                  </el-col>-->
+            <!--                  <el-col class="line" :span="4">退房日期</el-col>-->
+            <!--                  <el-col :span="10">-->
+            <!--                    <el-time-picker-->
+            <!--                        type="date"-->
+            <!--                        placeholder="选择日期"-->
+            <!--                        v-model="sizeForm.date2"-->
+            <!--                        style="width: 100%"-->
+            <!--                    ></el-time-picker>-->
+            <!--                  </el-col>-->
+            <!--                </el-form-item>-->
+            <!--                <el-form-item label="入住日期">-->
+            <!--                  <el-col :span="10">-->
+            <!--                    <el-date-picker-->
+            <!--                        type="date"-->
+            <!--                        placeholder="选择日期"-->
+            <!--                        v-model="sizeForm.date1"-->
+            <!--                        style="width: 100%"-->
+            <!--                    ></el-date-picker>-->
+            <!--                  </el-col>-->
+            <!--                  <el-col class="line" :span="4">退房日期</el-col>-->
+            <!--                  <el-col :span="10">-->
+            <!--                    <el-time-picker-->
+            <!--                        type="date"-->
+            <!--                        placeholder="选择日期"-->
+            <!--                        v-model="sizeForm.date2"-->
+            <!--                        style="width: 100%"-->
+            <!--                    ></el-time-picker>-->
+            <!--                  </el-col>-->
+            <!--                </el-form-item>-->
+            <!--                <el-button type="success" class="el_button">搜索</el-button>-->
+            <!--              </el-form>-->
+            <!--            </div>-->
+            <!--          </div>-->
+          </div>
         </div>
       </div>
     </div>
@@ -321,6 +323,10 @@ export default {
   //     },
   //   };
   // },
+  mounted() {
+    // this.$refs.swiper-container.offsetHeight
+    this.$store.commit("SETBANNERHEIGHT", this.$refs.swiperContainer.offsetHeight)
+  },
   methods: {
     changeIndes(index) {
       this.tabNum = index;
@@ -649,9 +655,11 @@ export default {
               b {
                 border-bottom: none;
               }
+
               &:hover {
                 background-color: #fff;
                 border-left: 5px solid #ff9915;
+
                 a {
                   color: #2577e3;
                   font-weight: 700;
