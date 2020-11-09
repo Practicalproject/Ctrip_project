@@ -202,7 +202,7 @@ export default {
           position: absolute;
           left: 50%;
           margin-left: -6px;
-          bottom: -6px;
+          bottom: -8px;
           width: 12px;
           height: 6px;
           overflow: hidden;

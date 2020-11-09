@@ -7,7 +7,7 @@
 
     <!-- 地区旅游点 -->
     <LocalPro></LocalPro>
-    <LocalPro></LocalPro>
+    <AroundPro></AroundPro>
 
     <!-- 优势 -->
     <Avantage></Avantage>
@@ -20,6 +20,7 @@
 import SearchContainer from "./SearchContainer";
 import BaseTop from "./BaseTop";
 import LocalPro from "./LocalPro";
+import AroundPro from "./AroundPro";
 import Avantage from "./Avantage";
 import Advertisement from "./Advertisement";
 export default {
@@ -27,6 +28,7 @@ export default {
     SearchContainer,
     BaseTop,
     LocalPro,
+    AroundPro,
     Avantage,
     Advertisement,
   },

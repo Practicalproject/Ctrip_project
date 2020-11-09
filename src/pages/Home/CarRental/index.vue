@@ -224,7 +224,7 @@ export default {
           position: absolute;
           left: 50%;
           margin-left: -6px;
-          bottom: -6px;
+          bottom: -8px;
           width: 12px;
           height: 6px;
           overflow: hidden;
@@ -281,7 +281,7 @@ export default {
             display: block;
             width: 100%;
             height: 100%;
-             a:hover {
+            a:hover {
               color: #06c;
             }
             a {
