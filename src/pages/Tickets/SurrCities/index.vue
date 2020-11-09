@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <div class="contain_header">
       <div class="contain_divider">
-        <h1>玩乐推荐榜</h1>
+        <h1>周边城市</h1>
       </div>
     </div>
     <div class="contain_body">
@@ -99,6 +99,9 @@ export default {
       img {
         border-radius: 10px;
         width: 180px;
+      }
+      &:hover{
+        cursor: pointer;
       }
       .item_pos{
         width: 100%;

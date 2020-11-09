@@ -213,6 +213,9 @@ export default {
   }
   // 中间主体
   .contain_middle {
+    &:hover {
+      cursor: pointer;
+    }
     .middle_item {
       width: 800px;
       height: 150px;
