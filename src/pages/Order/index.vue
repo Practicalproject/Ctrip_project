@@ -108,7 +108,7 @@ export default {
           name: "yyy",
           price: 182,
           state: "未出行",
-          isOver: true,
+          isOver: false,
         },
         {
           id: 2,
@@ -119,7 +119,7 @@ export default {
           name: "www",
           price: 8900,
           state: "待支付",
-          isOver: false,
+          isOver: true,
         },
         {
           id: 3,
