@@ -4,28 +4,30 @@ import router from '@/router'
 //  引入store
 import store from "@/store"
 import {
-    Carousel,
-    Card,
-    Option,
-    CarouselItem,
-    Form,
-    FormItem,
-    Input,
-    Select,
-    Col,
-    DatePicker,
-    TimePicker,
-    Switch,
-    CheckboxGroup,
-    Checkbox,
-    Radio,
-    RadioGroup,
-    Button,
-    Tabs,
-    TabPane,
-    Message,
-    Steps,
-    Step
+  Carousel,
+  Card,
+  Option,
+  CarouselItem,
+  Form,
+  FormItem,
+  Input,
+  Select,
+  Col,
+  DatePicker,
+  TimePicker,
+  Switch,
+  CheckboxGroup,
+  Checkbox,
+  Radio,
+  RadioGroup,
+  Button,
+  Tabs,
+  TabPane,
+  Message,
+  Steps,
+  Step,
+  Cascader,
+  Backtop
 } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
@@ -53,7 +55,8 @@ Vue.use(VueLazyload, { // 内部自定义了一个指令lazy
 
 // 引入API
 import * as API from "@/utils/api"
-
+Vue.use(Backtop);
+Vue.use(Cascader);
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)

@@ -32,49 +32,61 @@
       </div>
       <!-- 租车搜索框 -->
       <div class="searchOut">
+        <!-- 上侧 -->
         <div class="searchBox">
-          <p class="searchTag">
-            <a>境外租车</a>
-            <a>国内租车</a>
-            <a>接送机</a>
-            <a>接送火车</a>
-            <a>按天包车</a>
-          </p>
-          <div class="searchs">
-            <!-- 境外租车 -->
-            <div class="searchItem">
-              <form>
-                <ul>
-                  <li>
-                    <span>取车地点</span>
-                    <!--  class="s-input s-jj-input-w3 w1 points-ltlb focus in ui-placeholder"              data-picker="osdselector" -->
-                    <input data-picker type="text" />
-                  </li>
-                  <li>
-                    <span>还车地点</span>
-                    <input type="text" data-picker />
-                  </li>
-                  <li>
-                    <span>取车时间</span>
-                    <input
-                      style="width: 268px; margin-right: 2px"
-                      type="text"
-                      data-picker
-                    />
-                    <input style="width: 154px" type="text" data-picker />
-                  </li>
-                  <li>
-                    <span>还车时间</span>
-                    <input
-                      style="width: 268px; margin-right: 2px"
-                      type="text"
-                      data-picker
-                    />
-                    <input style="width: 154px" type="text" data-picker />
-                  </li>
-                </ul>
-              </form>
-            </div>
+          <ul class="searchTag">
+            <li :class="{ active: tabNum === 0 }" @click="changImndex(0)">
+              <a>境外租车</a>
+            </li>
+            <li :class="{ active: tabNum === 1 }" @click="changImndex(1)">
+              <a>国内租车</a>
+            </li>
+            <li :class="{ active: tabNum === 2 }" @click="changImndex(2)">
+              <a>接送机</a>
+            </li>
+            <li :class="{ active: tabNum === 3 }" @click="changImndex(3)">
+              <a>接送火车</a>
+            </li>
+            <li :class="{ active: tabNum === 4 }" @click="changImndex(4)">
+              <a>按天包车</a>
+            </li>
+          </ul>
+        </div>
+        <!-- 下侧 -->
+        <div class="searchs">
+          <!-- 境外租车 -->
+          <div class="searchItem">
+            <form>
+              <ul>
+                <li>
+                  <span>取车地点</span>
+                  <!--  class="s-input s-jj-input-w3 w1 points-ltlb focus in ui-placeholder"              data-picker="osdselector" -->
+                  <input data-picker type="text" />
+                </li>
+                <li>
+                  <span>还车地点</span>
+                  <input type="text" data-picker />
+                </li>
+                <li>
+                  <span>取车时间</span>
+                  <input
+                    style="width: 268px; margin-right: 2px"
+                    type="text"
+                    data-picker
+                  />
+                  <input style="width: 154px" type="text" data-picker />
+                </li>
+                <li>
+                  <span>还车时间</span>
+                  <input
+                    style="width: 268px; margin-right: 2px"
+                    type="text"
+                    data-picker
+                  />
+                  <input style="width: 154px" type="text" data-picker />
+                </li>
+              </ul>
+            </form>
           </div>
         </div>
       </div>
@@ -705,6 +717,11 @@ import "swiper/css/swiper.min.css";
 import Swiper from "swiper";
 export default {
   name: "useCart",
+  data() {
+    return {
+      tabNum: 0,
+    };
+  },
   mounted() {
     var mySwiper = new Swiper(".swiper-container", {
       loop: true, // 循环模式选项
@@ -717,6 +734,11 @@ export default {
       //   clickable: true,
       // },
     });
+  },
+  methods: {
+    changImndex(index) {
+      this.tabNum = index;
+    },
   },
 };
 </script>
@@ -756,39 +778,67 @@ export default {
     height: 323px;
     background: #fff;
     position: absolute;
-    left: 360px;
+    left: 170px;
     top: 18px;
+    // 上侧
     .searchBox {
-      .searTag {
-        a {
-          display: block;
+      background-color: #06c;
+      .searchTag {
+        display: flex;
+        li {
+          background-color: #06c;
+          line-height: 46px;
+          height: 46px;
+          a {
+            color: #fff;
+            font-size: 16px;
+            border-right: 1px solid #ddd;
+            padding: 8px 19px 8px 20px;
+          }
+          &:hover {
+            border-top: 3px solid #ff9a00;
+            background-color: #fff;
+            border-bottom: 1px solid #333;
+            a {
+              color: #06c;
+            }
+          }
+        }
+        .active {
+          border-top: 3px solid #ff9a00;
+          background-color: #fff;
+          border-bottom: 1px solid #333;
+          a {
+            color: #06c;
+          }
         }
       }
-      .searchs {
-        .searchItem {
-          form {
-            ul {
-              padding: 15px 30px;
-              min-height: 200px;
-              li {
-                padding-top: 10px;
-                span {
-                  font: 14px Microsoft Yahei;
-                  width: 75px;
-                  text-align: right;
-                  padding-right: 12px;
-                  line-height: 30px;
-                }
-                input {
-                  outline: none;
-                  width: 432px;
-                  height: 30px;
-                  line-height: 18px;
-                  padding: 5px;
-                  border: 1px solid #d9d9d9;
-                  &:focus {
-                    border-color: #5d9de5;
-                  }
+    }
+    // 下侧
+    .searchs {
+      .searchItem {
+        form {
+          ul {
+            padding: 15px 30px;
+            min-height: 200px;
+            li {
+              padding-top: 10px;
+              span {
+                font: 14px Microsoft Yahei;
+                width: 75px;
+                text-align: right;
+                padding-right: 12px;
+                line-height: 30px;
+              }
+              input {
+                outline: none;
+                width: 432px;
+                height: 30px;
+                line-height: 18px;
+                padding: 5px;
+                border: 1px solid #d9d9d9;
+                &:focus {
+                  border-color: #5d9de5;
                 }
               }
             }
