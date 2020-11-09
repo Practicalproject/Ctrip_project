@@ -4,12 +4,12 @@
     <div class="searchBox">
       <!-- 搜索标题 -->
       <ul class="searchTitle">
-        <li class="active">国际/国内机票</li>
-        <li>特价机票</li>
-        <li>航班动态</li>
-        <li>在线选座</li>
-        <li>退票改签</li>
-        <li>更多服务</li>
+        <li :class="{ active: num === 1 }" @click="tab(1)">国际/国内机票</li>
+        <li :class="{ active: num === 2 }" @click="tab(2)">特价机票</li>
+        <li :class="{ active: num === 3 }" @click="tab(3)">航班动态</li>
+        <li :class="{ active: num === 4 }" @click="tab(4)">在线选座</li>
+        <li :class="{ active: num === 5 }" @click="tab(5)">退票改签</li>
+        <li :class="{ active: num === 6 }" @click="tab(6)">更多服务</li>
       </ul>
 
       <!-- 公告区域 -->
@@ -28,21 +28,21 @@
         <div class="search-form-top">
           <ul class="form-select-radio">
             <!-- <li :class="{active:(number === index)}" @click="change(index)"> -->
-            <li class="active">
+            <li :class="{ active: number === 1 }" @click="change(1)">
               <span class="radio-label">
                 <i class="iconfont icon-RadioButton"></i>
                 <i class="iconfont icon-RadioButton-1"></i>
                 单程
               </span>
             </li>
-            <li>
+            <li :class="{ active: number === 2 }" @click="change(2)">
               <span class="radio-label">
                 <i class="iconfont icon-RadioButton"></i>
                 <i class="iconfont icon-RadioButton-1"></i>
                 往返
               </span>
             </li>
-            <li>
+            <li :class="{ active: number === 3 }" @click="change(3)">
               <span class="radio-label">
                 <i class="iconfont icon-RadioButton"></i>
                 <i class="iconfont icon-RadioButton-1"></i>
@@ -202,15 +202,21 @@ export default {
   name: "Search",
   data() {
     return {
+      value: "",
       value1: "2020-11-04",
-      number: 0,
+      number: 1,
+      num:1,
+      options: [],
     };
   },
   methods: {
     change(index) {
       this.number = index;
     },
-  }
+    tab(index) {
+      this.num = index;
+    },
+  },
 };
 </script>
 
@@ -303,6 +309,7 @@ export default {
       margin-bottom: 13px;
       .form-select-radio {
         float: left;
+        cursor: pointer;
         li {
           float: left;
           margin-right: 32px;
