@@ -95,6 +95,7 @@ export default {
   },
   mounted() {
     this.getDes(this.QingQiQiuZhuanLan);
+  
   },
   methods: {
     async getDes(qqq) {

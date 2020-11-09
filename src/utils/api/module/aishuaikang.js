@@ -12,10 +12,10 @@ export default {
     // },
 
     //  登陆
-    reqlogin(email, pwd) {
-        return Ajax.post(baseURLv1 + "/login", {
-            email,
-            pwd
+    reqlogin(phone, password) {
+        return Ajax.post(baseURLv1 + "/login/login", {
+            phone,
+            password
         })
     },
 }

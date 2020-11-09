@@ -35,6 +35,14 @@ export default {
                 phone
             }
         })
+    },
+
+    // 登录成功请求登录数据
+    reqLoginData(){
+        return Ajax({
+            url:baseURLv1+'/login/verify',
+            method:'post'
+        })
     }
 
 }

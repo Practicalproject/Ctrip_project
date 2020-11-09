@@ -119,7 +119,8 @@ export default {
       yanzhengma: "",
       timeOut: 60,
       code:'',
-      verFlag:true
+      verFlag:true,
+      set:''
     };
   },
   methods: {
@@ -135,6 +136,7 @@ export default {
           this.$refs.btn.innerHTML = '点击发送验证码';
         }
       }, 1000);
+      this.set = setInt
       // 发送请求 //  /login/digits
       this.$API.index.reqLogin(this.phone)
     },
@@ -185,6 +187,7 @@ export default {
 
     // 注册
     async sign() {
+      clearInterval(this.set)
       // 正则为true并且确认密码一致
       if (
         /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(this.passw) &&

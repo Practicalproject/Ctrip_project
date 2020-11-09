@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="wrap">
       <!-- 轮播图 -->
       <div class="banner">
@@ -34,6 +33,88 @@
       <div class="searchOut">
         <!-- 上侧 -->
         <div class="searchBox">
+          <p class="searchTag">
+            <a :class="{ current: num === 1 }" @click="changecla(1)"
+              ><i></i> 境外租车</a
+            >
+            <a :class="{ current: num === 2 }" @click="changecla(2)"
+              ><i></i> 国内租车</a
+            >
+            <a :class="{ current: num === 3 }" @click="changecla(3)">
+              <i></i> 接送机</a
+            >
+            <a :class="{ current: num === 4 }" @click="changecla(4)">
+              <i></i> 接送火车</a
+            >
+            <a :class="{ current: num === 5 }" @click="changecla(5)"
+              ><i></i> 按天包车</a
+            >
+          </p>
+          <div class="searchs">
+            <!-- 境外租车 -->
+            <div class="searchItem">
+              <form ref="form">
+                <ul>
+                  <li>
+                    <span>取车地点</span>
+                    <!--  class="s-input s-jj-input-w3 w1 points-ltlb focus in ui-placeholder"              data-picker="osdselector" -->
+                    <input
+                      data-picker
+                      type="text"
+                      placeholder="请输入您要取车的城市/机场/商圈"
+                    />
+                  </li>
+                  <li>
+                    <span>还车地点</span>
+                    <input
+                      type="text"
+                      data-picker
+                      placeholder="请输入您要还车的城市/机场/商圈"
+                    />
+                  </li>
+                  <li>
+                    <span>取车时间</span>
+                    <el-date-picker
+                      v-model="pickUpDate"
+                      type="date"
+                      placeholder="取车日期"
+                      
+                    >
+                    </el-date-picker>
+                    <el-time-picker
+                      v-model="upTime"
+                      :picker-options="{
+                        selectableRange: '18:30:00 - 20:30:00',
+                      }"
+                      placeholder="取车时间"
+                      data
+                    >
+                    </el-time-picker>
+                  </li>
+                  <li>
+                    <span>还车时间</span>
+                    <el-date-picker
+                      v-model="pickDonwDate"
+                      type="date"
+                      placeholder="还车日期"
+                    >
+                    </el-date-picker>
+                    <el-time-picker
+                      v-model="downTime"
+                      :picker-options="{
+                        selectableRange: '18:30:00 - 20:30:00',
+                      }"
+                      placeholder="还车时间"
+                      data
+                    >
+                    </el-time-picker>
+                  </li>
+                  <li>
+                    <button @click.prevent>去选车</button>
+                  </li>
+                </ul>
+              </form>
+            </div>
           <ul class="searchTag">
             <li :class="{ active: tabNum === 0 }" @click="changImndex(0)">
               <a>境外租车</a>
@@ -931,7 +1012,17 @@
 <script>
 import "swiper/css/swiper.min.css";
 import Swiper from "swiper";
+import routes from "@/router/routes";
 export default {
+  data() {
+    return {
+      num: 1,
+      pickUpDate: "", //取车日期
+      pickDonwDate: "", //还车日期
+      upTime: "", //取车时间
+      downTime: "", //还车时间
+    };
+  },
   name: "useCart",
   data() {
     return {
@@ -939,6 +1030,7 @@ export default {
     };
   },
   mounted() {
+    
     var mySwiper = new Swiper(".swiper-container", {
       loop: true, // 循环模式选项
       autoplay: true,
@@ -952,6 +1044,9 @@ export default {
     });
   },
   methods: {
+    changecla(num) {
+      this.num = num;
+    },
     changImndex(index) {
       this.tabNum = index;
     },
@@ -1058,7 +1153,39 @@ export default {
                 &:focus {
                   border-color: #5d9de5;
                 }
+                input::-webkit-input-placeholder {
+                  color: #b3b3b3;
+                }
+                button {
+                  width: 148px;
+                  height: 38px;
+                  line-height: 38px;
+                  background-color: #f67f0d;
+                  color: #fff;
+                  text-align: center;
+                  font-size: 16px;
+                  position: absolute;
+                  right: 44px;
+                  bottom: 18px;
+                  text-shadow: 1px 1px 1px #c15c00;
+                  border-radius: 4px;
+                  box-shadow: 0 1px 1px #e26e00;
+                  border: none;
+                  outline: none;
+
+                }
+            /deep/.el-input__inner{
+                  width: 212px;
+                  height: 30px;
+                  line-height: 30px;
+                }
               }
+            /deep/.el-date-editor{
+              line-height: 30px;
+              i{
+                margin-top:-10px;
+              }
+            }
             }
           }
         }

@@ -26,6 +26,7 @@ import {
   Message,
   Steps,
   Step,
+  TimeSelect,
   Cascader,
   Backtop
 } from 'element-ui';
@@ -74,7 +75,7 @@ Vue.use(Tabs)
 Vue.use(TabPane)
 Vue.use(Steps)
 Vue.use(Step)
-
+Vue.use(TimeSelect)
 Vue.prototype.$message = Message;
 
 
