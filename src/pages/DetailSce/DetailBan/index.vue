@@ -5,7 +5,9 @@
       >
       <a href="javascript:;">当地玩乐</a>
       >
-      <span href="javascript:;">北京八达岭长城+颐和园</span>
+      <span href="javascript:;"
+        >普吉岛查龙寺+卡伦观景台+神仙半岛+普吉镇环岛一日游【VIP包车/线路可定制/说走就走】</span
+      >
     </div>
     <div class="detail_wrap">
       <div class="detail_media">
@@ -13,22 +15,22 @@
           <div class="swiper-container" ref="swiper" id="gallery">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="./images/banner1.jpg" alt="" />
+                <img src="./images/ban7 (2).jpg" alt="" />
               </div>
               <div class="swiper-slide">
-                <img src="./images/banner2.jpg" alt="" />
+                <img src="./images/ban7 (3).jpg" alt="" />
               </div>
               <div class="swiper-slide">
-                <img src="./images/banner3.jpg" alt="" />
+                <img src="./images/ban7 (4).jpg" alt="" />
               </div>
               <div class="swiper-slide">
-                <img src="./images/banner1.jpg" alt="" />
+                <img src="./images/ban7 (5).jpg" alt="" />
               </div>
               <div class="swiper-slide">
-                <img src="./images/banner2.jpg" alt="" />
+                <img src="./images/ban7 (6).jpg" alt="" />
               </div>
               <div class="swiper-slide">
-                <img src="./images/banner3.jpg" alt="" />
+                <img src="./images/ban7 (7).jpg" alt="" />
               </div>
             </div>
             <!-- 如果需要导航按钮 -->
@@ -38,22 +40,22 @@
           <div class="swiper-container conList" id="thumbs">
             <div class="swiper-wrapper">
               <div class="swiper-slide bannerItem">
-                <img src="./images/banner1.jpg" alt="" />
+                <img src="./images/ban7 (2).jpg" alt="" />
               </div>
               <div class="swiper-slide bannerItem">
-                <img src="./images/banner2.jpg" alt="" />
+                <img src="./images/ban7 (3).jpg" alt="" />
               </div>
               <div class="swiper-slide bannerItem">
-                <img src="./images/banner3.jpg" alt="" />
+                <img src="./images/ban7 (4).jpg" alt="" />
               </div>
               <div class="swiper-slide bannerItem">
-                <img src="./images/banner1.jpg" alt="" />
+                <img src="./images/ban7 (5).jpg" alt="" />
               </div>
               <div class="swiper-slide bannerItem">
-                <img src="./images/banner2.jpg" alt="" />
+                <img src="./images/ban7 (6).jpg" alt="" />
               </div>
               <div class="swiper-slide bannerItem">
-                <img src="./images/banner3.jpg" alt="" />
+                <img src="./images/ban7 (7).jpg" alt="" />
               </div>
             </div>
           </div>
@@ -62,26 +64,26 @@
           <div class="detailInfo">
             <h1 class="detailHd">
               <span class="deIcon">携程优选</span
-              >北京八达岭长城+颐和园+清华大学外景一日游【可上门接-可选包车-打卡鸟巢-赠纪府门票】
+              >普吉岛查龙寺+卡伦观景台+神仙半岛+普吉镇环岛一日游【VIP包车/线路可定制/说走就走】
             </h1>
             <dl class="detailSpe">
               <dt>产品特色</dt>
               <dd>
                 <i></i>
                 <p>
-                  【优良资质】正规旅游大巴，做到安心、放心、省心游，决不外拼客人
+                  【服务及时贴心安全】VIP包车独立成团，当日紧急接单，一对一中文微导对接，专业车队专业老司机，带你们看遍普吉岛的美景
                 </p>
               </dd>
               <dd>
                 <i></i>
                 <p>
-                  【精华服务】多年经验老导游，经过系统的培训，让您的旅游从此不同
+                  【时间自由】可以任意选择出发时间，可以选择半日游6小时或一日游10小时
                 </p>
               </dd>
               <dd>
                 <i></i>
                 <p>
-                  【品质保证】纯玩无购物，一个暗店都没有，时间更充裕，游玩更轻松
+                  【搭配自由】想去的景点，想去的餐厅，想看的表演都可以自由搭配，一对一中文微导私人定制
                 </p>
               </dd>
             </dl>
@@ -132,8 +134,7 @@
               <span>选择行程路线</span>
             </label>
             <div class="choose_wrap">
-              <a href="javascript:;">八达岭颐和园</a>
-              <a href="javascript:;">VIP包车游</a>
+              <a href="javascript:;">环岛游</a>
             </div>
           </div>
           <div class="list">
@@ -141,8 +142,16 @@
               <span>选择套餐</span>
             </label>
             <div class="choose_wrap">
-              <a href="javascript:;">A套餐【自行集合】往返车费+门票+导游</a>
-              <a href="javascript:;">B套餐【五环内接】往返车费+门票+导游+接</a>
+              <a
+                href="javascript:;"
+                v-for="(item, index) in travelList"
+                :key="index"
+                :class="{ active: active === index }"
+                @click="handleList(index)"
+                >{{ item.name }}</a
+              >
+              <!-- {{ item.name.slice(6) }} -->
+              <!-- <a href="javascript:;">B套餐【五环内接】往返车费+门票+导游+接</a>
               <a href="javascript:;"
                 >C套餐【自行集合+午餐】往返车费+门票+导游</a
               >
@@ -156,7 +165,7 @@
               >
               <a href="javascript:;"
                 >D套餐【五环内接+午餐】往返车费+门票+导游+接</a
-              >
+              > -->
             </div>
           </div>
         </div>
@@ -190,9 +199,10 @@
                 </div>
                 <div class="peoRight">
                   <span class="num_box">
-                    <a href="javascript:;" class="cut"> </a>
-                    <input type="text" value="1" />
-                    <a href="javascript:;" class="add"> </a>
+                    <a href="javascript:;" class="cut" @click="cutNum"> </a>
+                    <!-- <input type="text" value="0" /> -->
+                    <input type="text" :value="activeItem" ref="numPeo" />
+                    <a href="javascript:;" class="add" @click="addNum"> </a>
                   </span>
                 </div>
               </div>
@@ -205,9 +215,10 @@
                 </div>
                 <div class="peoRight">
                   <span class="num_box">
-                    <a href="javascript:;" class="cut"> </a>
-                    <input type="text" value="0" />
-                    <a href="javascript:;" class="add"> </a>
+                    <a href="javascript:;" class="cut" @click="cutChild"> </a>
+
+                    <input type="text" value="0" ref="numChild" />
+                    <a href="javascript:;" class="add" @click="addChild"> </a>
                   </span>
                 </div>
               </div>
@@ -218,7 +229,9 @@
             <div class="bookPrice">
               <p class="selling-price">
                 总价<span
-                  ><dfn>￥<i>0</i></dfn></span
+                  ><dfn
+                    >￥<i> {{ totalPrice }}</i></dfn
+                  ></span
                 >
               </p>
               <p></p>
@@ -238,7 +251,6 @@ export default {
   name: "DetailBan",
   data() {
     return {
-      // -------------时间选择器
       pickerOptions: {
         disabledDate(time) {
           return time.getTime() > Date.now();
@@ -246,6 +258,8 @@ export default {
       },
       value1: "",
       value2: "",
+      travelList: {},
+      active: "",
     };
   },
   mounted() {
@@ -273,6 +287,70 @@ export default {
       },
     });
     // ------------------
+
+    this.getDetails();
+  },
+  methods: {
+    // 请求数据
+    async getDetails() {
+      let result = await this.$API.index.getDetails();
+      if (result.code === 200) {
+        this.travelList = result.data.result.packages;
+        // this.travelList = result.data;
+      }
+    },
+
+    // 点击套餐
+    handleList(index) {
+      this.active = index;
+    },
+    // 人数加减
+    cutNum() {
+      let result = this.$refs.numPeo.value * 1;
+      result -= 1;
+      this.$refs.numPeo.value = result;
+      if (this.$refs.numPeo.value <= 0) {
+        this.$refs.numPeo.value = 0;
+      }
+    },
+    addNum() {
+      let result = this.$refs.numPeo.value * 1;
+      result += 1;
+      this.$refs.numPeo.value = result;
+    },
+    cutChild() {
+      let result = this.$refs.numChild.value * 1;
+      result -= 1;
+      this.$refs.numChild.value = result;
+      if (this.$refs.numChild.value <= 0) {
+        this.$refs.numChild.value = 0;
+      }
+    },
+    addChild() {
+      let result = this.$refs.numChild.value * 1;
+      result += 1;
+      this.$refs.numChild.value = result;
+    },
+  },
+  computed: {
+    activeItem() {
+      let resultNum = this.travelList[this.active]
+        ? this.travelList[this.active].minquantity
+        : "0";
+      // return this.travelList[this.active].minquantity;
+      return resultNum;
+    },
+
+    // 计算总价
+    totalPrice() {
+      let result = this.travelList[this.active]
+        ? this.travelList[this.active].resourceinfos
+        : [];
+      return result.reduce((prve, item) => {
+        return (prve +=
+          item.minprice * this.travelList[this.active].minquantity);
+      }, 0);
+    },
   },
 };
 </script>
@@ -497,7 +575,7 @@ export default {
     }
     .detail_book {
       background-color: #fff;
-      padding-top: 20px;
+      padding-top: 48px;
       display: flex;
       .bookList {
         width: 530px;
@@ -528,6 +606,10 @@ export default {
               color: #333;
               padding: 5px 10px 5px 10px;
               max-width: 380px;
+            }
+            .active {
+              background: #2680ff;
+              color: #fff;
             }
           }
         }
@@ -632,7 +714,7 @@ export default {
           padding-top: 20px;
           border-bottom: 1px dashed #ccc;
           .bookBtn {
-            display: inline-block;
+            // display: inline-block;
             width: 178px;
             height: 50px;
             background: linear-gradient(90deg, #ffa900 0, #ff7201 100%);
@@ -648,7 +730,7 @@ export default {
           }
           .bookPrice {
             margin-top: 20px;
-            display: inline-block;
+            // display: inline-block;
             margin-right: 29px;
             float: right;
             font-size: 14px;

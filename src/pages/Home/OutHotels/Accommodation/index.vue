@@ -201,7 +201,7 @@ export default {
       let result = await this.$API.index.getIndexRentals();
       if (result.code === 200) {
         this.indexRentals = result.data;
-        console.log("@@@@", result.data);
+        // console.log("@@@@", result.data);
       }
     },
   },

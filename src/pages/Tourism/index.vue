@@ -1,51 +1,45 @@
 <template>
-  <!-- 版心区域 -->
-    
   <div class="mainContainer">
-    <!-- 头部 -->
-    <div class="header">
-      <!-- 图片区，城市区 -->
-      <div class="header-left">
-        <div class="header-url"></div>
-        <div class="city-wrap">
-          <dt>
-            <i class="iconfont icon-zuobiao"></i>
-            <span> 北京</span>
-            <span class="standing">站</span>
-            <b class="iconfont icon-arrow-up-bold"></b>
-          </dt>
-        </div>
-      </div>
-      <!-- 头部搜索区 -->
-      <div class="city-search">
-          <!-- 左侧输入区 -->
-        <div class="new-search-content">
-            <div class="search-left" >
+    <!-- 搜索区域 -->
+    <SearchContainer></SearchContainer>
+    <!-- 地区选择与轮播图 -->
+    <BaseTop></BaseTop>
 
-             </div>
-          <a class="search-right" href="javascript:;"></a>
-        </div>
-        <!-- 右侧点击区 -->
-        <div class="hot-search-box"></div>
-      </div>
-    </div>
+    <!-- 地区旅游点 -->
+    <!-- <LocalPro></LocalPro> -->
+    <!-- <AroundPro></AroundPro> -->
 
-    <div class="main-content"></div>
+    <!-- 优势 -->
+    <!-- <Avantage></Avantage> -->
+    <!-- 广告区 -->
+    <!-- <Advertisement></Advertisement> -->
   </div>
 </template>
 
 <script>
+import SearchContainer from "./SearchContainer";
+import BaseTop from "./BaseTop";
+import LocalPro from "./LocalPro";
+import AroundPro from "./AroundPro";
+import Avantage from "./Avantage";
+import Advertisement from "./Advertisement";
 export default {
-  name: "Tourism",
+  components: {
+    SearchContainer,
+    BaseTop,
+    LocalPro,
+    AroundPro,
+    Avantage,
+    Advertisement,
+  },
+  name: "tourism",
 };
 </script>
 
-<style  lang='less' scoped>
-// 版心
+<style lang="less" scoped>
+// #007aff
 .mainContainer {
   width: 1180px;
-  height: 1180px;
-
   margin: 0 auto;
   background: white;
   // 头部
@@ -65,7 +59,6 @@ export default {
       display: flex;
       // 左侧小飞机图标
       .header-url {
-        background-image: url(./images/1.png);
         background-repeat: no-repeat;
         position: absolute;
         width: 170px;
@@ -135,5 +128,3 @@ export default {
   }
 }
 </style>
-
-

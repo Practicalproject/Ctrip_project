@@ -1030,7 +1030,7 @@ export default {
     height: 323px;
     background: #fff;
     position: absolute;
-    left: 360px;
+    left: 362px;
     top: 18px;
     // 上侧
     .searchBox {
@@ -1110,7 +1110,7 @@ export default {
                 height: 30px;
                 line-height: 18px;
                 padding: 5px;
-                border: 1px solid #d9d9d9;}
+                border: 1px solid #d9d9d9;
                 &:focus {
                   border-color: #5d9de5;
                 }
@@ -1140,7 +1140,7 @@ export default {
                   height: 30px;
                   line-height: 30px;
                 }
-              
+              }
             /deep/.el-date-editor{
               line-height: 30px;
               i{
