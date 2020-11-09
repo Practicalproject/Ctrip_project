@@ -46,8 +46,9 @@
               class="body_item"
               v-for="(tabContentItem, index) in tabContentLst"
               :key="tabContentItem.sort"
+              
           >
-            <a :href="tabContentItem.prdLnk">
+            <a href="javascript:;" @click="jump">
               <img v-lazy="tabContentItem.img" alt=""/>
               <div class="item_mask">
                 <div class="title">
@@ -494,6 +495,9 @@ export default {
         this.getIndexSurrounding(diqu);
       }
     },
+    jump(){
+      this.$router.push('/detailsce')
+    }
   },
   computed: {
     tabContentLst() {
