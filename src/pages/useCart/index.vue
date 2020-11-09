@@ -1,4 +1,5 @@
 <template>
+  <div>
     <div class="wrap">
       <!-- 轮播图 -->
       <div class="banner">
@@ -115,59 +116,6 @@
                 </ul>
               </form>
             </div>
-          <ul class="searchTag">
-            <li :class="{ active: tabNum === 0 }" @click="changImndex(0)">
-              <a>境外租车</a>
-            </li>
-            <li :class="{ active: tabNum === 1 }" @click="changImndex(1)">
-              <a>国内租车</a>
-            </li>
-            <li :class="{ active: tabNum === 2 }" @click="changImndex(2)">
-              <a>接送机</a>
-            </li>
-            <li :class="{ active: tabNum === 3 }" @click="changImndex(3)">
-              <a>接送火车</a>
-            </li>
-            <li :class="{ active: tabNum === 4 }" @click="changImndex(4)">
-              <a>按天包车</a>
-            </li>
-          </ul>
-        </div>
-        <!-- 下侧 -->
-        <div class="searchs">
-          <!-- 境外租车 -->
-          <div class="searchItem">
-            <form>
-              <ul>
-                <li>
-                  <span>取车地点</span>
-                  <!--  class="s-input s-jj-input-w3 w1 points-ltlb focus in ui-placeholder"              data-picker="osdselector" -->
-                  <input data-picker type="text" />
-                </li>
-                <li>
-                  <span>还车地点</span>
-                  <input type="text" data-picker />
-                </li>
-                <li>
-                  <span>取车时间</span>
-                  <input
-                    style="width: 268px; margin-right: 2px"
-                    type="text"
-                    data-picker
-                  />
-                  <input style="width: 154px" type="text" data-picker />
-                </li>
-                <li>
-                  <span>还车时间</span>
-                  <input
-                    style="width: 268px; margin-right: 2px"
-                    type="text"
-                    data-picker
-                  />
-                  <input style="width: 154px" type="text" data-picker />
-                </li>
-              </ul>
-            </form>
           </div>
         </div>
       </div>
@@ -1023,12 +971,6 @@ export default {
       downTime: "", //还车时间
     };
   },
-  name: "useCart",
-  data() {
-    return {
-      tabNum: 0,
-    };
-  },
   mounted() {
     
     var mySwiper = new Swiper(".swiper-container", {
@@ -1046,9 +988,6 @@ export default {
   methods: {
     changecla(num) {
       this.num = num;
-    },
-    changImndex(index) {
-      this.tabNum = index;
     },
   },
 };
@@ -1091,39 +1030,61 @@ export default {
     height: 323px;
     background: #fff;
     position: absolute;
-    left: 170px;
+    left: 360px;
     top: 18px;
     // 上侧
     .searchBox {
-      background-color: #06c;
       .searchTag {
-        display: flex;
-        li {
-          background-color: #06c;
-          line-height: 46px;
-          height: 46px;
-          a {
-            color: #fff;
-            font-size: 16px;
-            border-right: 1px solid #ddd;
-            padding: 8px 19px 8px 20px;
-          }
-          &:hover {
-            border-top: 3px solid #ff9a00;
-            background-color: #fff;
-            border-bottom: 1px solid #333;
-            a {
-              color: #06c;
-            }
+        background-color: #1d74e7;
+        height: 44px;
+        padding: 8px 0;
+        overflow: hidden;
+        width: 100%;
+        a{
+          cursor: pointer;
+        }
+        .current {
+          background-color: #fff;
+          color: #06c;
+          top: -13px;
+          padding: 8px 19px 8px 20px;
+          border-right: 0;
+          vertical-align: -15px;
+          i {
+            display: inline-block;
+            width: 100%;
+            height: 4px;
+            background-color: #ff9a00;
+            position: absolute;
+            top: 0;
+            left: 0;
           }
         }
-        .active {
-          border-top: 3px solid #ff9a00;
+        a {
+          padding: 12px 18px 12px 17px !important;
+          color: #fff;
+          font-size: 16px;
+          line-height: 28px;
+          border-right: #6aa2ec 1px solid;
+          // margin-right: -5px;
+          vertical-align: middle;
+          position: relative;
+        }
+        a:hover {
           background-color: #fff;
-          border-bottom: 1px solid #333;
-          a {
-            color: #06c;
-          }
+          color: #06c;
+          padding: 12px 18px 12px 17px;
+          border-right: none;
+          // top: -8px;
+        }
+        a:hover i {
+          display: inline-block;
+          width: 100%;
+          height: 4px;
+          background-color: #ff9a00;
+          position: absolute;
+          top: 0;
+          left: 0;
         }
       }
     }
@@ -1149,7 +1110,7 @@ export default {
                 height: 30px;
                 line-height: 18px;
                 padding: 5px;
-                border: 1px solid #d9d9d9;
+                border: 1px solid #d9d9d9;}
                 &:focus {
                   border-color: #5d9de5;
                 }
@@ -1179,7 +1140,7 @@ export default {
                   height: 30px;
                   line-height: 30px;
                 }
-              }
+              
             /deep/.el-date-editor{
               line-height: 30px;
               i{
