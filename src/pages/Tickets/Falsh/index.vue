@@ -107,7 +107,9 @@ export default {
       width: 280px;
       height: 250px;
       position: relative;
-
+      &:hover {
+        cursor: pointer;
+      }
       /deep/.el-card__body {
         padding: 0;
       }

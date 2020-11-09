@@ -194,6 +194,12 @@ export default {
             font-size: 14px;
             line-height: 1.5;
           }
+          &:hover {
+            cursor: pointer;
+            a {
+              color: #0086f6;
+            }
+          }
         }
       }
     }
@@ -235,6 +241,12 @@ export default {
             line-height: 1.5;
             display: block;
             margin-right: 5px;
+          }
+          &:hover {
+            cursor: pointer;
+            a {
+              color: #0086f6;
+            }
           }
         }
       }
