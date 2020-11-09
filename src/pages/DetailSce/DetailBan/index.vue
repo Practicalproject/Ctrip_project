@@ -632,7 +632,7 @@ export default {
           padding-top: 20px;
           border-bottom: 1px dashed #ccc;
           .bookBtn {
-            display: inline-block;
+            // display: inline-block;
             width: 178px;
             height: 50px;
             background: linear-gradient(90deg, #ffa900 0, #ff7201 100%);
@@ -648,7 +648,7 @@ export default {
           }
           .bookPrice {
             margin-top: 20px;
-            display: inline-block;
+            // display: inline-block;
             margin-right: 29px;
             float: right;
             font-size: 14px;
