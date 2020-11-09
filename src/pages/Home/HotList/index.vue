@@ -1,5 +1,5 @@
 <template>
-  <div class="hotList_wrapper">
+  <div class="hotList_wrapper" ref="hotListWrapper">
     <!-- 头部列表 -->
     <div class="header_list">
       <h2>
@@ -454,6 +454,7 @@ export default {
   mounted() {
     this.getIndexHot("JingNei");
     this.getIndexSurrounding("JingXuan");
+    this.$store.commit("SETHOTLISTWRAPPERTOP",this.$refs.hotListWrapper.offsetTop)
   },
   methods: {
     tab(num) {

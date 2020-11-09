@@ -22,7 +22,10 @@
     <BusinessTravel></BusinessTravel>
     <Partner></Partner>
     <Footer></Footer>
+    <!--    ad广告-->
     <Advertising></Advertising>
+    <!--    电梯导航-->
+    <ElevatorNavigation></ElevatorNavigation>
   </div>
 </template>
 
@@ -40,6 +43,7 @@ import PopDestinations from "./PopDestinations";
 import GlobalPurchasing from "./GlobalPurchasing";
 import DestinationGuide from "./DestinationGuide";
 import Advertising from "./Advertising"
+import ElevatorNavigation from "./ElevatorNavigation"
 
 export default {
   name: "Home",
@@ -56,7 +60,8 @@ export default {
     PopDestinations,
     GlobalPurchasing,
     DestinationGuide,
-    Advertising
+    Advertising,
+    ElevatorNavigation
   },
 };
 </script>

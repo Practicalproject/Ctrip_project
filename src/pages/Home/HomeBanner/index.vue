@@ -1,5 +1,5 @@
 <template>
-  <div class="swiper-container">
+  <div ref="swiperContainer" class="swiper-container">
     <div class="mod-wrap">
       <div class="mod">
         <h2 class="line-title">境外直通车<i class="icon-arrow"></i></h2>
@@ -315,6 +315,10 @@ export default {
   //     },
   //   };
   // },
+  mounted() {
+    // this.$refs.swiper-container.offsetHeight
+    this.$store.commit("SETBANNERHEIGHT", this.$refs.swiperContainer.offsetHeight)
+  },
   methods: {
     popUp() {
       console.log("弹出")

@@ -1,10 +1,11 @@
 <template>
   <!-- 头部 -->
   <header
-    class="headerContainer"
-    :class="{
+      class="headerContainer"
+      :class="{
       mb: $route.path !== '/home',
     }"
+      ref="header"
   >
     <div class="top">
       <div class="top-container">
@@ -19,122 +20,122 @@
             <ul class="stateList">
               <li>
                 <a id="ctrip_cn" class="language_big5" href="//www.ctrip.com"
-                  >简体中文</a
+                >简体中文</a
                 >
               </li>
               <li>
                 <a id="ctrip_eng" class="language_en" href="javascript:;"
-                  >English (United States)</a
+                >English (United States)</a
                 >
               </li>
               <li>
                 <a id="ctrip_uk" class="language_gb" href="javascript:;"
-                  >English (United Kingdom)</a
+                >English (United Kingdom)</a
                 >
               </li>
               <li>
                 <a id="ctrip_hk" href="javascript:;" class="language_hk"
-                  >繁體中文 (中國香港)</a
+                >繁體中文 (中國香港)</a
                 >
               </li>
               <li>
                 <a id="ctrip_hk_en" href="javascript:;" class="language_hk"
-                  >English(Hong Kong,China)</a
+                >English(Hong Kong,China)</a
                 >
               </li>
               <li>
                 <a id="ctrip_korea" href="javascript:;" class="language_korea"
-                  >韩语版</a
+                >韩语版</a
                 >
               </li>
               <li>
                 <a id="ctrip_jap" href="javascript:;" class="language_jap"
-                  >日语版</a
+                >日语版</a
                 >
               </li>
               <li>
                 <a id="ctrip_sg" href="javascript:;" class="language_sg"
-                  >English (Singapore)</a
+                >English (Singapore)</a
                 >
               </li>
               <li>
                 <a id="ctrip_au" href="javascript:;" class="language_au"
-                  >English (Australia)</a
+                >English (Australia)</a
                 >
               </li>
               <li>
                 <a id="ctrip_de" href="javascript:;" class="language_de"
-                  >Deutsch</a
+                >Deutsch</a
                 >
               </li>
               <li>
                 <a id="ctrip_fr" href="javascript:;" class="language_fr"
-                  >Français</a
+                >Français</a
                 >
               </li>
               <li>
                 <a id="ctrip_es" href="javascript:;" class="language_es"
-                  >Español</a
+                >Español</a
                 >
               </li>
               <li>
                 <a id="ctrip_it" href="javascript:;" class="language_it"
-                  >Italiano</a
+                >Italiano</a
                 >
               </li>
               <li>
                 <a id="ctrip_ru" href="javascript:;" class="language_ru"
-                  >Русский</a
+                >Русский</a
                 >
               </li>
               <li>
                 <a id="ctrip_th" class="language_th" href="javascript:;"
-                  >泰国站</a
+                >泰国站</a
                 >
               </li>
               <li>
                 <a id="ctrip_id" class="language_id" href="javascript:;"
-                  >Bahasa Indonesia</a
+                >Bahasa Indonesia</a
                 >
               </li>
               <li>
                 <a id="ctrip_my" class="language_my" href="javascript:;"
-                  >Bahasa Malaysia</a
+                >Bahasa Malaysia</a
                 >
               </li>
               <li>
                 <a id="ctrip_my_en" class="language_my" href="javascript:;"
-                  >English (Malaysia)</a
+                >English (Malaysia)</a
                 >
               </li>
               <li>
                 <a id="ctrip_vn" class="language_vn" href="javascript:;"
-                  >越南语</a
+                >越南语</a
                 >
               </li>
               <li>
                 <a id="ctrip_nl" class="language_nl" href="javascript:;"
-                  >荷兰语</a
+                >荷兰语</a
                 >
               </li>
               <li>
                 <a id="ctrip_pl" class="language_pl" href="javascript:;"
-                  >波兰语&gt;</a
+                >波兰语&gt;</a
                 >
               </li>
               <li>
                 <a id="ctrip_gr" class="language_gr" href="javascript:;"
-                  >希腊语</a
+                >希腊语</a
                 >
               </li>
               <li>
                 <a id="ctrip_tr" class="language_tr" href="javascript:;"
-                  >土耳其语</a
+                >土耳其语</a
                 >
               </li>
               <li>
                 <a id="ctrip_pt" class="language_pt" href="javascript:;"
-                  >巴西葡萄牙语</a
+                >巴西葡萄牙语</a
                 >
               </li>
             </ul>
@@ -144,7 +145,9 @@
           <li>
             <router-link class="active" to="/login">你好，请登陆</router-link>
           </li>
-          <li><router-link class="active" to="/register">免费注册</router-link></li>
+          <li>
+            <router-link class="active" to="/register">免费注册</router-link>
+          </li>
           <li>
             <i class="iconfont icon-duanxin"></i>
             <a href="javascript:;">消息</a>
@@ -198,7 +201,7 @@
             <a class="iconfont icon-shouji"></a>
             <ul class="qrcode">
               <li>
-                <img src="./images/er_ctrip_app.jpg" alt="" />
+                <img src="./images/er_ctrip_app.jpg" alt=""/>
                 <p>手机扫码快速下载</p>
               </li>
               <li class="ctrip-app">
@@ -211,7 +214,7 @@
             <a class="iconfont icon-weixin"></a>
             <ul class="qrcode">
               <li>
-                <img src="./images/er_ctrip_app.jpg" alt="" />
+                <img src="./images/er_ctrip_app.jpg" alt=""/>
                 <p>扫一扫</p>
                 <p class="nth2">了解爆款旅行好货</p>
               </li>
@@ -227,7 +230,7 @@
           <router-link to="/" title="携程旅行网">携程旅行网</router-link>
         </div>
         <div v-if="$route.path === '/home'" class="cui_search">
-          <input type="text" placeholder="搜索旅行地/酒店/旅游/景点门票/交通" />
+          <input type="text" placeholder="搜索旅行地/酒店/旅游/景点门票/交通"/>
           <button class="iconfont icon-fangdajing"></button>
         </div>
         <div class="nav-tel">
@@ -243,8 +246,8 @@
     </div>
     <!-- 除了首页\机票页面\攻略页面 -->
     <nav
-      class="navContainer"
-      @mouseleave="navId = $route.query.navId"
+        class="navContainer"
+        @mouseleave="navId = $route.query.navId"
     >
       <ul class="cui_nav_ul">
         <li>
@@ -253,21 +256,21 @@
         <li class="divider"></li>
         <template v-for="item in cate1Nav">
           <li
-            :key="item.id"
-            @mouseenter="getNavId(item.cateID)"
-            @mouseleave="removed"
+              :key="item.id"
+              @mouseenter="getNavId(item.cateID)"
+              @mouseleave="removed"
           >
             <router-link
-              :to="{ path: item.cateAlias, query: { navId: item.cateID } }"
-              @click="getNavId(item.cateID)"
-              >{{ item.cateName ? item.cateName : "javascript:;" }}
+                :to="{ path: item.cateAlias, query: { navId: item.cateID } }"
+                @click="getNavId(item.cateID)"
+            >{{ item.cateName ? item.cateName : "javascript:;" }}
               <i v-show="item.isTwoCate" class="iconfont"></i>
               <span class="point"></span>
             </router-link>
             <div
-              v-show="isShow && cate2Nav.length > 0"
-              :style="{ 'z-index': navId === item.cateID ? 2 : 1 }"
-              class="cui_subnav_wrap"
+                v-show="isShow && cate2Nav.length > 0"
+                :style="{ 'z-index': navId === item.cateID ? 2 : 1 }"
+                class="cui_subnav_wrap"
             >
               <ul class="ul_nav_hotel">
                 <li v-for="navItem in cate2Nav" :key="navItem.id">
@@ -275,7 +278,7 @@
                 </li>
               </ul>
               <a class="cui_ico_order" href="javascript:;"
-                ><i class="cui-icon-hotel"></i>酒店订单 &gt;</a
+              ><i class="cui-icon-hotel"></i>酒店订单 &gt;</a
               >
             </div>
           </li>
@@ -302,6 +305,7 @@ export default {
   mounted() {
     // 发请求获取导航数据
     this.getNavData();
+    this.$store.commit("SETHEADERHEIGHT", this.$refs.header.offsetHeight)
   },
   methods: {
     // 鼠标移除
@@ -322,12 +326,12 @@ export default {
       if (result.resultDesc.errCode === 200) {
         // 自定义唯一标识
         let time,
-          id = 1;
+            id = 1;
         // 遍历将唯一标识塞进去
         let navList = result.resultData.map((item) => {
           //  这里给一级导航添加是否有二级导航标识
           let cateTwo = result.resultData.some(
-            (twoItem) => twoItem.cateParentID === item.cateID
+              (twoItem) => twoItem.cateParentID === item.cateID
           );
           //  判断通过将二级导航标识添加
           if (cateTwo) {
@@ -365,7 +369,7 @@ export default {
     },
   },
 };
-</script> 
+</script>
 
 <style lang="less" scoped>
 // 头部
@@ -374,6 +378,7 @@ export default {
   // margin-bottom: 10px;
   &.mb {
     margin-bottom: 40px;
+
     .cui_nav_ul {
       .cui_subnav_wrap {
         display: block;
@@ -388,6 +393,7 @@ export default {
     background-color: #f4f4f4;
     color: #666;
     font-size: 12px;
+
     .top-container {
       width: 1180px;
       height: 100%;
@@ -395,17 +401,20 @@ export default {
       display: flex;
       justify-content: space-between;
       position: relative;
+
       .topLeft {
         width: 50%;
         height: 100%;
         display: flex;
         position: relative;
+
         .state {
           position: absolute;
           left: 103px;
           top: 0;
           font-size: 12px;
           cursor: pointer;
+
           &:hover {
             background: #e4e7eb;
             text-decoration: none;
@@ -416,6 +425,7 @@ export default {
 
             height: 36px;
           }
+
           &:hover span {
             background-color: #fff;
             border-bottom: none;
@@ -423,23 +433,28 @@ export default {
             border: 1px solid #d9d9d9;
             box-sizing: border-box;
           }
+
           &:hover .stateList {
             display: block;
           }
+
           &:hover .icon-downlist {
             transform: rotate(180deg);
             display: inline-block;
           }
+
           span {
             border: 1px solid transparent;
             height: 36px;
             display: block;
             padding: 0px 15px 0px 13px;
+
             .iconfont {
               font-size: 14px;
               vertical-align: middle;
             }
           }
+
           .stateList {
             border: 1px solid #d9d9d9;
             background: #fff;
@@ -453,15 +468,18 @@ export default {
             left: 0;
             z-index: 2;
             display: none;
+
             li {
               float: left;
               display: inline-block;
               width: 183px;
               padding: 5px 7px;
               margin-bottom: 5px;
+
               &:hover {
                 background-color: #f5f5f5;
               }
+
               a {
                 background-image: url(//pic.c-ctrip.com/platform/online/home/un_header_language_1807.png);
                 background-repeat: no-repeat;
@@ -471,7 +489,7 @@ export default {
                 color: #4c4c4c;
                 height: 20px;
                 font-family: Arial, tahoma, verdana, "Microsoft YaHei", Simsun,
-                  sans-serif;
+                sans-serif;
                 overflow: hidden;
                 line-height: 20px;
                 text-decoration: none;
@@ -480,6 +498,7 @@ export default {
           }
         }
       }
+
       .topRight {
         > li {
           float: left;
@@ -487,11 +506,13 @@ export default {
           line-height: 36px;
           padding: 0 10px;
           position: relative;
+
           &:nth-of-type(1)::after,
           &:nth-last-of-type(1)::after,
           &:nth-last-of-type(2)::after {
             display: none;
           }
+
           &:nth-of-type(1) a,
           &:nth-last-of-type(1) a,
           &:nth-last-of-type(2) a {
@@ -509,17 +530,21 @@ export default {
             top: 50%;
             transform: translateY(-50%);
           }
+
           > a {
             text-decoration: none;
             color: #666;
             display: inline-block;
           }
+
           > i.iconfont {
             font-size: 14px;
           }
+
           > i.iconfont.icon-duanxin {
             margin-right: 3px;
           }
+
           &.active {
             .nav-drowndrop {
               white-space: nowrap;
@@ -532,18 +557,22 @@ export default {
               border: 1px solid #d9d9d9;
               z-index: 2;
               background-color: white;
+
               li {
                 height: 30px;
                 line-height: 30px;
+
                 a {
                   padding: 0 10px;
                   text-decoration: none;
                   color: #666;
                   display: block;
+
                   &:hover {
                     color: #0066cc;
                   }
                 }
+
                 &:hover {
                   background-color: #f6f6f6;
                 }
@@ -561,13 +590,16 @@ export default {
               text-align: center;
               border: 1px solid #d9d9d9;
               z-index: 2;
+
               li {
                 padding: 16px 0 13px;
+
                 img {
                   border: none;
                   vertical-align: middle;
                   display: inline-block;
                 }
+
                 p {
                   margin-top: 10px;
                   font-size: 12px;
@@ -575,6 +607,7 @@ export default {
                   height: 12px;
                   line-height: 12px;
                 }
+
                 &.ctrip-app {
                   padding: 0;
                   width: 100%;
@@ -585,10 +618,12 @@ export default {
                   opacity: 0.5;
                   text-align: center;
                   cursor: pointer;
+
                   a {
                     text-decoration: none;
                     color: white;
                   }
+
                   .icon-right {
                     font-size: 12px;
                     margin-left: 4px;
@@ -597,20 +632,24 @@ export default {
                 }
               }
             }
+
             &:hover {
               color: #4c4c4c;
               font-size: 12px;
               box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.15);
               height: 36px;
               background-color: white;
+
               .nav-drowndrop,
               .qrcode {
                 display: block;
               }
+
               > i {
                 display: inline-block;
                 transform: rotate(180deg);
               }
+
               &::before {
                 content: "";
                 display: block;
@@ -620,6 +659,7 @@ export default {
                 position: absolute;
                 left: 0;
               }
+
               &::after {
                 content: "";
                 display: block;
@@ -635,14 +675,17 @@ export default {
       }
     }
   }
+
   .logo-wrap {
     background-color: white;
     width: 100%;
+
     .logo {
       width: 1180px;
       margin: 0 auto;
       height: 80px;
       position: relative;
+
       .ctriplogo {
         float: left;
         display: inline-block;
@@ -650,6 +693,7 @@ export default {
         height: 34px;
         margin: 23px 0;
         overflow: hidden;
+
         a {
           display: block;
           width: 100%;
@@ -660,6 +704,7 @@ export default {
           overflow: hidden;
         }
       }
+
       .cui_search {
         float: left;
         margin: 25px 0;
@@ -679,15 +724,18 @@ export default {
           margin-left: 40px;
           padding-left: 4px;
           outline-style: none;
+
           &:focus {
             border-color: #2b82f4;
             box-shadow: 1px 1px 0 0 rgba(146, 187, 241, 1) inset;
           }
+
           &:focus + button {
             border-color: #2b82f4;
             background-color: #2b82f4;
           }
         }
+
         button {
           position: absolute;
           right: -40px;
@@ -703,12 +751,13 @@ export default {
           border-left: none;
         }
       }
+
       .nav-tel {
         position: absolute;
         right: 0;
         top: 10px;
         font-family: Arial, tahoma, verdana, "Microsoft YaHei", Simsun,
-          sans-serif;
+        sans-serif;
         padding: 10px 20px 0px 16px;
         border: 1px solid #fff;
         z-index: 1;
@@ -718,14 +767,17 @@ export default {
           color: #666;
           font-size: 12px;
           line-height: 20px;
+
           li {
             height: 20px;
             color: #666;
+
             &.tel-list-more {
               display: none;
             }
           }
         }
+
         .iconfont {
           color: #666;
           position: absolute;
@@ -739,6 +791,7 @@ export default {
           padding: 10px 20px 10px 16px;
           border: 1px solid #d9d9d9;
           box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.15);
+
           li.tel-list-more {
             display: block;
           }
@@ -757,13 +810,16 @@ export default {
     height: 40px;
     background-color: #2577e3;
     margin: 0 auto;
+
     .cui_nav_ul {
       .router-link-active {
         background-color: rgb(10, 86, 187);
+
         .point {
           display: block;
         }
       }
+
       position: relative;
       // z-index: 25;
       min-width: 980px !important;
@@ -774,10 +830,12 @@ export default {
       line-height: 40px;
       font-size: 15px;
       background-color: #2577e3;
+
       > li {
         float: left;
         display: inline-block;
         height: 40px;
+
         > a {
           position: relative;
           display: block;
@@ -806,8 +864,10 @@ export default {
             transition: transform 0.2s ease 0s;
           }
         }
+
         &:hover {
           background: #0a56bb;
+
           .iconfont {
             display: inline-block;
             width: 0;
@@ -825,13 +885,16 @@ export default {
             -o-transform: rotate(360deg);
             transform: rotate(360deg);
           }
+
           .point {
             display: block;
           }
+
           .cui_subnav_wrap {
             display: block;
           }
         }
+
         .point {
           display: none;
           position: absolute;
@@ -849,6 +912,7 @@ export default {
           border-left: 7px solid transparent;
           border-right: 7px solid transparent;
         }
+
         .cui_subnav_wrap {
           display: none;
           white-space: nowrap;
@@ -860,6 +924,7 @@ export default {
           color: #666;
           width: 100%;
           background-color: #fff;
+
           .ul_nav_hotel {
             width: auto !important;
             height: 37px;
@@ -868,6 +933,7 @@ export default {
             border: 1px solid #2577e3;
             border-top: none;
             font-size: 14px;
+
             li {
               position: relative;
               float: left;
@@ -876,14 +942,17 @@ export default {
               margin: 0 8px;
               color: #333;
               font-size: 14px;
+
               a {
                 color: #333;
                 font-size: 14px;
                 text-decoration: none;
+
                 &:hover {
                   color: #2577e3;
                 }
               }
+
               &::after {
                 content: "";
                 display: block;
@@ -898,11 +967,13 @@ export default {
                 clear: none;
                 border: none;
               }
+
               &:last-of-type::after {
                 display: none;
               }
             }
           }
+
           .cui_ico_order {
             position: absolute;
             top: 10px;
@@ -913,9 +984,11 @@ export default {
             font-size: 14px;
             color: #333;
             text-decoration: none;
+
             &:hover {
               color: #2577e3;
             }
+
             i {
               display: inline-block;
               background-image: url(./images/un_icon_index_type20170111.png);
@@ -930,6 +1003,7 @@ export default {
           }
         }
       }
+
       .divider {
         width: 1px;
         height: 14px;
