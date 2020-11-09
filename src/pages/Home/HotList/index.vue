@@ -29,10 +29,10 @@
       <div class="sub_nav">
         <ul>
           <li
-            :class="{ active: number === index }"
-            v-for="(item, index) in destCitys"
-            :key="item.pinyin"
-            @click="change(index, item.pinyin, currNum)"
+              :class="{ active: number === index }"
+              v-for="(item, index) in destCitys"
+              :key="item.pinyin"
+              @click="change(index, item.pinyin, currNum)"
           >
             <a href="javascript:;">{{ item.nme }}</a>
           </li>
@@ -43,12 +43,12 @@
         <!-- 左侧多图区域 -->
         <div class="sub_body">
           <div
-            class="body_item"
-            v-for="(tabContentItem, index) in tabContentLst"
-            :key="tabContentItem.sort"
+              class="body_item"
+              v-for="(tabContentItem, index) in tabContentLst"
+              :key="tabContentItem.sort"
           >
             <a :href="tabContentItem.prdLnk">
-              <img v-lazy="tabContentItem.img" alt="" />
+              <img v-lazy="tabContentItem.img" alt=""/>
               <div class="item_mask">
                 <div class="title">
                   <span class="title_text">{{ tabContentItem.prdNme }}</span>
@@ -74,12 +74,12 @@
         </div>
         <!-- 右侧大图 -->
         <div
-          class="sub_big"
-          v-for="imgItem in indexHot.adLst"
-          :key="imgItem.img"
+            class="sub_big"
+            v-for="imgItem in indexHot.adLst"
+            :key="imgItem.img"
         >
           <a :href="imgItem.url">
-            <img v-lazy="imgItem.img" alt="" />
+            <img v-lazy="imgItem.img" alt=""/>
           </a>
         </div>
       </div>
@@ -92,10 +92,10 @@
           <dt>热门主题游</dt>
           <dd>
             <span
-              class="entrance-item"
-              :title="themeItem.nme"
-              v-for="(themeItem, index) in themeLst"
-              :key="themeItem.pinyin"
+                class="entrance-item"
+                :title="themeItem.nme"
+                v-for="(themeItem, index) in themeLst"
+                :key="themeItem.pinyin"
             >
               <a :href="themeItem.url" target="_blank">{{ themeItem.nme }} </a>
             </span>
@@ -141,11 +141,11 @@
           <dt>热门目的地</dt>
           <dd>
             <span
-              class="entrance-item"
-              :title="hotLnk.nme"
-              v-for="(hotLnk, index) in hotLnks"
-              :key="hotLnk.pinyin"
-              ><a :href="hotLnks.lnk" target="_blank">{{ hotLnk.nme }}</a></span
+                class="entrance-item"
+                :title="hotLnk.nme"
+                v-for="(hotLnk, index) in hotLnks"
+                :key="hotLnk.pinyin"
+            ><a :href="hotLnks.lnk" target="_blank">{{ hotLnk.nme }}</a></span
             >
             <!-- <span class="entrance-item" title="上海"
               ><a
@@ -209,14 +209,14 @@
         <div class="product-hd">
           <ul class="inner-tabs-nav">
             <li
-              :class="{ active: number === index }"
-              v-for="(destCity, index) in destCitysList"
-              :key="destCity.pinyin"
-              @click="change(index, destCity.pinyin)"
+                :class="{ active: number === index }"
+                v-for="(destCity, index) in destCitysList"
+                :key="destCity.pinyin"
+                @click="change(index, destCity.pinyin)"
             >
               <a href="javascript:void(0);" :pinyin="destCity.pinyin">{{
-                destCity.nme
-              }}</a>
+                  destCity.nme
+                }}</a>
             </li>
             <!-- <li><a href="javascript:void(0);" pinyin="ShangHai">上海</a></li>
             <li><a href="javascript:void(0);" pinyin="HangZhou">杭州</a></li>
@@ -246,16 +246,17 @@
         <div class="product-bd">
           <div class="inner-tab-panel active inner-tab-panel_noextra">
             <div
-              class="product-item"
-              title="苏州+乌镇+杭州3日2晚跟团游(5钻)·万人纯玩明星线 『夜宿乌镇 2晚5钻酒店+三5A景+蟹意满满』留园+网红乌镇+漫游西湖 甄选明星阵容丨打卡乌镇西栅日与夜【三宴·高餐标50元丨苏式&amp;乌镇水乡宴&amp;龙井御茶宴】双11爆单款"
-              v-for="(tabContentItem, index) in tabContentLstInfo"
-              :key="index"
+                class="product-item"
+                title="苏州+乌镇+杭州3日2晚跟团游(5钻)·万人纯玩明星线 『夜宿乌镇 2晚5钻酒店+三5A景+蟹意满满』留园+网红乌镇+漫游西湖 甄选明星阵容丨打卡乌镇西栅日与夜【三宴·高餐标50元丨苏式&amp;乌镇水乡宴&amp;龙井御茶宴】双11爆单款"
+                v-for="(tabContentItem, index) in tabContentLstInfo"
+                :key="index"
             >
               <a :href="tabContentItem.prdLnk" target="_blank"
-                ><div class="item-thumbnail">
+              >
+                <div class="item-thumbnail">
                   <img
-                    v-lazy="tabContentItem.img"
-                    :alt="tabContentItem.prdNme"
+                      v-lazy="tabContentItem.img"
+                      :alt="tabContentItem.prdNme"
                   />
                 </div>
                 <p class="item-name">
@@ -263,10 +264,11 @@
                 </p>
                 <p class="item-info">
                   <span class="price"
-                    ><dfn>¥</dfn>{{ tabContentItem.price.amt
+                  ><dfn>¥</dfn>{{
+                      tabContentItem.price.amt
                     }}<i class="price_info">起</i></span
                   ><span class="diamond diamond05"></span></p
-              ></a>
+                ></a>
             </div>
 
             <!-- <div
@@ -454,7 +456,11 @@ export default {
   mounted() {
     this.getIndexHot("JingNei");
     this.getIndexSurrounding("JingXuan");
-    this.$store.commit("SETHOTLISTWRAPPERTOP",this.$refs.hotListWrapper.offsetTop)
+    this.$store.commit("SETHOTLISTWRAPPERTOP", this.$refs.hotListWrapper.offsetTop)
+    document.addEventListener('scroll', () => {
+      this.$store.commit("SETHOTLISTWRAPPERTOP", this.$refs.hotListWrapper.offsetTop)
+    });
+
   },
   methods: {
     tab(num) {
@@ -524,9 +530,11 @@ export default {
     padding-bottom: 3px;
     justify-content: space-between;
     border-bottom: 2px solid #3983e5;
+
     h2 {
       text-align: left;
       float: left;
+
       span {
         color: #333;
         bottom: -3px;
@@ -536,14 +544,17 @@ export default {
         cursor: pointer;
         font-size: 16px;
         position: relative;
+
         &:hover {
           color: #06c;
           cursor: default;
         }
       }
+
       .current {
         cursor: default;
         color: #06c;
+
         i {
           position: absolute;
           left: 50%;
@@ -573,6 +584,7 @@ export default {
 
     .sub_nav {
       margin-bottom: 15px;
+
       ul {
         height: 20px;
         margin-bottom: 10px;
@@ -583,18 +595,22 @@ export default {
           margin-right: 15px;
           color: #3983e5;
           padding: 0 8px;
+
           &:hover {
             background: #3983e5;
             border-radius: 3px;
+
             a {
               color: #fff;
             }
           }
         }
+
         .active {
           background: #3983e5;
           color: #fff;
           border-radius: 3px;
+
           a {
             color: #fff;
           }
@@ -616,15 +632,18 @@ export default {
         flex-wrap: wrap;
         overflow: hidden;
         height: 330px;
+
         .body_item {
           width: 220px;
           height: 160px;
           position: relative;
           margin-bottom: 10px;
+
           img {
             width: 100%;
             height: 100%;
           }
+
           .item_mask {
             border-radius: 50%;
             width: 112px;
@@ -637,20 +656,24 @@ export default {
             text-align: center;
             font-size: 12px;
             color: white;
+
             span {
               font-size: 22px;
               color: #f60;
             }
+
             .title {
               position: absolute;
               top: 50%;
               transform: translateY(-50%);
               left: 5px;
+
               .title_text {
                 font-size: 18px;
                 color: white;
                 font-weight: 900;
               }
+
               .mask_rule {
                 width: 102px;
                 height: 1px;
@@ -658,6 +681,7 @@ export default {
               }
             }
           }
+
           .product-detail {
             display: none;
             position: absolute;
@@ -671,6 +695,7 @@ export default {
             font-family: PingFangSC-Regular;
             color: #fff;
             line-height: 16px;
+
             .title {
               text-align: center;
               font-size: 22px;
@@ -679,6 +704,7 @@ export default {
               font-weight: bold;
               margin-bottom: 16px;
             }
+
             .info {
               position: relative;
               padding-left: 28px;
@@ -689,6 +715,7 @@ export default {
               white-space: nowrap;
               text-overflow: -o-ellipsis-lastline;
               text-overflow: ellipsis;
+
               i {
                 position: absolute;
                 left: 6px;
@@ -698,24 +725,28 @@ export default {
                 display: inline-block;
                 overflow: hidden;
                 vertical-align: middle;
-                background: url(//pic.c-ctrip.com/platform/online/home/un_index_20180209.png)
-                  no-repeat;
+                background: url(//pic.c-ctrip.com/platform/online/home/un_index_20180209.png) no-repeat;
+
                 &.icon-scenic {
                   background-position: 0 -208px;
                 }
+
                 &.icon-food {
                   background-position: -26px -208px;
                 }
               }
             }
+
             .link {
               margin-top: 18px;
               text-align: center;
             }
           }
+
           &:hover .product-detail {
             display: block;
           }
+
           &:hover .item_mask {
             display: none;
           }
@@ -750,22 +781,27 @@ export default {
       height: 360px;
       padding: 0 20px 15px;
       overflow: hidden;
+
       a {
         color: #666;
+
         &:hover {
           text-decoration: none;
           color: #3983e6;
         }
       }
+
       .keyword-short {
         width: 187px;
         margin: 0px 0 7px 0;
         overflow: hidden;
         position: relative;
+
         dt {
           padding: 4px 0 0 0;
           font: 700 14px/34px "Microsoft yahei";
         }
+
         dd {
           margin-left: -10px;
           white-space: nowrap;
@@ -773,6 +809,7 @@ export default {
           text-overflow: ellipsis;
           position: relative;
           zoom: 1;
+
           .entrance-item {
             position: relative;
             float: left;
@@ -784,6 +821,7 @@ export default {
             margin: 7px 0;
             *margin: 8px 0;
           }
+
           a {
             display: inline-block;
             max-width: 72px;
@@ -792,6 +830,7 @@ export default {
         }
       }
     }
+
     // 右侧
     .product {
       position: relative;
@@ -800,43 +839,53 @@ export default {
       margin-left: 229px;
       padding: 15px 19px 0;
       border-left: 1px dotted #a3a3a3;
+
       .product-hd {
         .inner-tabs-nav {
           height: 20px;
           margin-bottom: 10px;
+
           li {
             float: left;
             display: inline-block;
             line-height: 20px;
             margin-right: 15px;
             padding: 0 8px;
+
             &.active {
               background: #3983e5;
               color: #fff;
               border-radius: 3px;
+
               a {
                 color: #fff;
               }
             }
+
             &:hover {
               background: #3983e5;
               color: #fff;
               border-radius: 3px;
+
               a {
                 color: #fff;
               }
             }
+
             a {
               color: #3983e5;
               z-index: 81;
             }
+
             .dropdown-li {
               margin-top: -1px;
               width: 40px;
               position: relative;
               z-index: 10;
+
               .dropdown-toggle {
                 border: none;
+
                 .caret {
                   margin-left: 5px;
                   display: inline-block;
@@ -852,6 +901,7 @@ export default {
                   border-right: 5px solid transparent;
                 }
               }
+
               .dropdown-cont {
                 z-index: 80;
                 left: -10px;
@@ -860,6 +910,7 @@ export default {
                 position: absolute;
                 top: 22px;
                 background: #fff;
+
                 .dropdown-menu-list {
                   width: 80px;
                   padding: 4px;
@@ -867,6 +918,7 @@ export default {
                   border: 1px solid #999;
                   max-height: 176px;
                   overflow: hidden;
+
                   a {
                     display: none;
                     padding: 0 10px;
@@ -882,10 +934,12 @@ export default {
           }
         }
       }
+
       .product-bd {
         .inner-tab-panel_noextra {
           margin-left: -10px;
           padding-right: 0;
+
           .product-item {
             position: relative;
             width: 220px;
@@ -895,16 +949,19 @@ export default {
             overflow: hidden;
             -webkit-transition: all 0.2s linear;
             transition: all 0.2s linear;
+
             a {
               text-decoration: none;
               color: #666;
               display: block;
+
               .item-thumbnail {
                 position: relative;
                 width: 220px;
                 height: 110px;
                 margin-bottom: 3px;
                 overflow: hidden;
+
                 img {
                   transition: transform 0.3s ease 0s;
                   width: 220px;
@@ -912,6 +969,7 @@ export default {
                   vertical-align: middle;
                 }
               }
+
               .item-name {
                 position: relative;
                 height: 20px;
@@ -922,21 +980,25 @@ export default {
                 text-overflow: ellipsis;
                 padding: 0 5px;
               }
+
               .item-info {
                 position: relative;
                 height: 35px;
                 text-align: right;
                 padding: 0 5px;
+
                 .price {
                   position: relative;
                   float: right;
                   font: 22px/1.5 tahoma;
                   color: #f60;
+
                   dfn {
                     vertical-align: 7px;
                     font: 12px/1.5 arial;
                     color: #666;
                   }
+
                   .price_info {
                     margin-left: 3px;
                     vertical-align: 2px;
@@ -944,6 +1006,7 @@ export default {
                     color: #666;
                   }
                 }
+
                 .diamond05 {
                   width: 59px;
                   position: absolute;
@@ -954,20 +1017,22 @@ export default {
                   display: inline-block;
                   overflow: hidden;
                   vertical-align: middle;
-                  background: url(//pic.c-ctrip.com/platform/online/home/un_index_20180209.png)
-                    no-repeat;
+                  background: url(//pic.c-ctrip.com/platform/online/home/un_index_20180209.png) no-repeat;
                   background-position: 0 0;
                 }
               }
             }
+
             &:hover {
               box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+
               img {
                 transform: scale(1.1);
               }
             }
           }
         }
+
         .inner-tab-panel {
           height: 340px;
           overflow: hidden;

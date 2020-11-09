@@ -45,25 +45,17 @@ export default {
   methods: {
     //  计算元素距离页面顶部的距离
     computer() {
-      if ((this.$refs.lift.offsetTop - document.documentElement.scrollTop) <= (this.hotListWrapperTop - document.documentElement.scrollTop)) {
-        this.$refs.lift.style.top = this.hotListWrapperTop + "px"
-      } else {
+      if (document.documentElement.scrollTop > this.$refs.lift.offsetTop) {
         this.$refs.lift.style.top = "200px"
+      } else {
+        this.$refs.lift.style.top = this.hotListWrapperTop + "px"
       }
-      console.log(this.hotListWrapperTop)
-      console.log((this.$refs.lift.offsetTop))
-    }
+    },
   },
   computed: {
     ...mapState({
-      headerHeight: state => state.aishuaikang.headerHeight,
-      bannerHeight: state => state.aishuaikang.bannerHeight,
       hotListWrapperTop: state => state.aishuaikang.hotListWrapperTop
     }),
-    //  计算需要距离头部与banner轮播的距离
-    calculationDistance() {
-      return this.headerHeight + this.bannerHeight
-    },
   },
   watch: {}
 }
