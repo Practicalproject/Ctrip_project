@@ -709,7 +709,7 @@
           <h2>用车点评</h2>
         </div>
       </div>
-      
+
       <!-- 点评内容 -->
       <div class="remark_box">
         <div class="box_item">
@@ -768,6 +768,30 @@
             <div class="right_bottom">
               一嗨的服务态度不错，在机场取车还车都很方便，只是1.6的自排车辆在上山时就感觉动力不够，油门踩得比较费力。最奇葩的是导航，人生地不熟的我们从揭阳到南澳来回居然被导了两条完全不同的路线（高速去国道回，不是我们故意安排的），结果意料之外地把去时漏过的景点都补齐了，甚至看到了汕头大学，买到了价廉物美的杨桃，所以还是要给“智能”导航点赞。只是去时2小时不到的车程回来开了3个多小时，还是赶紧给导航仪升级吧，它连南澳大桥都不知道。其它的都挺不错，下次还会考虑选一嗨的，如果能早点把扣押的定金还给我就更好了。
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 常见问题 -->
+      <div class="sundry">
+        <!-- 点评 -->
+        <div class="remark">
+          <span></span>
+          <h2>常见问题</h2>
+        </div>
+      </div>
+
+      <!-- 常见问题内容 -->
+      <div class="question">
+        <div class="question_item">
+          <div class="item_top">
+            <img src="./images/04.png" alt="" />
+            <span>接送机</span>
+          </div>
+          <div class="item_bottom">
+            <ul>
+              <li><a href="javascript:;"></a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -1319,6 +1343,28 @@ export default {
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
           overflow: hidden;
+        }
+      }
+    }
+  }
+
+  // 常见问题
+  .question {
+    width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    .question_item {
+      .item_top {
+        height: 36px;
+        span {
+          line-height: 36px;
+          font: 18px/36px Microsoft Yahei;
+          font-weight: 700;
+        }
+        img {
+          height: 20px;
+          margin-right: 10px;
         }
       }
     }
