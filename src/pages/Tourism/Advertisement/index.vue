@@ -1,0 +1,584 @@
+<template>
+  <div class="advertisementContainer">
+    <div class="bottom_wrap">
+      <ul>
+        <li>
+          <div>
+            <img
+              src="https://dimg04.c-ctrip.com/images/zg0a14000000x5ni06610.png"
+              alt=""
+            />
+          </div>
+        </li>
+        <li>
+          <div>
+            <img
+              src="https://dimg04.c-ctrip.com/images/zg0p14000000x3gu037ED.png"
+              alt=""
+            />
+          </div>
+        </li>
+        <li>
+          <div>
+            <img
+              src="https://dimg04.c-ctrip.com/images/zg0w14000000xadcwB509.png"
+              alt=""
+            />
+          </div>
+        </li>
+        <li>
+          <div>
+            <img
+              src="https://dimg04.c-ctrip.com/images/zg0414000000x3bkb2BA0.png"
+              alt=""
+            />
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="seo_box">
+      <div>
+        <dl>
+          <dt>热门省份自由行</dt>
+          <dd>
+            <a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-heilongjiang-100055/freetravel"
+              >黑龙江自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-jilin-100031/freetravel"
+              >吉林自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-liaoning-100061/freetravel"
+              >辽宁自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hebei-100059/freetravel"
+              >河北自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-henan-100058/freetravel"
+              >河南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-shandong-100039/freetravel"
+              >山东自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-shanxi-100056/freetravel"
+              >山西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-shanxi-100057/freetravel"
+              >陕西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-gansu-100060/freetravel"
+              >甘肃自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-ningxia-100063/freetravel"
+              >宁夏自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-jiangsu-100066/freetravel"
+              >江苏自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-zhejiang-100065/freetravel"
+              >浙江自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-anhui-100068/freetravel"
+              >安徽自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-jiangxi-100054/freetravel"
+              >江西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-fujian-100038/freetravel"
+              >福建自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hubei-100067/freetravel"
+              >湖北自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hunan-100053/freetravel"
+              >湖南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-sichuan-100009/freetravel"
+              >四川自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-guangdong-100051/freetravel"
+              >广东自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-guangxi-100052/freetravel"
+              >广西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-yunnan-100007/freetravel"
+              >云南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-guizhou-100064/freetravel"
+              >贵州自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-qinghai-100032/freetravel"
+              >青海自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-neimenggu-100062/freetravel"
+              >内蒙古自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-xinjiang-100008/freetravel"
+              >新疆自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-xizang-100003/freetravel"
+              >西藏自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hainan-100001/freetravel"
+              >海南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-taiwan-100076/freetravel"
+              >台湾自由行</a
+            >
+          </dd>
+        </dl>
+        <dl>
+          <dt>热门省份自由行</dt>
+          <dd>
+            <a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-heilongjiang-100055/freetravel"
+              >黑龙江自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-jilin-100031/freetravel"
+              >吉林自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-liaoning-100061/freetravel"
+              >辽宁自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hebei-100059/freetravel"
+              >河北自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-henan-100058/freetravel"
+              >河南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-shandong-100039/freetravel"
+              >山东自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-shanxi-100056/freetravel"
+              >山西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-shanxi-100057/freetravel"
+              >陕西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-gansu-100060/freetravel"
+              >甘肃自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-ningxia-100063/freetravel"
+              >宁夏自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-jiangsu-100066/freetravel"
+              >江苏自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-zhejiang-100065/freetravel"
+              >浙江自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-anhui-100068/freetravel"
+              >安徽自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-jiangxi-100054/freetravel"
+              >江西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-fujian-100038/freetravel"
+              >福建自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hubei-100067/freetravel"
+              >湖北自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hunan-100053/freetravel"
+              >湖南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-sichuan-100009/freetravel"
+              >四川自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-guangdong-100051/freetravel"
+              >广东自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-guangxi-100052/freetravel"
+              >广西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-yunnan-100007/freetravel"
+              >云南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-guizhou-100064/freetravel"
+              >贵州自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-qinghai-100032/freetravel"
+              >青海自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-neimenggu-100062/freetravel"
+              >内蒙古自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-xinjiang-100008/freetravel"
+              >新疆自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-xizang-100003/freetravel"
+              >西藏自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hainan-100001/freetravel"
+              >海南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-taiwan-100076/freetravel"
+              >台湾自由行</a
+            >
+          </dd>
+        </dl>
+        <dl>
+          <dt>热门省份自由行</dt>
+          <dd>
+            <a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-heilongjiang-100055/freetravel"
+              >黑龙江自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-jilin-100031/freetravel"
+              >吉林自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-liaoning-100061/freetravel"
+              >辽宁自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hebei-100059/freetravel"
+              >河北自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-henan-100058/freetravel"
+              >河南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-shandong-100039/freetravel"
+              >山东自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-shanxi-100056/freetravel"
+              >山西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-shanxi-100057/freetravel"
+              >陕西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-gansu-100060/freetravel"
+              >甘肃自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-ningxia-100063/freetravel"
+              >宁夏自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-jiangsu-100066/freetravel"
+              >江苏自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-zhejiang-100065/freetravel"
+              >浙江自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-anhui-100068/freetravel"
+              >安徽自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-jiangxi-100054/freetravel"
+              >江西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-fujian-100038/freetravel"
+              >福建自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hubei-100067/freetravel"
+              >湖北自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hunan-100053/freetravel"
+              >湖南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-sichuan-100009/freetravel"
+              >四川自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-guangdong-100051/freetravel"
+              >广东自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-guangxi-100052/freetravel"
+              >广西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-yunnan-100007/freetravel"
+              >云南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-guizhou-100064/freetravel"
+              >贵州自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-qinghai-100032/freetravel"
+              >青海自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-neimenggu-100062/freetravel"
+              >内蒙古自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-xinjiang-100008/freetravel"
+              >新疆自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-xizang-100003/freetravel"
+              >西藏自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hainan-100001/freetravel"
+              >海南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-taiwan-100076/freetravel"
+              >台湾自由行</a
+            >
+          </dd>
+        </dl>
+        <dl>
+          <dt>热门省份自由行</dt>
+          <dd>
+            <a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-heilongjiang-100055/freetravel"
+              >黑龙江自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-jilin-100031/freetravel"
+              >吉林自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-liaoning-100061/freetravel"
+              >辽宁自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hebei-100059/freetravel"
+              >河北自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-henan-100058/freetravel"
+              >河南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-shandong-100039/freetravel"
+              >山东自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-shanxi-100056/freetravel"
+              >山西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-shanxi-100057/freetravel"
+              >陕西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-gansu-100060/freetravel"
+              >甘肃自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-ningxia-100063/freetravel"
+              >宁夏自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-jiangsu-100066/freetravel"
+              >江苏自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-zhejiang-100065/freetravel"
+              >浙江自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-anhui-100068/freetravel"
+              >安徽自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-jiangxi-100054/freetravel"
+              >江西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-fujian-100038/freetravel"
+              >福建自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hubei-100067/freetravel"
+              >湖北自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hunan-100053/freetravel"
+              >湖南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-sichuan-100009/freetravel"
+              >四川自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-guangdong-100051/freetravel"
+              >广东自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-guangxi-100052/freetravel"
+              >广西自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-yunnan-100007/freetravel"
+              >云南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-guizhou-100064/freetravel"
+              >贵州自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-qinghai-100032/freetravel"
+              >青海自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-neimenggu-100062/freetravel"
+              >内蒙古自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-xinjiang-100008/freetravel"
+              >新疆自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-xizang-100003/freetravel"
+              >西藏自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-hainan-100001/freetravel"
+              >海南自由行</a
+            ><a
+              target="_blank"
+              href="//vacations.ctrip.com/tours/d-taiwan-100076/freetravel"
+              >台湾自由行</a
+            >
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Advertisement",
+};
+</script>
+
+<style lang="less" scoped>
+.advertisementContainer {
+  height: 350px;
+
+  .bottom_wrap {
+    text-align: center;
+    width: 1180px;
+    margin: 0 auto 20px;
+    ul {
+      height: 80px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      li {
+        display: inline;
+        div {
+          overflow: hidden;
+          transform: scale(1);
+          transform-origin: 0px 0px;
+          width: 280px;
+          height: 80px;
+          img {
+            width: 280px;
+            height: 80px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .seo_box {
+    width: 1180px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    color: #999;
+    background: #fff;
+    dl {
+      dt {
+        overflow: hidden;
+        color: #aaa;
+        font-weight: 700;
+        font-size: 12px;
+      }
+      dd {
+        a {
+          display: inline-block;
+          margin-right: 6px;
+          margin: 0 10px 5px 0;
+          color: #999;
+          white-space: nowrap;
+          text-decoration: none;
+          outline: 0;
+        }
+      }
+    }
+  }
+}
+</style>

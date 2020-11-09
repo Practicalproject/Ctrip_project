@@ -147,7 +147,7 @@
         </p>
       </div>
     </div>
-    
+
     <!--图文详情  -->
     <div class="modinfo" id="graphic" name="graphic">
       <h2 class="detail-mod">图文详情</h2>
@@ -213,8 +213,47 @@ export default {
     selete(i) {
       this.index = i;
     },
+  //     calculateflex(){
+  //    var oDiv = document.getElementByClassName("header"),
+  //               H = 0,
+  //               Y = oDiv        
+  //           while (Y) {
+  //               H += Y.offsetTop; 
+  //               Y = Y.offsetParent;
+  //           }
+  //           window.onscroll = function()
+  //           {
+  //               var s = document.body.scrollTop || document.documentElement.scrollTop
+  //               if(s>H) {
+  //                   oDiv.style = "position:fixed;top:0;"
+  //               } else {
+  //                   oDiv.style = ""
+  //               }
+  //           }
+
+  // }
   },
+
 };
+// const header = document.getElementsByClassName('header')
+
+// $(function () {
+//   $(window).scroll(function () {
+//     $(".header").each(function () {
+//       //所有需要计算距离浏览器顶端高度的元素
+//       var scrollTop = $(window).scrollTop(); // 网页被卷起来的高度
+//       var nap_top = $(this).offset().top; //页面元素距离文档顶端高度距离
+//       if (nap_top - scrollTop > 300) {
+//         //元素距离浏览器顶部高度
+//         // $(".mdtit").removeClass("nav_index_fix");
+//         // $(this).children(".mdtit").addClass("nav_index_fix");
+//       } else {
+//         // $(this).find(".mdtit").removeClass("nav_index_fix");
+//         $(this).children(".mdtit").addClass("nav_index_fix");
+//       }
+//     });
+//   });
+// });
 </script>
 
 <style  lang ='less' scoped>
@@ -247,6 +286,13 @@ html {
     border: 1px solid #ddd;
     box-sizing: border-box;
     background: white;
+
+    /* .nav_index_fix {
+      position: fixed;
+      left: 0;
+      top: 0;
+    } */
+
     .header-left a {
       line-height: 55px;
       font-size: 18px;
