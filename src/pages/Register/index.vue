@@ -1,14 +1,16 @@
 <template>
   <div class="registerContainer">
-    <button type="primary" class="ver" @click="clickver" ref="btn" :disabled='timeOut<60||!(/^1[3456789]\d{9}$/.test(phone))' v-if="gopas">
+    <button type="primary" class="ver" @click="clickver" ref="btn" :disabled='timeOut<60' v-if="!gopas">
       点击发送验证码
     </button>
     <button
+    style="border:1px solid #DCDFE6"
       class="button1 iconfont icon-hj"
       @click="butpas1"
       v-show="!gopas"
     ></button>
     <button
+    style="border:1px solid #DCDFE6"
       class="button2 iconfont icon-hj"
       @click="butpas2"
       v-show="!gopas"
@@ -31,12 +33,12 @@
             <el-form-item label="手机号" label-width="185px">
               <el-input placeholder="请输入有效手机号" v-model="phone"></el-input>
             </el-form-item>
-            <el-form-item label="验证码" label-width="185px">
+            <!-- <el-form-item label="验证码" label-width="185px">
               <el-input
                 v-model="yanzhengma"
                 placeholder="请输入验证码"
               ></el-input>
-            </el-form-item>
+            </el-form-item> -->
             <el-form-item label="" label-width="185px">
               <label class="base_label">
                 <input type="radio" :checked="isRead" @click="isRead_neg" />
@@ -81,8 +83,15 @@
                 placeholder="确认密码"
               ></el-input>
             </el-form-item>
+            <el-form-item label="验证码">
+              <el-input
+                v-model="yanzhengma"
+                placeholder="请输入验证码"
+              ></el-input>
+            </el-form-item>
             <el-form-item>
               <el-button type="primary" style="width: 202px" @click="sign"
+              :disabled='verFlag'
                 >完成</el-button
               >
             </el-form-item>
@@ -109,12 +118,14 @@ export default {
       userData: {},
       yanzhengma: "",
       timeOut: 60,
+      code:'',
+      verFlag:true
     };
   },
   methods: {
     // 点击发送验证码
     clickver() {
-      console.log(this.phone.length);
+      this.verFlag = false
     let setInt = setInterval(() => {
         this.timeOut--;
         this.$refs.btn.innerHTML = '验证码已发送('+this.timeOut+'s)';
@@ -179,7 +190,7 @@ export default {
         /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(this.passw) &&
         this.passw === this.passwo
       ) {
-        this.userData = await this.$API.index.loginUser(this.phone, this.passw);
+        this.userData = await this.$API.index.loginUser(this.phone, this.passw,this.yanzhengma);
         if (this.userData.code === 20000) {
           this.open6();
           this.active = 3;
@@ -224,7 +235,7 @@ export default {
     // 用户已注册
     open7() {
       this.$message({
-        message: "警告哦~该用户已经注册喽~~",
+        message: "警告哦~您输入的验证码无效哦~~",
         type: "warning",
       });
     },
@@ -238,10 +249,19 @@ export default {
 
   //验证码按钮
   .ver {
+    font-size: 12px;
     position: absolute;
     top: 196px;
-    left: 880px;
+    left: 744px;
     z-index: 10;
+    background-color: #409EFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 112px;
+    height: 35px;
+    line-height: 35px;
+    outline: none;
   }
   // 头部
   .button1 {
