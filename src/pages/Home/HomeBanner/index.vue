@@ -52,10 +52,10 @@
         <div class="swiper-container" ref="mySwiper1">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="./images/1.jpg" />
+              <img src="./images/1.jpg"/>
             </div>
             <div class="swiper-slide">
-              <img src="./images/2.jpg" />
+              <img src="./images/2.jpg"/>
             </div>
             <div class="swiper-slide">
               <img
@@ -75,144 +75,202 @@
       <div class="wrap_positioning">
         <div class="positioning_small">
           <!-- 左侧列表 -->
-          <div class="small_left">
-            <ul>
-              <li
-                :class="{ active: leftIndex === 0 }"
-                @click="changLeftIndex(0)"
-              >
-                <a href="javascript:;">酒店</a>
-              </li>
-              <li
-                :class="{ active: leftIndex === 1 }"
-                @click="changLeftIndex(1)"
-              >
-                <a href="javascript:;">机票</a>
-              </li>
-              <li
-                :class="{ active: leftIndex === 2 }"
-                @click="changLeftIndex(2)"
-              >
-                <a href="javascript:;">旅游</a>
-              </li>
-              <li
-                :class="{ active: leftIndex === 3 }"
-                @click="changLeftIndex(3)"
-              >
-                <a href="javascript:;">跟团游</a>
-              </li>
-              <li
-                :class="{ active: leftIndex === 4 }"
-                @click="changLeftIndex(4)"
-              >
-                <a href="javascript:;">打包订</a>
-              </li>
-              <li
-                :class="{ active: leftIndex === 5 }"
-                @click="changLeftIndex(5)"
-              >
-                <a href="javascript:;">火车</a>
-              </li>
-              <li
-                :class="{ active: leftIndex === 6 }"
-                @click="changLeftIndex(6)"
-              >
-                <a href="javascript:;">用车</a>
-              </li>
-            </ul>
+          <ul class="s_tab">
+            <li class="s_tab_current active"><b>酒店</b></li>
+            <li class="s_tab_nocurrent"><b>机票</b></li>
+            <li class="s_tab_nocurrent"><b>旅游</b></li>
+            <li class="s_tab_nocurrent"><b>跟团游</b></li>
+            <li class="s_tab_nocurrent"><b>打包订</b></li>
+            <li class="s_tab_nocurrent"><b>火车</b></li>
+            <li class="s_tab_nocurrent"><span class="label-cn" style="right:-6px;top:-6px;"><em>租车周三惠</em><i
+                class="triangle"></i></span><b>用车</b></li>
+          </ul>
+          <!--          右侧列表-->
+          <div class="s_content">
+            <p class="s_subtab_a" id="hotelSwitch">
+              <a href="javascript:;" class="current">国内酒店</a>
+              <a href="javascript:;">海外酒店</a>
+              <a href="javascript:;">民宿</a>
+              <a style="display:none;" href="javascript:;" data-index="3" class="">酒店团购</a>
+              <a style="display:none;" href="javascript:;" data-index="4" class="">酒店+景点</a>
+              <a style="display:none;" href="javascript:;" data-index="5" class="">会议•团房</a>
+            </p>
+            <el-form label-width="80px">
+              <el-form-item label="目的地">
+                <el-input placeholder="中文/拼音"></el-input>
+              </el-form-item>
+
+              <template>
+                <el-col :span="12">
+                  <el-form-item label="入住日期">
+                    <el-date-picker placeholder="选择时间" style="width: 100%;"></el-date-picker>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="12">
+                  <el-form-item label="退房日期">
+                    <el-date-picker placeholder="选择时间" style="width: 100%;"></el-date-picker>
+                  </el-form-item>
+                </el-col>
+              </template>
+
+              <template>
+                <el-col :span="12">
+                  <el-form-item label="房间数">
+                    <el-select v-model="value" placeholder="请选择">
+                      <el-option
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value">
+                      </el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="12">
+                  <el-form-item label="住客数">
+                    <el-input @focus="popUp"/>
+                  </el-form-item>
+                </el-col>
+              </template>
+
+              <template>
+                <el-col :span="12">
+                  <el-form-item label="酒店级别">
+                    <el-select v-model="value" placeholder="请选择">
+                      <el-option
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value">
+                      </el-option>
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="12">
+                  <el-form-item label="关键词">
+                    <el-input @focus="popUp" placeholder="(选填)酒店名/地标/商圈"/>
+                  </el-form-item>
+                </el-col>
+              </template>
+              <el-form-item>
+                <el-button>搜索</el-button>
+              </el-form-item>
+            </el-form>
           </div>
-          <!-- 右侧内容 -->
-          <div class="small_right">
-            <!-- 上方导航 -->
-            <div class="right_top">
-              <span
-                :class="{ right_top_action: tabNum === 0 }"
-                @click="changeIndes(0)"
-              >
-                <a href="javascript:;">国内酒店</a>
-              </span>
-              <span
-                :class="{ right_top_action: tabNum === 1 }"
-                @click="changeIndes(1)"
-              >
-                <a href="javascript:;">海外酒店</a>
-              </span>
-              <span
-                :class="{ right_top_action: tabNum === 2 }"
-                @click="changeIndes(2)"
-              >
-                <a href="javascript:;">民宿</a>
-              </span>
-            </div>
-            <!-- 下方表单 -->
-            <div class="right_bot">
-              <el-form
-                ref="form"
-                :model="sizeForm"
-                label-width="80px"
-                size="mini"
-              >
-                <el-form-item label="目的地">
-                  <el-cascader
-                    placeholder="试试搜索：指南"
-                    :options="options"
-                    filterable
-                  ></el-cascader>
-                </el-form-item>
-
-                <el-form-item label="入住日期">
-                  <el-col :span="10">
-                    <el-date-picker
-                      type="date"
-                      placeholder="选择日期"
-                      v-model="sizeForm.date1"
-                      style="width: 100%"
-                    ></el-date-picker>
-                  </el-col>
-                  <el-col class="line" :span="4">退房日期</el-col>
-                  <el-col :span="10">
-                    <el-time-picker
-                      type="date"
-                      placeholder="选择日期"
-                      v-model="sizeForm.date2"
-                      style="width: 100%"
-                    ></el-time-picker>
-                  </el-col>
-                </el-form-item>
-
-                <el-form-item label="房间数">
-                  <el-select
-                    placeholder="房间数"
-                    v-model="formInline_num"
-                    value="房间数"
-                  >
-                    <el-option
-                      :label="item"
-                      v-for="(item, index) in 10"
-                      :key="index"
-                      value="index"
-                    ></el-option>
-                  </el-select>
-                </el-form-item>
-
-                <el-form-item label="酒店级别">
-                  <el-select
-                    placeholder="酒店级别"
-                    v-model="formInline_hot"
-                    value="酒店级别"
-                  >
-                    <el-option label="不限" value="buxian"></el-option>
-                    <el-option label="五星豪华" value="wuxing"></el-option>
-                    <el-option label="四星高档" value="sixing"></el-option>
-                    <el-option label="三星舒适" value="sanxing"></el-option>
-                    <el-option label="二星经济" value="erxing"></el-option>
-                  </el-select>
-                </el-form-item>
-
-                <el-button type="success" class="el_button">搜索</el-button>
-              </el-form>
-            </div>
-          </div>
+          <!--          <div class="small_left">-->
+          <!--            <ul>-->
+          <!--              <li class="active">-->
+          <!--                <a href="javascript:;">酒店</a>-->
+          <!--              </li>-->
+          <!--              <li>-->
+          <!--                <a href="javascript:;">酒店</a>-->
+          <!--              </li>-->
+          <!--              <li>-->
+          <!--                <a href="javascript:;">酒店</a>-->
+          <!--              </li>-->
+          <!--              <li>-->
+          <!--                <a href="javascript:;">酒店</a>-->
+          <!--              </li>-->
+          <!--              <li>-->
+          <!--                <a href="javascript:;">酒店</a>-->
+          <!--              </li>-->
+          <!--              <li>-->
+          <!--                <a href="javascript:;">酒店</a>-->
+          <!--              </li>-->
+          <!--              <li>-->
+          <!--                <a href="javascript:;">酒店</a>-->
+          <!--              </li>-->
+          <!--            </ul>-->
+          <!--          </div>-->
+          <!--          &lt;!&ndash; 右侧内容 &ndash;&gt;-->
+          <!--          <div class="small_right">-->
+          <!--            &lt;!&ndash; 上方导航 &ndash;&gt;-->
+          <!--            <div class="right_top">-->
+          <!--              <span>-->
+          <!--                <a href="javascript:;">国内酒店</a>-->
+          <!--              </span>-->
+          <!--              <span class="right_top_action">-->
+          <!--                <a href="javascript:;">海外酒店</a>-->
+          <!--              </span>-->
+          <!--              <span>-->
+          <!--                <a href="javascript:;">民宿</a>-->
+          <!--              </span>-->
+          <!--            </div>-->
+          <!--            &lt;!&ndash; 下方表单 &ndash;&gt;-->
+          <!--            <div class="right_bot">-->
+          <!--              <el-form-->
+          <!--                  ref="form"-->
+          <!--                  :model="sizeForm"-->
+          <!--                  label-width="80px"-->
+          <!--                  size="mini"-->
+          <!--              >-->
+          <!--                <el-form-item label="目的地">-->
+          <!--                  <el-input-->
+          <!--                      v-model="sizeForm.name"-->
+          <!--                      placeholder="中文/拼音"-->
+          <!--                  ></el-input>-->
+          <!--                </el-form-item>-->
+          <!--                <el-form-item label="入住日期">-->
+          <!--                  <el-col :span="10">-->
+          <!--                    <el-date-picker-->
+          <!--                        type="date"-->
+          <!--                        placeholder="选择日期"-->
+          <!--                        v-model="sizeForm.date1"-->
+          <!--                        style="width: 100%"-->
+          <!--                    ></el-date-picker>-->
+          <!--                  </el-col>-->
+          <!--                  <el-col class="line" :span="4">退房日期</el-col>-->
+          <!--                  <el-col :span="10">-->
+          <!--                    <el-time-picker-->
+          <!--                        type="date"-->
+          <!--                        placeholder="选择日期"-->
+          <!--                        v-model="sizeForm.date2"-->
+          <!--                        style="width: 100%"-->
+          <!--                    ></el-time-picker>-->
+          <!--                  </el-col>-->
+          <!--                </el-form-item>-->
+          <!--                <el-form-item label="入住日期">-->
+          <!--                  <el-col :span="10">-->
+          <!--                    <el-date-picker-->
+          <!--                        type="date"-->
+          <!--                        placeholder="选择日期"-->
+          <!--                        v-model="sizeForm.date1"-->
+          <!--                        style="width: 100%"-->
+          <!--                    ></el-date-picker>-->
+          <!--                  </el-col>-->
+          <!--                  <el-col class="line" :span="4">退房日期</el-col>-->
+          <!--                  <el-col :span="10">-->
+          <!--                    <el-time-picker-->
+          <!--                        type="date"-->
+          <!--                        placeholder="选择日期"-->
+          <!--                        v-model="sizeForm.date2"-->
+          <!--                        style="width: 100%"-->
+          <!--                    ></el-time-picker>-->
+          <!--                  </el-col>-->
+          <!--                </el-form-item>-->
+          <!--                <el-form-item label="入住日期">-->
+          <!--                  <el-col :span="10">-->
+          <!--                    <el-date-picker-->
+          <!--                        type="date"-->
+          <!--                        placeholder="选择日期"-->
+          <!--                        v-model="sizeForm.date1"-->
+          <!--                        style="width: 100%"-->
+          <!--                    ></el-date-picker>-->
+          <!--                  </el-col>-->
+          <!--                  <el-col class="line" :span="4">退房日期</el-col>-->
+          <!--                  <el-col :span="10">-->
+          <!--                    <el-time-picker-->
+          <!--                        type="date"-->
+          <!--                        placeholder="选择日期"-->
+          <!--                        v-model="sizeForm.date2"-->
+          <!--                        style="width: 100%"-->
+          <!--                    ></el-time-picker>-->
+          <!--                  </el-col>-->
+          <!--                </el-form-item>-->
+          <!--                <el-button type="success" class="el_button">搜索</el-button>-->
+          <!--              </el-form>-->
+          <!--            </div>-->
+          <!--          </div>-->
         </div>
       </div>
     </div>
@@ -222,293 +280,51 @@
 <script>
 import "swiper/css/swiper.min.css";
 import Swiper from "swiper";
+
 export default {
   name: "HomeBanner",
   data() {
     return {
-      sizeForm: {
-        name: "",
-        region: "",
-        date1: "",
-        date2: "",
-        delivery: false,
-        type: [],
-        resource: "",
-        desc: "",
-      },
-      tabNum: 0,
-      leftIndex: 0,
-      formInline_num: "",
-      formInline_hot: "",
       options: [
         {
-          value: "zhinan",
-          label: "指南",
-          children: [
-            {
-              value: "shejiyuanze",
-              label: "设计原则",
-              children: [
-                {
-                  value: "yizhi",
-                  label: "一致",
-                },
-                {
-                  value: "fankui",
-                  label: "反馈",
-                },
-                {
-                  value: "xiaolv",
-                  label: "效率",
-                },
-                {
-                  value: "kekong",
-                  label: "可控",
-                },
-              ],
-            },
-            {
-              value: "daohang",
-              label: "导航",
-              children: [
-                {
-                  value: "cexiangdaohang",
-                  label: "侧向导航",
-                },
-                {
-                  value: "dingbudaohang",
-                  label: "顶部导航",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          value: "zujian",
-          label: "组件",
-          children: [
-            {
-              value: "basic",
-              label: "Basic",
-              children: [
-                {
-                  value: "layout",
-                  label: "Layout 布局",
-                },
-                {
-                  value: "color",
-                  label: "Color 色彩",
-                },
-                {
-                  value: "typography",
-                  label: "Typography 字体",
-                },
-                {
-                  value: "icon",
-                  label: "Icon 图标",
-                },
-                {
-                  value: "button",
-                  label: "Button 按钮",
-                },
-              ],
-            },
-            {
-              value: "form",
-              label: "Form",
-              children: [
-                {
-                  value: "radio",
-                  label: "Radio 单选框",
-                },
-                {
-                  value: "checkbox",
-                  label: "Checkbox 多选框",
-                },
-                {
-                  value: "input",
-                  label: "Input 输入框",
-                },
-                {
-                  value: "input-number",
-                  label: "InputNumber 计数器",
-                },
-                {
-                  value: "select",
-                  label: "Select 选择器",
-                },
-                {
-                  value: "cascader",
-                  label: "Cascader 级联选择器",
-                },
-                {
-                  value: "switch",
-                  label: "Switch 开关",
-                },
-                {
-                  value: "slider",
-                  label: "Slider 滑块",
-                },
-                {
-                  value: "time-picker",
-                  label: "TimePicker 时间选择器",
-                },
-                {
-                  value: "date-picker",
-                  label: "DatePicker 日期选择器",
-                },
-                {
-                  value: "datetime-picker",
-                  label: "DateTimePicker 日期时间选择器",
-                },
-                {
-                  value: "upload",
-                  label: "Upload 上传",
-                },
-                {
-                  value: "rate",
-                  label: "Rate 评分",
-                },
-                {
-                  value: "form",
-                  label: "Form 表单",
-                },
-              ],
-            },
-            {
-              value: "data",
-              label: "Data",
-              children: [
-                {
-                  value: "table",
-                  label: "Table 表格",
-                },
-                {
-                  value: "tag",
-                  label: "Tag 标签",
-                },
-                {
-                  value: "progress",
-                  label: "Progress 进度条",
-                },
-                {
-                  value: "tree",
-                  label: "Tree 树形控件",
-                },
-                {
-                  value: "pagination",
-                  label: "Pagination 分页",
-                },
-                {
-                  value: "badge",
-                  label: "Badge 标记",
-                },
-              ],
-            },
-            {
-              value: "notice",
-              label: "Notice",
-              children: [
-                {
-                  value: "alert",
-                  label: "Alert 警告",
-                },
-                {
-                  value: "loading",
-                  label: "Loading 加载",
-                },
-                {
-                  value: "message",
-                  label: "Message 消息提示",
-                },
-                {
-                  value: "message-box",
-                  label: "MessageBox 弹框",
-                },
-                {
-                  value: "notification",
-                  label: "Notification 通知",
-                },
-              ],
-            },
-            {
-              value: "navigation",
-              label: "Navigation",
-              children: [
-                {
-                  value: "menu",
-                  label: "NavMenu 导航菜单",
-                },
-                {
-                  value: "tabs",
-                  label: "Tabs 标签页",
-                },
-                {
-                  value: "breadcrumb",
-                  label: "Breadcrumb 面包屑",
-                },
-                {
-                  value: "dropdown",
-                  label: "Dropdown 下拉菜单",
-                },
-                {
-                  value: "steps",
-                  label: "Steps 步骤条",
-                },
-              ],
-            },
-            {
-              value: "others",
-              label: "Others",
-              children: [
-                {
-                  value: "dialog",
-                  label: "Dialog 对话框",
-                },
-                {
-                  value: "tooltip",
-                  label: "Tooltip 文字提示",
-                },
-                {
-                  value: "popover",
-                  label: "Popover 弹出框",
-                },
-                {
-                  value: "card",
-                  label: "Card 卡片",
-                },
-                {
-                  value: "carousel",
-                  label: "Carousel 走马灯",
-                },
-                {
-                  value: "collapse",
-                  label: "Collapse 折叠面板",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          value: "ziyuan",
-          label: "资源",
-          children: [
-            {
-              value: "axure",
-              label: "Axure Components",
-            },
-            {
-              value: "sketch",
-              label: "Sketch Templates",
-            },
-            {
-              value: "jiaohu",
-              label: "组件交互文档",
-            },
-          ],
-        },
+          value: '1',
+          label: '一间'
+        }, {
+          value: '2',
+          label: '两间'
+        }, {
+          value: '3',
+          label: '三间'
+        }, {
+          value: '4',
+          label: '四间'
+        }, {
+          value: '5',
+          label: '五间'
+        }
       ],
-    };
+      value: '',
+      visible: false,
+    }
+  },
+  // data() {
+  //   return {
+  //     sizeForm: {
+  //       name: "",
+  //       region: "",
+  //       date1: "",
+  //       date2: "",
+  //       delivery: false,
+  //       type: [],
+  //       resource: "",
+  //       desc: "",
+  //     },
+  //   };
+  // },
+  methods: {
+    popUp() {
+      console.log("弹出")
+    }
   },
   methods: {
     changeIndes(index) {
@@ -548,17 +364,20 @@ export default {
 <style lang='less' scoped>
 .swiper-container {
   width: 100%;
+
   .mod-wrap {
     width: 100%;
     height: 22px;
     margin: 10px auto 10px;
     line-height: 22px;
     overflow: hidden;
+
     .mod {
       width: 1180px;
       margin: 0 auto;
       height: 22px;
       line-height: 22px;
+
       .line-title {
         position: relative;
         float: left;
@@ -569,6 +388,7 @@ export default {
         font-size: 12px;
         font-weight: bold;
         border-radius: 2px;
+
         .icon-arrow {
           position: absolute;
           right: -8px;
@@ -581,17 +401,21 @@ export default {
           overflow: hidden;
         }
       }
+
       .line-list {
         li {
           float: left;
           margin: 0 13px 0 0;
           line-height: 22px;
+
           a {
             color: #666;
+
             &:hover {
               color: #3983e5;
             }
           }
+
           .cui-icon-flight,
           .cui-icon-hotel,
           .cui-icon-train,
@@ -622,6 +446,7 @@ export default {
             margin-right: 5px;
             margin-top: -1px;
           }
+
           /*机票*/
 
           .cui-icon-hotel {
@@ -745,12 +570,14 @@ export default {
       }
     }
   }
+
   .wrap {
     position: relative;
     // 轮播图
     .wrp_wiper {
       .swiper-container {
         height: 340px;
+
         .swiper-wrapper {
           .swiper-slide {
             img {
@@ -760,6 +587,7 @@ export default {
         }
       }
     }
+
     // 搜索页
     .wrap_positioning {
       width: 1180px;
@@ -770,6 +598,7 @@ export default {
       left: 50%;
       z-index: 1;
       transform: translateX(-50%);
+
       .positioning_small {
         position: absolute;
         top: 50%;
@@ -779,26 +608,48 @@ export default {
         width: 580px;
         height: 300px;
         display: flex;
-        .small_left {
+
+        .s_tab {
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: #2577e3;
           width: 90px;
           height: 300px;
-          background-color: #2577e3;
-          ul {
-            display: flex;
-            flex-direction: column;
-            // justify-content: space-between;
-            li {
-              height: 43px;
-              line-height: 43px;
-              // text-align: center;
-              a {
-                font-size: 14px;
-                display: block;
-                // height: 48px;
-                width: 60px;
-                margin-left: 20px;
-                border-bottom: 1px dashed #fff;
-                color: white;
+
+          li {
+            position: relative;
+            float: left;
+            display: inline-block;
+            width: 100%;
+            height: 42px;
+            padding: 0 17px 0 13px;
+            margin: 0;
+            border-left: 4px solid #2577e3;
+            font: 16px/42px "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;
+            text-align: left;
+            color: #fff;
+            white-space: nowrap;
+            cursor: pointer;
+
+            &:first-of-type.active {
+              top: 0px;
+            }
+
+            &:last-of-type {
+              b {
+                border: none;
+              }
+            }
+
+            &.active, &:hover {
+              border-left: 4px solid #ff9915;
+              background: #fff;
+              color: #2577e3;
+              top: -1px;
+
+              b {
+                border-bottom: none;
               }
               &:hover {
                 background-color: #fff;
@@ -809,63 +660,208 @@ export default {
                 }
               }
             }
-            .active {
-              background-color: #fff;
-              border-left: 5px solid #ff9915;
-              a {
-                color: #2577e3;
-                font-weight: 700;
-              }
-            }
-          }
-        }
-        .small_right {
-          width: 490px;
-          height: 300px;
-          // background-color: sienna;
-          padding: 20px 20px 5px;
-          .right_top {
-            display: flex;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 8px;
-            .right_top_action {
-              a {
-                color: #06c;
-                background-position: 50% -10px;
-                cursor: default;
-                text-decoration: none;
-                border-bottom: 2px solid #2577e3;
-              }
-            }
-            span {
-              a {
-                height: 25px;
-                line-height: 25px;
-                margin-right: 20px;
-                color: #333;
-                font-size: 16px;
-                padding-bottom: 3px;
-                &:hover {
-                  color: #06c;
-                  cursor: default;
-                  text-decoration: none;
-                }
-              }
-            }
-          }
-          .right_bot {
-            position: relative;
-            .el_button {
+
+            .label-cn {
               position: absolute;
-              right: 0;
+              z-index: 9;
+              right: 0px;
+              top: -6px;
+              display: inline-block;
+              padding: 0 2px;
+              height: 15px;
+              line-height: 15px;
+              background-color: #ff9913;
+              color: #fff;
+
+              em {
+                display: inline-block;
+                -webkit-transform: scale(.92);
+                -ms-transform: scale(.92);
+                -o-transform: scale(.92);
+                transform: scale(.92);
+                font-size: 12px;
+                vertical-align: 2px;
+                font-style: normal;
+                line-height: 15px;
+              }
             }
 
-            display: flex;
-            /deep/.el-select .el-select--mini {
-              width: 130px;
+            b {
+              position: relative;
+              display: block;
+              height: 42px;
+              border-bottom: 1px dashed #aac3f1;
+              font-weight: normal;
             }
           }
         }
+
+        .s_content {
+          background-color: #fff;
+          margin-left: 90px;
+          width: 490px;
+          height: 300px;
+          padding: 20px 20px 5px;
+          _overflow: hidden;
+          text-align: left;
+
+          .s_subtab_a {
+            background-image: url(//pic.c-ctrip.com/index/un_bg_line_141218.png);
+            position: relative;
+            font-family: "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;
+            height: 27px;
+            line-height: 20px;
+            background-position: 0 -98px;
+            background-repeat: repeat-x;
+            margin-bottom: 8px;
+
+            a {
+              position: relative;
+              color: #666;
+              font-size: 14px;
+              font-weight: bold;
+              line-height: 20px;
+              text-decoration: none;
+              height: 25px;
+              float: left;
+              margin-right: 20px;
+              outline: none medium;
+              cursor: pointer;
+              display: block;
+            }
+
+            .current {
+              background-image: url(//pic.c-ctrip.com/index/un_bg_line_141218.png);
+              background-repeat: no-repeat;
+              color: #06c;
+              background-position: 50% -12px;
+              cursor: default;
+              text-decoration: none;
+              padding-bottom: 2px;
+
+            }
+          }
+
+          /deep/ .el-form {
+            .el-form-item {
+              margin-bottom: 0;
+
+              .el-input__inner {
+                border-color: #bbb #ddd #ddd #bbb;
+                border-radius: 0;
+                height: 28px;
+                box-shadow: 1px 1px 1px #ddd inset;
+              }
+
+              .el-form-item__content {
+                position: static;
+
+                .el-button {
+                  float: right;
+                  margin-top: 30px;
+                  width: 145px;
+                  height: 33px;
+                  color: #fff;
+                  text-shadow: 1px 1px 0 #cf7000;
+                  background-color: #ffb000;
+                  border: solid 1px #e77c00;
+                  padding: 0;
+                  font-size: 16px;
+                  font-family: "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;
+                  font-weight: bold;
+                  cursor: pointer;
+                  text-align: center;
+                  letter-spacing: 0.4em;
+                  text-indent: 0.4em;
+                  box-shadow: 0 1px 0 rgba(95, 50, 0, 0.7);
+                  border-radius: 3px;
+
+                  &:hover {
+                    border: 2px solid #000;
+                    box-shadow: none;
+                    background-color: #f79700;
+                    //border-color: #de7800;
+                  }
+
+                  span {
+                    width: 100%;
+                    height: 100%;
+                  }
+
+                }
+              }
+
+            }
+
+          }
+        }
+
+        //.small_left {
+        //  width: 90px;
+        //  height: 300px;
+        //  background-color: #2577e3;
+        //  ul {
+        //    li {
+        //      height: 40px;
+        //      line-height: 40px;
+        //      // text-align: center;
+        //      a {
+        //        font-size: 14px;
+        //        display: block;
+        //        height: 35px;
+        //        width: 60px;
+        //        margin-left: 20px;
+        //        border-bottom: 1px dashed #fff;
+        //        color: white;
+        //      }
+        //    }
+        //    .active {
+        //      background-color: #fff;
+        //      border-left: 5px solid #ff9915;
+        //      a {
+        //        color: #2577e3;
+        //        font-weight: 700;
+        //      }
+        //    }
+        //  }
+        //}
+        //.small_right {
+        //  width: 490px;
+        //  height: 300px;
+        //  // background-color: sienna;
+        //  padding: 20px 20px 5px;
+        //  .right_top {
+        //    display: flex;
+        //    border-bottom: 1px solid #ddd;
+        //    margin-bottom: 8px;
+        //    .right_top_action {
+        //      a {
+        //        color: #06c;
+        //        background-position: 50% -10px;
+        //        cursor: default;
+        //        text-decoration: none;
+        //        border-bottom: 2px solid #2577e3;
+        //      }
+        //    }
+        //    span {
+        //      a {
+        //        height: 25px;
+        //        line-height: 25px;
+        //        margin-right: 20px;
+        //        color: #333;
+        //        font-size: 16px;
+        //        padding-bottom: 3px;
+        //      }
+        //    }
+        //  }
+        //  .right_bot {
+        //    position: relative;
+        //    .el_button {
+        //      position: absolute;
+        //      right: 0;
+        //    }
+        //  }
+        //}
       }
     }
   }

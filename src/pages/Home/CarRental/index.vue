@@ -6,23 +6,23 @@
       <h2>
         <span :class="{ current: tabNum === 1 }" @click="changeNum(1)">
           境外租车
-         <i class="iconfont icon-shang" v-if="tabNum === 1 " ></i>
+          <i class="iconfont icon-shang" v-if="tabNum === 1"></i>
         </span>
         <span :class="{ current: tabNum === 2 }" @click="changeNum(2)">
           境外接送机
-          <i class="iconfont icon-shang" v-if="tabNum === 2 "></i>
+          <i class="iconfont icon-shang" v-if="tabNum === 2"></i>
         </span>
         <span :class="{ current: tabNum === 3 }" @click="changeNum(3)">
           国内租车
-          <i class="iconfont icon-shang" v-if="tabNum === 3 "></i>
+          <i class="iconfont icon-shang" v-if="tabNum === 3"></i>
         </span>
         <span :class="{ current: tabNum === 4 }" @click="changeNum(4)">
           国内接送机
-         <i class="iconfont icon-shang" v-if="tabNum === 4 "></i>
+          <i class="iconfont icon-shang" v-if="tabNum === 4"></i>
         </span>
         <span :class="{ current: tabNum === 5 }" @click="changeNum(5)">
           日租包车
-         <i class="iconfont icon-shang" v-if="tabNum === 5 "></i>
+          <i class="iconfont icon-shang" v-if="tabNum === 5"></i>
         </span>
       </h2>
     </div>
@@ -40,7 +40,8 @@
             <span class="bgspan" v-if="IndexOutside.tags">
               <a href="javascript: ;">{{ item.nme }}</a>
               <!-- <span :class="{item.isHot === 'Y' ? (iconfont icon-huomiao) ? iconfont}"> </span> -->
-              <span v-if="item.isHot === 'Y'" class="iconfont icon-huomiao"> </span>
+              <span v-if="item.isHot === 'Y'" class="iconfont icon-huomiao">
+              </span>
             </span>
           </dd>
         </dl>
@@ -223,7 +224,7 @@ export default {
           position: absolute;
           left: 50%;
           margin-left: -6px;
-          bottom: -6px;
+          bottom: -8px;
           width: 12px;
           height: 6px;
           overflow: hidden;
@@ -280,12 +281,16 @@ export default {
             display: block;
             width: 100%;
             height: 100%;
+            a:hover {
+              color: #06c;
+            }
             a {
               text-decoration: none;
               color: #666;
               display: inline-block;
               max-width: 72px;
             }
+
             .iconfont {
               position: absolute;
               top: -12px;

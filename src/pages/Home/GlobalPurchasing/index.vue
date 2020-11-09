@@ -72,7 +72,7 @@
                   <p class="carPrice">
                     <span class="item-type">{{ itemprdLst.subNme }}</span>
                     <span class="price">
-                      <dfn v-if="!itemprdLst.disct" >¥</dfn>
+                      <dfn v-if="!itemprdLst.disct">¥</dfn>
                       <!-- {{ prdLstItem.price.amt }} -->
                       <i class="priceInfo"></i>
                     </span>
@@ -102,7 +102,7 @@ export default {
   },
   methods: {
     async getIndexGlobalpurchasing(gp) {
-      if(gp === 'ReMenShangHu') gp = 'ReMenChengShi'
+      if (gp === "ReMenShangHu") gp = "ReMenChengShi";
       const result = await this.$API.index.getIndexGlobalpurchasing(gp);
       // console.log(result);
       this.IndexGlobal = result.data;
@@ -110,7 +110,7 @@ export default {
     },
     changeIndex(index, name) {
       this.tagsindex = index;
-      
+
       this.getIndexGlobalpurchasing(name);
       // console.log(index, name)
     },
@@ -155,7 +155,7 @@ export default {
           position: absolute;
           left: 50%;
           margin-left: -6px;
-          bottom: -6px;
+          bottom: -8px;
           width: 12px;
           height: 6px;
           overflow: hidden;
@@ -212,6 +212,9 @@ export default {
             display: block;
             width: 100%;
             height: 100%;
+            a:hover {
+              color: #06c;
+            }
             a {
               text-decoration: none;
               color: #666;

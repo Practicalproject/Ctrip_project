@@ -7,7 +7,9 @@
     <!-- 广告图end -->
     <Search></Search>
     <div class="banner w">
-      <img src="./images/charter-book.png" alt="">
+      <a href="https://flights.ctrip.com/itinerary/charter/book">
+        <img src="./images/charter-book.png" alt="" />
+      </a>
     </div>
     <!-- 低价推荐 -->
     <Recommend></Recommend>
@@ -17,23 +19,23 @@
 </template>
 
 <script>
-import Search from './Search'
-import Recommend from './Recommend'
-import Map from './Map'
+import Search from "./Search";
+import Recommend from "./Recommend";
+import Map from "./Map";
 export default {
   name: "AirlinePage",
-  components:{
+  components: {
     Search,
     Recommend,
-    Map
-  }
+    Map,
+  },
 };
 </script>
 
 <style lang="less" scoped>
 .airlineContainer {
   background-color: #eef1f6;
-  .w{
+  .w {
     margin: 0 auto;
     width: 1180px;
   }

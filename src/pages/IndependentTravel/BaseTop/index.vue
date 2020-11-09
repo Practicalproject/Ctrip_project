@@ -2709,10 +2709,10 @@
             <img src="../images/banner2.png" alt="" />
           </el-carousel-item>
           <el-carousel-item>
-            <img src="../images/banner1.jpg" alt="" />
-          </el-carousel-item>
-          <el-carousel-item>
-            <img src="../images/banner2.png" alt="" />
+            <img
+              src="https://dimg04.c-ctrip.com/images/0zg5a1200086mdbhuA608.jpg"
+              alt=""
+            />
           </el-carousel-item>
         </el-carousel>
       </div>

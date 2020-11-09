@@ -1,12 +1,23 @@
 <template>
   <div class="localProWrap">
-    <div class="localPro">
+    <div
+      class="localPro"
+      v-for="item in areaPlay.displayWindowModels"
+      :key="item.catgoryID"
+    >
       <div class="localHeader">
         <i class="china"></i>
-        <h2>境内自由行</h2>
-        <div class="city">
-          <a href="javascript:;">三亚</a>
-          <a href="javascript:;">北京</a>
+        <h2>{{ item.catgoryName }}</h2>
+        <div
+          class="city"
+          v-for="(itemTab, index) in item.tabList"
+          :key="itemTab.name"
+          @click="checkTab(index)"
+        >
+          <a href="javascript:;" :class="{ active: active === index }">{{
+            itemTab.name
+          }}</a>
+          <!-- <a href="javascript:;">北京</a>
           <a href="javascript:;">云南</a>
           <a href="javascript:;">成都</a>
           <a href="javascript:;">厦门</a>
@@ -14,16 +25,38 @@
           <a href="javascript:;">重庆</a>
           <a href="javascript:;">海南</a>
           <a href="javascript:;">桂林</a>
-          <a href="javascript:;">上海</a>
+          <a href="javascript:;">上海</a> -->
         </div>
-        <a href="javascript:;">
-          更多精选产品
+        <a href="javascript:;" class="to_more">
+          更多{{ tabFirst[active].name }}产品
           <i class="more"></i>
         </a>
       </div>
       <div class="localCon">
         <div class="localWrap">
-          <a href="javascript:;" class="localItem">
+          <a
+            :href="playItem.htef"
+            class="localItem"
+            v-for="playItem in productsList"
+            :key="playItem.id"
+          >
+            <div class="localImg">
+              <img :src="playItem.img" alt="" />
+            </div>
+            <div class="localDetail">
+              <h3>
+                {{ playItem.name }}
+              </h3>
+              <div class="price">
+                <span>
+                  <i>￥</i>
+                  {{ playItem.price }}
+                  <em>起</em>
+                </span>
+              </div>
+            </div>
+          </a>
+          <!-- <a href="javascript:;" class="localItem">
             <div class="localImg">
               <img src="../images/travelPic.jpg" alt="" />
             </div>
@@ -148,25 +181,7 @@
                 </span>
               </div>
             </div>
-          </a>
-          <a href="javascript:;" class="localItem">
-            <div class="localImg">
-              <img src="../images/travelPic.jpg" alt="" />
-            </div>
-            <div class="localDetail">
-              <h3>
-                上海迪士尼（Disney）3-5日自由行(4钻)·【11·11
-                放心Go！立减100！玩具总动员&迪士尼乐园酒店任选】专属特权·提前30分钟入园·迪士尼0距离·玩累随时回酒店休息·可加购迪士尼门票！『双飞』
-              </h3>
-              <div class="price">
-                <span>
-                  <i>￥</i>
-                  1700
-                  <em>起</em>
-                </span>
-              </div>
-            </div>
-          </a>
+          </a> -->
         </div>
       </div>
     </div>
@@ -176,6 +191,34 @@
 <script>
 export default {
   name: "LocalPro",
+  data() {
+    return {
+      areaPlay: {},
+      active: 0,
+    };
+  },
+  mounted() {
+    this.getIndependentOverseas();
+  },
+  methods: {
+    // 请求数据
+    async getIndependentOverseas() {
+      let result = await this.$API.index.getIndependentOverseas();
+      this.areaPlay = result.data;
+    },
+    // 点击切换tab
+    checkTab(index) {
+      this.active = index;
+    },
+  },
+  computed: {
+    tabFirst() {
+      return this.areaPlay.displayWindowModels[0].tabList;
+    },
+    productsList() {
+      return this.tabFirst[this.active].products;
+    },
+  },
 };
 </script>
 
@@ -207,21 +250,26 @@ export default {
       .city {
         height: 33px;
         margin-top: 5px;
-        width: 800px;
-        display: flex;
-        align-content: space-around;
+        // // width: 800px;
+        // // display: flex;
+        // align-content: space-around;
         a {
           text-decoration: none;
-          color: #333;
+          margin: 3px 12px;
+
+          position: relative;
+          float: left;
           font: 16px/22px Microsoft Yahei;
           height: 30px;
           padding: 0 8px;
-          margin: 3px 12px;
           cursor: pointer;
+          color: #666;
+        }
+        .active {
           border-bottom: 3px solid #ffb80f;
         }
       }
-      a {
+      .to_more {
         text-decoration: none;
         margin-top: 8px;
         padding-right: 10px;
