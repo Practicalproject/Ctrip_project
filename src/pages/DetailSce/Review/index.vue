@@ -2,10 +2,13 @@
   <div class="container">
     <!-- 头部区域 -->
     <div class="header">
-      <a href="#tripname">行程介绍</a>
-      <a href="#graphic">图文详情</a>
-      <a href="javascript:;">费用·须知</a>
-      <a href="#reviewJ">用户点评（1）</a>
+      <div class="header-left">
+        <a href="#tripname">行程介绍</a>
+        <a href="#graphic">图文详情</a>
+        <a href="javascript:;">费用·须知</a>
+        <a href="#reviewJ">用户点评（1）</a>
+      </div>
+      <div class="header-right">立即预定</div>
     </div>
     <!-- 行程介绍内容区 -->
     <div class="describeList" id="tripname" name="tripname">
@@ -144,6 +147,7 @@
         </p>
       </div>
     </div>
+
     <!--图文详情  -->
     <div class="modinfo" id="graphic" name="graphic">
       <h2 class="detail-mod">图文详情</h2>
@@ -209,8 +213,47 @@ export default {
     selete(i) {
       this.index = i;
     },
+  //     calculateflex(){
+  //    var oDiv = document.getElementByClassName("header"),
+  //               H = 0,
+  //               Y = oDiv        
+  //           while (Y) {
+  //               H += Y.offsetTop; 
+  //               Y = Y.offsetParent;
+  //           }
+  //           window.onscroll = function()
+  //           {
+  //               var s = document.body.scrollTop || document.documentElement.scrollTop
+  //               if(s>H) {
+  //                   oDiv.style = "position:fixed;top:0;"
+  //               } else {
+  //                   oDiv.style = ""
+  //               }
+  //           }
+
+  // }
   },
+
 };
+// const header = document.getElementsByClassName('header')
+
+// $(function () {
+//   $(window).scroll(function () {
+//     $(".header").each(function () {
+//       //所有需要计算距离浏览器顶端高度的元素
+//       var scrollTop = $(window).scrollTop(); // 网页被卷起来的高度
+//       var nap_top = $(this).offset().top; //页面元素距离文档顶端高度距离
+//       if (nap_top - scrollTop > 300) {
+//         //元素距离浏览器顶部高度
+//         // $(".mdtit").removeClass("nav_index_fix");
+//         // $(this).children(".mdtit").addClass("nav_index_fix");
+//       } else {
+//         // $(this).find(".mdtit").removeClass("nav_index_fix");
+//         $(this).children(".mdtit").addClass("nav_index_fix");
+//       }
+//     });
+//   });
+// });
 </script>
 
 <style  lang ='less' scoped>
@@ -243,7 +286,14 @@ html {
     border: 1px solid #ddd;
     box-sizing: border-box;
     background: white;
-    a {
+
+    /* .nav_index_fix {
+      position: fixed;
+      left: 0;
+      top: 0;
+    } */
+
+    .header-left a {
       line-height: 55px;
       font-size: 18px;
       font-weight: 600;
@@ -251,6 +301,21 @@ html {
       color: #333;
       display: block;
       float: left;
+    }
+    .header-right {
+      cursor: pointer;
+      float: right;
+      width: 132px;
+      height: 37px;
+      line-height: 37px;
+      text-align: center;
+      background: #ff7e00;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 20px;
+      border-bottom: 2px solid #f2590d;
+      border-right: 1px solid #f2590d;
+      margin-top: 10px;
     }
     a:hover {
       color: #2680ff;
