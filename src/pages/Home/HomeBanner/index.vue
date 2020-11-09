@@ -322,17 +322,15 @@ export default {
   //   };
   // },
   methods: {
-    popUp() {
-      console.log("弹出")
-    }
-  },
-  methods: {
     changeIndes(index) {
       this.tabNum = index;
     },
     changLeftIndex(index) {
       this.leftIndex = index;
     },
+    popUp() {
+      console.log("弹出")
+    }
   },
   watch: {
     bannerList: {
