@@ -10,8 +10,8 @@
         <div class="city-wrap">
           <dt>
             <i class="iconfont icon-zuobiao"></i>
-            <e> 北京</e>
-            <span>站</span>
+            <span> 北京</span>
+            <span class="standing">站</span>
             <b class="iconfont icon-arrow-up-bold"></b>
           </dt>
         </div>
@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: "tourism",
+  name: "Tourism",
 };
 </script>
 
@@ -103,7 +103,7 @@ export default {
             height: 17px;
             left: 17px;
           }
-          span {
+          .standing {
             color: #666;
             font-size: 12px;
             padding-left: 4px;

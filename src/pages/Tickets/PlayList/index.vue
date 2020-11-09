@@ -135,6 +135,9 @@ export default {
         height: 158px;
         width: 100%;
       }
+      &:hover {
+        cursor: pointer;
+      }
       // 描述
       .text {
         width: 252px;

@@ -89,10 +89,10 @@
             </li>
           </ul>
           <div class="flt-subclass">
-            <div class="form-select-v3">
+            <div class="form-select-v3" @click="changeUpDown()">
               <span>不限舱等</span>
-              <i class="iconfont icon-arrow-down-bold"></i>
-              <i class="iconfont icon-arrow-up-bold"></i>
+              <i class="iconfont icon-arrow-down-bold" v-if="isShow"></i>
+              <i class="iconfont icon-arrow-up-bold" v-else></i>
               <i></i>
             </div>
             <div class="class-grade-select">
@@ -134,7 +134,7 @@
                   <div city-select-list></div>
                 </label>
               </div>
-              <div class="item-middle">
+              <div class="item-middle" :class="{ roate: isFlag }" @click="">
                 <i class="iconfont icon-exchange"></i>
               </div>
               <div class="line"></div>
@@ -146,7 +146,7 @@
                     <input
                       type="text"
                       placeholder="可输入城市或机场"
-                      value="北京（BJS）"
+                      value="上海（SHH）"
                     />
                   </div>
                   <!-- 隐藏的城市下拉列表 -->
@@ -203,10 +203,12 @@ export default {
   data() {
     return {
       value: "",
-      value1: "2020-11-04",
+      value1: "2020-11-10",
       number: 1,
-      num:1,
+      num: 1,
       options: [],
+      isShow: true,
+      isFlag: true,
     };
   },
   methods: {
@@ -215,6 +217,10 @@ export default {
     },
     tab(index) {
       this.num = index;
+    },
+    // 切换上下标志
+    changeUpDown() {
+      this.isShow = !this.isShow;
     },
   },
 };
@@ -542,7 +548,14 @@ export default {
             }
             &:hover {
               background: #ddd;
+              // transform: rotate(90deg);
+              // transform-origin:15px 31px;
+              // transition: all 3s;
+
             }
+            // &.roate {
+            //   transform: rotate(360deg);
+            // }
           }
           .line {
             position: absolute;

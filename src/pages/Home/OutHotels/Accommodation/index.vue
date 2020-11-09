@@ -15,6 +15,7 @@
           class="inner-tab-panel active inner-tab-panel_noextra"
           style="display: block"
         >
+          <!-- 住宿 -->
           <div class="product-item product-item_mask">
             <a
               href="http://hotels.ctrip.com/apartment/bangkok359#ctm_ref=ssc_hp_htl_inn_city"
@@ -31,6 +32,7 @@
               <p class="item-num">433家住宿</p></a
             >
           </div>
+          <!-- 1517起 -->
           <div class="product-item product-item_mask">
             <a
               href="http://hotels.ctrip.com/apartment/1808704.html#ctm_ref=ssc_hp_htl_inn_pro"
@@ -65,6 +67,7 @@
               <p class="item-num">200家住宿</p></a
             >
           </div>
+          <!-- 实时 -->
           <div class="product-item product-item_mask">
             <a
               href="http://hotels.ctrip.com/apartment/2458108.html#ctm_ref=ssc_hp_htl_inn_pro"
@@ -113,6 +116,7 @@
               <span class="price"><i class="price_info">实时计价</i></span></a
             >
           </div>
+          <!-- 大图 -->
           <div class="extra-item product-item_mask">
             <a
               href="http://hotels.ctrip.com/apartment/1739174.html#ctm_ref=ssc_hp_htl_inn_top"
@@ -127,6 +131,7 @@
               <p class="item-info">距离牛水车步行可达</p></a
             >
           </div>
+          <!-- 带头像 -->
           <div class="homestay-product">
             <div class="product-item product-item_mask">
               <a

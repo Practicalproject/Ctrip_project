@@ -6,10 +6,10 @@
         <div class="search-box-header">
           <div class="city-picker-selector">
             <div class="">
-              <div class="city-name-con">
-                <span>甲米出发</span
-                ><i class="iconfont icon-arrow-down-bold"></i
-                ><i class="iconfont icon-arrow-up-bold"></i>
+              <div class="city-name-con" @click="changeUpDown()">
+                <span>北京出发</span
+                ><i class="iconfont icon-arrow-down-bold" v-if="isShow"></i
+                ><i class="iconfont icon-arrow-up-bold" v-else></i>
               </div>
             </div>
           </div>
@@ -725,6 +725,7 @@ export default {
           direction: "bottom",
         },
       },
+      isShow:true,
     };
   },
   components: {
@@ -732,6 +733,7 @@ export default {
     AmapMarker: Marker,
   },
   methods: {
+    // 点击切换地图
     changeMap(num) {
       if (num === 1) {
         let location = {
@@ -771,6 +773,10 @@ export default {
         this.location = cloneDeep(location);
       }
     },
+    // 点击切换上下标志
+    changeUpDown(){
+      this.isShow=!this.isShow
+    }
   },
 };
 </script>
