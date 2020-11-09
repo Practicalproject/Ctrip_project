@@ -83,6 +83,10 @@ export default {
         background-color: yellowgreen;
         display: none;
       }
+      &:hover {
+        background-color: #fff;
+        cursor: pointer;
+      }
     }
     .inputBox {
       display: inline-block;
@@ -97,17 +101,21 @@ export default {
         border: 3px solid orange;
         box-sizing: border-box;
         border-radius: 10px 0 0 10px;
+        float: left;
       }
       .btn {
         width: 120px;
         height: 40px;
-        
         margin-top: 5px;
         background-color: orange;
         border: none;
         font-size: 16px;
         border-radius: 0 10px 10px 0;
         text-align: center;
+        float: left;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }

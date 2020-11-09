@@ -244,6 +244,9 @@ export default {
       /deep/.el-card__body {
         padding: 0;
       }
+      &:hover {
+        cursor: pointer;
+      }
       .item_text {
         width: 230px;
         height: 72px;

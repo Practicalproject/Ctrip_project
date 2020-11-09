@@ -1,5 +1,6 @@
 <template>
   <div class="swiper-container">
+    <!-- 导航 -->
     <div class="mod-wrap">
       <div class="mod">
         <h2 class="line-title">境外直通车<i class="icon-arrow"></i></h2>
@@ -44,7 +45,7 @@
         </ul>
       </div>
     </div>
-
+    <!-- 主体 -->
     <div class="wrap">
       <!-- swiper轮播图 -->
       <div class="wrp_wiper">
@@ -55,6 +56,11 @@
             </div>
             <div class="swiper-slide">
               <img src="./images/2.jpg"/>
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://dimg04.c-ctrip.com/images/0zg4k1200086fom4w2758.jpg"
+              />
             </div>
           </div>
           <!-- 如果需要分页器 -->
@@ -316,6 +322,12 @@ export default {
   //   };
   // },
   methods: {
+    changeIndes(index) {
+      this.tabNum = index;
+    },
+    changLeftIndex(index) {
+      this.leftIndex = index;
+    },
     popUp() {
       console.log("弹出")
     }
@@ -637,6 +649,14 @@ export default {
               b {
                 border-bottom: none;
               }
+              &:hover {
+                background-color: #fff;
+                border-left: 5px solid #ff9915;
+                a {
+                  color: #2577e3;
+                  font-weight: 700;
+                }
+              }
             }
 
             .label-cn {
@@ -770,7 +790,6 @@ export default {
               }
 
             }
-
 
           }
         }

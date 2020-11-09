@@ -23,7 +23,9 @@ import {
   TabPane,
   Message,
   Steps,
-  Step
+  Step,
+  Cascader,
+  Backtop
 } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
@@ -50,7 +52,8 @@ Vue.use(VueLazyload, { // 内部自定义了一个指令lazy
 
 // 引入API
 import * as API from "@/utils/api"
-
+Vue.use(Backtop);
+Vue.use(Cascader);
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)
