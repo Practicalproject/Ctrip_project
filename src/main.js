@@ -4,31 +4,31 @@ import router from '@/router'
 //  引入store
 import store from "@/store"
 import {
-  Carousel,
-  Card,
-  Option,
-  CarouselItem,
-  Form,
-  FormItem,
-  Input,
-  Select,
-  Col,
-  DatePicker,
-  TimePicker,
-  Switch,
-  CheckboxGroup,
-  Checkbox,
-  Radio,
-  RadioGroup,
-  Button,
-  Tabs,
-  TabPane,
-  Message,
-  Steps,
-  Step,
-  TimeSelect,
-  Cascader,
-  Backtop
+    Carousel,
+    Card,
+    Option,
+    CarouselItem,
+    Form,
+    FormItem,
+    Input,
+    Select,
+    Col,
+    DatePicker,
+    TimePicker,
+    Switch,
+    CheckboxGroup,
+    Checkbox,
+    Radio,
+    RadioGroup,
+    Button,
+    Tabs,
+    TabPane,
+    Message,
+    Steps,
+    Step,
+    TimeSelect,
+    Cascader,
+    Backtop
 } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
@@ -50,9 +50,10 @@ import VueLazyload from 'vue-lazyload'
 import loading from '@/assets/images/loading.gif'
 // 在图片界面没有进入到可视范围前不加载, 在没有得到图片前先显示loading图片
 Vue.use(VueLazyload, { // 内部自定义了一个指令lazy
-    loading,  // 指定未加载得到图片之前的loading图片
+    loading, // 指定未加载得到图片之前的loading图片
 })
 
+import echarts from 'echarts'
 
 // 引入API
 import * as API from "@/utils/api"
@@ -82,6 +83,8 @@ Vue.prototype.$message = Message;
 new Vue({
     beforeCreate() {
         Vue.prototype.$API = API
+        Vue.prototype.$echarts = echarts
+
     },
     render: h => h(App),
     router,

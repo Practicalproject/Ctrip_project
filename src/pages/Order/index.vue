@@ -35,15 +35,23 @@
     <div class="rightContainer">
       <!-- 头部 -->
       <div class="header">
-        <a href="##" :class="{current:number === 1}" @click="change(1)">全部订单</a>
-        <a href="##" :class="{current:number === 2}" @click="change(2)">未出行</a>
-        <a href="##" :class="{current:number === 3}" @click="change(3)">待支付</a>
-        <a href="##" :class="{current:number === 4}" @click="change(4)">待点评</a>
+        <a href="##" :class="{ current: number === item.stauts }" v-for="(item, index) in tabs" :key="index" @click="change(item.stauts)"
+          >{{item.labels}}</a
+        >
+        <!-- <a href="##" :class="{ current: number === 2 }" @click="change(2)"
+          >未出行</a
+        >
+        <a href="##" :class="{ current: number === 3 }" @click="change(3)"
+          >待支付</a
+        >
+        <a href="##" :class="{ current: number === 4 }" @click="change(4)"
+          >待点评</a -->
+        <!-- > -->
       </div>
 
       <!-- 主体 -->
       <ul class="orderBody">
-        <li class="order-info" v-for="(item, index) in todos" :key="item.id">
+        <li class="order-info" v-for="(item, index) in showTodos" :key="item.id">
           <!-- 标题 -->
           <h3>
             <label class="base_label">
@@ -57,7 +65,7 @@
               >订单号：<a href="##">{{ item.order }}</a>
             </span>
             <span>预订日期：{{ item.orderDate }} </span>
-            <span class="order-delete" @click="deleteO(index)"
+            <span class="order-delete" @click="deleteO(item.id)"
               ><a href="##">删除订单</a></span
             >
           </h3>
@@ -86,7 +94,9 @@
           <input type="checkbox" v-model="isCheckAll" />
           <span class="allChoose">全选</span>
         </label>
-        <a href="javascript:;" class="allDelete" @click="deleteAll()">删除选中的商品</a>
+        <a href="javascript:;" class="allDelete" @click="deleteAll()"
+          >删除选中的商品</a
+        >
         <a href="javascript:;" class="sum-btn">结算</a>
       </div>
     </div>
@@ -94,10 +104,30 @@
 </template>
 
 <script>
+import cloneDeep from "lodash/cloneDeep";
+
 export default {
   name: "Order",
   data() {
     return {
+      tabs: [
+        {
+          labels: '全部订单',
+          stauts: 0
+        },
+         {
+          labels: '未出行',
+          stauts: -1
+        },
+         {
+          labels: '待支付',
+          stauts: 1
+        },
+         {
+          labels: '待点评',
+          stauts: 2
+        },
+      ],
       todos: [
         {
           id: 1,
@@ -109,6 +139,7 @@ export default {
           price: 182,
           state: "未出行",
           isOver: false,
+          outStatus: -1,
         },
         {
           id: 2,
@@ -120,6 +151,7 @@ export default {
           price: 8900,
           state: "待支付",
           isOver: true,
+          outStatus: 1
         },
         {
           id: 3,
@@ -131,9 +163,11 @@ export default {
           price: 200,
           state: "待点评",
           isOver: false,
+          outStatus: 2
         },
       ],
-      number:1
+      number: 0,
+      showTodos: [],
     };
   },
   methods: {
@@ -142,23 +176,37 @@ export default {
       this.todos[index].isOver = !this.todos[index].isOver;
     },
     // 删除单个
-    deleteO(index) {
-      this.todos.splice(index, 1);
+    deleteO(id) {
+      let index = this.showTodos.findIndex(item => item.id === id)
+      this.showTodos.splice(index, 1)
+      let index1 = this.todos.findIndex(item => item.id === id)
+      this.todos.splice(index1, 1)
+      console.log(this.showTodos, this.todos);
     },
     // 全选,修改所有的完成状态
     updateAll(val) {
       // 遍历所有，拿一个修改一个
-      this.todos.forEach(item => item.isOver = val)
+      this.todos.forEach((item) => (item.isOver = val));
     },
     // 删除全选
-    deleteAll(){
+    deleteAll() {
       // 要把所有打钩的删除
       // 从原来的数组中过滤出未完成的所有，把这些所有组成一个数组，赋值给新的数组
       // 拿出所有为false的项，之后把数组重新赋值，重新显示
-      this.todos=this.todos.filter(item =>!item.isOver)
+      this.todos = this.todos.filter((item) => !item.isOver);
     },
-    change(num){
-      this.number = num
+    change(num) {
+      this.number = num;
+      this.filterDatas(num)
+    },
+    filterDatas(num) {
+      // console.log(num);
+      if(num === 0) {
+        this.showTodos = this.todos ;
+        return
+      }
+      
+      this.showTodos = this.todos.filter(item => item.outStatus === num)
     }
   },
   computed: {
@@ -188,6 +236,9 @@ export default {
       },
     },
   },
+  created() {
+    this.change(0)
+  }
 };
 </script>
 
